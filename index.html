@@ -305,6 +305,79 @@
     text-overflow: ellipsis;
   }
 
+  /* OVERLAY AL HOVER */
+  .card-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(160deg, rgba(200,146,58,0.96) 0%, rgba(160,110,35,0.97) 100%);
+    color: #1a1408;
+    padding: 1.1rem 1.35rem;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.18s ease;
+    display: flex; flex-direction: column; gap: 0.35rem;
+    overflow: hidden;
+    z-index: 5;
+  }
+  .card:hover .card-overlay { opacity: 1; pointer-events: auto; }
+  @media (hover: none) { .card-overlay { display: none; } }
+
+  .ov-title {
+    font-family: var(--serif); font-size: 1.05rem; line-height: 1.2;
+    font-weight: 600;
+  }
+  .ov-row { font-size: 11.5px; line-height: 1.45; }
+  .ov-row strong {
+    font-weight: 500; text-transform: uppercase; font-size: 9.5px;
+    letter-spacing: 0.08em; opacity: 0.75; display: block;
+  }
+  .ov-play {
+    margin-top: auto;
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 500; color: #1a1408;
+    text-decoration: none;
+    border: 1px solid rgba(26,20,8,0.55);
+    border-radius: 5px; padding: 6px 12px;
+    align-self: flex-start;
+  }
+  .ov-play:hover { background: rgba(26,20,8,0.12); }
+
+  /* MODAL SOBRE */
+  .sobre-link {
+    background: none; border: none; cursor: pointer;
+    font-family: var(--sans); font-size: 12px; color: var(--text-faint);
+    padding: 4px 8px; transition: color 0.15s;
+  }
+  .sobre-link:hover { color: var(--amber); }
+
+  .modal-back {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.75);
+    display: none; align-items: center; justify-content: center;
+    z-index: 500; padding: 1.5rem;
+  }
+  .modal-back.open { display: flex; }
+  .modal {
+    background: var(--bg2); border: 1px solid var(--border2);
+    border-radius: 10px; max-width: 560px; width: 100%;
+    max-height: 85vh; overflow-y: auto;
+    padding: 2.25rem 2.5rem;
+  }
+  .modal h2 {
+    font-family: var(--serif); font-size: 1.6rem; font-weight: 400;
+    margin-bottom: 1.25rem;
+  }
+  .modal h2 em { font-style: italic; color: var(--amber); }
+  .modal p {
+    font-size: 13.5px; color: var(--text-dim); line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+  .modal p strong { color: var(--text); font-weight: 500; }
+  .modal-close {
+    margin-top: 0.75rem;
+    background: none; border: 1px solid var(--border2); color: var(--text-dim);
+    font-family: var(--sans); font-size: 12px; padding: 7px 16px;
+    border-radius: 5px; cursor: pointer;
+  }
+  .modal-close:hover { border-color: var(--amber-dim); color: var(--amber); }
+
   .card-link {
     position: absolute;
     inset: 0;
@@ -467,6 +540,7 @@
     <div class="logo-sub">1930 – 1970</div>
     <div class="header-sub" id="header-sub">Más de 1.400 películas clásicas disponibles gratis en YouTube, verificadas desde Argentina.</div>
     <div class="header-count" id="header-count"></div>
+    <button class="sobre-link" onclick="document.getElementById('modal-sobre').classList.add('open')">Sobre la filmoteca</button>
   </header>
 
   <div class="filters">
@@ -527,6 +601,25 @@
   <div class="grid" id="grid"></div>
 
   <div class="pagination" id="pagination"></div>
+
+  <div class="modal-back" id="modal-sobre" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="modal">
+      <h2>Sobre la <em>filmoteca</em></h2>
+      <p>Hay cientos de películas clásicas completas en YouTube, pero no existía una forma
+      confiable de saber cuáles: los títulos aparecen en distintos idiomas, se mezclan
+      trailers con películas completas, y muchas desaparecen cuando cambian los derechos.</p>
+      <p>Esta filmoteca responde una pregunta simple: <strong>¿qué películas clásicas puedo
+      ver hoy, gratis y completas, desde Argentina?</strong></p>
+      <p>El catálogo cubre <strong>cine estadounidense y británico de 1930 a 1970</strong>:
+      film noir, westerns, comedias, dramas, épicas, cine Pre-Code. Cada entrada fue
+      verificada automáticamente cruzando la duración y el título del video contra los
+      datos de IMDb, descartando trailers, escenas sueltas y copias incompletas.</p>
+      <p>Todos los videos pertenecen a sus respectivos canales de YouTube y pueden ser
+      eliminados en cualquier momento. Este sitio no aloja ni distribuye ningún contenido:
+      es solo un catálogo de consulta.</p>
+      <button class="modal-close" onclick="document.getElementById('modal-sobre').classList.remove('open')">Cerrar</button>
+    </div>
+  </div>
 
   <div class="footer">
     Filmoteca Clásica es un catálogo de consulta. Todos los videos pertenecen a sus respectivos canales de YouTube y pueden ser eliminados en cualquier momento. No alojamos ni distribuimos ningún contenido.
@@ -634,11 +727,11 @@ function fetchPage(offset) {
   });
 }
 
-function renderDirector(tconst) {
+function renderPersonas(tconst, rol, limite) {
   try {
     const res = db.exec(
       `SELECT pe.nombre FROM creditos c JOIN personas pe ON pe.nconst=c.nconst
-       WHERE c.tconst=? AND c.rol='director' LIMIT 2`, [tconst]);
+       WHERE c.tconst=? AND c.rol=? ORDER BY c.orden LIMIT ${limite}`, [tconst, rol]);
     if (!res[0]) return '';
     return res[0].values.map(r => r[0]).join(', ');
   } catch { return ''; }
@@ -646,7 +739,8 @@ function renderDirector(tconst) {
 
 function renderCard(p) {
   const url = `https://youtu.be/${p.video_id}`;
-  const dir = renderDirector(p.tconst);
+  const dir = renderPersonas(p.tconst, 'director', 2);
+  const reparto = renderPersonas(p.tconst, 'actor', 4);
   const yt_min = p.duracion_seg ? Math.round(p.duracion_seg / 60) : null;
   const idioma = p.idioma_audio === 'es' ? ' · Español' : '';
   const rating = p.rating ? `<span class="star">★</span> ${p.rating.toFixed(1)}` : '';
@@ -668,6 +762,14 @@ function renderCard(p) {
         </span>
         Ver en YouTube${p.canal ? ` · ${truncate(p.canal, 24)}` : ''}
       </a>
+      <div class="card-overlay">
+        <div class="ov-title">${p.titulo_primario} (${p.anio})</div>
+        ${dir ? `<div class="ov-row"><strong>Dirección</strong>${dir}</div>` : ''}
+        ${reparto ? `<div class="ov-row"><strong>Reparto</strong>${reparto}</div>` : ''}
+        <div class="ov-row"><strong>Detalles</strong>${p.generos || '—'} · ${p.duracion_min ? p.duracion_min + ' min' : (yt_min ? yt_min + ' min' : '')}${p.rating ? ` · IMDb ${p.rating.toFixed(1)}` : ''}</div>
+        ${p.canal ? `<div class="ov-row"><strong>Canal</strong>${truncate(p.canal, 40)}</div>` : ''}
+        <a class="ov-play" href="${url}" target="_blank" rel="noopener">▶ Ver en YouTube</a>
+      </div>
     </div>
   `;
 }
