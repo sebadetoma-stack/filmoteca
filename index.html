@@ -587,14 +587,11 @@ function buildQuery() {
 
   const BASE = `
     FROM peliculas p
-    JOIN (
-      SELECT tconst, video_id, estado, verificado_ar,
-             ROW_NUMBER() OVER (PARTITION BY tconst ORDER BY score DESC) as rn
-      FROM coincidencias
-    ) co ON co.tconst = p.tconst AND co.rn = 1
+    JOIN coincidencias co ON co.tconst = p.tconst
     JOIN videos v ON v.video_id = co.video_id
     LEFT JOIN canales ca ON ca.channel_id = v.channel_id
     WHERE ${where.join(' AND ')}
+    GROUP BY p.tconst
   `;
 
   return { BASE, params, order: orderMap[orden] || orderMap.rating };
