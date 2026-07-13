@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Filmoteca Clásica desde Argentina</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/sql-wasm.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
+
+  :root {
+    --bg:        #0e0d0b;
+    --bg2:       #161410;
+    --bg3:       #1e1b16;
+    --amber:     #c8923a;
+    --amber-dim: #7a5520;
+    --text:      #e8e0d0;
+    --text-dim:  #8a7f6e;
+    --text-faint:#4a4438;
+    --border:    #2a2520;
+    --border2:   #3a3328;
+    --serif:     'Playfair Display', Georgia, serif;
+    --sans:      'Inter', system-ui, sans-serif;
+    --radius:    6px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 1.25rem 2rem;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 100;
+  }
+
+  .logo {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--text);
+    letter-spacing: 0.01em;
+  }
+
+  .logo em {
+    font-style: italic;
+    color: var(--amber);
+  }
+
+  .logo-sub {
+    font-size: 11px;
+    color: var(--text-faint);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .header-count {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+
+  /* FILTERS */
+  .filters {
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    padding: 0.875rem 2rem;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .search-wrap {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+    max-width: 320px;
+  }
+
+  .search-wrap svg {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-faint);
+    pointer-events: none;
+  }
+
+  input[type=text] {
+    width: 100%;
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 13px;
+    padding: 7px 10px 7px 32px;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  input[type=text]::placeholder { color: var(--text-faint); }
+  input[type=text]:focus { border-color: var(--amber-dim); }
+
+  select {
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 13px;
+    padding: 7px 28px 7px 10px;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%234a4438' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    transition: border-color 0.15s;
+  }
+
+  select:focus { border-color: var(--amber-dim); outline: none; }
+
+  .toggle-precode {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    color: var(--text-dim);
+    cursor: pointer;
+    user-select: none;
+    padding: 7px 10px;
+    border: 1px solid var(--border2);
+    border-radius: var(--radius);
+    background: var(--bg3);
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  .toggle-precode:hover { border-color: var(--amber-dim); color: var(--amber); }
+  .toggle-precode.active { border-color: var(--amber); color: var(--amber); }
+
+  .toggle-precode .dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+    flex-shrink: 0;
+  }
+
+  .btn-reset {
+    background: none;
+    border: none;
+    color: var(--text-faint);
+    font-size: 12px;
+    font-family: var(--sans);
+    cursor: pointer;
+    padding: 4px 6px;
+    border-radius: var(--radius);
+    transition: color 0.15s;
+  }
+  .btn-reset:hover { color: var(--text-dim); }
+
+  /* RESULTADOS */
+  .results-bar {
+    padding: 0.6rem 2rem;
+    font-size: 12px;
+    color: var(--text-faint);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .order-select {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+
+  .order-select select {
+    font-size: 12px;
+    padding: 4px 24px 4px 8px;
+  }
+
+  /* GRID */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1px;
+    background: var(--border);
+  }
+
+  /* CARD */
+  .card {
+    background: var(--bg);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: background 0.15s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card:hover { background: var(--bg2); }
+
+  .card-year {
+    font-size: 11px;
+    color: var(--text-faint);
+    letter-spacing: 0.1em;
+    font-weight: 500;
+  }
+
+  .card-title {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.25;
+  }
+
+  .card-title em {
+    font-style: italic;
+    color: var(--text-dim);
+    font-size: 0.9em;
+  }
+
+  .card-dir {
+    font-size: 12px;
+    color: var(--text-faint);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    padding: 2px 7px;
+    border-radius: 2px;
+    font-weight: 500;
+    text-transform: uppercase;
+    border: 1px solid;
+  }
+
+  .badge-noir   { color: #8a9ec0; border-color: #2a3a50; background: #111822; }
+  .badge-west   { color: #b89060; border-color: #4a3010; background: #1a1008; }
+  .badge-drama  { color: #8a8a8a; border-color: #2a2a2a; background: #141414; }
+  .badge-thrill { color: #9a7ab0; border-color: #3a2a50; background: #140e1e; }
+  .badge-war    { color: #7a9070; border-color: #2a3a20; background: #0e1408; }
+  .badge-comedy { color: #9a8a50; border-color: #3a3010; background: #141008; }
+  .badge-pre    { color: var(--amber); border-color: var(--amber-dim); background: #1a0e00; }
+  .badge-gen    { color: var(--text-faint); border-color: var(--border2); background: transparent; }
+
+  .card-rating {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--text-dim);
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .card-rating .star { color: var(--amber); font-size: 10px; }
+
+  .card-canal {
+    font-size: 11px;
+    color: var(--text-faint);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card-link {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+  }
+
+  .play-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    color: var(--amber);
+    text-decoration: none;
+    margin-top: 2px;
+    transition: color 0.15s;
+  }
+  .play-btn:hover { color: #e0a850; }
+
+  .play-icon {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    border: 1px solid var(--amber);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .play-icon svg { margin-left: 1px; }
+
+  /* EMPTY / LOADING */
+  .state-msg {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-faint);
+    font-size: 14px;
+    line-height: 2;
+  }
+
+  .state-msg strong {
+    display: block;
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text-dim);
+    margin-bottom: 0.5rem;
+  }
+
+  /* LOAD DB */
+  #load-screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .load-title {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--text);
+  }
+
+  .load-title em { font-style: italic; color: var(--amber); }
+
+  .load-sub {
+    font-size: 13px;
+    color: var(--text-faint);
+    max-width: 360px;
+    line-height: 1.8;
+  }
+
+  .load-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: 1px solid var(--amber-dim);
+    color: var(--amber);
+    font-family: var(--sans);
+    font-size: 13px;
+    padding: 10px 20px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .load-btn:hover { border-color: var(--amber); background: #1a0e00; }
+
+  .load-note {
+    font-size: 11px;
+    color: var(--text-faint);
+  }
+
+  #app { display: none; }
+
+  /* PAGINATION */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding: 2rem;
+  }
+
+  .pag-btn {
+    background: none;
+    border: 1px solid var(--border2);
+    color: var(--text-dim);
+    font-family: var(--sans);
+    font-size: 13px;
+    padding: 6px 12px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  .pag-btn:hover { border-color: var(--amber-dim); color: var(--amber); }
+  .pag-btn.active { border-color: var(--amber); color: var(--amber); }
+  .pag-btn:disabled { opacity: 0.3; cursor: default; }
+
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 2rem;
+    font-size: 11px;
+    color: var(--text-faint);
+    text-align: center;
+    line-height: 2;
+  }
+
+  @media (max-width: 600px) {
+    header { padding: 1rem; }
+    .filters { padding: 0.75rem 1rem; }
+    .results-bar { padding: 0.5rem 1rem; }
+    .grid { grid-template-columns: 1fr; }
+    .card { padding: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PANTALLA DE CARGA -->
+<div id="load-screen">
+  <div class="load-title">Filmoteca <em>Clásica</em><br>desde Argentina</div>
+  <div class="load-sub" id="load-msg">Cargando la filmoteca…</div>
+  <div style="width:240px;height:2px;background:var(--border2);border-radius:2px;overflow:hidden;margin-top:0.5rem">
+    <div id="load-bar" style="height:100%;background:var(--amber);width:0%;transition:width 0.3s"></div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <header>
+    <div>
+      <div class="logo">Filmoteca <em>Clásica</em> desde Argentina</div>
+    </div>
+    <div class="logo-sub">1930 – 1970</div>
+    <div class="header-count" id="header-count"></div>
+  </header>
+
+  <div class="filters">
+    <div class="search-wrap">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="q" placeholder="Título, director, actor…">
+    </div>
+
+    <select id="f-genero">
+      <option value="">Todos los géneros</option>
+      <option value="Film-Noir">Film-Noir</option>
+      <option value="Western">Western</option>
+      <option value="Drama">Drama</option>
+      <option value="Thriller">Thriller</option>
+      <option value="Crime">Policial</option>
+      <option value="War">Bélica</option>
+      <option value="Comedy">Comedia</option>
+      <option value="Mystery">Misterio</option>
+      <option value="Adventure">Aventura</option>
+      <option value="Romance">Romance</option>
+      <option value="Horror">Terror</option>
+      <option value="Sci-Fi">Ciencia ficción</option>
+      <option value="Biography">Biográfica</option>
+      <option value="History">Histórica</option>
+      <option value="Musical">Musical</option>
+    </select>
+
+    <select id="f-decada">
+      <option value="">Todas las décadas</option>
+      <option value="1930">1930s</option>
+      <option value="1940">1940s</option>
+      <option value="1950">1950s</option>
+      <option value="1960">1960s</option>
+      <option value="1970">1970s</option>
+    </select>
+
+    <div class="toggle-precode" id="toggle-precode" onclick="togglePrecode()">
+      <span class="dot"></span>
+      Pre-Code
+    </div>
+
+    <div class="order-select">
+      <span>Ordenar:</span>
+      <select id="f-orden">
+        <option value="rating">Rating IMDb</option>
+        <option value="anio">Año</option>
+        <option value="votos">Más votadas</option>
+      </select>
+    </div>
+
+    <button class="btn-reset" onclick="resetFiltros()">Limpiar</button>
+  </div>
+
+  <div class="results-bar">
+    <span id="results-count">Cargando…</span>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="pagination" id="pagination"></div>
+
+  <div class="footer">
+    Filmoteca Clásica desde Argentina · Solo películas disponibles en el país · Datos: IMDb non-commercial datasets · Videos: YouTube
+  </div>
+</div>
+
+<script>
+const POR_PAGINA = 48;
+let db = null;
+let pagina = 1;
+let soloPrecode = false;
+
+const genreBadge = g => {
+  if (!g) return '';
+  const first = g.split(',')[0].trim();
+  const map = {
+    'Film-Noir': ['noir','Film-Noir'],
+    'Western':   ['west','Western'],
+    'Drama':     ['drama','Drama'],
+    'Thriller':  ['thrill','Thriller'],
+    'Crime':     ['thrill','Policial'],
+    'War':       ['war','Bélica'],
+    'Comedy':    ['comedy','Comedia'],
+    'Mystery':   ['thrill','Misterio'],
+    'Adventure': ['west','Aventura'],
+  };
+  const [cls, label] = map[first] || ['gen', first];
+  return `<span class="badge badge-${cls}">${label}</span>`;
+};
+
+const truncate = (s, n) => s && s.length > n ? s.slice(0, n) + '…' : (s || '');
+
+function buildQuery() {
+  const q = document.getElementById('q').value.trim();
+  const genero = document.getElementById('f-genero').value;
+  const decada = document.getElementById('f-decada').value;
+  const orden = document.getElementById('f-orden').value;
+
+  const orderMap = {
+    rating: 'p.rating DESC NULLS LAST',
+    anio:   'p.anio DESC',
+    votos:  'p.votos DESC NULLS LAST',
+  };
+
+  let where = [
+    "co.estado = 'confirmada'",
+    "v.activo = 1",
+    "(co.verificado_ar != 'bloqueado' OR co.verificado_ar IS NULL)",
+  ];
+  let params = [];
+
+  if (q) {
+    where.push(`(
+      p.titulo_primario LIKE ? OR p.titulo_orig LIKE ?
+      OR EXISTS (SELECT 1 FROM titulos_alt ta WHERE ta.tconst=p.tconst AND ta.titulo LIKE ?)
+      OR EXISTS (SELECT 1 FROM creditos c JOIN personas pe ON pe.nconst=c.nconst WHERE c.tconst=p.tconst AND pe.nombre LIKE ?)
+    )`);
+    const like = `%${q}%`;
+    params.push(like, like, like, like);
+  }
+
+  if (genero) { where.push('p.generos LIKE ?'); params.push(`%${genero}%`); }
+  if (decada) { where.push('p.decada = ?'); params.push(parseInt(decada)); }
+  if (soloPrecode) { where.push('p.es_precode IN (1,2)'); }
+
+  const BASE = `
+    FROM peliculas p
+    JOIN (
+      SELECT tconst, video_id, estado, verificado_ar,
+             ROW_NUMBER() OVER (PARTITION BY tconst ORDER BY score DESC) as rn
+      FROM coincidencias
+    ) co ON co.tconst = p.tconst AND co.rn = 1
+    JOIN videos v ON v.video_id = co.video_id
+    LEFT JOIN canales ca ON ca.channel_id = v.channel_id
+    WHERE ${where.join(' AND ')}
+  `;
+
+  return { BASE, params, order: orderMap[orden] || orderMap.rating };
+}
+
+function countQuery() {
+  const { BASE, params } = buildQuery();
+  const sql = `SELECT COUNT(DISTINCT p.tconst) as n ${BASE}`;
+  const res = db.exec(sql, params);
+  return res[0]?.values[0][0] || 0;
+}
+
+function fetchPage(offset) {
+  const { BASE, params, order } = buildQuery();
+  const sql = `
+    SELECT DISTINCT
+      p.tconst, p.titulo_primario, p.titulo_orig, p.anio,
+      p.generos, p.duracion_min, p.rating, p.votos, p.es_precode,
+      v.video_id, v.duracion_seg, v.idioma_audio,
+      ca.nombre as canal,
+      co.score
+    ${BASE}
+    ORDER BY ${order}
+    LIMIT ${POR_PAGINA} OFFSET ${offset}
+  `;
+  const res = db.exec(sql, params);
+  if (!res[0]) return [];
+  const cols = res[0].columns;
+  return res[0].values.map(row => {
+    const o = {};
+    cols.forEach((c, i) => o[c] = row[i]);
+    return o;
+  });
+}
+
+function renderDirector(tconst) {
+  try {
+    const res = db.exec(
+      `SELECT pe.nombre FROM creditos c JOIN personas pe ON pe.nconst=c.nconst
+       WHERE c.tconst=? AND c.rol='director' LIMIT 2`, [tconst]);
+    if (!res[0]) return '';
+    return res[0].values.map(r => r[0]).join(', ');
+  } catch { return ''; }
+}
+
+function renderCard(p) {
+  const url = `https://youtu.be/${p.video_id}`;
+  const dir = renderDirector(p.tconst);
+  const yt_min = p.duracion_seg ? Math.round(p.duracion_seg / 60) : null;
+  const idioma = p.idioma_audio === 'es' ? ' · Español' : '';
+  const rating = p.rating ? `<span class="star">★</span> ${p.rating.toFixed(1)}` : '';
+  const precode = p.es_precode ? `<span class="badge badge-pre">Pre-Code</span>` : '';
+
+  return `
+    <div class="card">
+      <div class="card-year">${p.anio}${yt_min ? ` · ${yt_min} min` : ''}${idioma}</div>
+      <div class="card-title">${p.titulo_primario}${p.titulo_orig !== p.titulo_primario ? ` <em>(${truncate(p.titulo_orig,40)})</em>` : ''}</div>
+      ${dir ? `<div class="card-dir">dir. ${truncate(dir, 48)}</div>` : ''}
+      <div class="card-meta">
+        ${genreBadge(p.generos)}
+        ${precode}
+        ${rating ? `<div class="card-rating">${rating}</div>` : ''}
+      </div>
+      <a class="play-btn" href="${url}" target="_blank" rel="noopener">
+        <span class="play-icon">
+          <svg width="8" height="8" viewBox="0 0 10 10" fill="currentColor"><polygon points="2,1 9,5 2,9"/></svg>
+        </span>
+        Ver en YouTube${p.canal ? ` · ${truncate(p.canal, 24)}` : ''}
+      </a>
+    </div>
+  `;
+}
+
+function renderPagination(total) {
+  const pages = Math.ceil(total / POR_PAGINA);
+  const el = document.getElementById('pagination');
+  if (pages <= 1) { el.innerHTML = ''; return; }
+
+  let html = `<button class="pag-btn" onclick="irA(${pagina-1})" ${pagina===1?'disabled':''}>‹</button>`;
+
+  const range = [];
+  for (let i = 1; i <= pages; i++) {
+    if (i === 1 || i === pages || Math.abs(i - pagina) <= 2) range.push(i);
+    else if (range[range.length-1] !== '…') range.push('…');
+  }
+
+  range.forEach(p => {
+    if (p === '…') html += `<span class="pag-btn" style="border:none;cursor:default">…</span>`;
+    else html += `<button class="pag-btn ${p===pagina?'active':''}" onclick="irA(${p})">${p}</button>`;
+  });
+
+  html += `<button class="pag-btn" onclick="irA(${pagina+1})" ${pagina===pages?'disabled':''}>›</button>`;
+  el.innerHTML = html;
+}
+
+function render() {
+  const grid = document.getElementById('grid');
+  const total = countQuery();
+
+  document.getElementById('results-count').textContent =
+    total === 0 ? 'Sin resultados' :
+    total === 1 ? '1 película' :
+    `${total.toLocaleString('es-AR')} películas`;
+
+  const offset = (pagina - 1) * POR_PAGINA;
+  const rows = fetchPage(offset);
+
+  if (rows.length === 0) {
+    grid.innerHTML = `<div class="state-msg"><strong>Sin resultados</strong>Probá con otros filtros.</div>`;
+    document.getElementById('pagination').innerHTML = '';
+    return;
+  }
+
+  grid.innerHTML = rows.map(renderCard).join('');
+  renderPagination(total);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function irA(p) {
+  pagina = p;
+  render();
+}
+
+function togglePrecode() {
+  soloPrecode = !soloPrecode;
+  document.getElementById('toggle-precode').classList.toggle('active', soloPrecode);
+  pagina = 1;
+  render();
+}
+
+function resetFiltros() {
+  document.getElementById('q').value = '';
+  document.getElementById('f-genero').value = '';
+  document.getElementById('f-decada').value = '';
+  document.getElementById('f-orden').value = 'rating';
+  soloPrecode = false;
+  document.getElementById('toggle-precode').classList.remove('active');
+  pagina = 1;
+  render();
+}
+
+let debounceTimer;
+['q','f-genero','f-decada','f-orden'].forEach(id => {
+  document.getElementById(id).addEventListener('input', () => {
+    clearTimeout(debounceTimer);
+    pagina = 1;
+    debounceTimer = setTimeout(render, id === 'q' ? 300 : 0);
+  });
+});
+
+// CARGA AUTOMÁTICA DESDE EL MISMO REPO
+async function cargarDB() {
+  const msg = document.getElementById('load-msg');
+  const bar = document.getElementById('load-bar');
+
+  try {
+    const SQL = await initSqlJs({
+      locateFile: f => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/${f}`
+    });
+    bar.style.width = '20%';
+
+    // Fetch con progreso
+    const resp = await fetch('filmoteca.db');
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+
+    const total = parseInt(resp.headers.get('content-length') || '0');
+    const reader = resp.body.getReader();
+    const chunks = [];
+    let recibido = 0;
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      chunks.push(value);
+      recibido += value.length;
+      if (total) bar.style.width = (20 + (recibido / total) * 70) + '%';
+    }
+
+    const buf = new Uint8Array(recibido);
+    let pos = 0;
+    for (const chunk of chunks) { buf.set(chunk, pos); pos += chunk.length; }
+
+    db = new SQL.Database(buf);
+    bar.style.width = '100%';
+
+    const res = db.exec("SELECT COUNT(DISTINCT tconst) FROM coincidencias WHERE estado='confirmada'");
+    const n = res[0]?.values[0][0] || 0;
+    document.getElementById('header-count').textContent = `${n.toLocaleString('es-AR')} películas`;
+
+    setTimeout(() => {
+      document.getElementById('load-screen').style.display = 'none';
+      document.getElementById('app').style.display = 'block';
+      render();
+    }, 300);
+
+  } catch(err) {
+    msg.textContent = 'No se pudo cargar la filmoteca. Revisá que filmoteca.db esté en el repositorio.';
+    console.error(err);
+  }
+}
+
+cargarDB();
+</script>
+</body>
+</html>
