@@ -307,17 +307,22 @@
 
   /* OVERLAY AL HOVER */
   .card-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(160deg, rgba(200,146,58,0.96) 0%, rgba(160,110,35,0.97) 100%);
+    position: absolute; top: 0; left: 0; right: 0;
+    min-height: 100%;
+    background: linear-gradient(160deg, rgba(200,146,58,0.98) 0%, rgba(160,110,35,0.99) 100%);
     color: #1a1408;
     padding: 1.1rem 1.35rem;
     opacity: 0; pointer-events: none;
     transition: opacity 0.18s ease;
     display: flex; flex-direction: column; gap: 0.35rem;
-    overflow: hidden;
-    z-index: 5;
+    z-index: 20;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.55);
+    border-radius: 0 0 6px 6px;
   }
   .card:hover .card-overlay { opacity: 1; pointer-events: auto; }
+  .card:hover { z-index: 30; }
   @media (hover: none) { .card-overlay { display: none; } }
 
   .ov-title {
@@ -762,14 +767,13 @@ function renderCard(p) {
         </span>
         Ver en YouTube${p.canal ? ` · ${truncate(p.canal, 24)}` : ''}
       </a>
-      <div class="card-overlay">
+      <a class="card-overlay" href="${url}" target="_blank" rel="noopener">
         <div class="ov-title">${p.titulo_primario} (${p.anio})</div>
         ${dir ? `<div class="ov-row"><strong>Dirección</strong>${dir}</div>` : ''}
         ${reparto ? `<div class="ov-row"><strong>Reparto</strong>${reparto}</div>` : ''}
         <div class="ov-row"><strong>Detalles</strong>${p.generos || '—'} · ${p.duracion_min ? p.duracion_min + ' min' : (yt_min ? yt_min + ' min' : '')}${p.rating ? ` · IMDb ${p.rating.toFixed(1)}` : ''}</div>
-        ${p.canal ? `<div class="ov-row"><strong>Canal</strong>${truncate(p.canal, 40)}</div>` : ''}
-        <a class="ov-play" href="${url}" target="_blank" rel="noopener">▶ Ver en YouTube</a>
-      </div>
+        <div class="ov-play">▶ Ver en YouTube${p.canal ? ` · ${truncate(p.canal, 28)}` : ''}</div>
+      </a>
     </div>
   `;
 }
