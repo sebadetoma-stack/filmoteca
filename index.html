@@ -544,7 +544,7 @@
       <div class="logo">Filmoteca <em>Clásica</em></div>
     </div>
     <div class="logo-sub">1930 – 1970</div>
-    <div class="header-sub" id="header-sub">Más de 1.400 películas clásicas disponibles gratis en YouTube, verificadas desde Argentina.</div>
+    <div class="header-sub" id="header-sub">Más de 2.000 películas clásicas disponibles gratis en YouTube, verificadas desde Argentina.</div>
     <div class="header-count" id="header-count"></div>
     <button class="sobre-link" onclick="document.getElementById('modal-sobre').classList.add('open')">Sobre la filmoteca</button>
   </header>
@@ -705,7 +705,7 @@ function buildQuery() {
 
 function countQuery() {
   const { BASE, params } = buildQuery();
-  const sql = `SELECT COUNT(DISTINCT p.tconst) as n ${BASE}`;
+  const sql = `SELECT COUNT(*) as n FROM (SELECT DISTINCT p.tconst ${BASE})`;
   const res = db.exec(sql, params);
   return res[0]?.values[0][0] || 0;
 }
@@ -713,7 +713,7 @@ function countQuery() {
 function fetchPage(offset) {
   const { BASE, params, order } = buildQuery();
   const sql = `
-    SELECT DISTINCT
+    SELECT
       p.tconst, p.titulo_primario, p.titulo_orig, p.anio,
       p.generos, p.duracion_min, p.rating, p.votos, p.es_precode,
       v.video_id, v.duracion_seg, v.idioma_audio,
