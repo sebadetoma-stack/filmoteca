@@ -155,6 +155,23 @@ python3 scripts/04_mantenimiento.py --reparar
 
 ---
 
+## Sistema de reportes
+
+Cada tarjeta tiene un botón **⚑** que aparece al pasar el mouse. Al hacer clic se abre un formulario de Google donde el usuario puede indicar:
+
+- La película no es la que dice ser
+- Está incompleta o cortada
+- No se puede ver desde Argentina
+- Mala calidad (imagen o audio)
+
+El reporte llega por mail al administrador. El video **no se baja automáticamente** — primero se verifica manualmente antes de tomar cualquier decisión. Esto evita que reportes incorrectos o malintencionados eliminen contenido válido.
+
+El flujo técnico de mantenimiento es:
+1. El administrador recibe el reporte por mail y en Google Sheets
+2. Verifica el video manualmente
+3. Si corresponde, corre `python3 rechazar.py` con el video ID para marcarlo como rechazado en la base
+4. Sube el `filmoteca.db` actualizado a GitHub
+
 ## Licencia
 
 Los datasets de IMDb son para uso **personal y no comercial**.
