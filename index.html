@@ -9,16 +9,16 @@
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
 
   :root {
-    --bg:        #0e0d0b;
-    --bg2:       #161410;
-    --bg3:       #1e1b16;
-    --amber:     #c8923a;
-    --amber-dim: #7a5520;
-    --text:      #e8e0d0;
-    --text-dim:  #8a7f6e;
-    --text-faint:#4a4438;
-    --border:    #2a2520;
-    --border2:   #3a3328;
+    --bg:        #f5f0e8;
+    --bg2:       #ede8dd;
+    --bg3:       #fff;
+    --amber:     #8b4513;
+    --amber-dim: #c8a87a;
+    --text:      #2a1f0e;
+    --text-dim:  #6b5a40;
+    --text-faint:#9a8a70;
+    --border:    #d4c9b0;
+    --border2:   #c4b49a;
     --serif:     'Playfair Display', Georgia, serif;
     --sans:      'Inter', system-ui, sans-serif;
     --radius:    6px;
@@ -277,13 +277,13 @@
     border: 1px solid;
   }
 
-  .badge-noir   { color: #8a9ec0; border-color: #2a3a50; background: #111822; }
-  .badge-west   { color: #b89060; border-color: #4a3010; background: #1a1008; }
-  .badge-drama  { color: #8a8a8a; border-color: #2a2a2a; background: #141414; }
-  .badge-thrill { color: #9a7ab0; border-color: #3a2a50; background: #140e1e; }
-  .badge-war    { color: #7a9070; border-color: #2a3a20; background: #0e1408; }
-  .badge-comedy { color: #9a8a50; border-color: #3a3010; background: #141008; }
-  .badge-pre    { color: var(--amber); border-color: var(--amber-dim); background: #1a0e00; }
+  .badge-noir   { color: #2a3a6a; border-color: #c0d0e8; background: #e8f0f8; }
+  .badge-west   { color: #7a4a1a; border-color: #d4a870; background: #fdf0e0; }
+  .badge-drama  { color: #4a4a4a; border-color: #c0c0c0; background: #f0f0f0; }
+  .badge-thrill { color: #5a3a7a; border-color: #c4a8e0; background: #f0e8f8; }
+  .badge-war    { color: #3a5a30; border-color: #a0c090; background: #eaf4e0; }
+  .badge-comedy { color: #6a5a1a; border-color: #d4c070; background: #faf8e0; }
+  .badge-pre    { color: #7a3010; border-color: #c8a078; background: #fdf0e0; }
   .badge-gen    { color: var(--text-faint); border-color: var(--border2); background: transparent; }
 
   .card-rating {
@@ -309,8 +309,8 @@
   .card-overlay {
     position: absolute; top: 0; left: 0; right: 0;
     min-height: 100%;
-    background: linear-gradient(160deg, rgba(200,146,58,0.98) 0%, rgba(160,110,35,0.99) 100%);
-    color: #1a1408;
+    background: linear-gradient(160deg, #3d2510 0%, #2a1a08 100%);
+    color: #f5f0e8;
     padding: 1rem 1.25rem;
     opacity: 0; pointer-events: none;
     transition: opacity 0.18s ease;
@@ -337,12 +337,12 @@
     -webkit-box-orient: vertical; overflow: hidden;
   }
   .ov-row.una-linea { -webkit-line-clamp: 1; }
-  .ov-row em { font-style: normal; opacity: 0.65; }
+  .ov-row em { font-style: normal; opacity: 0.7; }
   .ov-play {
     margin-top: auto;
     padding-top: 0.4rem;
     font-size: 11px; font-weight: 500; color: #1a1408;
-    border-top: 1px solid rgba(26,20,8,0.3);
+    border-top: 1px solid rgba(245,240,232,0.3);
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
 
