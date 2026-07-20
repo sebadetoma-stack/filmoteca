@@ -547,6 +547,7 @@
     <div class="header-sub" id="header-sub"></div>
     <div class="header-count" id="header-count"></div>
     <button class="sobre-link" onclick="document.getElementById('modal-sobre').classList.add('open')">Sobre la filmoteca</button>
+    <button class="sobre-link" onclick="document.getElementById('modal-como').classList.add('open')">Cómo funciona</button>
   </header>
 
   <div class="filters">
@@ -608,6 +609,18 @@
 
   <div class="pagination" id="pagination"></div>
 
+  <div class="modal-back" id="modal-como" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="modal">
+      <h2>Cómo <em>funciona</em></h2>
+      <p>El proyecto tiene dos partes: un pipeline local en Python que construye y mantiene la base de datos, y esta web estática que lee esa base directamente en el navegador. No hay servidor ni backend.</p>
+      <p><strong>La cosecha</strong>: en vez de buscar película por película en YouTube (lo que agotaría la cuota de API), cosechamos canales enteros. Un canal con 800 películas se enumera completo por 16 unidades de cuota. Con 10.000 unidades diarias se pueden cosechar cientos de canales.</p>
+      <p><strong>El matcher</strong>: el cruce de videos contra el catálogo IMDb se hace completamente offline, sin cuota, usando tres señales: si el título de la película aparece textualmente en el título del video, si la duración coincide (±20%), y si el año declarado coincide. Los trailers, reseñas, compilaciones y copias mutiladas se descartan automáticamente.</p>
+      <p><strong>La IA</strong>: los casos dudosos se pasan a Claude Haiku vía la API de Anthropic. El modelo lee el título del video, la descripción del canal y la duración, y decide si es match o no.</p>
+      <p><strong>El código</strong> está disponible en <a href="https://github.com/sebadetoma-stack/filmoteca" target="_blank" rel="noopener" style="color:var(--amber)">GitHub</a>, con documentación detallada de cada paso.</p>
+      <button class="modal-close" onclick="document.getElementById('modal-como').classList.remove('open')">Cerrar</button>
+    </div>
+  </div>
+
   <div class="modal-back" id="modal-sobre" onclick="if(event.target===this)this.classList.remove('open')">
     <div class="modal">
       <h2>Sobre la <em>filmoteca</em></h2>
@@ -629,7 +642,7 @@
 
   <div class="footer">
     Filmoteca Clásica es un catálogo de consulta. Todos los videos pertenecen a sus respectivos canales de YouTube y pueden ser eliminados en cualquier momento. No alojamos ni distribuimos ningún contenido.
-    <br>Hecha por <a href="https://www.linkedin.com/in/juan-sebastian-de-toma/" target="_blank" rel="noopener" style="color:var(--amber);text-decoration:none">Sebastián De Toma</a>
+    <br>Hecha por <a href="https://www.linkedin.com/in/juan-sebastian-de-toma/" target="_blank" rel="noopener" style="color:var(--amber);text-decoration:none">Sebastián De Toma</a> · <a href="https://github.com/sebadetoma-stack/filmoteca" target="_blank" rel="noopener" style="color:var(--amber);text-decoration:none">Ver en GitHub</a>
   </div>
 </div>
 
@@ -892,10 +905,17 @@ async function cargarDB() {
     db = new SQL.Database(buf);
     bar.style.width = '100%';
 
-    const res = db.exec("SELECT COUNT(DISTINCT tconst) FROM coincidencias WHERE estado='confirmada'");
+    const res = db.exec(`
+      SELECT COUNT(DISTINCT co.tconst)
+      FROM coincidencias co
+      JOIN videos v ON v.video_id = co.video_id
+      WHERE co.estado = 'confirmada'
+        AND v.activo = 1
+        AND (co.verificado_ar != 'bloqueado' OR co.verificado_ar IS NULL)
+    `);
     const n = res[0]?.values[0][0] || 0;
     document.getElementById('header-count').textContent = `${n.toLocaleString('es-AR')} películas`;
-    document.getElementById('header-sub').textContent = `Más de ${n.toLocaleString('es-AR')} películas clásicas disponibles gratis en YouTube, verificadas desde Argentina.`;
+    document.getElementById('header-sub').textContent = 'Miles de películas clásicas disponibles gratis en YouTube, verificadas desde Argentina.';
 
     setTimeout(() => {
       document.getElementById('load-screen').style.display = 'none';
