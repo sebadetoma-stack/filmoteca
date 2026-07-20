@@ -305,6 +305,25 @@
     text-overflow: ellipsis;
   }
 
+  .card-report {
+    position: absolute;
+    bottom: 8px; right: 8px;
+    z-index: 30;
+    background: rgba(245,240,232,0.85);
+    border: 0.5px solid var(--border2);
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s;
+    padding: 3px 7px;
+    font-size: 11px;
+    color: var(--text-faint);
+    font-family: var(--sans);
+    line-height: 1.4;
+  }
+  .card:hover .card-report { opacity: 1; }
+  .card-report:hover { color: var(--amber); border-color: var(--amber); }
+
   /* OVERLAY AL HOVER */
   .card-overlay {
     position: absolute; top: 0; left: 0; right: 0;
