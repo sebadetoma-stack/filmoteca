@@ -544,7 +544,7 @@
       <div class="logo">Filmoteca <em>Clásica</em></div>
     </div>
     <div class="logo-sub">1930 – 1970</div>
-    <div class="header-sub" id="header-sub">Más de 2.000 películas clásicas disponibles gratis en YouTube, verificadas desde Argentina.</div>
+    <div class="header-sub" id="header-sub"></div>
     <div class="header-count" id="header-count"></div>
     <button class="sobre-link" onclick="document.getElementById('modal-sobre').classList.add('open')">Sobre la filmoteca</button>
   </header>
@@ -629,6 +629,7 @@
 
   <div class="footer">
     Filmoteca Clásica es un catálogo de consulta. Todos los videos pertenecen a sus respectivos canales de YouTube y pueden ser eliminados en cualquier momento. No alojamos ni distribuimos ningún contenido.
+    <br>Hecha por <a href="https://www.linkedin.com/in/juan-sebastian-de-toma/" target="_blank" rel="noopener" style="color:var(--amber);text-decoration:none">Sebastián De Toma</a>
   </div>
 </div>
 
@@ -894,6 +895,7 @@ async function cargarDB() {
     const res = db.exec("SELECT COUNT(DISTINCT tconst) FROM coincidencias WHERE estado='confirmada'");
     const n = res[0]?.values[0][0] || 0;
     document.getElementById('header-count').textContent = `${n.toLocaleString('es-AR')} películas`;
+    document.getElementById('header-sub').textContent = `Más de ${n.toLocaleString('es-AR')} películas clásicas disponibles gratis en YouTube, verificadas desde Argentina.`;
 
     setTimeout(() => {
       document.getElementById('load-screen').style.display = 'none';
