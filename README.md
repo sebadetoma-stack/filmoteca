@@ -53,22 +53,49 @@ Las búsquedas quedan reservadas para reparar links caídos.
 
 ### El matcher
 
-El cruce de videos contra el catálogo IMDb se hace **completamente offline**, sin cuota, usando tres señales:
+El cruce de videos contra el catálogo IMDb se hace **completamente offline**, sin cuota. La lógica de decisión tiene tres pasadas:
 
-1. **Frase**: ¿el título de la película aparece textualmente en el título del video?
-2. **Duración**: ¿el video dura lo que dura la película (±20%)?
-3. **Año**: ¿el año declarado en el título del video coincide con el de IMDb?
+**Pasada 1 — Vetos duros**
 
-Los videos con palabras negativas (trailer, clip, reseña, compilación, maratón) son vetados antes del scoring. Los que duran más de 1.6× el metraje esperado también.
+Antes del scoring, se descartan automáticamente los videos que:
+- Contienen palabras negativas en el título: trailer, clip, reseña, compilación, maratón, escena, soundtrack, reaction, best of, etc.
+- Duran menos de 55 minutos (no son largometrajes)
+- Duran más de 1.6× el metraje esperado (recopilaciones o maratones)
+- Declaran un año distinto al de la película (±1 año de tolerancia) → probable remake o película diferente
 
-La lógica de decisión tiene tres pasadas:
-- **Vetos duros** → rechazado, sin importar el score
-- **Frase + duración plausible** → confirmado directamente
-- **Score alto + duración exacta** → confirmado con criterio de tokens mínimos
+**Pasada 2 — Señal de frase**
+
+La señal más confiable: ¿el título de la película aparece como **frase contigua** en el título del video? Por ejemplo, "1935 - This Woman Is Mine - A savage drama..." contiene la frase "this woman is mine" → match fuerte.
+
+Restricciones importantes:
+- Los títulos alternativos (AKAs) en otros idiomas —italiano, francés, alemán, etc.— **no** pueden confirmar por frase. Esto evita que "La Strada" (cuyo AKA en inglés es "The Street") matchee con cualquier video que tenga "street" en el título.
+- Para títulos de una sola palabra ("Gilda", "Detour"), se verifica que el video no tenga demasiados tokens clave adicionales —"bridge" en "The Bridge of San Luis Rey" no confirma "The Bridge".
+- Frase + duración plausible (72%-130% del metraje) → **confirmado**. El rango amplio cubre versiones TV, cortes europeos y el efecto PAL speedup.
+
+**Pasada 3 — Score ponderado**
+
+Sin frase, el sistema calcula un score combinando similitud de título (50%), duración (33%), año (9%) y confianza del canal (8%). Para confirmar sin frase se exige:
+- Similitud de título ≥ 88% + duración exacta (±20%)
+- El título que matcheó tiene al menos 2 tokens clave (evita AKAs genéricos de una palabra)
+
+Lo que no alcanza el umbral va a revisión humana o se rechaza.
+
+### Revisión humana
+
+Los casos que el matcher marca como "pendientes" se revisan con una herramienta local (`revision.html`) que muestra cada caso con sus señales: título del video, duración comparada, año. El revisor aprueba, rechaza o marca "es otra película" con atajos de teclado (A/R/S/O). Las decisiones humanas quedan protegidas y nunca se pisan en corridas posteriores del matcher.
 
 ### Verificación con IA
 
-Los casos que el matcher no puede resolver solo (duraciones que difieren, títulos ambiguos) se pasan a Claude Haiku vía la API de Anthropic. El modelo lee el título del video, la descripción del canal, la duración, y decide si es match o no. Cuesta centavos para cientos de casos.
+Los casos pendientes y los "sin identificar" se pasan a **Claude Haiku** vía la API de Anthropic. El modelo lee el título del video, su descripción completa (que en canales como PizzaFlix incluye director, actores, estudio y año), y la duración, y decide si es match o no.
+
+Se usa en tres escenarios:
+- **Pendientes**: videos donde el matcher dudó. La IA los resuelve con ~90% de precisión.
+- **Sin identificar**: videos cuyo título en YouTube no corresponde al título del catálogo (ej: "The Fighting Seventh" que es en realidad "Little Big Horn"). La IA extrae título, director y año para buscar el tconst en IMDb.
+- **Auditoría periódica**: se corre `ia_auditar.py --score 95` para revisar las confirmadas con score bajo y eliminar falsos positivos que el matcher aceptó con poca certeza. Cuesta centavos para cientos de casos.
+
+### Mejora iterativa
+
+El matcher no se diseñó de una vez — se fue ajustando caso por caso con una suite de tests. Cada fallo real (La Strada → Street Corner, The Bridge → The Bridge of San Luis Rey, Psycho → Psycho Roommate) se convirtió en un test que el sistema tiene que pasar antes de cualquier cambio. El principio es que ningún ajuste puede mejorar un caso sin romper los que ya estaban bien.
 
 ### Geobloqueo
 
