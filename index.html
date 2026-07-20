@@ -782,6 +782,7 @@ function renderCard(p) {
         </span>
         Ver en YouTube${p.canal ? ` · ${truncate(p.canal, 24)}` : ''}
       </a>
+      <button class="card-report" title="Reportar problema" onclick="reportar('${p.video_id}', '${p.titulo_primario}', event)">⚑</button>
       <a class="card-overlay" href="${url}" target="_blank" rel="noopener">
         <div class="ov-title">${p.titulo_primario} (${p.anio})</div>
         ${dir ? `<div class="ov-row una-linea"><em>dir.</em> ${dir}</div>` : ''}
@@ -859,6 +860,14 @@ function resetFiltros() {
   document.getElementById('toggle-precode').classList.remove('active');
   pagina = 1;
   render();
+}
+
+function reportar(videoId, titulo, event) {
+  event.preventDefault();
+  event.stopPropagation();
+  const base = 'https://docs.google.com/forms/d/e/1FAIpQLScAs0NejYOuO4ewlUIzs6e86fRGLAM3yjhgChSxIUfuEPuFmg/viewform';
+  const url = base + '?entry.1007045909=' + encodeURIComponent(titulo) + '&entry.717085040=' + encodeURIComponent(videoId);
+  window.open(url, '_blank', 'noopener');
 }
 
 let debounceTimer;
