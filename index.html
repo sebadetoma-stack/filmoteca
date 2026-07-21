@@ -697,6 +697,7 @@ function buildQuery() {
   const q = document.getElementById('q').value.trim();
   const genero = document.getElementById('f-genero').value;
   const decada = document.getElementById('f-decada').value;
+  const pais = document.getElementById('f-pais').value;
   const orden = document.getElementById('f-orden').value;
 
   const orderMap = {
@@ -725,6 +726,10 @@ function buildQuery() {
   if (genero) { where.push('p.generos LIKE ?'); params.push(`%${genero}%`); }
   if (decada) { where.push('p.decada = ?'); params.push(parseInt(decada)); }
   if (soloPrecode) { where.push('p.es_precode IN (1,2)'); }
+  if (pais && PAIS_MAP[pais]) {
+    const terminos = PAIS_MAP[pais].map(t => `p.pais LIKE '%${t}%'`).join(' OR ');
+    where.push(`(${terminos})`);
+  }
 
   const BASE = `
     FROM peliculas p
@@ -751,6 +756,7 @@ function fetchPage(offset) {
     SELECT
       p.tconst, p.titulo_primario, p.titulo_orig, p.anio,
       p.generos, p.duracion_min, p.rating, p.votos, p.es_precode,
+      p.pais,
       v.video_id, v.duracion_seg, v.idioma_audio,
       ca.nombre as canal,
       co.score
