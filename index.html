@@ -923,7 +923,7 @@ function reportar(videoId, titulo, event) {
 }
 
 let debounceTimer;
-['q','f-genero','f-decada','f-orden'].forEach(id => {
+['q','f-genero','f-decada','f-pais','f-orden'].forEach(id => {
   document.getElementById(id).addEventListener('input', () => {
     clearTimeout(debounceTimer);
     pagina = 1;
