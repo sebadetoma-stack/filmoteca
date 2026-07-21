@@ -169,6 +169,19 @@
     flex-shrink: 0;
   }
 
+  .btn-random {
+    background: none;
+    border: 1px solid var(--amber-dim);
+    color: var(--amber);
+    font-size: 12px;
+    font-family: var(--sans);
+    cursor: pointer;
+    padding: 4px 10px;
+    border-radius: var(--radius);
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .btn-random:hover { background: rgba(139,69,19,0.08); border-color: var(--amber); }
+
   .btn-reset {
     background: none;
     border: none;
@@ -631,6 +644,7 @@
     </div>
 
     <button class="btn-reset" onclick="resetFiltros()">Limpiar</button>
+    <button class="btn-random" onclick="sorprendeme()">✦ Sorprendeme</button>
   </div>
 
   <div class="results-bar">
@@ -869,6 +883,7 @@ function renderPagination(total) {
 }
 
 function render() {
+  filtrosAUrl();
   const grid = document.getElementById('grid');
   const total = countQuery();
 
@@ -920,6 +935,59 @@ function reportar(videoId, titulo, event) {
   const base = 'https://docs.google.com/forms/d/e/1FAIpQLScAs0NejYOuO4ewlUIzs6e86fRGLAM3yjhgChSxIUfuEPuFmg/viewform';
   const url = base + '?entry.1007045909=' + encodeURIComponent(titulo) + '&entry.717085040=' + encodeURIComponent(videoId);
   window.open(url, '_blank', 'noopener');
+}
+
+// ---------------------------------------------------------------
+// SORPRENDEME
+// ---------------------------------------------------------------
+function sorprendeme() {
+  if (!db) return;
+  const res = db.exec(`
+    SELECT v.video_id FROM coincidencias co
+    JOIN videos v ON v.video_id = co.video_id
+    WHERE co.estado = 'confirmada'
+      AND v.activo = 1
+      AND (co.verificado_ar != 'bloqueado' OR co.verificado_ar IS NULL)
+    ORDER BY RANDOM() LIMIT 1
+  `);
+  if (res[0]?.values[0]) {
+    window.open('https://youtu.be/' + res[0].values[0][0], '_blank', 'noopener');
+  }
+}
+
+// ---------------------------------------------------------------
+// LINKS COMPARTIBLES — sincroniza filtros con el hash de la URL
+// ---------------------------------------------------------------
+function urlAFiltros() {
+  const hash = window.location.hash.replace('#', '');
+  if (!hash) return;
+  const params = Object.fromEntries(new URLSearchParams(hash));
+  if (params.q)      document.getElementById('q').value = params.q;
+  if (params.genero) document.getElementById('f-genero').value = params.genero;
+  if (params.decada) document.getElementById('f-decada').value = params.decada;
+  if (params.pais)   document.getElementById('f-pais').value = params.pais;
+  if (params.orden)  document.getElementById('f-orden').value = params.orden;
+  if (params.precode === '1') {
+    soloPrecode = true;
+    document.getElementById('toggle-precode').classList.add('active');
+  }
+}
+
+function filtrosAUrl() {
+  const p = new URLSearchParams();
+  const q = document.getElementById('q').value.trim();
+  const genero = document.getElementById('f-genero').value;
+  const decada = document.getElementById('f-decada').value;
+  const pais = document.getElementById('f-pais').value;
+  const orden = document.getElementById('f-orden').value;
+  if (q) p.set('q', q);
+  if (genero) p.set('genero', genero);
+  if (decada) p.set('decada', decada);
+  if (pais) p.set('pais', pais);
+  if (orden !== 'rating') p.set('orden', orden);
+  if (soloPrecode) p.set('precode', '1');
+  const str = p.toString();
+  history.replaceState(null, '', str ? '#' + str : window.location.pathname);
 }
 
 let debounceTimer;
@@ -981,6 +1049,7 @@ async function cargarDB() {
     setTimeout(() => {
       document.getElementById('load-screen').style.display = 'none';
       document.getElementById('app').style.display = 'block';
+      urlAFiltros();
       render();
     }, 300);
 
