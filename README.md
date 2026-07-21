@@ -178,9 +178,54 @@ python3 scripts/04_mantenimiento.py --reparar
 | Cult Cinema Classics | Particular | Cine europeo y de culto |
 | Cult Classic Cinema Archive | Dominio público | Clásicos completos |
 | Cine Clásico 10 | Particular | Películas en español |
+| La Corriente Películas | Particular | Cine clásico doblado al español latino |
+| Mosfilm (English) | Oficial | Canal oficial del estudio soviético, subtítulos en inglés |
 | Warner Bros. | Oficial | Algunos títulos completos (verificar disponibilidad AR) |
 
 ---
+
+## País de producción
+
+El país de producción se obtiene de **Wikidata** vía consultas SPARQL, cruzando el `tconst` de IMDb con la propiedad P495 (país de origen). No requiere API key ni costo. Se corre sobre las películas confirmadas:
+
+```bash
+python3 scripts/enriquecer_paises.py
+```
+
+El script es reanudable: guarda los países encontrados y en la siguiente corrida solo consulta las que todavía no tienen dato. Permite filtrar en la web por cine estadounidense, británico, italiano, francés, soviético, japonés, etc.
+
+## Funciones adicionales de la web
+
+- **Sorprendeme** (botón ✦): abre una película al azar de las confirmadas visibles en AR
+- **Links compartibles**: los filtros activos se reflejan en el hash de la URL (`#genero=Film-Noir&pais=GB`), que podés copiar y compartir
+- **Botón ⚑**: aparece en cada tarjeta al pasar el mouse. Abre un formulario de Google para reportar problemas
+
+## Auditoría periódica
+
+Después de agregar canales nuevos o de correr el matcher, conviene auditar las confirmadas con score bajo:
+
+```bash
+export ANTHROPIC_API_KEY=sk-ant-...
+python3 scripts/ia_auditar.py --score 95        # revisa confirmadas con score < 95
+python3 scripts/ia_auditar.py --score 100 --sin-frase  # solo las sin match de frase
+```
+
+Los falsos positivos se rechazan directamente en la base. Después copiás el `.db` a `filmoteca-web` y hacés push.
+
+## Agregar películas puntuales
+
+Cuando la IA identifica un video sin match, devuelve título, director y año. Para agregarlas:
+
+```bash
+# 1. Buscar el tconst en los datasets de IMDb locales
+python3 scripts/buscar_tconst.py para_buscar_en_imdb.json
+
+# 2. Revisar tconst_encontrados.json y agregar al catálogo
+python3 scripts/agregar_al_catalogo.py tconst_encontrados.json
+
+# 3. Crear las coincidencias
+python3 scripts/agregar_coincidencias.py tconst_encontrados.json
+```
 
 ## Sistema de reportes
 

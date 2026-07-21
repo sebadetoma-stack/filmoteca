@@ -661,7 +661,9 @@
       <p>El proyecto tiene dos partes: un pipeline local en Python que construye y mantiene la base de datos, y esta web estática que lee esa base directamente en el navegador. No hay servidor ni backend.</p>
       <p><strong>La cosecha</strong>: en vez de buscar película por película en YouTube (lo que agotaría la cuota de API), cosechamos canales enteros. Un canal con 800 películas se enumera completo por 16 unidades de cuota. Con 10.000 unidades diarias se pueden cosechar cientos de canales.</p>
       <p><strong>El matcher</strong>: el cruce de videos contra el catálogo IMDb se hace completamente offline, sin cuota. La señal más fuerte es si el título de la película aparece como frase contigua en el título del video — títulos en otros idiomas (italiano, francés, alemán) no cuentan para esta señal. También se evalúan la duración (±20%, para cubrir versiones TV y cortes europeos) y el año declarado. Los trailers, reseñas, compilaciones, maratones y copias muy cortas se descartan automáticamente antes del scoring.</p>
-      <p><strong>La IA</strong>: los casos que el matcher no puede resolver solo se pasan a Claude Haiku vía la API de Anthropic. El modelo lee el título del video, su descripción y la duración, y decide si es match o no. También se usa para auditar periódicamente las confirmadas con score bajo, descartando falsos positivos que el matcher aceptó con poca certeza.</p>
+      <p><strong>La IA</strong>: los casos que el matcher no puede resolver solo se pasan a Claude Haiku vía la API de Anthropic. El modelo lee el título del video, su descripción y la duración, y decide si es match o no. También se usa para auditar periódicamente las confirmadas con score bajo, descartando falsos positivos — y para identificar videos sin título reconocible buscando el director y año en la descripción.</p>
+      <p><strong>El país de producción</strong> viene de Wikidata vía consultas SPARQL, cruzando el tconst de IMDb con la propiedad P495 (país de origen). Permite filtrar por cine británico, italiano, francés, soviético, etc.</p>
+      <p><strong>Otras funciones</strong>: el botón ✦ <em>Sorprendeme</em> abre una película al azar. Los filtros activos se reflejan en la URL, que podés copiar y compartir. El botón ⚑ en cada tarjeta abre un formulario para reportar problemas.</p>
       <p><strong>El código</strong> está disponible en <a href="https://github.com/sebadetoma-stack/filmoteca" target="_blank" rel="noopener" style="color:var(--amber)">GitHub</a>, con documentación detallada de cada paso.</p>
       <p><strong>El botón ⚑</strong> aparece en cada tarjeta al pasar el mouse. Al hacer clic abre un formulario donde podés indicar que la película no es la que dice ser, que está incompleta, que no se puede ver desde Argentina, o que tiene mala calidad. El reporte llega directamente al equipo para ser revisado. El video no se baja automáticamente: primero se verifica antes de tomar cualquier decisión.</p>
       <button class="modal-close" onclick="document.getElementById('modal-como').classList.remove('open')">Cerrar</button>
@@ -676,10 +678,11 @@
       trailers con películas completas, y muchas desaparecen cuando cambian los derechos.</p>
       <p>Esta filmoteca responde una pregunta simple: <strong>¿qué películas clásicas puedo
       ver hoy, gratis y completas, desde Argentina?</strong></p>
-      <p>El catálogo cubre <strong>cine estadounidense y británico de 1930 a 1970</strong>:
-      film noir, westerns, comedias, dramas, épicas, cine Pre-Code. Cada entrada fue
-      verificada automáticamente cruzando la duración y el título del video contra los
-      datos de IMDb, descartando trailers, escenas sueltas y copias incompletas.</p>
+      <p>El catálogo cubre <strong>cine de 1930 a 1970</strong>: estadounidense, británico,
+      italiano, francés, soviético y más. Podés filtrar por género, década y país de
+      producción. Cada entrada fue verificada automáticamente cruzando la duración y el
+      título del video contra los datos de IMDb, descartando trailers, escenas sueltas
+      y copias incompletas.</p>
       <p>Todos los videos pertenecen a sus respectivos canales de YouTube y pueden ser
       eliminados en cualquier momento. Este sitio no aloja ni distribuye ningún contenido:
       es solo un catálogo de consulta.</p>
