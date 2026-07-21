@@ -808,7 +808,7 @@ function renderCard(p) {
         <div class="ov-title">${p.titulo_primario} (${p.anio})</div>
         ${dir ? `<div class="ov-row una-linea"><em>dir.</em> ${dir}</div>` : ''}
         ${reparto ? `<div class="ov-row"><em>con</em> ${reparto}</div>` : ''}
-        <div class="ov-row una-linea">${p.generos ? p.generos.split(',').slice(0,2).join(', ') : '—'} · ${p.duracion_min ? p.duracion_min + ' min' : (yt_min ? yt_min + ' min' : '')}${p.rating ? ` · IMDb ${p.rating.toFixed(1)}` : ''}</div>
+        <div class="ov-row una-linea">${p.generos ? p.generos.split(',').slice(0,2).join(', ') : '—'}${p.pais ? ` · ${p.pais.split(',')[0].trim()}` : ''} · ${p.duracion_min ? p.duracion_min + ' min' : (yt_min ? yt_min + ' min' : '')}${p.rating ? ` · IMDb ${p.rating.toFixed(1)}` : ''}</div>
         <div class="ov-play">▶ Ver en YouTube${p.canal ? ` · ${truncate(p.canal, 28)}` : ''}</div>
       </a>
     </div>
