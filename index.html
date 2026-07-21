@@ -740,8 +740,8 @@ function buildQuery() {
   if (decada) { where.push('p.decada = ?'); params.push(parseInt(decada)); }
   if (soloPrecode) { where.push('p.es_precode IN (1,2)'); }
   if (pais && PAIS_MAP[pais]) {
-    const terminos = PAIS_MAP[pais].map(t => `p.pais LIKE '%${t}%'`).join(' OR ');
-    where.push(`(${terminos})`);
+    const paisTerminos = PAIS_MAP[pais].map(t => { params.push(`%${t}%`); return 'p.pais LIKE ?'; });
+    where.push(`(${paisTerminos.join(' OR ')})`);
   }
 
   const BASE = `
