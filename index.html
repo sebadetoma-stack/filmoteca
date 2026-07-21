@@ -706,6 +706,18 @@ const genreBadge = g => {
 
 const truncate = (s, n) => s && s.length > n ? s.slice(0, n) + '…' : (s || '');
 
+const PAIS_MAP = {
+  'US': ['United States'],
+  'GB': ['United Kingdom'],
+  'IT': ['Italy'],
+  'FR': ['France'],
+  'DE': ['Germany'],
+  'JP': ['Japan'],
+  'SU': ['Soviet Union'],
+  'MX': ['Mexico'],
+  'ES': ['Spain'],
+};
+
 function buildQuery() {
   const q = document.getElementById('q').value.trim();
   const genero = document.getElementById('f-genero').value;
