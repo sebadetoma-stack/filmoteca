@@ -337,6 +337,22 @@
   .card:hover .card-report { opacity: 1; }
   .card-report:hover { color: var(--amber); border-color: var(--amber); }
 
+  .card-poster {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    display: block;
+    background: var(--bg2);
+  }
+  .card-poster-placeholder {
+    width: 100%;
+    aspect-ratio: 2/3;
+    background: linear-gradient(135deg, var(--bg2) 0%, var(--bg3) 100%);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--border2);
+    font-size: 2rem;
+  }
+
   /* OVERLAY AL HOVER */
   .card-overlay {
     position: absolute; top: 0; left: 0; right: 0;
@@ -798,7 +814,7 @@ function fetchPage(offset) {
     SELECT
       p.tconst, p.titulo_primario, p.titulo_orig, p.anio,
       p.generos, p.duracion_min, p.rating, p.votos, p.es_precode,
-      p.pais,
+      p.pais, p.poster_url, p.sinopsis,
       v.video_id, v.duracion_seg, v.idioma_audio,
       ca.nombre as canal,
       co.score
@@ -837,6 +853,10 @@ function renderCard(p) {
 
   return `
     <div class="card">
+      ${p.poster_url
+        ? `<img class="card-poster" src="${p.poster_url}" alt="${p.titulo_primario}" loading="lazy">`
+        : `<div class="card-poster-placeholder">🎬</div>`
+      }
       <div class="card-year">${p.anio}${yt_min ? ` · ${yt_min} min` : ''}${idioma}</div>
       <div class="card-title">${p.titulo_primario}${p.titulo_orig !== p.titulo_primario ? ` <em>(${truncate(p.titulo_orig,40)})</em>` : ''}</div>
       ${dir ? `<div class="card-dir">dir. ${truncate(dir, 48)}</div>` : ''}
@@ -855,7 +875,8 @@ function renderCard(p) {
       <a class="card-overlay" href="${url}" target="_blank" rel="noopener">
         <div class="ov-title">${p.titulo_primario} (${p.anio})</div>
         ${dir ? `<div class="ov-row una-linea"><em>dir.</em> ${dir}</div>` : ''}
-        ${reparto ? `<div class="ov-row"><em>con</em> ${reparto}</div>` : ''}
+        ${reparto ? `<div class="ov-row una-linea"><em>con</em> ${truncate(reparto,55)}</div>` : ''}
+        ${p.sinopsis ? `<div class="ov-row" style="-webkit-line-clamp:4;font-size:11px;opacity:0.85">${truncate(p.sinopsis,200)}</div>` : ''}
         <div class="ov-row una-linea">${p.generos ? p.generos.split(',').slice(0,2).join(', ') : '—'}${p.pais ? ` · ${p.pais.split(',')[0].trim()}` : ''} · ${p.duracion_min ? p.duracion_min + ' min' : (yt_min ? yt_min + ' min' : '')}${p.rating ? ` · IMDb ${p.rating.toFixed(1)}` : ''}</div>
         <div class="ov-play">▶ Ver en YouTube${p.canal ? ` · ${truncate(p.canal, 28)}` : ''}</div>
       </a>
