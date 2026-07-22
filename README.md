@@ -1,6 +1,6 @@
 # Filmoteca Clásica
 
-**[→ Ver la filmoteca en línea](https://sebadetoma-stack.github.io/filmoteca)**
+**[→ Ver la filmoteca en línea](https://filmotecaclasica.com)**
 
 Un catálogo de más de 2.300 películas clásicas (1930–1970) disponibles gratuitamente en YouTube, verificadas desde Argentina.
 
