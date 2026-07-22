@@ -180,9 +180,23 @@ python3 scripts/04_mantenimiento.py --reparar
 | Cine Clásico 10 | Particular | Películas en español |
 | La Corriente Películas | Particular | Cine clásico doblado al español latino |
 | Mosfilm (English) | Oficial | Canal oficial del estudio soviético, subtítulos en inglés |
+| Kino Wizard | Particular | Cine de culto y terror clásico |
+| Cine Clásico para Todos | Particular | Cine clásico en español |
+| Arte Cine Cultura | Particular | Cine arte y clásico |
 | Warner Bros. | Oficial | Algunos títulos completos (verificar disponibilidad AR) |
 
 ---
+
+## Pósters y sinopsis
+
+Los pósters y las sinopsis se obtienen de **TMDb** (The Movie Database) vía su API gratuita, cruzando por el `tconst` de IMDb. Las sinopsis se piden primero en español y, si no existen, en inglés.
+
+```bash
+export TMDB_API_KEY=tu-clave
+python3 scripts/enriquecer_tmdb.py
+```
+
+Como el resto de los scripts de enriquecimiento, solo procesa las películas que todavía no tienen póster, así que se puede correr cada vez que se agregan canales nuevos.
 
 ## País de producción
 

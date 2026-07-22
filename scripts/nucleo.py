@@ -162,6 +162,16 @@ def tokens_clave(titulo_norm: str) -> set:
     return largos or set(toks)
 
 
+# AKAs demasiado genéricos: palabras comunes que generan falsos positivos.
+# "La calle" (AKA de La Strada) matchea cualquier video con "calle" en el título.
+AKAS_GENERICOS = {
+    "la calle", "the street", "the road", "la strada", "el camino",
+    "the way", "el hombre", "the man", "the woman", "la mujer",
+    "la casa", "the house", "el amor", "the love", "la noche",
+    "the night", "el dia", "the day", "la guerra", "the war",
+}
+
+
 def frase_en_video(titulo_cat_norm: str, titulo_vid_norm: str) -> bool:
     """
     ¿El título del catálogo aparece como FRASE CONTIGUA en el del video?
@@ -176,6 +186,9 @@ def frase_en_video(titulo_cat_norm: str, titulo_vid_norm: str) -> bool:
     el título entero del video ES ese título.
     """
     if not titulo_cat_norm or not titulo_vid_norm:
+        return False
+    # Los AKAs genéricos nunca cuentan para frase
+    if titulo_cat_norm in AKAS_GENERICOS:
         return False
     if titulo_cat_norm == titulo_vid_norm:
         return True
