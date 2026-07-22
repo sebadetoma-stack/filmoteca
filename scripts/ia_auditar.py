@@ -54,9 +54,15 @@ def main():
                     help="Revisar confirmadas con score menor a este valor")
     ap.add_argument("--sin-frase", action="store_true",
                     help="Solo revisar las que no tienen match de frase (mas riesgosas)")
+    ap.add_argument("--canal", action="append", default=[],
+                    help="Solo revisar confirmadas de este canal (se puede repetir)")
     args = ap.parse_args()
 
     sin_frase_filtro = "AND (co.senales NOT LIKE '%frase\": true%')" if args.sin_frase else ""
+    canal_filtro = ""
+    if args.canal:
+        nombres = " OR ".join("ca.nombre LIKE ?" for _ in args.canal)
+        canal_filtro = f"AND ({nombres})"
 
     con = sqlite3.connect(DB)
     con.row_factory = sqlite3.Row
@@ -78,11 +84,13 @@ def main():
           AND co.score < ?
           AND v.activo = 1
           {sin_frase_filtro}
+          {canal_filtro}
         GROUP BY co.tconst, co.video_id
         ORDER BY co.score ASC
     """
 
-    filas = con.execute(sql, (args.score,)).fetchall()
+    params_sql = [args.score] + [f"%{c}%" for c in args.canal]
+    filas = con.execute(sql, params_sql).fetchall()
     modo = " (solo sin frase)" if args.sin_frase else ""
     print(f"\n{len(filas)} confirmadas con score < {args.score}{modo} a auditar\n")
 
