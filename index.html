@@ -729,6 +729,7 @@ const POR_PAGINA = 48;
 let db = null;
 let pagina = 1;
 let soloPrecode = false;
+let soloDoblada = false;
 
 const genreBadge = g => {
   if (!g) return '';
@@ -795,6 +796,7 @@ function buildQuery() {
   if (genero) { where.push('p.generos LIKE ?'); params.push(`%${genero}%`); }
   if (decada) { where.push('p.decada = ?'); params.push(parseInt(decada)); }
   if (soloPrecode) { where.push('p.es_precode IN (1,2)'); }
+  if (soloDoblada) { where.push("ca.nombre LIKE '%La Corriente%'"); }
   if (pais && PAIS_MAP[pais]) {
     const paisTerminos = PAIS_MAP[pais].map(t => { params.push(`%${t}%`); return 'p.pais LIKE ?'; });
     where.push(`(${paisTerminos.join(' OR ')})`);
@@ -946,6 +948,13 @@ function irA(p) {
   render();
 }
 
+function toggleDoblada() {
+  soloDoblada = !soloDoblada;
+  document.getElementById('toggle-doblada').classList.toggle('active', soloDoblada);
+  paginaActual = 0;
+  render();
+}
+
 function togglePrecode() {
   soloPrecode = !soloPrecode;
   document.getElementById('toggle-precode').classList.toggle('active', soloPrecode);
@@ -960,6 +969,8 @@ function resetFiltros() {
   document.getElementById('f-orden').value = 'rating';
   soloPrecode = false;
   document.getElementById('toggle-precode').classList.remove('active');
+  soloDoblada = false;
+  document.getElementById('toggle-doblada').classList.remove('active');
   pagina = 1;
   render();
 }
@@ -1006,6 +1017,10 @@ function urlAFiltros() {
     soloPrecode = true;
     document.getElementById('toggle-precode').classList.add('active');
   }
+  if (params.doblada === '1') {
+    soloDoblada = true;
+    document.getElementById('toggle-doblada').classList.add('active');
+  }
 }
 
 function filtrosAUrl() {
@@ -1021,6 +1036,7 @@ function filtrosAUrl() {
   if (pais) p.set('pais', pais);
   if (orden !== 'rating') p.set('orden', orden);
   if (soloPrecode) p.set('precode', '1');
+  if (soloDoblada) p.set('doblada', '1');
   const str = p.toString();
   history.replaceState(null, '', str ? '#' + str : window.location.pathname);
 }
