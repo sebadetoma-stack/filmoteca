@@ -122,13 +122,27 @@ NEGATIVAS = re.compile(
 
 ROMANOS = {
     "i": "1", "ii": "2", "iii": "3", "iv": "4", "v": "5",
-    "vi": "6", "vii": "7", "viii": "8", "ix": "9", "x": "10",
+    "vi": "6", "vii": "7", "viii": "8", "ix": "9",
+    # "x" excluido: como letra suelta es ambiguo (título "X Marks the Spot",
+    # marca "X", incógnita). Solo convertir romanos de 2+ caracteres.
 }
 
 ARTICULOS = {
     "the", "a", "an", "el", "la", "los", "las", "un", "una", "unos", "unas",
     "le", "les", "il", "lo", "der", "die", "das", "l", "de", "of", "y", "and",
 }
+
+# Números escritos → dígitos (y viceversa) para equiparar variantes de título.
+# "Three Guys Named Mike" == "3 Guys Named Mike", "Nine Miles to Noon" == "9 Miles to Noon".
+NUMEROS_A_DIGITOS = {
+    "one": "1", "two": "2", "three": "3", "four": "4", "five": "5",
+    "six": "6", "seven": "7", "eight": "8", "nine": "9", "ten": "10",
+    "eleven": "11", "twelve": "12", "thirteen": "13", "fourteen": "14",
+    "fifteen": "15", "sixteen": "16", "seventeen": "17", "eighteen": "18",
+    "nineteen": "19", "twenty": "20", "thirty": "30", "forty": "40",
+    "fifty": "50", "hundred": "100",
+}
+DIGITOS_A_NUMEROS = {v: k for k, v in NUMEROS_A_DIGITOS.items()}
 
 _ANIO_TOKEN = re.compile(r"^(18|19|20)\d{2}$")
 
@@ -150,7 +164,14 @@ def normalizar(titulo: str, quitar_ruido: bool = False) -> str:
     s = re.sub(r"\s+", " ", s).strip()
     # Acrónimos: "d o a" -> "doa"
     s = re.sub(r"\b(?:\w\s){1,}\w\b", lambda m: m.group(0).replace(" ", ""), s)
-    partes = [ROMANOS.get(w, w) for w in s.split()]
+    # Convertir romanos y números escritos a dígitos para equiparar variantes.
+    # "Three Guys Named Mike" -> "3 guys named mike"
+    # "nine miles to noon" -> "9 miles to noon"
+    partes = []
+    for w in s.split():
+        w = ROMANOS.get(w, w)
+        w = NUMEROS_A_DIGITOS.get(w, w)
+        partes.append(w)
     return " ".join(partes)
 
 
@@ -160,6 +181,43 @@ def tokens_clave(titulo_norm: str) -> set:
             if w not in ARTICULOS and not _ANIO_TOKEN.match(w)]
     largos = {w for w in toks if len(w) > 1}
     return largos or set(toks)
+
+
+def normalizar_variantes(s: str) -> str:
+    """
+    Normalización adicional para comparar frases con variantes menores:
+    - Plural simple: quita 's' final en palabras de 4+ letras ("horsemen"->"horseman" no,
+      pero "outlaws"->"outlaw" sí via quitar 's')
+    - Colapsa espacios internos: "night time" y "nighttime" se vuelven iguales
+    - Quita guiones internos: "self-made" -> "selfmade"
+    """
+    # Quitar guiones internos entre palabras
+    s = re.sub(r'(\w)-(\w)', r'\1\2', s)
+    # Colapsar espacios: eliminar todos los espacios para comparación
+    # (se usa solo para comparar, no para reemplazar la normalización principal)
+    return s
+
+
+def quitar_plural(s: str) -> str:
+    """
+    Equipara plural/singular simple quitando 's' final en palabras de 4+ letras.
+    "outlaws" -> "outlaw", "horsemen" no cambia (no termina en 's').
+    Solo aplica para variantes triviales de título; no es un stemmer completo.
+    """
+    return re.sub(r'\b([a-z]{3,})s\b', r'\1', s)
+
+
+def frase_normalizada(s: str) -> str:
+    """
+    Versión colapsada para comparar frases con variantes de espaciado, guiones
+    y plural/singular simple.
+    'night time' y 'nighttime' dan el mismo resultado.
+    'outlaws of the range' y 'outlaw of the range' también.
+    """
+    s = re.sub(r'(\w)-(\w)', r'\1\2', s)  # guiones internos
+    s = quitar_plural(s)                    # plural simple
+    s = re.sub(r'\s+', '', s)              # colapsar todos los espacios
+    return s
 
 
 # AKAs demasiado genéricos: palabras comunes que generan falsos positivos.
@@ -213,7 +271,20 @@ def frase_en_video(titulo_cat_norm: str, titulo_vid_norm: str) -> bool:
     # en los extremos de la cadena (ej: "doa edmond..." empieza con "doa")
     haystack = f" {titulo_vid_norm} "
     needle = f" {titulo_cat_norm} "
-    return needle in haystack
+    if needle in haystack:
+        return True
+
+    # Chequeo de variantes: "night time" vs "nighttime", "self-made" vs "selfmade"
+    # Colapsamos espacios y guiones en ambos lados y buscamos de nuevo.
+    # Solo aplica si el título tiene más de 1 token (los de 1 token ya tienen
+    # su propia lógica de tokens clave extra arriba).
+    if len(titulo_cat_norm.split()) > 1:
+        needle_col = frase_normalizada(titulo_cat_norm)
+        haystack_col = frase_normalizada(titulo_vid_norm)
+        if needle_col and needle_col in haystack_col:
+            return True
+
+    return False
 
 
 def similitud(a: str, b: str) -> float:
@@ -329,6 +400,8 @@ def puntuar(pelicula: dict, video: dict, titulos: list[str],
     tv_raw = video.get("titulo", "")
     tv = normalizar(tv_raw, quitar_ruido=True)
     tv_sin_limpiar = normalizar(tv_raw, quitar_ruido=False)
+    desc_raw = video.get("descripcion", "") or ""
+    desc_norm = normalizar(desc_raw, quitar_ruido=True)
 
     # --- PASADA 1: señales para vetos ---
     negativa = bool(NEGATIVAS.search(sin_acentos(tv_raw)))
@@ -374,11 +447,38 @@ def puntuar(pelicula: dict, video: dict, titulos: list[str],
         s = similitud(tn, tv)
         if s > mejor:
             mejor, cual = s, t
-        # la frase se chequea contra el título del video CON y SIN limpiar,
-        # pero SOLO con títulos en idiomas permitidos
+        # La frase se chequea SOLO contra el título sin limpiar.
+        # El título limpio (quitar_ruido=True) puede crear frases artificiales:
+        # "Good Bones (Full Movie) Comedy, Romance" limpio = "good bones romance"
+        # y "romance" aparecería como frase de la película Romance (1930).
+        # Solo títulos en idiomas permitidos.
         if not frase and t in _t_frase:
-            if frase_en_video(tn, tv) or frase_en_video(tn, tv_sin_limpiar):
+            if frase_en_video(tn, tv_sin_limpiar):
                 frase, frase_con = True, t
+
+    # --- FRASE EN DESCRIPCIÓN ---
+    # Si el match de título+año no es perfecto, buscar el título también
+    # en la descripción del video. No cuenta para confirmación directa,
+    # pero sube el score lo suficiente para rescatar rechazadas válidas.
+    # NO buscar en descripción si: frase ya encontrada en título Y año confirmado
+    # (match perfecto — no hace falta y evita falsos positivos por desc. genéricas).
+    frase_desc = False
+    anio_desc = False  # ¿el año de la película aparece en la descripción?
+    match_perfecto = frase and s_anio >= 100.0
+    if not match_perfecto and desc_norm:
+        # Buscar frase del título en descripción
+        _t_frase_desc = titulos_frase if titulos_frase is not None else titulos
+        for t in _t_frase_desc:
+            tn = normalizar(t)
+            if not tn:
+                continue
+            if frase_en_video(tn, desc_norm):
+                frase_desc = True
+                break
+        # Buscar el año de la película en la descripción
+        if anio:
+            anios_en_desc = [int(a) for a in re.findall(r"\b(19\d{2}|20\d{2})\b", desc_raw)]
+            anio_desc = any(abs(a - anio) <= 1 for a in anios_en_desc)
 
     # --- score ponderado (para ranking entre candidatos y para el fallback) ---
     score = (
@@ -389,29 +489,75 @@ def puntuar(pelicula: dict, video: dict, titulos: list[str],
     )
     if frase:
         score = max(score, 85.0)  # la frase domina el ranking entre candidatos
+    elif frase_desc:
+        score = max(score, 72.0)  # frase en descripción: sube pero no confirma solo
     score = max(0.0, min(100.0, score))
 
     # --- PASADA 3: decisión ---
+    # Piso mínimo de similitud de título: si el título no supera 45,
+    # no importa cuánto sumen año y canal — es un rechazo directo.
+    # Evita que año=100 + canal=75 confirmen algo con título irrelevante.
+    PISO_TITULO = 45.0
+
     if vetos:
         score = min(score, 25.0)
         estado = "rechazada"
+    elif not frase and mejor < PISO_TITULO:
+        score = min(score, 25.0)
+        estado = "rechazada"
+    elif not frase and not anios_vid and not anio_desc:
+        # Sin frase en título, sin año declarado en título, sin año en descripción:
+        # no hay ancla temporal que distinga esta película de cualquier otra
+        # con un título similar. Rechazar aunque el score de título sea alto.
+        # Evita que "Horror House" matchee "Fever" o "Romance" matchee "Flower".
+        score = min(score, 30.0)
+        estado = "rechazada"
     elif frase and plausible == "ok" and not anio_choca:
-        # Si el título tiene solo 1 token clave (ej: "Shark", "Romance", "She"),
-        # exigir que el año aparezca en el título del video para confirmar.
-        # Evita que títulos genéricos matcheen películas modernas.
+        # Si el título/AKA que generó la frase tiene solo 1 token clave
+        # (ej: "Crime", "Jungle", "Fear", "Space", "Romance", "She"),
+        # rechazar siempre — un token suelto no es ancla suficiente.
         _n_tokens_frase = len(tokens_clave(normalizar(frase_con if frase_con else cual)))
-        if _n_tokens_frase <= 1 and anio and not anios_vid:
+        if _n_tokens_frase <= 1 and s_anio < 100.0:
+            # 1 token sin año exacto en el título del video: rechazar.
+            # "Spy" -> "Spy School", "Women" -> "Women in Trouble", etc.
+            # Excepción: si el año exacto está en el título del video, el par
+            # (token + año) es suficientemente específico para confirmar.
+            # "Alibi (1929)" -> "Alibi (1929) CHESTER MORRIS" → confirmar.
+            score = min(score, 25.0)
+            estado = "rechazada"
+        elif anios_vid or anio_desc:
+            # Hay año en el título o en la descripción: ancla temporal confirmada.
+            estado = "confirmada"
+        elif confianza_canal >= 75:
+            # Sin año declarado pero canal de alta confianza: pendiente para revisión.
+            # Ejemplos válidos: doblajes al español sin año en el título, Mosfilm.
             estado = "pendiente"
+        else:
+            # Sin año y canal de baja confianza: no hay ancla suficiente.
+            # "Private Lives" -> "Private Lives of Pippa Lee" (Popcornflix),
+            # "Once Upon a Time" -> película moderna, etc.
+            score = min(score, 30.0)
+            estado = "rechazada"
+    elif frase and plausible == "no" and s_anio >= 100.0 and not anio_choca:
+        # Frase en título + año exacto en el título del video, pero sin duración
+        # registrada (o duración que no calza). El año es ancla suficiente para
+        # confirmar aunque no podamos verificar la duración.
+        # "Alibi (1929) CHESTER MORRIS" -> Alibi (1929) → confirmar.
+        _n_tokens_frase2 = len(tokens_clave(normalizar(frase_con if frase_con else cual)))
+        if _n_tokens_frase2 <= 1:
+            # 1 token + año: el año salva el match
+            estado = "confirmada"
         else:
             estado = "confirmada"
     elif frase and plausible == "dudosa":
         estado = "pendiente"      # el título es la peli, pero puede estar mutilada
     elif s_dur >= 100.0 and mejor >= 88.0:
         # Título fuerte + duración exacta.
-        # Si el título que matcheó tiene solo 1 token clave (ej: "The Road",
-        # "The Street"), exigir similitud más alta para evitar falsos positivos.
+        # Si el título tiene solo 1 token clave y no hay año exacto en el video,
+        # exigir similitud más alta para evitar falsos positivos genéricos.
+        # Con año exacto, el par (token + año + duración) es ancla suficiente.
         _n_tokens_cual = len(tokens_clave(normalizar(cual)))
-        if _n_tokens_cual >= 2 or mejor >= 95.0:
+        if _n_tokens_cual >= 2 or mejor >= 95.0 or s_anio >= 100.0:
             estado = "confirmada"
         else:
             estado = "pendiente"
@@ -425,6 +571,8 @@ def puntuar(pelicula: dict, video: dict, titulos: list[str],
         "match_con": cual,
         "frase": frase,
         "frase_con": frase_con,
+        "frase_desc": frase_desc,
+        "anio_desc": anio_desc,
         "duracion": round(s_dur, 1),
         "dur_motivo": motivo_dur,
         "anio": s_anio,
