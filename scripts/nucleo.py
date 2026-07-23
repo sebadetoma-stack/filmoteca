@@ -396,7 +396,14 @@ def puntuar(pelicula: dict, video: dict, titulos: list[str],
         score = min(score, 25.0)
         estado = "rechazada"
     elif frase and plausible == "ok" and not anio_choca:
-        estado = "confirmada"
+        # Si el título tiene solo 1 token clave (ej: "Shark", "Romance", "She"),
+        # exigir que el año aparezca en el título del video para confirmar.
+        # Evita que títulos genéricos matcheen películas modernas.
+        _n_tokens_frase = len(tokens_clave(normalizar(frase_con if frase_con else cual)))
+        if _n_tokens_frase <= 1 and anio and not anios_vid:
+            estado = "pendiente"
+        else:
+            estado = "confirmada"
     elif frase and plausible == "dudosa":
         estado = "pendiente"      # el título es la peli, pero puede estar mutilada
     elif s_dur >= 100.0 and mejor >= 88.0:
