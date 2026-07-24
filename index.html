@@ -481,21 +481,45 @@
 
   /* LOAD DB */
   #load-screen {
-    min-height: 100vh;
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    background: #0d0d0d;
+  }
+  #load-collage {
+    display: flex;
+    gap: 3px;
+    height: 100%;
+    width: 100%;
+  }
+  .load-col {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1;
+  }
+  .load-col img {
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  #load-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.82) 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1.5rem;
-    padding: 2rem;
-    text-align: center;
   }
-
   .load-title {
     font-family: var(--serif);
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 400;
-    color: var(--text);
+    color: #fff;
+    letter-spacing: 0.03em;
   }
 
   .load-title em { font-style: italic; color: var(--amber); }
@@ -578,10 +602,49 @@
 
 <!-- PANTALLA DE CARGA -->
 <div id="load-screen">
-  <div class="load-title">Filmoteca <em>Clásica</em></div>
-  <div class="load-sub" id="load-msg">Cargando la filmoteca…</div>
-  <div style="width:240px;height:2px;background:var(--border2);border-radius:2px;overflow:hidden;margin-top:0.5rem">
-    <div id="load-bar" style="height:100%;background:var(--amber);width:0%;transition:width 0.3s"></div>
+  <div id="load-collage">
+    <div class="load-col">
+      <img src="https://image.tmdb.org/t/p/w342/UObZrxhJklRmaOepUS9iTs9x4f.jpg" alt="">
+      <img src="https://image.tmdb.org/t/p/w342/ijPJ98012j35WFW6fVjnOPuTlCm.jpg" alt="">
+      <img src="https://image.tmdb.org/t/p/w342/kBSPGuqykXm7nb7UYjpx2RVhKhl.jpg" alt="">
+    </div>
+    <div class="load-col">
+      <img src="https://image.tmdb.org/t/p/w342/1vsDY5zdFFyMFfMmJkNhlMlN896.jpg" alt="">
+      <img src="https://image.tmdb.org/t/p/w342/p9miBtbnwLCsPNeACHhAZgqEknq.jpg" alt="">
+      <img src="https://image.tmdb.org/t/p/w342/du0i0WATYldugXmUI7pI5axbcL3.jpg" alt="">
+    </div>
+    <div class="load-col">
+      <img src="https://image.tmdb.org/t/p/w342/k4f0IpHOJqAK9Cvy3FLH9w90qWX.jpg" alt="">
+      <img src="https://image.tmdb.org/t/p/w342/eX2SM3UECXJgrGknXHdYS2veReS.jpg" alt="">
+      <img src="https://image.tmdb.org/t/p/w342/5RZH2gXSFTWHvVTe2k5zQF6yKqi.jpg" alt="">
+    </div>
+    <div class="load-col">
+      <img src="https://image.tmdb.org/t/p/w342/whhnoAEoobX7dasproRpBipHXJT.jpg" alt="">
+      <img src="https://image.tmdb.org/t/p/w342/wSqpPo4rSH4OIwfLyUxRHqfqBZI.jpg" alt="">
+      <img src="https://image.tmdb.org/t/p/w342/3aodTV8q8iIRtaw9dxeU8DuKlta.jpg" alt="">
+    </div>
+    <div class="load-col">
+      <img src="https://image.tmdb.org/t/p/w342/vClgmSRnROyHfzqokPrIM3GRCi.jpg" alt="">
+      <img src="https://image.tmdb.org/t/p/w342/kEbpEJeU1voZ21xzIcm2CUx9hFt.jpg" alt="">
+      <img src="https://image.tmdb.org/t/p/w342/4Vk38DMyMaGls8sOngshIx7wg4r.jpg" alt="">
+    </div>
+    <div class="load-col">
+      <img src="https://image.tmdb.org/t/p/w342/5ZJ7OrWNUdcgF4NnVX0xlkh1sTJ.jpg" alt="">
+      <img src="https://image.tmdb.org/t/p/w342/wpgTu7hZhQyyQypCf3MgayWk5y.jpg" alt="">
+      <img src="https://image.tmdb.org/t/p/w342/mJV2zrflpTaAcFgfgQc2VJboZ0Y.jpg" alt="">
+    </div>
+    <div class="load-col">
+      <img src="https://image.tmdb.org/t/p/w342/6vWkmRHsX1yIUJSimDKEJLU4UkD.jpg" alt="">
+      <img src="https://image.tmdb.org/t/p/w342/5yUoUkz0WisAXqAjELlVA91UDTL.jpg" alt="">
+      <img src="https://image.tmdb.org/t/p/w342/nUbl5w3E0T8ch7vCnmcj2yBDY6O.jpg" alt="">
+    </div>
+  </div>
+  <div id="load-overlay">
+    <div class="load-title">Filmoteca <em>Clásica</em></div>
+    <div class="load-sub" id="load-msg">Cargando la filmoteca…</div>
+    <div style="width:160px;height:2px;background:rgba(255,255,255,0.15);border-radius:2px;overflow:hidden;margin-top:1.5rem">
+      <div id="load-bar" style="height:100%;background:var(--amber);width:0%;transition:width 0.3s"></div>
+    </div>
   </div>
 </div>
 
@@ -742,22 +805,27 @@ const genreBadge = g => {
 
 const truncate = (s, n) => s && s.length > n ? s.slice(0, n) + '…' : (s || '');
 
-function poblarPaises(db) {
-  const filas = db.exec(`
-    SELECT DISTINCT p.pais
-    FROM peliculas p
-    JOIN coincidencias co ON co.tconst = p.tconst
-    WHERE co.estado = 'confirmada'
-      AND co.verificado_ar != 'bloqueado'
-      AND p.pais IS NOT NULL
-    ORDER BY p.pais
-  `);
-  if (!filas.length) return;
+const PAIS_MAP = [
+  { label: 'Cine estadounidense', termino: 'United States' },
+  { label: 'Cine británico',      termino: 'United Kingdom' },
+  { label: 'Cine italiano',       termino: 'Italy' },
+  { label: 'Cine francés',        termino: 'France' },
+  { label: 'Cine soviético',      termino: 'Soviet Union' },
+  { label: 'Cine español',        termino: 'Spain' },
+  { label: 'Cine alemán',         termino: 'Germany' },
+  { label: 'Cine japonés',        termino: 'Japan' },
+  { label: 'Cine australiano',    termino: 'Australia' },
+  { label: 'Cine canadiense',     termino: 'Canada' },
+  { label: 'Cine mexicano',       termino: 'Mexico' },
+  { label: 'Cine sueco',          termino: 'Sweden' },
+];
+
+function poblarPaises() {
   const sel = document.getElementById('f-pais');
-  filas[0].values.forEach(([pais]) => {
+  PAIS_MAP.forEach(({ label, termino }) => {
     const opt = document.createElement('option');
-    opt.value = pais;
-    opt.textContent = pais;
+    opt.value = termino;
+    opt.textContent = label;
     sel.appendChild(opt);
   });
 }
@@ -1096,7 +1164,7 @@ async function cargarDB() {
     setTimeout(() => {
       document.getElementById('load-screen').style.display = 'none';
       document.getElementById('app').style.display = 'block';
-      poblarPaises(db);
+      poblarPaises();
       urlAFiltros();
       render();
     }, 300);
