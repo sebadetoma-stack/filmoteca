@@ -634,15 +634,6 @@
 
     <select id="f-pais">
       <option value="">Todos los países</option>
-      <option value="US">Cine estadounidense</option>
-      <option value="GB">Cine británico</option>
-      <option value="IT">Cine italiano</option>
-      <option value="FR">Cine francés</option>
-      <option value="DE">Cine alemán</option>
-      <option value="JP">Cine japonés</option>
-      <option value="SU">Cine soviético</option>
-      <option value="MX">Cine mexicano</option>
-      <option value="ES">Cine español</option>
     </select>
 
     <div class="toggle-precode" id="toggle-precode" onclick="togglePrecode()">
@@ -751,17 +742,25 @@ const genreBadge = g => {
 
 const truncate = (s, n) => s && s.length > n ? s.slice(0, n) + '…' : (s || '');
 
-const PAIS_MAP = {
-  'US': ['United States'],
-  'GB': ['United Kingdom'],
-  'IT': ['Italy'],
-  'FR': ['France'],
-  'DE': ['Germany'],
-  'JP': ['Japan'],
-  'SU': ['Soviet Union'],
-  'MX': ['Mexico'],
-  'ES': ['Spain'],
-};
+function poblarPaises(db) {
+  const filas = db.exec(`
+    SELECT DISTINCT p.pais
+    FROM peliculas p
+    JOIN coincidencias co ON co.tconst = p.tconst
+    WHERE co.estado = 'confirmada'
+      AND co.verificado_ar != 'bloqueado'
+      AND p.pais IS NOT NULL
+    ORDER BY p.pais
+  `);
+  if (!filas.length) return;
+  const sel = document.getElementById('f-pais');
+  filas[0].values.forEach(([pais]) => {
+    const opt = document.createElement('option');
+    opt.value = pais;
+    opt.textContent = pais;
+    sel.appendChild(opt);
+  });
+}
 
 function buildQuery() {
   const q = document.getElementById('q').value.trim();
@@ -797,10 +796,7 @@ function buildQuery() {
   if (decada) { where.push('p.decada = ?'); params.push(parseInt(decada)); }
   if (soloPrecode) { where.push('p.es_precode IN (1,2)'); }
   if (soloDoblada) { where.push("ca.nombre LIKE '%La Corriente%'"); }
-  if (pais && PAIS_MAP[pais]) {
-    const paisTerminos = PAIS_MAP[pais].map(t => { params.push(`%${t}%`); return 'p.pais LIKE ?'; });
-    where.push(`(${paisTerminos.join(' OR ')})`);
-  }
+  if (pais) { where.push('p.pais LIKE ?'); params.push(`%${pais}%`); }
 
   const BASE = `
     FROM peliculas p
@@ -1100,6 +1096,7 @@ async function cargarDB() {
     setTimeout(() => {
       document.getElementById('load-screen').style.display = 'none';
       document.getElementById('app').style.display = 'block';
+      poblarPaises(db);
       urlAFiltros();
       render();
     }, 300);
