@@ -508,20 +508,32 @@
   #load-overlay {
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at center, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.82) 100%);
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.65) 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
+  #load-caja {
+    background: rgba(180,180,180,0.25);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 0.5px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    padding: 2rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .load-title {
     font-family: var(--serif);
-    font-size: 2.2rem;
+    font-size: 3rem;
     font-weight: 400;
     color: #fff;
     letter-spacing: 0.03em;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+    line-height: 1;
   }
-
   .load-title em { font-style: italic; color: var(--amber); }
 
   .load-sub {
@@ -640,10 +652,12 @@
     </div>
   </div>
   <div id="load-overlay">
-    <div class="load-title">Filmoteca <em>Clásica</em></div>
-    <div class="load-sub" id="load-msg">Cargando la filmoteca…</div>
-    <div style="width:160px;height:2px;background:rgba(255,255,255,0.15);border-radius:2px;overflow:hidden;margin-top:1.5rem">
-      <div id="load-bar" style="height:100%;background:var(--amber);width:0%;transition:width 0.3s"></div>
+    <div id="load-caja">
+      <div class="load-title">Filmoteca <em>Clásica</em></div>
+      <div class="load-sub" id="load-msg" style="color:rgba(255,255,255,0.7);margin-top:12px">Cargando la filmoteca…</div>
+      <div style="width:160px;height:2px;background:rgba(255,255,255,0.25);border-radius:2px;overflow:hidden;margin-top:1.5rem">
+        <div id="load-bar" style="height:100%;background:var(--amber);width:0%;transition:width 0.3s"></div>
+      </div>
     </div>
   </div>
 </div>
