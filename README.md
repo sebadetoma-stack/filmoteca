@@ -2,7 +2,7 @@
 
 **[→ Ver la filmoteca en línea](https://filmotecaclasica.com)**
 
-Un catálogo de más de 2.300 películas clásicas (1930–1970) disponibles gratuitamente en YouTube, verificadas desde Argentina.
+Un catálogo de más de 2.500 películas clásicas (1930–1970) disponibles gratuitamente en YouTube, verificadas desde Argentina.
 
 Hecha por [Sebastián De Toma](https://www.linkedin.com/in/juan-sebastian-de-toma/).
 
@@ -183,6 +183,8 @@ python3 scripts/04_mantenimiento.py --reparar
 | Kino Wizard | Particular | Cine de culto y terror clásico |
 | Cine Clásico para Todos | Particular | Cine clásico en español |
 | Arte Cine Cultura | Particular | Cine arte y clásico |
+| Cinefilia | Dominio público | Películas clásicas completas en español, dominio público |
+| Public Domain Movies | Dominio público | Más de 700 títulos, cine mudo y sonoro de dominio público |
 | Warner Bros. | Oficial | Algunos títulos completos (verificar disponibilidad AR) |
 
 ---
