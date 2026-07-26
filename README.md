@@ -2,7 +2,7 @@
 
 **[→ Ver la filmoteca en línea](https://filmotecaclasica.com)**
 
-Un catálogo de más de 2.500 películas clásicas (1930–1970) disponibles gratuitamente en YouTube, verificadas desde Argentina.
+Un catálogo de más de 2.450 películas clásicas (1930–1970) disponibles gratuitamente en YouTube, verificadas desde Argentina.
 
 Hecha por [Sebastián De Toma](https://www.linkedin.com/in/juan-sebastian-de-toma/).
 
@@ -185,6 +185,10 @@ python3 scripts/04_mantenimiento.py --reparar
 | Arte Cine Cultura | Particular | Cine arte y clásico |
 | Cinefilia | Dominio público | Películas clásicas completas en español, dominio público |
 | Public Domain Movies | Dominio público | Más de 700 títulos, cine mudo y sonoro de dominio público |
+| Brian Henry Martin | Particular | Canal personal, cine clásico 1930-1970 |
+| BeatFusion | Particular | Contenido variado con selección de clásicos |
+| Nostalgic Vision | Particular | Dedicado al cine clásico y música, 1.000+ videos |
+| Channel Video One | Particular | Video magazine con selección de clásicos |
 | Warner Bros. | Oficial | Algunos títulos completos (verificar disponibilidad AR) |
 
 ---
@@ -257,8 +261,9 @@ El reporte llega por mail al administrador. El video **no se baja automáticamen
 El flujo técnico de mantenimiento es:
 1. El administrador recibe el reporte por mail y en Google Sheets
 2. Verifica el video manualmente
-3. Si corresponde, corre `python3 rechazar.py` con el video ID para marcarlo como rechazado en la base
-4. Sube el `filmoteca.db` actualizado a GitHub
+3. Si el video está caído, busca si hay una versión alternativa confirmada en la DB (muchas películas tienen múltiples versiones de distintos canales). Si existe, actualiza el `video_id` en `coincidencias`. Si no, busca un reemplazo en YouTube.
+4. Si corresponde rechazar sin reemplazo, corre `python3 rechazar.py` con el video ID
+5. Sube el `filmoteca.db` actualizado a GitHub
 
 ## Licencia
 
