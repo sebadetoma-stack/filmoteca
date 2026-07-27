@@ -964,12 +964,14 @@ function renderCard(p) {
       </a>
       <button class="card-report" title="Reportar problema" onclick="reportar('${p.video_id}', '${p.titulo_primario}', event)">⚑</button>
       <a class="card-overlay" href="${url}" target="_blank" rel="noopener">
-        <div class="ov-title">${p.titulo_primario} (${p.anio})</div>
+        <div class="ov-title">${p.titulo_primario} (${p.anio})${p.titulo_orig !== p.titulo_primario ? `<div style="font-size:0.8em;font-weight:400;opacity:0.7;font-style:italic">${p.titulo_orig}</div>` : ''}</div>
         ${dir ? `<div class="ov-row una-linea"><em>dir.</em> ${dir}</div>` : ''}
-        ${reparto ? `<div class="ov-row una-linea"><em>con</em> ${truncate(reparto,55)}</div>` : ''}
-        ${p.sinopsis ? `<div class="ov-row" style="-webkit-line-clamp:4;font-size:11px;opacity:0.85">${truncate(p.sinopsis,200)}</div>` : ''}
-        <div class="ov-row una-linea">${p.generos ? p.generos.split(',').slice(0,2).join(', ') : '—'}${p.pais ? ` · ${p.pais.split(',')[0].trim()}` : ''} · ${p.duracion_min ? p.duracion_min + ' min' : (yt_min ? yt_min + ' min' : '')}${p.rating ? ` · IMDb ${p.rating.toFixed(1)}` : ''}</div>
-        <div class="ov-play">▶ Ver en YouTube${p.canal ? ` · ${truncate(p.canal, 28)}` : ''}</div>
+        ${reparto ? `<div class="ov-row una-linea"><em>con</em> ${reparto}</div>` : ''}
+        ${p.sinopsis ? `<div class="ov-row" style="-webkit-line-clamp:8;font-size:11px;opacity:0.85">${p.sinopsis}</div>` : ''}
+        <div class="ov-row una-linea">${p.generos ? p.generos.split(',').map(g=>g.trim()).join(', ') : '—'} · ${p.duracion_min ? p.duracion_min + ' min' : (yt_min ? yt_min + ' min' : '')}</div>
+        ${p.pais ? `<div class="ov-row una-linea"><em>país</em> ${p.pais}</div>` : ''}
+        <div class="ov-row una-linea">${p.rating ? `★ ${p.rating.toFixed(1)}${p.votos ? ` · ${p.votos.toLocaleString('es-AR')} votos` : ''}` : ''}${p.es_precode ? ' · Pre-Code' : ''}${p.idioma_audio === 'es' ? ' · Doblada al español' : ''}</div>
+        <div class="ov-play">▶ Ver en YouTube${p.canal ? ` · ${p.canal}` : ''}</div>
       </a>
     </div>
   `;
