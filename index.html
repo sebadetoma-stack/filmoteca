@@ -376,7 +376,7 @@
   .ov-title {
     font-family: var(--serif); font-size: 1rem; line-height: 1.2;
     font-weight: 600;
-    display: -webkit-box; -webkit-line-clamp: 2;
+    display: -webkit-box; -webkit-line-clamp: 3;
     -webkit-box-orient: vertical; overflow: hidden;
   }
   .ov-row {
@@ -936,7 +936,7 @@ function renderPersonas(tconst, rol, limite) {
 function renderCard(p) {
   const url = `https://youtu.be/${p.video_id}`;
   const dir = renderPersonas(p.tconst, 'director', 2);
-  const reparto = renderPersonas(p.tconst, 'actor', 4);
+  const reparto = renderPersonas(p.tconst, 'actor', 6);
   const yt_min = p.duracion_seg ? Math.round(p.duracion_seg / 60) : null;
   const idioma = p.idioma_audio === 'es' ? ' · Español' : '';
   const rating = p.rating ? `<span class="star">★</span> ${p.rating.toFixed(1)}` : '';
@@ -966,7 +966,7 @@ function renderCard(p) {
       <a class="card-overlay" href="${url}" target="_blank" rel="noopener">
         <div class="ov-title">${p.titulo_primario} (${p.anio})${p.titulo_orig !== p.titulo_primario ? `<div style="font-size:0.8em;font-weight:400;opacity:0.7;font-style:italic">${p.titulo_orig}</div>` : ''}</div>
         ${dir ? `<div class="ov-row una-linea"><em>dir.</em> ${dir}</div>` : ''}
-        ${reparto ? `<div class="ov-row una-linea"><em>con</em> ${reparto}</div>` : ''}
+        ${reparto ? `<div class="ov-row" style="-webkit-line-clamp:2"><em>con</em> ${reparto}</div>` : ''}
         ${p.sinopsis ? `<div class="ov-row" style="-webkit-line-clamp:8;font-size:11px;opacity:0.85">${p.sinopsis}</div>` : ''}
         <div class="ov-row una-linea">${p.generos ? p.generos.split(',').map(g=>g.trim()).join(', ') : '—'} · ${p.duracion_min ? p.duracion_min + ' min' : (yt_min ? yt_min + ' min' : '')}</div>
         ${p.pais ? `<div class="ov-row una-linea"><em>país</em> ${p.pais}</div>` : ''}
