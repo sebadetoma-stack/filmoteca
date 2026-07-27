@@ -965,9 +965,9 @@ function renderCard(p) {
       <button class="card-report" title="Reportar problema" onclick="reportar('${p.video_id}', '${p.titulo_primario}', event)">⚑</button>
       <a class="card-overlay" href="${url}" target="_blank" rel="noopener">
         <div class="ov-title" style="-webkit-line-clamp:2">${p.titulo_primario} (${p.anio})</div>
-        ${p.titulo_orig !== p.titulo_primario ? `<div class="ov-row una-linea" style="font-style:italic;opacity:0.7;margin-top:-0.1rem">${p.titulo_orig}</div>` : ''}
+        ${p.titulo_orig !== p.titulo_primario ? `<div class="ov-row" style="-webkit-line-clamp:2;font-style:italic;opacity:0.7;margin-top:-0.1rem">${p.titulo_orig}</div>` : ''}
         ${dir ? `<div class="ov-row una-linea"><em>dir.</em> ${dir}</div>` : ''}
-        ${reparto ? `<div class="ov-row" style="-webkit-line-clamp:2"><em>con</em> ${reparto}</div>` : ''}
+        ${reparto ? `<div class="ov-row" style="-webkit-line-clamp:3"><em>con</em> ${reparto}</div>` : ''}
         ${p.sinopsis ? `<div class="ov-row" style="-webkit-line-clamp:6;font-size:11px;opacity:0.85">${p.sinopsis}</div>` : ''}
         <div class="ov-row una-linea">${p.generos ? p.generos.split(',').map(g=>g.trim()).join(', ') : '—'} · ${p.duracion_min ? p.duracion_min + ' min' : (yt_min ? yt_min + ' min' : '')}</div>
         ${p.pais ? `<div class="ov-row una-linea"><em>país</em> ${p.pais}</div>` : ''}
