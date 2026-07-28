@@ -966,11 +966,11 @@ function renderCard(p) {
         <div class="ov-row una-linea">${p.rating ? `★ ${p.rating.toFixed(1)}${p.votos ? ` · ${p.votos.toLocaleString('es-AR')} votos` : ''}` : ''}${p.es_precode ? ' · Pre-Code' : ''}${p.idioma_audio === 'es' ? ' · Doblada al español' : ''}</div>
         <div style="margin-top:auto;padding-top:0.5rem;padding-bottom:0.25rem">
           <div style="margin-bottom:0.35rem">${genreBadge(p.generos)}</div>
-          <div style="font-size:11px;color:var(--amber);display:flex;align-items:center;gap:5px">
-            <span style="width:18px;height:18px;border-radius:50%;border:1px solid var(--amber);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <div style="font-size:11px;color:var(--amber);display:flex;align-items:flex-start;gap:5px;flex-wrap:wrap">
+            <span style="width:18px;height:18px;border-radius:50%;border:1px solid var(--amber);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">
               <svg width="8" height="8" viewBox="0 0 10 10" fill="currentColor"><polygon points="2,1 9,5 2,9"/></svg>
             </span>
-            Ver en YouTube${p.canal ? ` · ${truncate(p.canal, 28)}` : ''}
+            <span>Ver en YouTube${p.canal ? `<br>· ${p.canal}` : ''}</span>
           </div>
         </div>
       </a>
