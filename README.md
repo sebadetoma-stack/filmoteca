@@ -2,7 +2,7 @@
 
 **[→ Ver la filmoteca en línea](https://filmotecaclasica.com)**
 
-Un catálogo de más de 2.450 películas clásicas (1930–1970) disponibles gratuitamente en YouTube, verificadas desde Argentina.
+Un catálogo de más de 2.800 películas clásicas (1930–1979) disponibles gratuitamente en YouTube, verificadas desde Argentina.
 
 Hecha por [Sebastián De Toma](https://www.linkedin.com/in/juan-sebastian-de-toma/).
 
@@ -14,7 +14,7 @@ Hay cientos de películas clásicas completas en YouTube. El problema es que no 
 
 Esta filmoteca responde una pregunta simple: **¿qué películas clásicas puedo ver hoy, gratis y completas, desde Argentina?**
 
-El catálogo cubre cine estadounidense y británico de 1930 a 1970: film noir, westerns, comedias, dramas, épicas, cine Pre-Code. Cada entrada fue verificada cruzando la duración y el título del video contra los datos de IMDb, descartando trailers, escenas sueltas y copias incompletas.
+El catálogo cubre cine de 1930 a 1979: film noir, westerns, comedias, dramas, épicas, cine Pre-Code, cine de autor de los 70s. Cada entrada fue verificada cruzando la duración y el título del video contra los datos de IMDb, descartando trailers, escenas sueltas y copias incompletas.
 
 ---
 
@@ -32,7 +32,7 @@ No hay servidor. No hay backend. El archivo `filmoteca.db` vive en GitHub y el n
 ### El pipeline
 
 ```
-01_ingest_imdb.py   →  Descarga y filtra los datasets de IMDb (1930-1970)
+01_ingest_imdb.py   →  Descarga y filtra los datasets de IMDb (1930-1979)
 02_cosechar.py      →  Enumera todos los videos de los canales de YouTube
 03_matching.py      →  Cruza videos contra el catálogo (offline, cero cuota)
 ia_resolver2.py     →  Usa IA para resolver los casos dudosos
@@ -182,14 +182,15 @@ python3 scripts/04_mantenimiento.py --reparar
 | Mosfilm (English) | Oficial | Canal oficial del estudio soviético, subtítulos en inglés |
 | Kino Wizard | Particular | Cine de culto y terror clásico |
 | Cine Clásico para Todos | Particular | Cine clásico en español |
-| Arte Cine Cultura | Particular | Cine arte y clásico |
 | Cinefilia | Dominio público | Películas clásicas completas en español, dominio público |
 | Public Domain Movies | Dominio público | Más de 700 títulos, cine mudo y sonoro de dominio público |
-| Brian Henry Martin | Particular | Canal personal, cine clásico 1930-1970 |
+| Brian Henry Martin | Particular | Canal personal, cine clásico 1930-1979 |
 | BeatFusion | Particular | Contenido variado con selección de clásicos |
 | Nostalgic Vision | Particular | Dedicado al cine clásico y música, 1.000+ videos |
-| Channel Video One | Particular | Video magazine con selección de clásicos |
 | Warner Bros. | Oficial | Algunos títulos completos (verificar disponibilidad AR) |
+| DK Classics | Dominio público | Cine clásico completo, familia de canales DK |
+| DK Classics II | Dominio público | Cine clásico completo, familia de canales DK |
+| DK Classics III | Dominio público | Cine clásico completo, familia de canales DK |
 
 ---
 

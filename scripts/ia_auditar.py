@@ -56,6 +56,8 @@ def main():
                     help="Solo revisar las que no tienen match de frase (mas riesgosas)")
     ap.add_argument("--canal", action="append", default=[],
                     help="Solo revisar confirmadas de este canal (se puede repetir)")
+    ap.add_argument("--decada", type=int, default=None,
+                    help="Solo revisar confirmadas de esta decada (ej: 1970)")
     args = ap.parse_args()
 
     sin_frase_filtro = "AND (co.senales NOT LIKE '%frase\": true%')" if args.sin_frase else ""
@@ -63,6 +65,7 @@ def main():
     if args.canal:
         nombres = " OR ".join("ca.nombre LIKE ?" for _ in args.canal)
         canal_filtro = f"AND ({nombres})"
+    decada_filtro = f"AND p.decada = {args.decada}" if args.decada else ""
 
     con = sqlite3.connect(DB)
     con.row_factory = sqlite3.Row
@@ -85,6 +88,7 @@ def main():
           AND v.activo = 1
           {sin_frase_filtro}
           {canal_filtro}
+          {decada_filtro}
         GROUP BY co.tconst, co.video_id
         ORDER BY co.score ASC
     """
@@ -100,7 +104,7 @@ def main():
         dur_yt = f"{r['duracion_seg']//60} min" if r['duracion_seg'] else "?"
         dur_imdb = f"{r['duracion_min']} min" if r['duracion_min'] else "?"
 
-        prompt = f"""Sos un experto en cine clásico (1930-1970). Determiná si un video de YouTube es la película indicada.
+        prompt = f"""Sos un experto en cine clásico (1930-1979). Determiná si un video de YouTube es la película indicada.
 
 PELÍCULA DEL CATÁLOGO:
 - Título: {r['titulo_primario']} / {r['titulo_orig']}
