@@ -229,7 +229,7 @@
   }
 
   /* CARD */
-  .card {
+  .card { cursor: pointer; text-decoration: none; color: inherit;
     background: var(--bg);
     padding: 1.25rem 1.5rem;
     display: flex;
@@ -943,7 +943,7 @@ function renderCard(p) {
   const precode = p.es_precode ? `<span class="badge badge-pre">Pre-Code</span>` : '';
 
   return `
-    <div class="card">
+    <a class="card" href="${urlPeli}">
       ${p.poster_url
         ? `<img class="card-poster" src="${p.poster_url}" alt="${p.titulo_primario}" loading="lazy">`
         : `<div class="card-poster-placeholder">🎬</div>`
@@ -956,14 +956,14 @@ function renderCard(p) {
         ${precode}
         ${rating ? `<div class="card-rating">${rating}</div>` : ''}
       </div>
-      <a class="play-btn" href="${urlPeli}">
+      <span class="play-btn">
         <span class="play-icon">
           <svg width="8" height="8" viewBox="0 0 10 10" fill="currentColor"><polygon points="2,1 9,5 2,9"/></svg>
         </span>
         Ver en YouTube${p.canal ? ` · ${truncate(p.canal, 24)}` : ''}
-      </a>
+      </span>
       <button class="card-report" title="Reportar problema" onclick="reportar('${p.video_id}', '${p.titulo_primario}', event)">⚑</button>
-      <a class="card-overlay" href="${urlPeli}">
+      <div class="card-overlay">
         <div class="ov-title" style="-webkit-line-clamp:2">${p.titulo_primario} (${p.anio})</div>
         ${p.titulo_orig !== p.titulo_primario ? `<div class="ov-row" style="-webkit-line-clamp:2;font-style:italic;opacity:0.7;margin-top:-0.1rem">${p.titulo_orig}</div>` : ''}
         ${dir ? `<div class="ov-row una-linea"><em>dir.</em> ${dir}</div>` : ''}
@@ -981,8 +981,8 @@ function renderCard(p) {
             <span>Ver en YouTube${p.canal ? `<br>· ${p.canal}` : ''}</span>
           </div>
         </div>
-      </a>
-    </div>
+      </div>
+    </a>
   `;
 }
 
