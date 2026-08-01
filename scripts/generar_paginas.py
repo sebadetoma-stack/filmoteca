@@ -335,7 +335,13 @@ def generar_html(p, dirs, actores, rel, slug):
         badges += '<span class="badge badge-special">Pre-Code (1934)</span>'
 
     # Idioma
-    idioma_txt = "Doblada al español" if idioma == "es" else ("En inglés" if idioma == "en" else "")
+    IDIOMA_MAP = {
+        'es': 'Español', 'es-419': 'Español', 'es-ES': 'Español',
+        'en': 'Inglés', 'en-US': 'Inglés', 'en-GB': 'Inglés', 'en-IN': 'Inglés',
+        'fr': 'Francés', 'it': 'Italiano', 'ru': 'Ruso',
+        'de': 'Alemán', 'ja': 'Japonés', 'pt': 'Portugués',
+    }
+    idioma_txt = IDIOMA_MAP.get(idioma, "")
 
     # Datos grid
     datos = []

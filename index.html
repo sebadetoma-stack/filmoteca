@@ -939,7 +939,13 @@ function renderCard(p) {
   const dir = renderPersonas(p.tconst, 'director', 2);
   const reparto = renderPersonas(p.tconst, 'actor', 6);
   const yt_min = p.duracion_seg ? Math.round(p.duracion_seg / 60) : null;
-  const idioma = p.idioma_audio === 'es' ? ' · Español' : '';
+  const IDIOMA_MAP = {
+    'es': 'Español', 'es-419': 'Español', 'es-ES': 'Español',
+    'en': 'Inglés', 'en-US': 'Inglés', 'en-GB': 'Inglés', 'en-IN': 'Inglés',
+    'fr': 'Francés', 'it': 'Italiano', 'ru': 'Ruso',
+    'de': 'Alemán', 'ja': 'Japonés', 'pt': 'Portugués',
+  };
+  const idioma = IDIOMA_MAP[p.idioma_audio] ? ' · ' + IDIOMA_MAP[p.idioma_audio] : '';
   const rating = p.rating ? `<span class="star">★</span> ${p.rating.toFixed(1)}` : '';
   const precode = p.es_precode ? `<span class="badge badge-pre">Pre-Code</span>` : '';
 
@@ -972,7 +978,7 @@ function renderCard(p) {
         ${p.sinopsis ? `<div class="ov-row" style="-webkit-line-clamp:6;font-size:11px;opacity:0.85">${p.sinopsis}</div>` : ''}
         <div class="ov-row una-linea">${p.generos ? p.generos.split(',').map(g=>g.trim()).join(', ') : '—'} · ${p.duracion_min ? p.duracion_min + ' min' : (yt_min ? yt_min + ' min' : '')}</div>
         ${p.pais ? `<div class="ov-row una-linea"><em>país</em> ${p.pais}</div>` : ''}
-        <div class="ov-row una-linea">${p.rating ? `★ ${p.rating.toFixed(1)}${p.votos ? ` · ${p.votos.toLocaleString('es-AR')} votos` : ''}` : ''}${p.es_precode ? ' · Pre-Code' : ''}${p.idioma_audio === 'es' ? ' · Doblada al español' : ''}</div>
+        <div class="ov-row una-linea">${p.rating ? `★ ${p.rating.toFixed(1)}${p.votos ? ` · ${p.votos.toLocaleString('es-AR')} votos` : ''}` : ''}${p.es_precode ? ' · Pre-Code' : ''}${IDIOMA_MAP[p.idioma_audio] ? ' · ' + IDIOMA_MAP[p.idioma_audio] : ''}</div>
         <div style="margin-top:auto;padding-top:0.5rem;padding-bottom:0.25rem">
           <div style="margin-bottom:0.35rem">${genreBadge(p.generos)}</div>
           <div style="font-size:11px;color:var(--amber);display:flex;align-items:flex-start;gap:5px;flex-wrap:wrap">
