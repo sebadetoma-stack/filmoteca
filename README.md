@@ -2,7 +2,7 @@
 
 **[→ Ver la filmoteca en línea](https://filmotecaclasica.com)**
 
-Un catálogo de más de 2.800 películas clásicas (1930–1979) disponibles gratuitamente en YouTube, verificadas desde Argentina.
+Un catálogo de más de 3.000 películas clásicas (1930–1979) disponibles gratuitamente en YouTube, verificadas desde Argentina.
 
 Hecha por [Sebastián De Toma](https://www.linkedin.com/in/juan-sebastian-de-toma/).
 
@@ -191,6 +191,12 @@ python3 scripts/04_mantenimiento.py --reparar
 | DK Classics | Dominio público | Cine clásico completo, familia de canales DK |
 | DK Classics II | Dominio público | Cine clásico completo, familia de canales DK |
 | DK Classics III | Dominio público | Cine clásico completo, familia de canales DK |
+| CRFA \| Época de Oro | Particular | Cine argentino de la época de oro, 700+ títulos |
+| Lo que el cine nos dejó | Particular | Cine argentino clásico con datos técnicos completos |
+| persona cinecafé | Particular | Cine argentino de autor y vanguardia |
+| Retro Movies & Cheap Wine | Particular | Cine argentino clásico restaurado |
+| RetroFuente | Particular | Cine argentino clásico y música de la época |
+| Archivo Amorina | Particular | Archivo de cine argentino clásico |
 
 ---
 
