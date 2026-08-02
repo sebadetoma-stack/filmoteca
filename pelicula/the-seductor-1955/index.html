@@ -99,6 +99,15 @@
   .btn-yt{display:inline-flex;align-items:center;gap:10px;background:var(--amber);color:#fff;border-radius:var(--radius);padding:12px 20px;font-size:14px;font-weight:500;margin-bottom:1.4rem;transition:background 0.15s}
   .btn-yt:hover{background:#7a3b10}
   .btn-yt-play{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.7);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .btn-yt-wrap{display:flex;flex-direction:column;gap:6px;margin-bottom:1.4rem}
+  .yt-versions-dropdown{position:relative;display:inline-block}
+  .yt-versions-toggle{background:none;border:1px solid var(--border);border-radius:var(--radius);padding:5px 12px;font-size:12px;color:var(--text-secondary);cursor:pointer}
+  .yt-versions-toggle:hover{background:var(--surface-1)}
+  .yt-versions-list{display:none;position:absolute;top:calc(100% + 4px);left:0;background:var(--surface-0);border:1px solid var(--border);border-radius:var(--radius);z-index:10;min-width:260px;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+  .yt-versions-dropdown.open .yt-versions-list{display:block}
+  .yt-version-item{display:block;padding:8px 14px;font-size:13px;color:var(--text-primary);border-bottom:1px solid var(--border)}
+  .yt-version-item:last-child{border-bottom:none}
+  .yt-version-item:hover{background:var(--surface-1)}
   /* DATOS */
   .datos-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1.2rem}
   .dato{background:var(--bg2);border-radius:var(--radius);padding:8px 12px}
@@ -161,18 +170,13 @@
       <h1>The Seductor</h1>
       <div class="titulo-orig">El seductor</div>
 
-      <a class="btn-yt" href="https://www.youtube.com/watch?v=hzt9P8q-XAM" target="_blank" rel="noopener">
-        <div class="btn-yt-play">
-          <svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg>
-        </div>
-        Ver en YouTube · gratis y completa
-      </a>
+      <a class="btn-yt" href="https://www.youtube.com/watch?v=hzt9P8q-XAM" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
 
       
       
 
       <div class="datos-grid">
-        <div class="dato"><div class="dato-label">País</div><div class="dato-val">Mexico</div></div><div class="dato"><div class="dato-label">En YouTube desde</div><div class="dato-val">abril 2026</div></div>
+        <div class="dato"><div class="dato-label">País</div><div class="dato-val">Mexico</div></div><div class="dato"><div class="dato-label">Idioma</div><div class="dato-val">Español</div></div><div class="dato"><div class="dato-label">En YouTube desde</div><div class="dato-val">abril 2026</div></div>
       </div>
 
       <div class="sinopsis">Aurora besa a su amante delante de su marido y su hija Raquel. El marido la mata y se suicida. Raquel y su hermana Angélica quedan al cuidado de su nana Luisa. Angélica es contratada por el pintor Juan Alberto para posar y se enamora de él. Raquel se opone a la relación y cuando le conoce, descubre que es el seductor de su madre.</div>
@@ -198,6 +202,20 @@
     <div class="rel-titulo">Películas relacionadas</div>
     <div class="rel-grid">
       
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/paths-of-glory-1957/">
+          <div class="rel-poster"><div class="rel-placeholder">Paths of Glory</div></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">Paths of Glory</div>
+            <div class="rel-anio">1957</div>
+          </div>
+        </a>
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/barry-lyndon-1975/">
+          <div class="rel-poster"><div class="rel-placeholder">Barry Lyndon</div></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">Barry Lyndon</div>
+            <div class="rel-anio">1975</div>
+          </div>
+        </a>
         <a class="rel-card" href="https://filmotecaclasica.com/pelicula/rebecca-1940/">
           <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/mJV2zrflpTaAcFgfgQc2VJboZ0Y.jpg" alt="Rebecca" loading="lazy"></div>
           <div class="rel-info">
@@ -210,20 +228,6 @@
           <div class="rel-info">
             <div class="rel-titulo-peli">Wild Strawberries</div>
             <div class="rel-anio">1957</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/notorious-1946/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/bPc78lZW4XNTE6w2cUEyJQgFU6p.jpg" alt="Notorious" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">Notorious</div>
-            <div class="rel-anio">1946</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/diabolique-1955/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/eX2SM3UECXJgrGknXHdYS2veReS.jpg" alt="Diabolique" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">Diabolique</div>
-            <div class="rel-anio">1955</div>
           </div>
         </a>
     </div>

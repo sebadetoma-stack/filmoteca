@@ -128,6 +128,15 @@
   .btn-yt{display:inline-flex;align-items:center;gap:10px;background:var(--amber);color:#fff;border-radius:var(--radius);padding:12px 20px;font-size:14px;font-weight:500;margin-bottom:1.4rem;transition:background 0.15s}
   .btn-yt:hover{background:#7a3b10}
   .btn-yt-play{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.7);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .btn-yt-wrap{display:flex;flex-direction:column;gap:6px;margin-bottom:1.4rem}
+  .yt-versions-dropdown{position:relative;display:inline-block}
+  .yt-versions-toggle{background:none;border:1px solid var(--border);border-radius:var(--radius);padding:5px 12px;font-size:12px;color:var(--text-secondary);cursor:pointer}
+  .yt-versions-toggle:hover{background:var(--surface-1)}
+  .yt-versions-list{display:none;position:absolute;top:calc(100% + 4px);left:0;background:var(--surface-0);border:1px solid var(--border);border-radius:var(--radius);z-index:10;min-width:260px;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+  .yt-versions-dropdown.open .yt-versions-list{display:block}
+  .yt-version-item{display:block;padding:8px 14px;font-size:13px;color:var(--text-primary);border-bottom:1px solid var(--border)}
+  .yt-version-item:last-child{border-bottom:none}
+  .yt-version-item:hover{background:var(--surface-1)}
   /* DATOS */
   .datos-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1.2rem}
   .dato{background:var(--bg2);border-radius:var(--radius);padding:8px 12px}
@@ -190,18 +199,13 @@
       <h1>The Fabulous Joe</h1>
       
 
-      <a class="btn-yt" href="https://www.youtube.com/watch?v=hZTod1BrWak" target="_blank" rel="noopener">
-        <div class="btn-yt-play">
-          <svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg>
-        </div>
-        Ver en YouTube · gratis y completa
-      </a>
+      <a class="btn-yt" href="https://www.youtube.com/watch?v=hZTod1BrWak" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
 
       <div class="fila"><div class="fila-label">Director</div><div class="fila-val">Harve Foster</div></div>
       <div class="fila"><div class="fila-label">Reparto</div><div class="fila-val">Walter Abel, Margot Grahame, Marie Wilson, Donald Meek, Sheldon Leonard, Howard Petrie</div></div>
 
       <div class="datos-grid">
-        <div class="dato"><div class="dato-label">País</div><div class="dato-val">United States</div></div><div class="dato"><div class="dato-label">Rating IMDb</div><div class="dato-val">★ 6.0 · 189 votos</div></div><div class="dato"><div class="dato-label">Idioma</div><div class="dato-val">En inglés</div></div><div class="dato"><div class="dato-label">En YouTube desde</div><div class="dato-val">junio 2022</div></div>
+        <div class="dato"><div class="dato-label">País</div><div class="dato-val">United States</div></div><div class="dato"><div class="dato-label">Rating IMDb</div><div class="dato-val">★ 6.0 · 189 votos</div></div><div class="dato"><div class="dato-label">Idioma</div><div class="dato-val">Inglés</div></div><div class="dato"><div class="dato-label">En YouTube desde</div><div class="dato-val">junio 2022</div></div>
       </div>
 
       <div class="sinopsis">Milo Terkel's life is never the same after he is willed a dog named Joe. Milo buys his wife a diamond necklace for their anniversary, but when he returns home he finds a note saying she is attending a charity affair. He decides to celebrate alone, taking Joe along for company. After two "mystery gardenias" at the Florida Club, he meets gorgeous Miss Gilmore who spots the necklace and asks to try it on. Milo is punched in the nose by Miss Gilmore's boyfriend, Louie. But Milo's troubles really begin when his dog starts to talk to him, and ONLY to him! He tells Milo to act tough, like Humphrey Bogart. It's a laugh-a-minute as Milo changes from lamb to lion and is innocently caught by his wife with the shapely Miss Gilmore. When his wife sues for divorce he tells the judge about Joe being his advisor. The judge can only suggest that Milo and his wife take a long vacation to work out their problems. Everyone knows a dog simply can't talk!</div>
@@ -234,6 +238,13 @@
             <div class="rel-anio">1943</div>
           </div>
         </a>
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-golden-voyage-of-sinbad-1973/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/s29SGisFfyQxNyhNJLt9hx0sC57.jpg" alt="The Golden Voyage of Sinbad" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">The Golden Voyage of Sinbad</div>
+            <div class="rel-anio">1973</div>
+          </div>
+        </a>
         <a class="rel-card" href="https://filmotecaclasica.com/pelicula/blithe-spirit-1945/">
           <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/plsqAZKwWXkZYIrtS8keQRhQBsA.jpg" alt="Blithe Spirit" loading="lazy"></div>
           <div class="rel-info">
@@ -246,13 +257,6 @@
           <div class="rel-info">
             <div class="rel-titulo-peli">White Sun of the Desert</div>
             <div class="rel-anio">1969</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/nothing-sacred-1937/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/gmOWPhsMyOiV9M0v7oZ45uIam3X.jpg" alt="Nothing Sacred" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">Nothing Sacred</div>
-            <div class="rel-anio">1937</div>
           </div>
         </a>
     </div>

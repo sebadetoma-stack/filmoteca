@@ -131,6 +131,15 @@
   .btn-yt{display:inline-flex;align-items:center;gap:10px;background:var(--amber);color:#fff;border-radius:var(--radius);padding:12px 20px;font-size:14px;font-weight:500;margin-bottom:1.4rem;transition:background 0.15s}
   .btn-yt:hover{background:#7a3b10}
   .btn-yt-play{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.7);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .btn-yt-wrap{display:flex;flex-direction:column;gap:6px;margin-bottom:1.4rem}
+  .yt-versions-dropdown{position:relative;display:inline-block}
+  .yt-versions-toggle{background:none;border:1px solid var(--border);border-radius:var(--radius);padding:5px 12px;font-size:12px;color:var(--text-secondary);cursor:pointer}
+  .yt-versions-toggle:hover{background:var(--surface-1)}
+  .yt-versions-list{display:none;position:absolute;top:calc(100% + 4px);left:0;background:var(--surface-0);border:1px solid var(--border);border-radius:var(--radius);z-index:10;min-width:260px;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+  .yt-versions-dropdown.open .yt-versions-list{display:block}
+  .yt-version-item{display:block;padding:8px 14px;font-size:13px;color:var(--text-primary);border-bottom:1px solid var(--border)}
+  .yt-version-item:last-child{border-bottom:none}
+  .yt-version-item:hover{background:var(--surface-1)}
   /* DATOS */
   .datos-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1.2rem}
   .dato{background:var(--bg2);border-radius:var(--radius);padding:8px 12px}
@@ -193,18 +202,26 @@
       <h1>A Star Is Born</h1>
       
 
-      <a class="btn-yt" href="https://www.youtube.com/watch?v=TLKwa2qxf38" target="_blank" rel="noopener">
-        <div class="btn-yt-play">
-          <svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg>
-        </div>
-        Ver en YouTube · gratis y completa
-      </a>
+      <div class="btn-yt-wrap">
+  <a class="btn-yt" href="https://www.youtube.com/watch?v=60InTWC-zB4" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+  <div class="yt-versions-dropdown">
+    <button class="yt-versions-toggle" onclick="this.parentElement.classList.toggle('open')">▾ 8 versiones</button>
+    <div class="yt-versions-list"><a class="yt-version-item" href="https://www.youtube.com/watch?v=60InTWC-zB4" target="_blank" rel="noopener">Cinefilia · Español</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=YfTsDUBVhzM" target="_blank" rel="noopener">La Corriente Películas · Español</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=0bip6GU-eqQ" target="_blank" rel="noopener">Channel Video One · Inglés</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=425yT-mqbkw" target="_blank" rel="noopener">Cult Cinema Classics · Inglés</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=j8vy7gnqCo0" target="_blank" rel="noopener">Free Vintage Movies | Public Domain Classics · Inglés</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=SIIM_0X1xxM" target="_blank" rel="noopener">Free Vintage Movies | Public Domain Classics · Inglés</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=TLKwa2qxf38" target="_blank" rel="noopener">PizzaFlix · Inglés</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=IJnzxLjmvFI" target="_blank" rel="noopener">Public Domain Movies · Inglés</a></div>
+  </div>
+</div>
 
       <div class="fila"><div class="fila-label">Director</div><div class="fila-val">William A. Wellman, Jack Conway</div></div>
       <div class="fila"><div class="fila-label">Reparto</div><div class="fila-val">Janet Gaynor, Fredric March, Adolphe Menjou, May Robson, Andy Devine, Lionel Stander</div></div>
 
       <div class="datos-grid">
-        <div class="dato"><div class="dato-label">País</div><div class="dato-val">United States</div></div><div class="dato"><div class="dato-label">Rating IMDb</div><div class="dato-val">★ 7.3 · 12K votos</div></div><div class="dato"><div class="dato-label">Idioma</div><div class="dato-val">En inglés</div></div><div class="dato"><div class="dato-label">En YouTube desde</div><div class="dato-val">febrero 2019</div></div>
+        <div class="dato"><div class="dato-label">País</div><div class="dato-val">United States</div></div><div class="dato"><div class="dato-label">Rating IMDb</div><div class="dato-val">★ 7.3 · 12K votos</div></div><div class="dato"><div class="dato-label">Idioma</div><div class="dato-val">Inglés</div></div><div class="dato"><div class="dato-label">En YouTube desde</div><div class="dato-val">febrero 2019</div></div>
       </div>
 
       <div class="sinopsis">Esther Blodgett, una ambiciosa chica de pueblo con mucho talento, llega a Hollywood. En una fiesta en la que trabaja como camarera conoce a Norman Maine, un famoso actor en decadencia. Para sorpresa de Esther, Norman le ofrece un papel en una película y, tras realizar una prueba, el productor queda impresionado y decide convertirla en una estrella. Norman y Esther se casan, pero la felicidad se ve empañada por el declive de Norman y el rápido ascenso al estrellato de Esther.</div>
@@ -212,7 +229,7 @@
       <div class="badges"><span class="badge">Drama</span><span class="badge">Romance</span></div>
 
       <div class="canal-info">
-        Disponible en <strong>PizzaFlix</strong> · verificada desde Argentina
+        Disponible en 8 versiones · verificada desde Argentina
       </div>
 
       <div class="links-ext">

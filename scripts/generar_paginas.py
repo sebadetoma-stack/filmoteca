@@ -125,7 +125,27 @@ def cargar_datos(con):
         if rol in personas[tconst]:
             personas[tconst][rol].append(nombre)
 
-    return pelis, personas
+    # Todas las versiones disponibles por tconst (para dropdown)
+    cur.execute("""
+        SELECT
+            c.tconst, c.video_id, v.idioma_audio, ca.nombre as canal
+        FROM coincidencias c
+        JOIN videos v ON v.video_id = c.video_id
+        LEFT JOIN canales ca ON ca.channel_id = v.channel_id
+        WHERE c.estado = 'confirmada'
+          AND v.activo = 1
+          AND (v.ve_ar = 1 OR v.ve_ar IS NULL)
+        ORDER BY c.tconst,
+          CASE WHEN v.idioma_audio IN ('es', 'es-419', 'es-ES') THEN 1 ELSE 2 END,
+          ca.nombre
+    """)
+    versiones_map = {}
+    for tconst, vid, idioma, canal in cur.fetchall():
+        if tconst not in versiones_map:
+            versiones_map[tconst] = []
+        versiones_map[tconst].append({'video_id': vid, 'idioma_audio': idioma, 'canal': canal})
+
+    return pelis, personas, versiones_map
 
 def precalcular_relacionadas(pelis, personas):
     """Para cada película, encuentra las 4 más relacionadas."""
@@ -207,6 +227,15 @@ CSS = """
   .btn-yt{display:inline-flex;align-items:center;gap:10px;background:var(--amber);color:#fff;border-radius:var(--radius);padding:12px 20px;font-size:14px;font-weight:500;margin-bottom:1.4rem;transition:background 0.15s}
   .btn-yt:hover{background:#7a3b10}
   .btn-yt-play{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.7);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .btn-yt-wrap{display:flex;flex-direction:column;gap:6px;margin-bottom:1.4rem}
+  .yt-versions-dropdown{position:relative;display:inline-block}
+  .yt-versions-toggle{background:none;border:1px solid var(--border);border-radius:var(--radius);padding:5px 12px;font-size:12px;color:var(--text-secondary);cursor:pointer}
+  .yt-versions-toggle:hover{background:var(--surface-1)}
+  .yt-versions-list{display:none;position:absolute;top:calc(100% + 4px);left:0;background:var(--surface-0);border:1px solid var(--border);border-radius:var(--radius);z-index:10;min-width:260px;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+  .yt-versions-dropdown.open .yt-versions-list{display:block}
+  .yt-version-item{display:block;padding:8px 14px;font-size:13px;color:var(--text-primary);border-bottom:1px solid var(--border)}
+  .yt-version-item:last-child{border-bottom:none}
+  .yt-version-item:hover{background:var(--surface-1)}
   /* DATOS */
   .datos-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1.2rem}
   .dato{background:var(--bg2);border-radius:var(--radius);padding:8px 12px}
@@ -242,7 +271,7 @@ CSS = """
   footer{border-top:1px solid var(--border);padding:1.2rem 2rem;text-align:center;font-size:12px;color:var(--text-faint);margin-top:3rem}
 """
 
-def generar_html(p, dirs, actores, rel, slug):
+def generar_html(p, dirs, actores, rel, slug, versiones=None):
     titulo    = p["titulo_primario"] or ""
     orig      = p["titulo_orig"] or ""
     anio      = p["anio"] or ""
@@ -261,6 +290,31 @@ def generar_html(p, dirs, actores, rel, slug):
     canal     = p["canal"] or ""
     tconst    = p["tconst"]
     decada    = p["decada"]
+
+    # Botón de YouTube — simple o dropdown según versiones disponibles
+    IDIOMA_MAP_BTN = {
+        'es': 'Español', 'es-419': 'Español', 'es-ES': 'Español',
+        'en': 'Inglés', 'en-US': 'Inglés', 'en-GB': 'Inglés', 'en-IN': 'Inglés',
+        'fr': 'Francés', 'it': 'Italiano', 'ru': 'Ruso',
+        'de': 'Alemán', 'ja': 'Japonés', 'pt': 'Portugués',
+    }
+    play_icon = '<div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>'
+    if not versiones or len(versiones) <= 1:
+        btn_yt_html = f'<a class="btn-yt" href="{yt_url(video_id)}" target="_blank" rel="noopener">{play_icon}Ver en YouTube · gratis y completa</a>'
+    else:
+        items = []
+        for v in versiones:
+            idioma_label = IDIOMA_MAP_BTN.get(v['idioma_audio'] or '', v['idioma_audio'] or 'Idioma desconocido')
+            canal_label = v['canal'] or 'Canal desconocido'
+            items.append(f'<a class="yt-version-item" href="{yt_url(v["video_id"])}" target="_blank" rel="noopener">{canal_label} · {idioma_label}</a>')
+        items_html = '\n'.join(items)
+        btn_yt_html = f'''<div class="btn-yt-wrap">
+  <a class="btn-yt" href="{yt_url(versiones[0]["video_id"])}" target="_blank" rel="noopener">{play_icon}Ver en YouTube · gratis y completa</a>
+  <div class="yt-versions-dropdown">
+    <button class="yt-versions-toggle" onclick="this.parentElement.classList.toggle(\'open\')">▾ {len(versiones)} versiones</button>
+    <div class="yt-versions-list">{items_html}</div>
+  </div>
+</div>'''
 
     meta_title = f"Ver {titulo} ({anio}) completa gratis en YouTube | Filmoteca Clásica"
     meta_desc  = truncar(sinopsis, 155) if sinopsis else f"{titulo} ({anio}) — disponible gratis y completa en YouTube. Verificada desde Argentina."
@@ -341,7 +395,7 @@ def generar_html(p, dirs, actores, rel, slug):
         'fr': 'Francés', 'it': 'Italiano', 'ru': 'Ruso',
         'de': 'Alemán', 'ja': 'Japonés', 'pt': 'Portugués',
     }
-    idioma_txt = IDIOMA_MAP.get(idioma, "")
+    idioma_txt = IDIOMA_MAP.get(idioma, idioma or "")
 
     # Datos grid
     datos = []
@@ -432,12 +486,7 @@ def generar_html(p, dirs, actores, rel, slug):
       <h1>{titulo}</h1>
       {orig_html}
 
-      <a class="btn-yt" href="{yt_url(video_id)}" target="_blank" rel="noopener">
-        <div class="btn-yt-play">
-          <svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg>
-        </div>
-        Ver en YouTube · gratis y completa
-      </a>
+      {btn_yt_html}
 
       {dir_html}
       {act_html}
@@ -451,7 +500,7 @@ def generar_html(p, dirs, actores, rel, slug):
       <div class="badges">{badges}</div>
 
       <div class="canal-info">
-        Disponible en <strong>{canal}</strong> · verificada desde Argentina
+        {'Disponible en ' + str(len(versiones)) + ' versiones · verificada desde Argentina' if versiones and len(versiones) > 1 else f'Disponible en <strong>{canal}</strong> · verificada desde Argentina'}
       </div>
 
       <div class="links-ext">
@@ -509,7 +558,7 @@ def main():
 
     con = sqlite3.connect(DB_PATH)
     print("Cargando datos...")
-    pelis, personas = cargar_datos(con)
+    pelis, personas, versiones_map = cargar_datos(con)
     con.close()
     print(f"  → {len(pelis):,} películas confirmadas\n")
 
@@ -541,9 +590,10 @@ def main():
             dirs    = personas.get(p["tconst"], {}).get("director", [])
             actores = personas.get(p["tconst"], {}).get("actor", [])
             rel     = relacionadas.get(p["tconst"], [])
+            versiones = versiones_map.get(p["tconst"], [])
 
             destino.parent.mkdir(parents=True, exist_ok=True)
-            destino.write_text(generar_html(p, dirs, actores, rel, slug), encoding="utf-8")
+            destino.write_text(generar_html(p, dirs, actores, rel, slug, versiones), encoding="utf-8")
             generadas += 1
 
             if (i + 1) % 200 == 0:

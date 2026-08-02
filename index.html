@@ -901,7 +901,8 @@ function fetchPage(offset) {
       p.pais, p.poster_url, p.sinopsis,
       v.video_id, v.duracion_seg, v.idioma_audio,
       ca.nombre as canal,
-      co.score
+      co.score,
+      (SELECT COUNT(*) FROM coincidencias cx JOIN videos vx ON cx.video_id = vx.video_id WHERE cx.tconst = p.tconst AND cx.estado = 'confirmada' AND (vx.ve_ar = 1 OR vx.ve_ar IS NULL)) as n_versiones
     ${BASE}
     ORDER BY ${order}
     LIMIT ${POR_PAGINA} OFFSET ${offset}
@@ -967,7 +968,7 @@ function renderCard(p) {
         <span class="play-icon">
           <svg width="8" height="8" viewBox="0 0 10 10" fill="currentColor"><polygon points="2,1 9,5 2,9"/></svg>
         </span>
-        Ver en YouTube${p.canal ? ` · ${truncate(p.canal, 24)}` : ''}
+        Ver en YouTube${p.canal ? ` · ${truncate(p.canal, 24)}` : ''}${p.n_versiones > 1 ? ` · +${p.n_versiones - 1} versión${p.n_versiones > 2 ? 'es' : ''}` : ''}
       </span>
       <button class="card-report" title="Reportar problema" onclick="reportar('${p.video_id}', '${p.titulo_primario}', event)">⚑</button>
       <div class="card-overlay">

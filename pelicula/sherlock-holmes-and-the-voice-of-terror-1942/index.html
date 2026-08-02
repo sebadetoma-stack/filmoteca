@@ -128,6 +128,15 @@
   .btn-yt{display:inline-flex;align-items:center;gap:10px;background:var(--amber);color:#fff;border-radius:var(--radius);padding:12px 20px;font-size:14px;font-weight:500;margin-bottom:1.4rem;transition:background 0.15s}
   .btn-yt:hover{background:#7a3b10}
   .btn-yt-play{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.7);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .btn-yt-wrap{display:flex;flex-direction:column;gap:6px;margin-bottom:1.4rem}
+  .yt-versions-dropdown{position:relative;display:inline-block}
+  .yt-versions-toggle{background:none;border:1px solid var(--border);border-radius:var(--radius);padding:5px 12px;font-size:12px;color:var(--text-secondary);cursor:pointer}
+  .yt-versions-toggle:hover{background:var(--surface-1)}
+  .yt-versions-list{display:none;position:absolute;top:calc(100% + 4px);left:0;background:var(--surface-0);border:1px solid var(--border);border-radius:var(--radius);z-index:10;min-width:260px;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+  .yt-versions-dropdown.open .yt-versions-list{display:block}
+  .yt-version-item{display:block;padding:8px 14px;font-size:13px;color:var(--text-primary);border-bottom:1px solid var(--border)}
+  .yt-version-item:last-child{border-bottom:none}
+  .yt-version-item:hover{background:var(--surface-1)}
   /* DATOS */
   .datos-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1.2rem}
   .dato{background:var(--bg2);border-radius:var(--radius);padding:8px 12px}
@@ -190,18 +199,13 @@
       <h1>Sherlock Holmes and the Voice of Terror</h1>
       
 
-      <a class="btn-yt" href="https://www.youtube.com/watch?v=A6ZZUVSqb3k" target="_blank" rel="noopener">
-        <div class="btn-yt-play">
-          <svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg>
-        </div>
-        Ver en YouTube · gratis y completa
-      </a>
+      <a class="btn-yt" href="https://www.youtube.com/watch?v=A6ZZUVSqb3k" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
 
       <div class="fila"><div class="fila-label">Director</div><div class="fila-val">John Rawlins</div></div>
       <div class="fila"><div class="fila-label">Reparto</div><div class="fila-val">Basil Rathbone, Nigel Bruce, Evelyn Ankers, Reginald Denny, Thomas Gomez, Henry Daniell</div></div>
 
       <div class="datos-grid">
-        <div class="dato"><div class="dato-label">País</div><div class="dato-val">United States</div></div><div class="dato"><div class="dato-label">Rating IMDb</div><div class="dato-val">★ 6.4 · 6K votos</div></div><div class="dato"><div class="dato-label">En YouTube desde</div><div class="dato-val">mayo 2023</div></div>
+        <div class="dato"><div class="dato-label">País</div><div class="dato-val">United States</div></div><div class="dato"><div class="dato-label">Rating IMDb</div><div class="dato-val">★ 6.4 · 6K votos</div></div><div class="dato"><div class="dato-label">Idioma</div><div class="dato-val">Inglés</div></div><div class="dato"><div class="dato-label">En YouTube desde</div><div class="dato-val">mayo 2023</div></div>
       </div>
 
       <div class="sinopsis">La historia traslada a una época en la que el conflicto con la Alemania nazi es la orden del día. En esos días, una serie de emisiones de radio llegan de parte del bando alemán, en la que se relatan operaciones recientes de estos en contra del ejército británico, muchas de estas acciones se llevan a cabo a misiones de alto secreto británico, por lo que hay algo que no funciona bien en el alto mando, así que solicitarán la ayuda del gran detective para poder llegar al fondo del asunto.</div>
