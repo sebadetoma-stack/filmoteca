@@ -198,7 +198,14 @@
       <h1>McLintock!</h1>
       
 
-      <a class="btn-yt" href="https://www.youtube.com/watch?v=x0VNbS5NYS4" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+      <div class="btn-yt-wrap">
+  <a class="btn-yt" href="https://www.youtube.com/watch?v=x0VNbS5NYS4" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+  <div class="yt-versions-dropdown">
+    <button class="yt-versions-toggle" onclick="this.parentElement.classList.toggle('open')">▾ 2 versiones</button>
+    <div class="yt-versions-list"><a class="yt-version-item" href="https://www.youtube.com/watch?v=x0VNbS5NYS4" target="_blank" rel="noopener">Cult Cinema Classics · Inglés</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=Xui8srI3CpY" target="_blank" rel="noopener">Online Historia del Cine · Idioma desconocido</a></div>
+  </div>
+</div>
 
       <div class="fila"><div class="fila-label">Director</div><div class="fila-val">Andrew V. McLaglen</div></div>
       <div class="fila"><div class="fila-label">Reparto</div><div class="fila-val">John Wayne, Maureen O'Hara, Patrick Wayne, Stefanie Powers, Jack Kruschen, Chill Wills</div></div>
@@ -212,7 +219,7 @@
       <div class="badges"><span class="badge">Comedy</span><span class="badge">Western</span></div>
 
       <div class="canal-info">
-        Disponible en <strong>Cult Cinema Classics</strong> · verificada desde Argentina
+        Disponible en 2 versiones · verificada desde Argentina
       </div>
 
       <div class="links-ext">
@@ -230,6 +237,13 @@
     <div class="rel-titulo">Películas relacionadas</div>
     <div class="rel-grid">
       
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-undefeated-1969/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/AqysGH8mVwS5vrbQblkI5nspuha.jpg" alt="The Undefeated" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">The Undefeated</div>
+            <div class="rel-anio">1969</div>
+          </div>
+        </a>
         <a class="rel-card" href="https://filmotecaclasica.com/pelicula/companeros-1970/">
           <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/pOGeL1XbjpBHSujDgekkwNrBo85.jpg" alt="Compañeros" loading="lazy"></div>
           <div class="rel-info">
@@ -249,13 +263,6 @@
           <div class="rel-info">
             <div class="rel-titulo-peli">Boot Hill</div>
             <div class="rel-anio">1969</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/run-man-run-1968/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/Ap2Ni2Wtm8VKQtp37wQMojz4GnT.jpg" alt="Run, Man, Run" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">Run, Man, Run</div>
-            <div class="rel-anio">1968</div>
           </div>
         </a>
     </div>
