@@ -84,6 +84,21 @@ def mes_anio(fecha_str):
     except Exception:
         return ""
 
+def normalizar_upload_date(fecha_str):
+    """Convierte 'YYYY-MM-DD' a ISO 8601 con timezone UTC para schema VideoObject."""
+    if not fecha_str:
+        return None
+    try:
+        # Ya tiene timezone
+        if "T" in fecha_str and ("+" in fecha_str or "Z" in fecha_str):
+            return fecha_str
+        # Solo fecha YYYY-MM-DD
+        if len(fecha_str) >= 10 and fecha_str[4] == "-":
+            return fecha_str[:10] + "T00:00:00+00:00"
+    except Exception:
+        pass
+    return None
+
 # ─── QUERY PRINCIPAL ──────────────────────────────────────────────────────────
 
 def cargar_datos(con):
@@ -347,10 +362,9 @@ def generar_html(p, dirs, actores, rel, slug, versiones=None):
             {
                 "@type": "VideoObject",
                 "name": f"{titulo} ({anio}) — completa en YouTube",
-                "description": sinopsis or None,
+                "description": sinopsis or f"{titulo} ({anio}). Película clásica disponible completa y gratuita en YouTube. Verificada desde Argentina.",
                 "thumbnailUrl": yt_thumb(video_id),
-                "embedUrl": f"https://www.youtube.com/embed/{video_id}",
-                "uploadDate": publicado or None,
+                "uploadDate": normalizar_upload_date(publicado),
                 "duration": dur_iso(dur_seg),
                 "url": yt_url(video_id),
             },
