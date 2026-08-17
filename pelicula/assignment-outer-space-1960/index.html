@@ -169,6 +169,12 @@
   .rel-anio{font-size:10px;color:var(--text-faint)}
   /* FOOTER */
   footer{border-top:1px solid var(--border);padding:1.2rem 2rem;text-align:center;font-size:12px;color:var(--text-faint);margin-top:3rem}
+  /* BOTONES USUARIO */
+  .user-actions{display:flex;gap:8px;margin-bottom:1.2rem}
+  .btn-usuario{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg3);color:var(--text-dim);font-size:13px;font-family:var(--sans);cursor:pointer;transition:all 0.15s}
+  .btn-usuario:hover{border-color:var(--amber-dim);color:var(--text)}
+  .btn-usuario.activo{background:rgba(139,69,19,0.08);border-color:var(--amber-dim);color:var(--amber)}
+  .btn-usuario.oculto{display:none}
 </style>
 </head>
 <body>
@@ -199,6 +205,11 @@
       <div class="titulo-orig">Space Men</div>
 
       <a class="btn-yt" href="https://www.youtube.com/watch?v=N_X-bfcnQro" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+
+      <div class="user-actions" id="user-actions" style="display:none">
+        <button class="btn-usuario" id="btn-fav" onclick="toggleFav()">🤍 Favorita</button>
+        <button class="btn-usuario" id="btn-vista" onclick="toggleVista()">⬜ Marcar como vista</button>
+      </div>
 
       <div class="fila"><div class="fila-label">Director</div><div class="fila-val">Antonio Margheriti</div></div>
       <div class="fila"><div class="fila-label">Reparto</div><div class="fila-val">Rik Van Nutter, Gabriella Farinon, David Montresor, Archie Savage, Alain Dijon, Franco Fantasia</div></div>
@@ -264,8 +275,72 @@
 </div>
 
 <footer>
-  Filmoteca Clásica · catálogo de cine clásico gratis en YouTube · sin publicidad · sin registro
+  Filmoteca Clásica · catálogo de cine clásico gratis en YouTube · sin publicidad · <a href="https://github.com/sebadetoma-stack/filmoteca" style="color:var(--text-faint)">código abierto</a>
 </footer>
+
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+import { getFirestore, doc, getDoc, setDoc, deleteDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBh2sTmHwED1VtlvIqMOy1wFcW8CO_NZNg",
+  authDomain: "filmoteca-clasica.firebaseapp.com",
+  projectId: "filmoteca-clasica",
+  storageBucket: "filmoteca-clasica.firebasestorage.app",
+  messagingSenderId: "347321323128",
+  appId: "1:347321323128:web:0dc5899523d9a8cffb678d"
+};
+
+const TCONST = "tt0054330";
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+let uid = null;
+let esFav = false;
+let esVista = false;
+
+onAuthStateChanged(auth, async (user) => {
+  if (!user) return;
+  uid = user.uid;
+  document.getElementById('user-actions').style.display = 'flex';
+
+  // Cargar estado
+  const [favDoc, vistaDoc] = await Promise.all([
+    getDoc(doc(db, 'usuarios', uid, 'favoritos', TCONST)),
+    getDoc(doc(db, 'usuarios', uid, 'vistos', TCONST))
+  ]);
+  esFav = favDoc.exists();
+  esVista = vistaDoc.exists();
+  actualizarBotones();
+});
+
+function actualizarBotones() {
+  const btnFav = document.getElementById('btn-fav');
+  const btnVista = document.getElementById('btn-vista');
+  btnFav.textContent = esFav ? '❤️ En favoritos' : '🤍 Favorita';
+  btnFav.classList.toggle('activo', esFav);
+  btnVista.textContent = esVista ? '✅ Vista' : '⬜ Marcar como vista';
+  btnVista.classList.toggle('activo', esVista);
+}
+
+window.toggleFav = async function() {
+  if (!uid) return;
+  const ref = doc(db, 'usuarios', uid, 'favoritos', TCONST);
+  if (esFav) { await deleteDoc(ref); esFav = false; }
+  else { await setDoc(ref, { tconst: TCONST, fecha: serverTimestamp() }); esFav = true; }
+  actualizarBotones();
+};
+
+window.toggleVista = async function() {
+  if (!uid) return;
+  const ref = doc(db, 'usuarios', uid, 'vistos', TCONST);
+  if (esVista) { await deleteDoc(ref); esVista = false; }
+  else { await setDoc(ref, { tconst: TCONST, fecha: serverTimestamp() }); esVista = true; }
+  actualizarBotones();
+};
+</script>
 
 </body>
 </html>
