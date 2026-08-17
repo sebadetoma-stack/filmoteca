@@ -396,6 +396,202 @@
   }
   .sobre-link:hover { color: var(--amber); }
 
+  /* LOGIN */
+  .btn-login {
+    background: var(--amber); color: #fff;
+    border: none; border-radius: 20px;
+    font-family: var(--sans); font-size: 12px;
+    padding: 5px 14px; cursor: pointer;
+    white-space: nowrap; flex-shrink: 0;
+    transition: opacity 0.15s;
+  }
+  .btn-login:hover { opacity: 0.85; }
+
+  .user-avatar {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--amber); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 600; font-family: var(--sans);
+    cursor: pointer; flex-shrink: 0;
+    position: relative;
+  }
+  .user-avatar img {
+    width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
+  }
+
+  .user-dropdown {
+    display: none;
+    position: absolute; top: calc(100% + 8px); right: 0;
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: 8px; padding: 4px 0; min-width: 180px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12); z-index: 200;
+    font-family: var(--sans);
+  }
+  .user-avatar.open .user-dropdown { display: block; }
+  .dd-user {
+    padding: 8px 14px 6px; border-bottom: 1px solid var(--border);
+    margin-bottom: 4px;
+  }
+  .dd-name { font-size: 13px; font-weight: 500; color: var(--text); }
+  .dd-email { font-size: 11px; color: var(--text-faint); }
+  .dd-item {
+    display: flex; align-items: center; gap: 8px;
+    padding: 6px 14px; font-size: 12px; color: var(--text-dim);
+    cursor: pointer; transition: background 0.1s;
+    text-decoration: none;
+  }
+  .dd-item:hover { background: var(--bg2); color: var(--text); }
+  .dd-divider { height: 1px; background: var(--border); margin: 4px 0; }
+
+  /* CHIPS USUARIO EN FILTROS */
+  .chip-usuario {
+    display: none;
+    font-size: 12px; padding: 4px 12px; border-radius: 20px;
+    border: 1px solid var(--border); color: var(--text-faint);
+    background: transparent; cursor: pointer; font-family: var(--sans);
+    transition: all 0.15s;
+  }
+  .chip-usuario.visible { display: inline-block; }
+  .chip-usuario.active {
+    background: var(--amber); border-color: var(--amber); color: #fff;
+  }
+
+  /* ÍCONOS EN CARDS */
+  .card-user-icons {
+    display: none;
+    position: absolute; top: 6px; left: 6px;
+    z-index: 25; gap: 4px; flex-direction: column;
+  }
+  .card-user-icons.visible { display: flex; }
+  .card-icon-btn {
+    width: 26px; height: 26px; border-radius: 50%;
+    background: rgba(245,240,232,0.88);
+    border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; transition: transform 0.15s, background 0.15s;
+    line-height: 1;
+  }
+  .card-icon-btn:hover { transform: scale(1.15); }
+  .card-icon-btn.active { background: rgba(139,69,19,0.15); }
+
+  /* MODAL PERFIL */
+  .perfil-back {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+    display: none; align-items: flex-start; justify-content: center;
+    z-index: 500; padding: 2rem 1rem; overflow-y: auto;
+  }
+  .perfil-back.open { display: flex; }
+  .perfil-modal {
+    background: var(--bg); border-radius: 10px;
+    width: 100%; max-width: 560px;
+    overflow: hidden; position: relative;
+  }
+  .perfil-header-bar {
+    background: var(--bg2); border-bottom: 1px solid var(--border);
+    padding: 1rem 1.25rem; display: flex; align-items: center; gap: 12px;
+  }
+  .perfil-avatar-lg {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: var(--amber); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; flex-shrink: 0; overflow: hidden;
+    border: 2px solid var(--border);
+  }
+  .perfil-avatar-lg img { width: 100%; height: 100%; object-fit: cover; }
+  .perfil-name { font-family: var(--serif); font-size: 18px; color: var(--text); }
+  .perfil-letterboxd { font-size: 12px; color: var(--amber); margin-top: 2px; }
+  .perfil-bio { font-size: 12px; color: var(--text-dim); font-style: italic; margin-top: 2px; }
+  .perfil-body { padding: 1.25rem; }
+  .perfil-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1.25rem; }
+  .perfil-stat {
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 16px;
+  }
+  .perfil-stat-n { font-size: 22px; font-weight: 600; color: var(--amber); }
+  .perfil-stat-l { font-size: 11px; color: var(--text-faint); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .perfil-section-title {
+    font-family: var(--serif); font-size: 14px; color: var(--text);
+    padding-bottom: 6px; border-bottom: 1px solid var(--border); margin-bottom: 0.75rem;
+  }
+  .perfil-films-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 1.25rem;
+  }
+  .perfil-film-card { display: flex; flex-direction: column; gap: 4px; }
+  .perfil-film-poster {
+    aspect-ratio: 2/3; background: var(--bg2); border-radius: 4px;
+    border: 1px solid var(--border); overflow: hidden;
+  }
+  .perfil-film-poster img { width: 100%; height: 100%; object-fit: cover; }
+  .perfil-film-title { font-size: 9px; color: var(--text-dim); text-align: center; line-height: 1.3; }
+  .perfil-hist-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 0; border-bottom: 1px solid var(--border);
+  }
+  .perfil-hist-item:last-child { border-bottom: none; }
+  .perfil-hist-poster {
+    width: 28px; height: 42px; background: var(--bg2);
+    border-radius: 3px; border: 1px solid var(--border);
+    overflow: hidden; flex-shrink: 0;
+  }
+  .perfil-hist-poster img { width: 100%; height: 100%; object-fit: cover; }
+  .perfil-hist-title { font-size: 12px; color: var(--text); }
+  .perfil-hist-meta { font-size: 10px; color: var(--text-faint); margin-top: 1px; }
+  .perfil-hist-date { font-size: 10px; color: var(--text-faint); margin-left: auto; flex-shrink: 0; }
+  .perfil-close {
+    position: absolute; top: 10px; right: 12px;
+    background: none; border: none; font-size: 20px;
+    color: var(--text-faint); cursor: pointer;
+  }
+  .perfil-edit-btn {
+    display: inline-block; font-size: 11px; color: var(--text-faint);
+    border: 1px solid var(--border); border-radius: 4px;
+    padding: 3px 10px; cursor: pointer; background: none;
+    font-family: var(--sans); margin-top: 6px;
+  }
+
+  /* MODAL EDITAR PERFIL */
+  .edit-perfil-back {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+    display: none; align-items: center; justify-content: center;
+    z-index: 600; padding: 1rem;
+  }
+  .edit-perfil-back.open { display: flex; }
+  .edit-perfil-modal {
+    background: var(--bg); border-radius: 10px;
+    width: 100%; max-width: 440px; padding: 1.5rem;
+  }
+  .edit-perfil-title { font-family: var(--serif); font-size: 16px; color: var(--text); margin-bottom: 1rem; }
+  .edit-field { margin-bottom: 1rem; }
+  .edit-field label { display: block; font-size: 11px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+  .edit-field input, .edit-field textarea {
+    width: 100%; padding: 8px 10px; border: 1px solid var(--border);
+    border-radius: var(--radius); background: var(--bg3); color: var(--text);
+    font-family: var(--sans); font-size: 13px;
+  }
+  .edit-field textarea { min-height: 70px; resize: vertical; }
+  .avatar-selector { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 1rem; }
+  .avatar-opt {
+    width: 100%; aspect-ratio: 1; border-radius: 50%;
+    background: var(--bg2); border: 2px solid transparent;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; cursor: pointer; transition: border-color 0.15s;
+  }
+  .avatar-opt.selected { border-color: var(--amber); background: var(--bg3); }
+  .avatar-upload-label {
+    display: block; font-size: 11px; color: var(--text-faint);
+    text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; margin-top: 0.5rem;
+  }
+  .edit-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 1rem; }
+  .btn-cancelar {
+    background: none; border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 6px 14px; font-size: 12px; color: var(--text-faint); cursor: pointer; font-family: var(--sans);
+  }
+  .btn-guardar-perfil {
+    background: var(--amber) !important; color: #fff !important;
+    border: none; border-radius: var(--radius);
+    padding: 6px 14px; font-size: 12px; cursor: pointer; font-family: var(--sans);
+  }
+
   .modal-back {
     position: fixed; inset: 0; background: rgba(0,0,0,0.75);
     display: none; align-items: center; justify-content: center;
@@ -656,6 +852,70 @@
   </div>
 </div>
 
+<!-- MODAL PERFIL -->
+<div class="perfil-back" id="perfil-modal" onclick="if(event.target===this)cerrarPerfil()">
+  <div class="perfil-modal">
+    <button class="perfil-close" onclick="cerrarPerfil()">✕</button>
+    <div class="perfil-header-bar">
+      <div class="perfil-avatar-lg" id="perfil-avatar-lg"></div>
+      <div>
+        <div class="perfil-name" id="perfil-nombre-display"></div>
+        <div class="perfil-letterboxd" id="perfil-letterboxd-display"></div>
+        <div class="perfil-bio" id="perfil-bio-display"></div>
+        <button class="perfil-edit-btn" onclick="abrirEditarPerfil()">Editar perfil</button>
+      </div>
+    </div>
+    <div class="perfil-body">
+      <div class="perfil-stats">
+        <div class="perfil-stat">
+          <div class="perfil-stat-n" id="perfil-n-favoritos">0</div>
+          <div class="perfil-stat-l">Favoritos</div>
+        </div>
+        <div class="perfil-stat">
+          <div class="perfil-stat-n" id="perfil-n-vistos">0</div>
+          <div class="perfil-stat-l">Películas vistas</div>
+        </div>
+      </div>
+      <div id="perfil-seccion-favoritos">
+        <div class="perfil-section-title">Favoritos</div>
+        <div class="perfil-films-grid" id="perfil-grid-favoritos"></div>
+      </div>
+      <div id="perfil-seccion-historial">
+        <div class="perfil-section-title">Vistas recientemente</div>
+        <div id="perfil-lista-historial"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL EDITAR PERFIL -->
+<div class="edit-perfil-back" id="edit-perfil-modal" onclick="if(event.target===this)cerrarEditarPerfil()">
+  <div class="edit-perfil-modal">
+    <div class="edit-perfil-title">Editar perfil</div>
+    <div class="edit-field">
+      <label>Nombre</label>
+      <input type="text" id="edit-nombre" placeholder="Tu nombre">
+    </div>
+    <div class="edit-field">
+      <label>Bio</label>
+      <textarea id="edit-bio" placeholder="Una breve descripción sobre vos..."></textarea>
+    </div>
+    <div class="edit-field">
+      <label>Usuario de Letterboxd</label>
+      <input type="text" id="edit-letterboxd" placeholder="@tuusuario">
+    </div>
+    <div class="edit-field">
+      <label>Avatar</label>
+      <div class="avatar-selector" id="avatar-selector"></div>
+      <span class="avatar-upload-label">O subí una foto (próximamente)</span>
+    </div>
+    <div class="edit-actions">
+      <button class="btn-cancelar" onclick="cerrarEditarPerfil()">Cancelar</button>
+      <button class="btn-guardar-perfil" onclick="guardarPerfil()">Guardar</button>
+    </div>
+  </div>
+</div>
+
 <!-- APP -->
 <div id="app">
   <header>
@@ -667,6 +927,22 @@
     <div class="header-count" id="header-count"></div>
     <button class="sobre-link" onclick="document.getElementById('modal-sobre').classList.add('open')">Sobre la filmoteca</button>
     <button class="sobre-link" onclick="document.getElementById('modal-como').classList.add('open')">Cómo funciona</button>
+    <!-- LOGIN -->
+    <button class="btn-login" id="btn-login" onclick="loginConGoogle()" style="display:none">Iniciar sesión</button>
+    <div class="user-avatar" id="user-avatar" style="display:none" onclick="toggleDropdown(event)">
+      <span id="user-iniciales"></span>
+      <div class="user-dropdown" id="user-dropdown">
+        <div class="dd-user">
+          <div class="dd-name" id="dd-nombre"></div>
+          <div class="dd-email" id="dd-email"></div>
+        </div>
+        <div class="dd-item" onclick="abrirPerfil()">❤️ Mis favoritos</div>
+        <div class="dd-item" onclick="abrirPerfil('historial')">🕐 Historial</div>
+        <div class="dd-item" onclick="abrirPerfil()">👤 Mi perfil</div>
+        <div class="dd-divider"></div>
+        <div class="dd-item" onclick="cerrarSesion()">↩ Cerrar sesión</div>
+      </div>
+    </div>
   </header>
 
   <div class="filters">
@@ -728,6 +1004,8 @@
 
     <button class="btn-reset" onclick="resetFiltros()">Limpiar</button>
     <button class="btn-random" onclick="sorprendeme()">✦ Sorprendeme</button>
+    <button class="chip-usuario" id="chip-favoritos" onclick="toggleChipUsuario('favoritos')">❤️ Mis favoritos</button>
+    <button class="chip-usuario" id="chip-novistas" onclick="toggleChipUsuario('novistas')">✅ No vistas</button>
   </div>
 
   <div class="results-bar">
@@ -789,6 +1067,7 @@
 <script>
 const POR_PAGINA = 48;
 let db = null;
+window.db = null;
 let pagina = 1;
 let soloPrecode = false;
 let soloDoblada = false;
@@ -875,6 +1154,21 @@ function buildQuery() {
   if (soloDoblada) { where.push("ca.nombre LIKE '%La Corriente%'"); }
   if (pais) { where.push('p.pais LIKE ?'); params.push(`%${pais}%`); }
 
+  // Filtros de usuario
+  const chip = typeof window.getChipUsuario === 'function' ? window.getChipUsuario() : null;
+  if (chip === 'favoritos' && window.favoritosSet?.size) {
+    const ids = Array.from(window.favoritosSet).map(t => `'${t}'`).join(',');
+    where.push(`p.tconst IN (${ids})`);
+  } else if (chip === 'favoritos') {
+    where.push('1=0'); // sin favoritos → sin resultados
+  }
+  if (chip === 'novistas' && window.vistosSet !== undefined) {
+    if (window.vistosSet.size > 0) {
+      const ids = Array.from(window.vistosSet).map(t => `'${t}'`).join(',');
+      where.push(`p.tconst NOT IN (${ids})`);
+    }
+  }
+
   const BASE = `
     FROM peliculas p
     JOIN coincidencias co ON co.tconst = p.tconst
@@ -952,8 +1246,21 @@ function renderCard(p) {
   const rating = p.rating ? `<span class="star">★</span> ${p.rating.toFixed(1)}` : '';
   const precode = p.es_precode ? `<span class="badge badge-pre">Pre-Code</span>` : '';
 
+  const esFav = usuarioActual && favoritosSet.has(p.tconst);
+  const esVista = usuarioActual && vistosSet.has(p.tconst);
+
   return `
     <a class="card" href="${urlPeli}">
+      <div class="card-user-icons${usuarioActual ? ' visible' : ''}">
+        <button class="card-icon-btn${esFav ? ' active' : ''}" title="${esFav ? 'Quitar de favoritos' : 'Agregar a favoritos'}"
+          onclick="event.preventDefault();event.stopPropagation();toggleFavorito('${p.tconst}',this)">
+          ${esFav ? '❤️' : '🤍'}
+        </button>
+        <button class="card-icon-btn${esVista ? ' active' : ''}" title="${esVista ? 'Marcar como no vista' : 'Marcar como vista'}"
+          onclick="event.preventDefault();event.stopPropagation();toggleVista('${p.tconst}',this)">
+          ${esVista ? '✅' : '⬜'}
+        </button>
+      </div>
       ${p.poster_url
         ? `<img class="card-poster" src="${p.poster_url}" alt="${p.titulo_primario}" loading="lazy">`
         : `<div class="card-poster-placeholder">🎬</div>`
@@ -1182,6 +1489,7 @@ async function cargarDB() {
     for (const chunk of chunks) { buf.set(chunk, pos); pos += chunk.length; }
 
     db = new SQL.Database(buf);
+    window.db = db;
     bar.style.width = '100%';
 
     const res = db.exec(`
@@ -1211,6 +1519,316 @@ async function cargarDB() {
 }
 
 cargarDB();
+</script>
+
+<!-- FIREBASE -->
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+import { getFirestore, collection, doc, getDoc, getDocs, setDoc, deleteDoc, serverTimestamp, query, orderBy, limit } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBh2sTmHwED1VtlvIqMOy1wFcW8CO_NZNg",
+  authDomain: "filmoteca-clasica.firebaseapp.com",
+  projectId: "filmoteca-clasica",
+  storageBucket: "filmoteca-clasica.firebasestorage.app",
+  messagingSenderId: "347321323128",
+  appId: "1:347321323128:web:0dc5899523d9a8cffb678d"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const firestore = getFirestore(app);
+const provider = new GoogleAuthProvider();
+
+const AVATARES = ['🎬','🎥','🎞️','📽️','🎟️','🍿','🎦','🎙️','🕵️','🎭'];
+
+// Estado global (expuesto a window para que renderCard lo use)
+window.usuarioActual = null;
+window.favoritosSet = new Set();
+window.vistosSet = new Set();
+let perfilData = {};
+let chipActivo = null;
+
+// Auth state
+onAuthStateChanged(auth, async (user) => {
+  window.usuarioActual = user;
+  if (user) {
+    // Mostrar avatar, ocultar botón
+    document.getElementById('btn-login').style.display = 'none';
+    const avatarEl = document.getElementById('user-avatar');
+    avatarEl.style.display = 'flex';
+    document.getElementById('dd-nombre').textContent = user.displayName || '';
+    document.getElementById('dd-email').textContent = user.email || '';
+
+    // Cargar perfil y datos de usuario
+    await cargarDatosUsuario(user.uid);
+    actualizarAvatarHeader();
+
+    // Mostrar chips de usuario
+    document.getElementById('chip-favoritos').classList.add('visible');
+    document.getElementById('chip-novistas').classList.add('visible');
+
+    // Re-render para mostrar íconos
+    if (typeof render === 'function') render();
+  } else {
+    document.getElementById('btn-login').style.display = 'block';
+    document.getElementById('user-avatar').style.display = 'none';
+    document.getElementById('chip-favoritos').classList.remove('visible');
+    document.getElementById('chip-novistas').classList.remove('visible');
+    window.favoritosSet = new Set();
+    window.vistosSet = new Set();
+    perfilData = {};
+    if (typeof render === 'function') render();
+  }
+});
+
+async function cargarDatosUsuario(uid) {
+  try {
+    // Perfil
+    const perfilDoc = await getDoc(doc(firestore, 'perfiles', uid));
+    perfilData = perfilDoc.exists() ? perfilDoc.data() : {};
+
+    // Favoritos
+    const favSnap = await getDocs(collection(firestore, 'usuarios', uid, 'favoritos'));
+    window.favoritosSet = new Set(favSnap.docs.map(d => d.id));
+
+    // Vistos
+    const vistosSnap = await getDocs(collection(firestore, 'usuarios', uid, 'vistos'));
+    window.vistosSet = new Set(vistosSnap.docs.map(d => d.id));
+  } catch(e) {
+    console.error('Error cargando datos usuario:', e);
+  }
+}
+
+function actualizarAvatarHeader() {
+  const avatarEl = document.getElementById('user-avatar');
+  const inicialesEl = document.getElementById('user-iniciales');
+  const avatar = perfilData.avatar;
+  if (avatar && AVATARES.includes(avatar)) {
+    inicialesEl.textContent = avatar;
+    inicialesEl.style.fontSize = '14px';
+  } else if (window.usuarioActual) {
+    const nombre = perfilData.nombre || window.usuarioActual.displayName || '';
+    const iniciales = nombre.split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase();
+    inicialesEl.textContent = iniciales || '?';
+    inicialesEl.style.fontSize = '10px';
+  }
+}
+
+// LOGIN / LOGOUT
+window.loginConGoogle = async function() {
+  try { await signInWithPopup(auth, provider); }
+  catch(e) { console.error('Error login:', e); }
+};
+
+window.cerrarSesion = async function() {
+  cerrarDropdown();
+  await signOut(auth);
+};
+
+// DROPDOWN
+window.toggleDropdown = function(e) {
+  e.stopPropagation();
+  document.getElementById('user-avatar').classList.toggle('open');
+};
+window.cerrarDropdown = function() {
+  document.getElementById('user-avatar').classList.remove('open');
+};
+document.addEventListener('click', cerrarDropdown);
+
+// FAVORITOS / VISTOS
+window.toggleFavorito = async function(tconst, btn) {
+  if (!window.usuarioActual) return;
+  const uid = window.usuarioActual.uid;
+  const ref = doc(firestore, 'usuarios', uid, 'favoritos', tconst);
+  if (window.favoritosSet.has(tconst)) {
+    await deleteDoc(ref);
+    window.favoritosSet.delete(tconst);
+    btn.textContent = '🤍'; btn.classList.remove('active');
+    btn.title = 'Agregar a favoritos';
+  } else {
+    await setDoc(ref, { tconst, fecha: serverTimestamp() });
+    window.favoritosSet.add(tconst);
+    btn.textContent = '❤️'; btn.classList.add('active');
+    btn.title = 'Quitar de favoritos';
+  }
+};
+
+window.toggleVista = async function(tconst, btn) {
+  if (!window.usuarioActual) return;
+  const uid = window.usuarioActual.uid;
+  const ref = doc(firestore, 'usuarios', uid, 'vistos', tconst);
+  if (window.vistosSet.has(tconst)) {
+    await deleteDoc(ref);
+    window.vistosSet.delete(tconst);
+    btn.textContent = '⬜'; btn.classList.remove('active');
+    btn.title = 'Marcar como vista';
+  } else {
+    await setDoc(ref, { tconst, fecha: serverTimestamp() });
+    window.vistosSet.add(tconst);
+    btn.textContent = '✅'; btn.classList.add('active');
+    btn.title = 'Marcar como no vista';
+  }
+};
+
+// CHIPS FILTRO USUARIO
+window.toggleChipUsuario = function(chip) {
+  if (chipActivo === chip) {
+    chipActivo = null;
+    document.getElementById('chip-favoritos').classList.remove('active');
+    document.getElementById('chip-novistas').classList.remove('active');
+  } else {
+    chipActivo = chip;
+    document.getElementById('chip-favoritos').classList.toggle('active', chip === 'favoritos');
+    document.getElementById('chip-novistas').classList.toggle('active', chip === 'novistas');
+  }
+  if (typeof render === 'function') render();
+};
+
+// Exponer chipActivo para que render() pueda usarlo
+window.getChipUsuario = () => chipActivo;
+
+// PERFIL
+window.abrirPerfil = async function(seccion) {
+  cerrarDropdown();
+  if (!window.usuarioActual) return;
+  const uid = window.usuarioActual.uid;
+
+  // Avatar
+  const avatarLg = document.getElementById('perfil-avatar-lg');
+  const av = perfilData.avatar;
+  if (av && AVATARES.includes(av)) {
+    avatarLg.textContent = av;
+    avatarLg.style.fontSize = '32px';
+  } else {
+    const nombre = perfilData.nombre || window.usuarioActual.displayName || '';
+    const iniciales = nombre.split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase();
+    avatarLg.textContent = iniciales || '?';
+    avatarLg.style.fontSize = '18px';
+  }
+
+  // Info
+  document.getElementById('perfil-nombre-display').textContent = perfilData.nombre || window.usuarioActual.displayName || '';
+  const lb = perfilData.letterboxd;
+  document.getElementById('perfil-letterboxd-display').textContent = lb ? `Letterboxd: ${lb}` : '';
+  document.getElementById('perfil-bio-display').textContent = perfilData.bio || '';
+
+  // Stats
+  document.getElementById('perfil-n-favoritos').textContent = window.favoritosSet.size;
+  document.getElementById('perfil-n-vistos').textContent = window.vistosSet.size;
+
+  // Favoritos (hasta 4 + "ver todos")
+  const gridFav = document.getElementById('perfil-grid-favoritos');
+  const favTconsts = Array.from(window.favoritosSet).slice(0, 4);
+  gridFav.innerHTML = favTconsts.map(tconst => {
+    const pelicula = buscarPeliculaPorTconst(tconst);
+    const poster = pelicula?.poster_url;
+    return `<div class="perfil-film-card">
+      <div class="perfil-film-poster">${poster ? `<img src="${poster}" loading="lazy">` : '🎬'}</div>
+      <div class="perfil-film-title">${pelicula?.titulo_primario || tconst}</div>
+    </div>`;
+  }).join('') + (window.favoritosSet.size > 4 ? `<div class="perfil-film-card" style="display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--text-faint);">+${window.favoritosSet.size - 4} más</div>` : '');
+
+  // Historial (últimos 5 vistos por fecha)
+  const histList = document.getElementById('perfil-lista-historial');
+  try {
+    const q = query(collection(firestore, 'usuarios', uid, 'vistos'), orderBy('fecha', 'desc'), limit(5));
+    const snap = await getDocs(q);
+    histList.innerHTML = snap.docs.map(d => {
+      const tconst = d.id;
+      const pelicula = buscarPeliculaPorTconst(tconst);
+      const fecha = d.data().fecha?.toDate();
+      const fechaStr = fecha ? formatFecha(fecha) : '';
+      const poster = pelicula?.poster_url;
+      return `<div class="perfil-hist-item">
+        <div class="perfil-hist-poster">${poster ? `<img src="${poster}" loading="lazy">` : '🎬'}</div>
+        <div>
+          <div class="perfil-hist-title">${pelicula?.titulo_primario || tconst}</div>
+          <div class="perfil-hist-meta">${pelicula?.anio || ''}</div>
+        </div>
+        <div class="perfil-hist-date">${fechaStr}</div>
+      </div>`;
+    }).join('');
+  } catch(e) { histList.innerHTML = ''; }
+
+  document.getElementById('perfil-modal').classList.add('open');
+};
+
+window.cerrarPerfil = function() {
+  document.getElementById('perfil-modal').classList.remove('open');
+};
+
+// EDITAR PERFIL
+window.abrirEditarPerfil = function() {
+  document.getElementById('edit-nombre').value = perfilData.nombre || window.usuarioActual?.displayName || '';
+  document.getElementById('edit-bio').value = perfilData.bio || '';
+  document.getElementById('edit-letterboxd').value = perfilData.letterboxd || '';
+
+  // Renderizar selector de avatares
+  const sel = document.getElementById('avatar-selector');
+  sel.innerHTML = AVATARES.map(av => `
+    <div class="avatar-opt${perfilData.avatar === av ? ' selected' : ''}" onclick="seleccionarAvatar('${av}',this)">${av}</div>
+  `).join('');
+
+  document.getElementById('edit-perfil-modal').classList.add('open');
+};
+
+window.cerrarEditarPerfil = function() {
+  document.getElementById('edit-perfil-modal').classList.remove('open');
+};
+
+window.seleccionarAvatar = function(av, el) {
+  document.querySelectorAll('.avatar-opt').forEach(e => e.classList.remove('selected'));
+  el.classList.add('selected');
+};
+
+window.guardarPerfil = async function() {
+  if (!window.usuarioActual) return;
+  const uid = window.usuarioActual.uid;
+  const avatarSel = document.querySelector('.avatar-opt.selected');
+  const datos = {
+    nombre: document.getElementById('edit-nombre').value.trim(),
+    bio: document.getElementById('edit-bio').value.trim(),
+    letterboxd: document.getElementById('edit-letterboxd').value.trim(),
+    avatar: avatarSel ? avatarSel.textContent.trim() : (perfilData.avatar || ''),
+    actualizado: serverTimestamp()
+  };
+  try {
+    await setDoc(doc(firestore, 'perfiles', uid), datos, { merge: true });
+    perfilData = { ...perfilData, ...datos };
+    actualizarAvatarHeader();
+    cerrarEditarPerfil();
+    abrirPerfil();
+  } catch(e) { console.error('Error guardando perfil:', e); }
+};
+
+// HELPERS
+function buscarPeliculaPorTconst(tconst) {
+  if (!window.db) return null;
+  try {
+    const res = window.db.exec(`
+      SELECT co.tconst, p.titulo_primario, p.anio, p.poster_url
+      FROM coincidencias co
+      LEFT JOIN peliculas p ON p.tconst = co.tconst
+      WHERE co.tconst = '${tconst}' AND co.estado = 'confirmada'
+      LIMIT 1
+    `);
+    if (!res[0]) return null;
+    const cols = res[0].columns;
+    const vals = res[0].values[0];
+    return Object.fromEntries(cols.map((c,i) => [c, vals[i]]));
+  } catch(e) { return null; }
+}
+
+function formatFecha(date) {
+  const now = new Date();
+  const diff = Math.floor((now - date) / 86400000);
+  if (diff === 0) return 'hoy';
+  if (diff === 1) return 'ayer';
+  if (diff < 7) return `hace ${diff} días`;
+  return date.toLocaleDateString('es-AR', { day:'2-digit', month:'2-digit' });
+}
 </script>
 </body>
 </html>
