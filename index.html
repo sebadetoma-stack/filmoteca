@@ -907,7 +907,7 @@
     <div class="edit-field">
       <label>Avatar</label>
       <div class="avatar-selector" id="avatar-selector"></div>
-      <span class="avatar-upload-label">O subí una foto (próximamente)</span>
+
     </div>
     <div class="edit-actions">
       <button class="btn-cancelar" onclick="cerrarEditarPerfil()">Cancelar</button>
@@ -936,8 +936,6 @@
           <div class="dd-name" id="dd-nombre"></div>
           <div class="dd-email" id="dd-email"></div>
         </div>
-        <div class="dd-item" onclick="abrirPerfil()">❤️ Mis favoritos</div>
-        <div class="dd-item" onclick="abrirPerfil('historial')">🕐 Historial</div>
         <div class="dd-item" onclick="abrirPerfil()">👤 Mi perfil</div>
         <div class="dd-divider"></div>
         <div class="dd-item" onclick="cerrarSesion()">↩ Cerrar sesión</div>
@@ -1711,7 +1709,13 @@ window.abrirPerfil = async function(seccion) {
   // Info
   document.getElementById('perfil-nombre-display').textContent = perfilData.nombre || window.usuarioActual.displayName || '';
   const lb = perfilData.letterboxd;
-  document.getElementById('perfil-letterboxd-display').textContent = lb ? `Letterboxd: ${lb}` : '';
+  const lbEl = document.getElementById('perfil-letterboxd-display');
+  if (lb) {
+    const usuario = lb.replace('@','');
+    lbEl.innerHTML = `Letterboxd: <a href="https://letterboxd.com/${usuario}" target="_blank" rel="noopener" style="color:var(--amber);text-decoration:none">${lb}</a>`;
+  } else {
+    lbEl.textContent = '';
+  }
   document.getElementById('perfil-bio-display').textContent = perfilData.bio || '';
 
   // Stats
