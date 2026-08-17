@@ -225,6 +225,8 @@ El script es reanudable: guarda los países encontrados y en la siguiente corrid
 
 - **Sorprendeme** (botón ✦): abre una película al azar de las confirmadas visibles en AR
 - **Links compartibles**: los filtros activos se reflejan en el hash de la URL (`#genero=Film-Noir&pais=GB`), que podés copiar y compartir
+- **Páginas individuales**: cada película tiene su propia URL estática (/pelicula/titulo-año/) con schema.org, meta tags, datos técnicos y películas relacionadas
+- **Login con Google**: podés guardar favoritos, marcar películas como vistas y llevar un historial. Los datos se guardan en Firebase Firestore y se pueden filtrar desde el catálogo
 - **Botón ⚑**: aparece en cada tarjeta al pasar el mouse. Abre un formulario de Google para reportar problemas
 
 ## Auditoría periódica
