@@ -214,7 +214,16 @@
       <h1>Don't Wait, Django... Shoot!</h1>
       <div class="titulo-orig">Non aspettare Django, spara</div>
 
-      <a class="btn-yt" href="https://www.youtube.com/watch?v=cykQq5GPu1A" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+      <div class="btn-yt-wrap">
+  <a class="btn-yt" href="https://www.youtube.com/watch?v=cykQq5GPu1A" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+  <div class="yt-versions-dropdown">
+    <button class="yt-versions-toggle" onclick="this.parentElement.classList.toggle('open')">▾ 4 versiones</button>
+    <div class="yt-versions-list"><a class="yt-version-item" href="https://www.youtube.com/watch?v=cykQq5GPu1A" target="_blank" rel="noopener">Cult Cinema Classics · Italiano</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=l6Boftxet30" target="_blank" rel="noopener">Film&Clips · Inglés</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=ODYkjTNFs0I" target="_blank" rel="noopener">Film&Clips · Italiano</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=xEGb4z-r8cI" target="_blank" rel="noopener">Film&Clips · Italiano</a></div>
+  </div>
+</div>
 
       <div class="user-actions" id="user-actions" style="display:none">
         <button class="btn-usuario" id="btn-fav" onclick="toggleFav()">🤍 Favorita</button>
@@ -233,7 +242,7 @@
       <div class="badges"><span class="badge">Action</span><span class="badge">Drama</span><span class="badge">Western</span></div>
 
       <div class="canal-info">
-        Disponible en <strong>Cult Cinema Classics</strong> · verificada desde Argentina
+        Disponible en 4 versiones · verificada desde Argentina
       </div>
 
       <div class="links-ext">
@@ -258,6 +267,13 @@
             <div class="rel-anio">1970</div>
           </div>
         </a>
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/viva-django-1971/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/t2Dxk2NSiFUx1alsajr1tC7tpEU.jpg" alt="Viva! Django" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">Viva! Django</div>
+            <div class="rel-anio">1971</div>
+          </div>
+        </a>
         <a class="rel-card" href="https://filmotecaclasica.com/pelicula/cjamango-1967/">
           <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/khBYjJrwU2fNQoOQO5j9jHn88ce.jpg" alt="Cjamango" loading="lazy"></div>
           <div class="rel-info">
@@ -265,18 +281,11 @@
             <div class="rel-anio">1967</div>
           </div>
         </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-dragon-strikes-back-1973/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/eZNTLGFe5x8E7ylOiPfZrT8Zveh.jpg" alt="The Dragon Strikes Back" loading="lazy"></div>
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/brother-outlaw-1971/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/fGQHtsSEZ1oFOqK5scy6OeQSg90.jpg" alt="Brother Outlaw" loading="lazy"></div>
           <div class="rel-info">
-            <div class="rel-titulo-peli">The Dragon Strikes Back</div>
-            <div class="rel-anio">1973</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/a-stranger-in-town-1967/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/hKjmiIOY01M8bz4x2PmC2zLRbb9.jpg" alt="A Stranger in Town" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">A Stranger in Town</div>
-            <div class="rel-anio">1967</div>
+            <div class="rel-titulo-peli">Brother Outlaw</div>
+            <div class="rel-anio">1971</div>
           </div>
         </a>
     </div>

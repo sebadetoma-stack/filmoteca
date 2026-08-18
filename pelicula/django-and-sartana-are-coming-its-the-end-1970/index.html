@@ -214,7 +214,16 @@
       <h1>Django and Sartana Are Coming... It's the End</h1>
       <div class="titulo-orig">Arrivano Django e Sartana ...è la fine!</div>
 
-      <a class="btn-yt" href="https://www.youtube.com/watch?v=IU2MC4rnh_A" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+      <div class="btn-yt-wrap">
+  <a class="btn-yt" href="https://www.youtube.com/watch?v=IU2MC4rnh_A" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+  <div class="yt-versions-dropdown">
+    <button class="yt-versions-toggle" onclick="this.parentElement.classList.toggle('open')">▾ 4 versiones</button>
+    <div class="yt-versions-list"><a class="yt-version-item" href="https://www.youtube.com/watch?v=IU2MC4rnh_A" target="_blank" rel="noopener">Cult Cinema Classics · Inglés</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=c6FbFE18VMc" target="_blank" rel="noopener">Film&Clips · Italiano</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=K2plLJGvAEY" target="_blank" rel="noopener">Film&Clips · Inglés</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=ZEm_fMnOU88" target="_blank" rel="noopener">Film&Clips · Idioma desconocido</a></div>
+  </div>
+</div>
 
       <div class="user-actions" id="user-actions" style="display:none">
         <button class="btn-usuario" id="btn-fav" onclick="toggleFav()">🤍 Favorita</button>
@@ -233,7 +242,7 @@
       <div class="badges"><span class="badge">Action</span><span class="badge">Drama</span><span class="badge">Western</span></div>
 
       <div class="canal-info">
-        Disponible en <strong>Cult Cinema Classics</strong> · verificada desde Argentina
+        Disponible en 4 versiones · verificada desde Argentina
       </div>
 
       <div class="links-ext">
@@ -251,32 +260,32 @@
     <div class="rel-titulo">Películas relacionadas</div>
     <div class="rel-grid">
       
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/coffin-full-of-dollars-1971/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/4cPeZ2wgx9slvr98DfTOxAgK7sQ.jpg" alt="Coffin Full of Dollars" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">Coffin Full of Dollars</div>
+            <div class="rel-anio">1971</div>
+          </div>
+        </a>
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/make-the-sign-of-the-cross-stranger-1968/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/ztTXCl8jE5tO5Z8BS1AocmmPc8M.jpg" alt="Make the Sign of the Cross, Stranger!" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">Make the Sign of the Cross, Stranger!</div>
+            <div class="rel-anio">1968</div>
+          </div>
+        </a>
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/passa-sartana-e-lombra-della-tua-morte-1969/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/sbZkR94IguVCLTRmyb2YQzmxyKa.jpg" alt="Passa Sartana... è l'ombra della tua morte" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">Passa Sartana... è l'ombra della tua morte</div>
+            <div class="rel-anio">1969</div>
+          </div>
+        </a>
         <a class="rel-card" href="https://filmotecaclasica.com/pelicula/one-damned-day-at-dawn-django-meets-sartana-1970/">
           <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/vgu2pr2kCkkxoP3hISs275ptlQw.jpg" alt="One Damned Day at Dawn... Django Meets Sartana!" loading="lazy"></div>
           <div class="rel-info">
             <div class="rel-titulo-peli">One Damned Day at Dawn... Django Meets Sartana!</div>
             <div class="rel-anio">1970</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/four-came-to-kill-sartana-1969/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/5SrKg0GiiJAVEZWEzYwwF1Q8mFj.jpg" alt="Four Came to Kill Sartana" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">Four Came to Kill Sartana</div>
-            <div class="rel-anio">1969</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-dragon-strikes-back-1973/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/eZNTLGFe5x8E7ylOiPfZrT8Zveh.jpg" alt="The Dragon Strikes Back" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">The Dragon Strikes Back</div>
-            <div class="rel-anio">1973</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/a-stranger-in-town-1967/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/hKjmiIOY01M8bz4x2PmC2zLRbb9.jpg" alt="A Stranger in Town" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">A Stranger in Town</div>
-            <div class="rel-anio">1967</div>
           </div>
         </a>
     </div>

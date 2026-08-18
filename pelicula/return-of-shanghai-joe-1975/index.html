@@ -214,7 +214,17 @@
       <h1>Return of Shanghai Joe</h1>
       <div class="titulo-orig">Che botte ragazzi!</div>
 
-      <a class="btn-yt" href="https://www.youtube.com/watch?v=7AHERGB0MEs" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+      <div class="btn-yt-wrap">
+  <a class="btn-yt" href="https://www.youtube.com/watch?v=7AHERGB0MEs" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+  <div class="yt-versions-dropdown">
+    <button class="yt-versions-toggle" onclick="this.parentElement.classList.toggle('open')">▾ 5 versiones</button>
+    <div class="yt-versions-list"><a class="yt-version-item" href="https://www.youtube.com/watch?v=7AHERGB0MEs" target="_blank" rel="noopener">Cult Cinema Classics · Italiano</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=6uJeVYvsGVA" target="_blank" rel="noopener">Film&Clips · fr-CA</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=0PFTg17Yfq8" target="_blank" rel="noopener">Film&Clips · fr-CA</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=-tGYl4kCqSk" target="_blank" rel="noopener">Film&Clips · Inglés</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=4AlI57ZauEA" target="_blank" rel="noopener">Film&Clips · Italiano</a></div>
+  </div>
+</div>
 
       <div class="user-actions" id="user-actions" style="display:none">
         <button class="btn-usuario" id="btn-fav" onclick="toggleFav()">🤍 Favorita</button>
@@ -233,7 +243,7 @@
       <div class="badges"><span class="badge">Action</span><span class="badge">Comedy</span><span class="badge">Drama</span></div>
 
       <div class="canal-info">
-        Disponible en <strong>Cult Cinema Classics</strong> · verificada desde Argentina
+        Disponible en 5 versiones · verificada desde Argentina
       </div>
 
       <div class="links-ext">
@@ -251,6 +261,13 @@
     <div class="rel-titulo">Películas relacionadas</div>
     <div class="rel-grid">
       
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/fighters-from-ave-maria-1970/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/A2Gkyx0KZKZkTkvexIJoCQfTcHY.jpg" alt="Fighters from Ave Maria" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">Fighters from Ave Maria</div>
+            <div class="rel-anio">1970</div>
+          </div>
+        </a>
         <a class="rel-card" href="https://filmotecaclasica.com/pelicula/ladies-crave-excitement-1935/">
           <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/eG2fLGGhgvivHmYeEyJUfDQnfK.jpg" alt="Ladies Crave Excitement" loading="lazy"></div>
           <div class="rel-info">
@@ -258,24 +275,17 @@
             <div class="rel-anio">1935</div>
           </div>
         </a>
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/zambo-king-of-the-jungle-1972/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/7Tr8sfgXeXeWTDB13AYgdO5sN29.jpg" alt="Zambo, King of the Jungle" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">Zambo, King of the Jungle</div>
+            <div class="rel-anio">1972</div>
+          </div>
+        </a>
         <a class="rel-card" href="https://filmotecaclasica.com/pelicula/sky-bandits-1940/">
           <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/2hIw8gXGA0vFzstAIdjPiMUuISA.jpg" alt="Sky Bandits" loading="lazy"></div>
           <div class="rel-info">
             <div class="rel-titulo-peli">Sky Bandits</div>
-            <div class="rel-anio">1940</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/steamboat-bill-jr-1928/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/zygJMsmXxeyDc1N67OCZc8xtq4I.jpg" alt="Steamboat Bill, Jr." loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">Steamboat Bill, Jr.</div>
-            <div class="rel-anio">1928</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/his-girl-friday-1940/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/d13ByB7PTdWAkWscSO6HA6N6vkE.jpg" alt="His Girl Friday" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">His Girl Friday</div>
             <div class="rel-anio">1940</div>
           </div>
         </a>

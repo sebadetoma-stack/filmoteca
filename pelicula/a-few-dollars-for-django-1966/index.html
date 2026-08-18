@@ -218,7 +218,15 @@
       <h1>A Few Dollars for Django</h1>
       <div class="titulo-orig">Pochi dollari per Django</div>
 
-      <a class="btn-yt" href="https://www.youtube.com/watch?v=TFagDpmF4yQ" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+      <div class="btn-yt-wrap">
+  <a class="btn-yt" href="https://www.youtube.com/watch?v=TFagDpmF4yQ" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+  <div class="yt-versions-dropdown">
+    <button class="yt-versions-toggle" onclick="this.parentElement.classList.toggle('open')">▾ 3 versiones</button>
+    <div class="yt-versions-list"><a class="yt-version-item" href="https://www.youtube.com/watch?v=TFagDpmF4yQ" target="_blank" rel="noopener">Cult Cinema Classics · Inglés</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=Lb_9MfIe41g" target="_blank" rel="noopener">Film&Clips · fr-CA</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=1Fdwdz2lAPs" target="_blank" rel="noopener">Film&Clips · Inglés</a></div>
+  </div>
+</div>
 
       <div class="user-actions" id="user-actions" style="display:none">
         <button class="btn-usuario" id="btn-fav" onclick="toggleFav()">🤍 Favorita</button>
@@ -237,7 +245,7 @@
       <div class="badges"><span class="badge">Crime</span><span class="badge">Drama</span><span class="badge">Western</span></div>
 
       <div class="canal-info">
-        Disponible en <strong>Cult Cinema Classics</strong> · verificada desde Argentina
+        Disponible en 3 versiones · verificada desde Argentina
       </div>
 
       <div class="links-ext">
@@ -255,32 +263,32 @@
     <div class="rel-titulo">Películas relacionadas</div>
     <div class="rel-grid">
       
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/payment-in-blood-1967/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/tojHU5ZI35RSTEjCGnDy7qFFAh9.jpg" alt="Payment in Blood" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">Payment in Blood</div>
+            <div class="rel-anio">1967</div>
+          </div>
+        </a>
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/death-knows-no-time-1968/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/yIVHVFWnzZVwpFUWnfREDNBGvxT.jpg" alt="Death Knows No Time" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">Death Knows No Time</div>
+            <div class="rel-anio">1968</div>
+          </div>
+        </a>
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/quinto-non-ammazzare-1969/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/ueuion7YN2URWf26hKXoq6X0FGG.jpg" alt="Quinto: non ammazzare" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">Quinto: non ammazzare</div>
+            <div class="rel-anio">1969</div>
+          </div>
+        </a>
         <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-marihuana-story-1950/">
           <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/7SI2UxmWDIACeA9z1vehAnQCueY.jpg" alt="The Marihuana Story" loading="lazy"></div>
           <div class="rel-info">
             <div class="rel-titulo-peli">The Marihuana Story</div>
             <div class="rel-anio">1950</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-capture-1950/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/j72S3zVQOrPMlz0uwq8UpW65tHK.jpg" alt="The Capture" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">The Capture</div>
-            <div class="rel-anio">1950</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/adios-gringo-1965/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/rX6t9TEzRXhOVaJ9QWQnJdgH6EU.jpg" alt="Adiós gringo" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">Adiós gringo</div>
-            <div class="rel-anio">1965</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/undercover-men-1934/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/hq0IL27JHA3FKpzAVWCDVNBXl5J.jpg" alt="Undercover Men" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">Undercover Men</div>
-            <div class="rel-anio">1934</div>
           </div>
         </a>
     </div>

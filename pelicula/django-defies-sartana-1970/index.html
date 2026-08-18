@@ -213,7 +213,23 @@
       <h1>Django Defies Sartana</h1>
       <div class="titulo-orig">Django sfida Sartana</div>
 
-      <a class="btn-yt" href="https://www.youtube.com/watch?v=rOkGfelmL5E" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+      <div class="btn-yt-wrap">
+  <a class="btn-yt" href="https://www.youtube.com/watch?v=rOkGfelmL5E" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+  <div class="yt-versions-dropdown">
+    <button class="yt-versions-toggle" onclick="this.parentElement.classList.toggle('open')">▾ 11 versiones</button>
+    <div class="yt-versions-list"><a class="yt-version-item" href="https://www.youtube.com/watch?v=rOkGfelmL5E" target="_blank" rel="noopener">Cult Cinema Classics · Inglés</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=12HsD_wUruk" target="_blank" rel="noopener">Film&Clips · fr-CA</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=6fHNEXz61Ko" target="_blank" rel="noopener">Film&Clips · fr-CA</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=vSiU1PDjFoA" target="_blank" rel="noopener">Film&Clips · fr-CA</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=Ww6zcVTlcjI" target="_blank" rel="noopener">Film&Clips · fr-CA</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=pqFIj_NODRI" target="_blank" rel="noopener">Film&Clips · Inglés</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=1orOBRYOreE" target="_blank" rel="noopener">Film&Clips · Inglés</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=VQ-yVXZ1l58" target="_blank" rel="noopener">Film&Clips · Inglés</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=dq4nepHcUfQ" target="_blank" rel="noopener">Film&Clips · Inglés</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=Sb3ZU9mhmuw" target="_blank" rel="noopener">Film&Clips · Idioma desconocido</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=K_4j-4UDo08" target="_blank" rel="noopener">Film&Clips in English · Inglés</a></div>
+  </div>
+</div>
 
       <div class="user-actions" id="user-actions" style="display:none">
         <button class="btn-usuario" id="btn-fav" onclick="toggleFav()">🤍 Favorita</button>
@@ -232,7 +248,7 @@
       <div class="badges"><span class="badge">Drama</span><span class="badge">Western</span></div>
 
       <div class="canal-info">
-        Disponible en <strong>Cult Cinema Classics</strong> · verificada desde Argentina
+        Disponible en 11 versiones · verificada desde Argentina
       </div>
 
       <div class="links-ext">
@@ -250,6 +266,13 @@
     <div class="rel-titulo">Películas relacionadas</div>
     <div class="rel-grid">
       
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/vengeance-is-a-dish-served-cold-1971/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/2zgaUmAoTSq6zDFGok52Mlmegwu.jpg" alt="Vengeance Is a Dish Served Cold" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">Vengeance Is a Dish Served Cold</div>
+            <div class="rel-anio">1971</div>
+          </div>
+        </a>
         <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-gun-1978/">
           <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/vJ11EC9RRGciZsBGYBeyDyUJouE.jpg" alt="The Gun" loading="lazy"></div>
           <div class="rel-info">
@@ -264,18 +287,11 @@
             <div class="rel-anio">1939</div>
           </div>
         </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/my-darling-clementine-1946/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/br9dcOFBM9hSZYZ4NPgooPMYfQy.jpg" alt="My Darling Clementine" loading="lazy"></div>
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/django-1966/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/aEVGifAWmy0yFwVf7n72VXyJ6lj.jpg" alt="Django" loading="lazy"></div>
           <div class="rel-info">
-            <div class="rel-titulo-peli">My Darling Clementine</div>
-            <div class="rel-anio">1946</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-ox-bow-incident-1943/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/wEBu9jZCXSSdZjt01EVGisdnD87.jpg" alt="The Ox-Bow Incident" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">The Ox-Bow Incident</div>
-            <div class="rel-anio">1943</div>
+            <div class="rel-titulo-peli">Django</div>
+            <div class="rel-anio">1966</div>
           </div>
         </a>
     </div>

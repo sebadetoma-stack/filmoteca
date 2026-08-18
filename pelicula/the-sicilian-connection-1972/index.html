@@ -214,7 +214,14 @@
       <h1>The Sicilian Connection</h1>
       <div class="titulo-orig">Afyon oppio</div>
 
-      <a class="btn-yt" href="https://www.youtube.com/watch?v=iKsiWY2nr5Y" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+      <div class="btn-yt-wrap">
+  <a class="btn-yt" href="https://www.youtube.com/watch?v=iKsiWY2nr5Y" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+  <div class="yt-versions-dropdown">
+    <button class="yt-versions-toggle" onclick="this.parentElement.classList.toggle('open')">▾ 2 versiones</button>
+    <div class="yt-versions-list"><a class="yt-version-item" href="https://www.youtube.com/watch?v=iKsiWY2nr5Y" target="_blank" rel="noopener">Cult Cinema Classics · Italiano</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=sIZxwz3aOb8" target="_blank" rel="noopener">Film&Clips · Italiano</a></div>
+  </div>
+</div>
 
       <div class="user-actions" id="user-actions" style="display:none">
         <button class="btn-usuario" id="btn-fav" onclick="toggleFav()">🤍 Favorita</button>
@@ -233,7 +240,7 @@
       <div class="badges"><span class="badge">Crime</span><span class="badge">Drama</span><span class="badge">Thriller</span></div>
 
       <div class="canal-info">
-        Disponible en <strong>Cult Cinema Classics</strong> · verificada desde Argentina
+        Disponible en 2 versiones · verificada desde Argentina
       </div>
 
       <div class="links-ext">
@@ -251,6 +258,13 @@
     <div class="rel-titulo">Películas relacionadas</div>
     <div class="rel-grid">
       
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/nine-guests-for-a-crime-1977/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/e2kioFlpNiNbB96SwCbIPmqfEhL.jpg" alt="Nine Guests for a Crime" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">Nine Guests for a Crime</div>
+            <div class="rel-anio">1977</div>
+          </div>
+        </a>
         <a class="rel-card" href="https://filmotecaclasica.com/pelicula/straw-dogs-1971/">
           <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/eUdwFTI5imeQCKEYyHfuQgYNXfn.jpg" alt="Straw Dogs" loading="lazy"></div>
           <div class="rel-info">
@@ -270,13 +284,6 @@
           <div class="rel-info">
             <div class="rel-titulo-peli">Violent Saturday</div>
             <div class="rel-anio">1955</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-kremlin-letter-1970/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/hgD3jMhVWR7C0auPqhO1W2kE6W9.jpg" alt="The Kremlin Letter" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">The Kremlin Letter</div>
-            <div class="rel-anio">1970</div>
           </div>
         </a>
     </div>
