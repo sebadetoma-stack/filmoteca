@@ -1477,7 +1477,7 @@ async function cargarDB() {
     bar.style.width = '20%';
 
     // Fetch con progreso
-    const resp = await fetch('filmoteca.db');
+    const resp = await fetch('https://pub-f225ef234c7f4214bc5907500403da19.r2.dev/filmoteca.db');
     if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
 
     const total = parseInt(resp.headers.get('content-length') || '0');
