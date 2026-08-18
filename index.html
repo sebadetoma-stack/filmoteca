@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Filmoteca Clásica · Cine clásico gratis en YouTube</title>
-<meta name="description" content="Catálogo de películas clásicas (1930–1979) disponibles gratis y completas en YouTube. Verificadas desde Argentina.">
+<meta name="description" content="Catálogo de películas clásicas (1920–1979) disponibles gratis y completas en YouTube. Verificadas desde Argentina.">
 <link rel="canonical" href="https://filmotecaclasica.com/">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FNBHN0F639"></script>
@@ -930,7 +930,7 @@
     <div>
       <div class="logo">Filmoteca <em>Clásica</em></div>
     </div>
-    <div class="logo-sub">1930 – 1979</div>
+    <div class="logo-sub">1920 – 1979</div>
     <div class="header-sub" id="header-sub"></div>
     <div class="header-count" id="header-count"></div>
     <button class="sobre-link" onclick="document.getElementById('modal-sobre').classList.add('open')">Sobre la filmoteca</button>
@@ -978,6 +978,8 @@
 
     <select id="f-decada">
       <option value="">Todas las décadas</option>
+      <option value="1920">1920s</option>
+      <option value="None">Sin fecha declarada</option>
       <option value="1930">1930s</option>
       <option value="1940">1940s</option>
       <option value="1950">1950s</option>
@@ -1048,7 +1050,7 @@
       trailers con películas completas, y muchas desaparecen cuando cambian los derechos.</p>
       <p>Esta filmoteca responde una pregunta simple: <strong>¿qué películas clásicas puedo
       ver hoy, gratis y completas, desde Argentina?</strong></p>
-      <p>El catálogo cubre <strong>cine de 1930 a 1979</strong>: estadounidense, británico,
+      <p>El catálogo cubre <strong>cine de 1920 a 1979</strong>: estadounidense, británico,
       italiano, francés, soviético, argentino y más. Podés filtrar por género, década y país de
       producción. Cada entrada fue verificada automáticamente cruzando la duración y el
       título del video contra los datos de IMDb, descartando trailers, escenas sueltas
@@ -1158,7 +1160,8 @@ function buildQuery() {
   }
 
   if (genero) { where.push('p.generos LIKE ?'); params.push(`%${genero}%`); }
-  if (decada) { where.push('p.decada = ?'); params.push(parseInt(decada)); }
+  if (decada === 'None') { where.push('p.decada IS NULL'); }
+  else if (decada) { where.push('p.decada = ?'); params.push(parseInt(decada)); }
   if (soloPrecode) { where.push('p.es_precode IN (1,2)'); }
   if (soloDoblada) { where.push("ca.nombre LIKE '%La Corriente%'"); }
   if (pais) { where.push('p.pais LIKE ?'); params.push(`%${pais}%`); }
