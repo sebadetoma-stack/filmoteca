@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://filmotecaclasica.com/</loc><lastmod>2026-08-18</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/a-clockwork-orange-1971/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/dr-strangelove-or-how-i-learned-to-stop-worrying-and-love-the-bomb-1964/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/seven-samurai-1954/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-seventh-seal-1957/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/metropolis-1927/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/rashomon-1950/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/bicycle-thieves-1948/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/rebecca-1940/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/stalker-1979/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -33,6 +37,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/black-christmas-1974/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/sleuth-1972/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/amarcord-1973/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/the-discreet-charm-of-the-bourgeoisie-1972/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/brief-encounter-1945/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/suspicion-1941/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-red-shoes-1948/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -44,10 +49,12 @@
   <url><loc>https://filmotecaclasica.com/pelicula/20000-leagues-under-the-sea-1954/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-conformist-1970/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/manos-the-hands-of-fate-1966/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/lavventura-1960/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-lady-from-shanghai-1947/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/dersu-uzala-1975/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-innocents-1961/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/house-on-haunted-hill-1959/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/the-leopard-1963/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-wolf-man-1941/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/django-1966/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/rome-open-city-1945/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -60,6 +67,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/the-stranger-1946/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/through-a-glass-darkly-1961/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/how-green-was-my-valley-1941/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/the-passenger-1975/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/my-man-godfrey-1936/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/my-darling-clementine-1946/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/great-expectations-1946/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -67,8 +75,11 @@
   <url><loc>https://filmotecaclasica.com/pelicula/the-eagle-has-landed-1976/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-ox-bow-incident-1943/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-trial-1962/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/foreign-correspondent-1940/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/rocco-and-his-brothers-1960/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/hour-of-the-wolf-1968/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/mr-deeds-goes-to-town-1936/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/death-in-venice-1971/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/safety-last-1923/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/irma-la-douce-1963/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-flight-of-the-phoenix-1965/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -76,6 +87,8 @@
   <url><loc>https://filmotecaclasica.com/pelicula/the-young-and-the-damned-1950/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-man-who-knew-too-much-1934/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-awful-truth-1937/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/i-vitelloni-1953/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/vampyr-1932/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-silence-1963/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-cranes-are-flying-1957/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-phantom-of-the-opera-1925/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -88,10 +101,12 @@
   <url><loc>https://filmotecaclasica.com/pelicula/black-sunday-1960/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/f-for-fake-1973/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/a-night-to-remember-1958/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/red-desert-1964/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-wild-one-1953/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/and-then-there-were-none-1945/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/faust-1926/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/mclintock-1963/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/zabriskie-point-1970/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-life-and-death-of-colonel-blimp-1943/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-diamond-arm-1969/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/pickup-on-south-street-1953/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -109,9 +124,12 @@
   <url><loc>https://filmotecaclasica.com/pelicula/twelve-oclock-high-1949/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-most-dangerous-game-1932/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/fear-and-desire-1952/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/germany-year-zero-1948/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/one-eyed-jacks-1961/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/kidnapping-caucasian-style-1967/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/letter-from-an-unknown-woman-1948/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/roma-1972/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/drunken-angel-1948/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-old-dark-house-1932/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/a-bay-of-blood-1971/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/waterloo-1970/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -121,6 +139,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/crime-busters-1977/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/doa-1949/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/martin-1977/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/journey-to-italy-1954/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/two-women-1960/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-palm-beach-story-1942/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/our-hospitality-1923/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -143,6 +162,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/jamaica-inn-1939/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/young-and-innocent-1937/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-navigator-1924/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/day-of-wrath-1943/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-golden-voyage-of-sinbad-1973/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-jazz-singer-1927/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-hitch-hiker-1953/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -176,6 +196,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/othello-1951/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/things-to-come-1936/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-mouse-that-roared-1959/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/senso-1954/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/confidential-report-1955/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-big-combo-1955/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/dr-mabuse-the-gambler-1922/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -218,6 +239,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/mimino-1977/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/cimarron-1931/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/nothing-sacred-1937/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/the-swindle-1955/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-woman-in-green-1945/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/terror-by-night-1946/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-thief-of-bagdad-1924/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -240,6 +262,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/the-bat-1959/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/man-hunt-1941/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/life-with-father-1947/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/nazarin-1959/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/unbelievable-adventures-of-italians-in-russia-1974/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-serpents-egg-1977/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-hunchback-of-notre-dame-1923/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -248,6 +271,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/royal-wedding-1951/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/dr-jekyll-and-mr-hyde-1920/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-lost-world-1925/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/ludwig-1973/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-freshman-1925/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/scream-of-fear-1961/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/escape-to-athena-1979/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -257,6 +281,8 @@
   <url><loc>https://filmotecaclasica.com/pelicula/in-like-flint-1967/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-snows-of-kilimanjaro-1952/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-reckless-moment-1949/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/the-criminal-life-of-archibaldo-de-la-cruz-1955/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/the-lower-depths-1957/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/a-genius-two-partners-and-a-dupe-1975/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/secret-beyond-the-door-1947/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/god-forgives-i-dont-1967/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -272,6 +298,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/bellissima-1951/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/5-fingers-1952/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/lisa-and-the-devil-1973/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/il-grido-1957/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/angel-street-1940/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/i-wake-up-screaming-1941/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-browning-version-1951/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -280,6 +307,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/body-and-soul-1947/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-league-of-gentlemen-1960/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-inn-of-the-sixth-happiness-1958/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/conversation-piece-1974/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/three-ages-1923/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-magic-flute-1975/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/orphans-of-the-storm-1921/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -292,6 +320,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/woman-on-the-run-1950/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-red-house-1947/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/go-west-1925/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/the-black-swan-1942/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/impact-1949/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/deathouse-1972/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/that-hamilton-woman-1941/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -301,10 +330,13 @@
   <url><loc>https://filmotecaclasica.com/pelicula/companeros-1970/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/pursuit-of-the-graf-spee-1956/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-lords-of-flatbush-1974/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/a-story-from-chikamatsu-1954/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/europe-51-1952/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/gullivers-travels-1939/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-private-life-of-henry-viii-1933/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-pearl-of-death-1944/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-bigamist-1953/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/street-of-shame-1956/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/heidi-1937/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-outlaw-1943/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/attack-of-the-giant-leeches-1959/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -337,6 +369,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/letter-never-sent-1960/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/gorgo-1961/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/he-who-gets-slapped-1924/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/the-innocent-1976/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-wild-world-of-batwoman-1966/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/deadline-usa-1952/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-last-time-i-saw-paris-1954/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -344,6 +377,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/the-giant-gila-monster-1959/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/a-chump-at-oxford-1940/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/night-tide-1961/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/lancelot-of-the-lake-1974/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/man-with-a-million-1954/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/fathers-little-dividend-1951/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/7th-heaven-1927/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -359,11 +393,13 @@
   <url><loc>https://filmotecaclasica.com/pelicula/made-for-each-other-1939/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/a-walk-in-the-sun-1945/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-kiss-of-the-vampire-1963/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/the-flowers-of-st-francis-1950/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-man-in-the-gray-flannel-suit-1956/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/knights-of-the-round-table-1953/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/battling-butler-1926/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/house-of-bamboo-1955/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-battle-of-neretva-1969/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/the-quiet-duel-1949/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/garden-of-evil-1954/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/horrors-of-spider-island-1960/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/cry-of-the-city-1948/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -371,6 +407,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/the-house-on-telegraph-hill-1951/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-furies-1950/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/story-of-gi-joe-1945/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/variety-lights-1950/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/foolish-wives-1922/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/short-night-of-glass-dolls-1971/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-southerner-1945/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -413,9 +450,11 @@
   <url><loc>https://filmotecaclasica.com/pelicula/cast-a-dark-shadow-1955/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/brink-of-life-1958/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/genevieve-1953/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/the-golden-coach-1952/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-ghoul-1933/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/shock-1946/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/road-to-rio-1947/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/the-stranger-1967/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/triple-cross-1966/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/even-angels-eat-beans-1973/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/western-union-1941/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -500,6 +539,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/invisible-ghost-1941/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-road-to-hong-kong-1962/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/david-and-bathsheba-1951/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/the-47-ronin-1941/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/svengali-1931/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-magic-sword-1962/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/gold-1974/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -515,6 +555,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/the-penalty-1920/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/little-lord-fauntleroy-1936/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/they-made-me-a-criminal-1938/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/juno-and-the-paycock-1930/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/vengeance-valley-1951/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/osaka-elegy-1936/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/killers-from-space-1954/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -538,6 +579,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/not-of-this-earth-1957/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-red-tent-1969/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/bloodlust-1961/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/a-geisha-1953/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-boss-1973/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-amazing-mr-x-1948/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/bloody-pit-of-horror-1965/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -549,6 +591,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/wings-1966/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/mahogany-1975/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/secret-of-the-incas-1954/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/sandra-1965/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/hell-and-high-water-1954/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-kremlin-letter-1970/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-lady-without-camelias-1953/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -563,6 +606,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/the-day-time-ended-1979/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/spasmo-1974/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/rogopag-1963/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/susana-1951/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/mill-of-the-stone-women-1960/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/a-high-wind-in-jamaica-1965/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-forbidden-photos-of-a-lady-above-suspicion-1970/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -606,6 +650,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/in-society-1944/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-millionairess-1960/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/night-ambush-1957/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/fear-1954/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-strange-affair-of-uncle-harry-1945/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/rembrandt-1936/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/malta-story-1953/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -630,6 +675,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/swamp-women-1956/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/que-viva-mexico-1979/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/min-and-bill-1930/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/miss-oyu-1951/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/trapped-1949/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/roxie-hart-1942/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/hercules-against-the-moon-men-1964/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -645,6 +691,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/it-happens-every-spring-1949/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/and-god-said-to-cain-1970/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/voyage-to-the-prehistoric-planet-1965/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/a-bill-of-divorcement-1932/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/man-on-a-tightrope-1953/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/dear-brigitte-1965/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/go-for-broke-1951/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -751,6 +798,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/the-saga-of-the-viking-women-and-their-voyage-to-the-waters-of-the-great-sea-serpent-1957/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/flame-of-barbary-coast-1945/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/one-body-too-many-1944/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/illusion-travels-by-streetcar-1954/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/as-young-as-you-feel-1951/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/bell-from-hell-1973/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-naked-edge-1961/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -767,6 +815,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/massacre-in-rome-1973/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/3-bad-men-1926/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/music-in-darkness-1948/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/women-of-the-night-1948/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/new-york-confidential-1955/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-member-of-the-wedding-1952/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/knife-of-ice-1972/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -825,6 +874,8 @@
   <url><loc>https://filmotecaclasica.com/pelicula/hells-house-1932/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/other-mens-women-1930/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-unholy-three-1930/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/the-great-madcap-1949/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/utamaro-and-his-five-women-1946/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-glass-wall-1953/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/plunder-road-1957/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/up-the-river-1930/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -937,6 +988,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/behind-green-lights-1946/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/monster-from-the-ocean-floor-1954/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/dick-tracys-dilemma-1947/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/the-vanquished-1953/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-old-fashioned-way-1934/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/jumping-jacks-1952/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/trooper-hook-1957/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -981,6 +1033,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/fog-island-1945/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/romance-1930/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/little-lips-1978/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/taira-clan-saga-1955/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-mystery-of-mr-wong-1939/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/guest-in-the-house-1944/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/rattlers-1976/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -1043,6 +1096,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/jigsaw-1949/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-other-love-1947/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-thirteenth-guest-1932/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/night-at-the-crossroads-1932/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-bat-1926/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/esther-and-the-king-1960/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/bigfoot-1970/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -1057,6 +1111,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/the-sin-of-nora-moran-1933/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/plot-of-fear-1976/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-green-glove-1952/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/chung-kuo-china-1972/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-price-of-power-1969/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-unseen-1945/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/don-juan-1926/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -1196,7 +1251,9 @@
   <url><loc>https://filmotecaclasica.com/pelicula/the-truce-1974/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-green-hornet-1940/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-cosmic-man-1959/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/the-lady-of-musashino-1951/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/libido-1965/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/daughter-of-deceit-1951/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-guy-from-harlem-1977/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-green-promise-1949/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/on-approval-1944/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -1219,6 +1276,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/my-world-dies-screaming-1958/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/shoot-to-kill-1947/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/bulldog-drummond-in-africa-1938/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/golden-salamander-1950/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/underground-1941/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/escape-to-burma-1955/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-capture-1950/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -1614,6 +1672,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/the-admiral-was-a-lady-1950/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/under-my-skin-1950/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/million-dollar-weekend-1948/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/the-famous-sword-bijomaru-1945/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/journeys-end-1930/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/bells-of-san-angelo-1947/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/dark-mountain-1944/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -1689,6 +1748,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/the-charlie-chaplin-festival-1941/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/molly-and-lawless-john-1972/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/battle-of-the-commandos-1969/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/the-downfall-of-osen-1935/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/a-nest-of-gentry-1969/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/they-made-me-a-killer-1946/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/hitler-dead-or-alive-1942/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -1740,6 +1800,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/under-the-red-robe-1937/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/maybe-its-love-1930/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/mcguire-go-home-1965/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/the-love-of-sumako-the-actress-1947/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/young-and-willing-1943/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/sex-1920/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-panthers-claw-1942/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -1756,6 +1817,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/inspector-hornleigh-goes-to-it-1941/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/ghosts-of-hanley-house-1968/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-sicilian-connection-1972/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/the-three-faces-1965/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/dinner-at-the-ritz-1937/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/parachute-battalion-1941/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/la-vida-por-delante-1958/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -2146,6 +2208,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/conspiracy-1930/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/gladiators-7-1962/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-gaucho-war-1942/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/the-challenge-1938/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-new-adventures-of-tarzan-1935/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/steel-arena-1973/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/partners-of-the-plains-1938/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -2198,6 +2261,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/back-door-to-heaven-1939/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/saleslady-1938/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/return-of-shanghai-joe-1975/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/the-two-gladiators-1964/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/eagle-in-a-cage-1972/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/a-stranger-in-paso-bravo-1968/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/accadde-al-commissariato-1954/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -3232,6 +3296,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/terror-at-black-falls-1962/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/para-vestir-santos-1955/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/filomena-marturano-1950/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/una-aventura-en-la-noche-1948/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-girl-in-room-20-1946/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/tumbledown-ranch-in-arizona-1941/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/outlaw-express-1938/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -3392,6 +3457,7 @@
   <url><loc>https://filmotecaclasica.com/pelicula/unconquered-bandit-1935/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/the-fugitive-1933/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/air-police-1931/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://filmotecaclasica.com/pelicula/cuatro-noches-contigo-1952/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/divorce-in-montevideo-1939/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/la-casa-de-los-millones-1942/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://filmotecaclasica.com/pelicula/lultimo-amante-1955/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
