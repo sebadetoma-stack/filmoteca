@@ -212,7 +212,14 @@
       <h1>A Chump at Oxford</h1>
       
 
-      <a class="btn-yt" href="https://www.youtube.com/watch?v=o8LBEMKNKW8" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+      <div class="btn-yt-wrap">
+  <a class="btn-yt" href="https://www.youtube.com/watch?v=o8LBEMKNKW8" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+  <div class="yt-versions-dropdown">
+    <button class="yt-versions-toggle" onclick="this.parentElement.classList.toggle('open')">▾ 2 versiones</button>
+    <div class="yt-versions-list"><a class="yt-version-item" href="https://www.youtube.com/watch?v=o8LBEMKNKW8" target="_blank" rel="noopener">Artflix - Películas Clásicas · Español</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=CSOnv0wnibY" target="_blank" rel="noopener">Artflix - Películas Clásicas · Español</a></div>
+  </div>
+</div>
 
       <div class="user-actions" id="user-actions" style="display:none">
         <button class="btn-usuario" id="btn-fav" onclick="toggleFav()">🤍 Favorita</button>
@@ -231,7 +238,7 @@
       <div class="badges"><span class="badge">Comedy</span><span class="badge">Family</span></div>
 
       <div class="canal-info">
-        Disponible en <strong>Artflix - Películas Clásicas</strong> · verificada desde Argentina
+        Disponible en 2 versiones · verificada desde Argentina
       </div>
 
       <div class="links-ext">
@@ -256,6 +263,13 @@
             <div class="rel-anio">1930</div>
           </div>
         </a>
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-cameraman-1928/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/q67uxNfJ2nIDW48eOgF8s99Wy0m.jpg" alt="The Cameraman" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">The Cameraman</div>
+            <div class="rel-anio">1928</div>
+          </div>
+        </a>
         <a class="rel-card" href="https://filmotecaclasica.com/pelicula/santa-claus-conquers-the-martians-1964/">
           <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/5duJbXoGzGkYJ3cAQ58VGHygNCP.jpg" alt="Santa Claus Conquers the Martians" loading="lazy"></div>
           <div class="rel-info">
@@ -268,13 +282,6 @@
           <div class="rel-info">
             <div class="rel-titulo-peli">The Little Princess</div>
             <div class="rel-anio">1939</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/life-with-father-1947/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/6b7xRttshmonGW6xzSCDMrHMTjA.jpg" alt="Life with Father" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">Life with Father</div>
-            <div class="rel-anio">1947</div>
           </div>
         </a>
     </div>
