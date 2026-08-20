@@ -24,14 +24,36 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--reprocesar", action="store_true",
                     help="Borra coincidencias automáticas y rehace (respeta las humanas)")
+    ap.add_argument("--canal", metavar="NOMBRE",
+                    help="Limita el procesamiento a un canal específico (por nombre)")
     args = ap.parse_args()
 
     con = conectar()
 
+    # Resolver canal si se especificó (acepta nombre o channel_id)
+    canal_filter_id = None
+    if args.canal:
+        row = con.execute(
+            "SELECT channel_id, nombre FROM canales WHERE channel_id = ? OR nombre = ?",
+            (args.canal, args.canal)
+        ).fetchone()
+        if not row:
+            print(f"ERROR: canal '{args.canal}' no encontrado en la DB.")
+            con.close()
+            return
+        canal_filter_id = row["channel_id"]
+        print(f"Filtrando por canal: {row['nombre']} ({canal_filter_id})")
+
     if args.reprocesar:
-        n = con.execute(
-            "DELETE FROM coincidencias WHERE revisado_por != 'humano' "
-            "OR revisado_por IS NULL").rowcount
+        if canal_filter_id:
+            n = con.execute(
+                "DELETE FROM coincidencias WHERE (revisado_por != 'humano' OR revisado_por IS NULL) "
+                "AND video_id IN (SELECT video_id FROM videos WHERE channel_id = ?)",
+                (canal_filter_id,)).rowcount
+        else:
+            n = con.execute(
+                "DELETE FROM coincidencias WHERE revisado_por != 'humano' "
+                "OR revisado_por IS NULL").rowcount
         con.commit()
         print(f"Borradas {n:,} coincidencias automáticas (las humanas quedan).\n")
 
@@ -83,20 +105,38 @@ def main():
 
     # ---------- recorrer videos ----------
     if args.reprocesar:
-        vids = con.execute(
-            "SELECT video_id, channel_id, titulo, duracion_seg FROM videos "
-            "WHERE activo = 1 AND duracion_seg >= ?", (DUR_MINIMA_SEG,)).fetchall()
+        if canal_filter_id:
+            vids = con.execute(
+                "SELECT video_id, channel_id, titulo, duracion_seg FROM videos "
+                "WHERE activo = 1 AND duracion_seg >= ? AND channel_id = ?",
+                (DUR_MINIMA_SEG, canal_filter_id)).fetchall()
+        else:
+            vids = con.execute(
+                "SELECT video_id, channel_id, titulo, duracion_seg FROM videos "
+                "WHERE activo = 1 AND duracion_seg >= ?", (DUR_MINIMA_SEG,)).fetchall()
     else:
         # Solo videos SIN ninguna coincidencia (nuevos)
-        vids = con.execute("""
-            SELECT v.video_id, v.channel_id, v.titulo, v.duracion_seg
-            FROM videos v
-            WHERE v.activo = 1
-              AND v.duracion_seg >= ?
-              AND NOT EXISTS (
-                SELECT 1 FROM coincidencias co WHERE co.video_id = v.video_id
-              )
-        """, (DUR_MINIMA_SEG,)).fetchall()
+        if canal_filter_id:
+            vids = con.execute("""
+                SELECT v.video_id, v.channel_id, v.titulo, v.duracion_seg
+                FROM videos v
+                WHERE v.activo = 1
+                  AND v.duracion_seg >= ?
+                  AND v.channel_id = ?
+                  AND NOT EXISTS (
+                    SELECT 1 FROM coincidencias co WHERE co.video_id = v.video_id
+                  )
+            """, (DUR_MINIMA_SEG, canal_filter_id)).fetchall()
+        else:
+            vids = con.execute("""
+                SELECT v.video_id, v.channel_id, v.titulo, v.duracion_seg
+                FROM videos v
+                WHERE v.activo = 1
+                  AND v.duracion_seg >= ?
+                  AND NOT EXISTS (
+                    SELECT 1 FROM coincidencias co WHERE co.video_id = v.video_id
+                  )
+            """, (DUR_MINIMA_SEG,)).fetchall()
     print(f"  {len(vids):,} videos de 55'+ a cruzar\n")
 
     filas, stats = [], defaultdict(int)

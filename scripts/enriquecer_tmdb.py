@@ -12,7 +12,7 @@ Gratis, sin límite estricto (40 requests/10 segundos).
 import json, os, sqlite3, sys, time, urllib.parse, urllib.request
 from pathlib import Path
 
-DB = Path(__file__).resolve().parent.parent / "datos" / "filmoteca.db"
+DB = Path(__file__).resolve().parent.parent / "datos" / "filmoteca_completa.db"
 API_KEY = os.environ.get("TMDB_API_KEY")
 if not API_KEY:
     sys.exit("Falta TMDB_API_KEY.")

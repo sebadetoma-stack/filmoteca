@@ -10,7 +10,7 @@ import sqlite3
 import sys
 from pathlib import Path
 
-DB = Path(__file__).resolve().parent.parent / "datos" / "filmoteca.db"
+DB = Path(__file__).resolve().parent.parent / "datos" / "filmoteca_completa.db"
 
 
 def main():

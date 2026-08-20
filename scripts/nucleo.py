@@ -22,7 +22,7 @@ from difflib import SequenceMatcher
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
-DB = BASE / "datos" / "filmoteca.db"
+DB = BASE / "datos" / "filmoteca_completa.db"
 
 # ---------------------------------------------------------------
 # CUOTA

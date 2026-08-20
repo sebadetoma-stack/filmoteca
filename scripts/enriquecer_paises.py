@@ -14,7 +14,7 @@ Para películas con más de un país, guarda los primeros dos separados por coma
 import json, sqlite3, time, urllib.parse, urllib.request
 from pathlib import Path
 
-DB = Path(__file__).resolve().parent.parent / "datos" / "filmoteca.db"
+DB = Path(__file__).resolve().parent.parent / "datos" / "filmoteca_completa.db"
 ENDPOINT = "https://query.wikidata.org/sparql"
 LOTE = 80   # tconsts por consulta (conservador para evitar timeouts)
 PAUSA = 65   # segundos entre consultas (Wikidata limita a 1 req/min durante outages)

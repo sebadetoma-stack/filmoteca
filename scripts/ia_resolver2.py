@@ -15,7 +15,7 @@ Uso:
 import json, os, re, sqlite3, sys, time, urllib.error, urllib.request
 from pathlib import Path
 
-DB = Path(__file__).resolve().parent.parent / "datos" / "filmoteca.db"
+DB = Path(__file__).resolve().parent.parent / "datos" / "filmoteca_completa.db"
 API_URL = "https://api.anthropic.com/v1/messages"
 MODELO = "claude-haiku-4-5-20251001"
 MAX_TOKENS = 300

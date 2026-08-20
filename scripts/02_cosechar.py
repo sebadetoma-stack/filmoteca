@@ -52,9 +52,16 @@ def cargar_semilla(con, cuota):
             cid = it["id"]
             uploads = it["contentDetails"]["relatedPlaylists"]["uploads"]
             con.execute(
-                """INSERT OR REPLACE INTO canales
+                """INSERT INTO canales
                    (channel_id, uploads_id, handle, nombre, capa, confianza, notas)
-                   VALUES (?,?,?,?,?,?,?)""",
+                   VALUES (?,?,?,?,?,?,?)
+                   ON CONFLICT(channel_id) DO UPDATE SET
+                       uploads_id=excluded.uploads_id,
+                       handle=excluded.handle,
+                       nombre=excluded.nombre,
+                       capa=excluded.capa,
+                       confianza=excluded.confianza,
+                       notas=excluded.notas""",
                 (cid, uploads, ident if ident.startswith("@") else None,
                  fila["nombre"], fila["capa"], int(fila["confianza"]),
                  fila.get("notas", "")))
