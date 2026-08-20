@@ -2,7 +2,7 @@
 
 **[→ Ver la filmoteca en línea](https://filmotecaclasica.com)**
 
-Un catálogo de más de 3.000 películas clásicas (1930–1979) disponibles gratuitamente en YouTube, verificadas desde Argentina.
+Un catálogo de más de 4.000 películas clásicas (1928–1979) disponibles gratuitamente en YouTube, verificadas desde Argentina.
 
 Hecha por [Sebastián De Toma](https://www.linkedin.com/in/juan-sebastian-de-toma/).
 
@@ -14,7 +14,7 @@ Hay cientos de películas clásicas completas en YouTube. El problema es que no 
 
 Esta filmoteca responde una pregunta simple: **¿qué películas clásicas puedo ver hoy, gratis y completas, desde Argentina?**
 
-El catálogo cubre cine de 1930 a 1979: film noir, westerns, comedias, dramas, épicas, cine Pre-Code, cine de autor de los 70s. Cada entrada fue verificada cruzando la duración y el título del video contra los datos de IMDb, descartando trailers, escenas sueltas y copias incompletas.
+El catálogo cubre cine de 1928 a 1979: film noir, westerns, comedias, dramas, épicas, cine Pre-Code, cine de autor europeo y japonés, cine latinoamericano. Cada entrada fue verificada cruzando la duración y el título del video contra los datos de IMDb, descartando trailers, escenas sueltas y copias incompletas.
 
 ---
 
@@ -27,16 +27,22 @@ El proyecto tiene dos partes:
 1. **Un pipeline local** (Python, SQLite) que construye y mantiene la base de datos
 2. **Una web estática** (HTML/JS puro) que lee esa base directamente en el navegador usando [sql.js](https://sql.js.org/)
 
-No hay servidor. No hay backend. El archivo `filmoteca.db` vive en GitHub y el navegador lo carga completo al entrar.
+No hay servidor. No hay backend. La base de datos vive en **Cloudflare R2** y el navegador la carga completa al entrar.
+
+Hay dos archivos de base de datos:
+- `filmoteca_completa.db` (~140MB): la DB principal donde escriben todos los scripts locales
+- `filmoteca.db` (~17MB): versión liviana con solo las películas confirmadas, generada por `generar_db_web.py` y servida desde R2
 
 ### El pipeline
 
 ```
-01_ingest_imdb.py   →  Descarga y filtra los datasets de IMDb (1930-1979)
-02_cosechar.py      →  Enumera todos los videos de los canales de YouTube
-03_matching.py      →  Cruza videos contra el catálogo (offline, cero cuota)
-ia_resolver2.py     →  Usa IA para resolver los casos dudosos
-04_mantenimiento.py →  Barrido semanal de links caídos
+01_ingest_imdb.py      →  Descarga y filtra los datasets de IMDb (1928-1979)
+02_cosechar.py         →  Enumera todos los videos de los canales de YouTube
+03_matching.py         →  Cruza videos contra el catálogo (offline, cero cuota)
+ia_resolver2.py        →  Usa IA para resolver los casos dudosos
+04_mantenimiento.py    →  Barrido semanal de links caídos
+generar_db_web.py      →  Genera la DB liviana para el frontend
+generar_paginas.py     →  Genera las páginas individuales por película
 ```
 
 ### La estrategia de cosecha
@@ -49,7 +55,7 @@ La API de YouTube tiene dos presupuestos independientes:
 - **10.000 unidades/día** para playlistItems, videos, channels
 - **100 búsquedas/día** para search.list
 
-Las búsquedas quedan reservadas para reparar links caídos.
+Las búsquedas quedan reservadas para buscar directores o películas específicas.
 
 ### El matcher
 
@@ -61,45 +67,33 @@ Antes del scoring, se descartan automáticamente los videos que:
 - Contienen palabras negativas en el título: trailer, clip, reseña, compilación, maratón, escena, soundtrack, reaction, best of, etc.
 - Duran menos de 55 minutos (no son largometrajes)
 - Duran más de 1.6× el metraje esperado (recopilaciones o maratones)
-- Declaran un año distinto al de la película (±1 año de tolerancia) → probable remake o película diferente
+- Declaran un año distinto al de la película (±1 año de tolerancia)
 
 **Pasada 2 — Señal de frase**
 
-La señal más confiable: ¿el título de la película aparece como **frase contigua** en el título del video? Por ejemplo, "1935 - This Woman Is Mine - A savage drama..." contiene la frase "this woman is mine" → match fuerte.
+La señal más confiable: ¿el título de la película aparece como **frase contigua** en el título del video?
 
 Restricciones importantes:
-- Los títulos alternativos (AKAs) en otros idiomas —italiano, francés, alemán, etc.— **no** pueden confirmar por frase. Esto evita que "La Strada" (cuyo AKA en inglés es "The Street") matchee con cualquier video que tenga "street" en el título.
-- Para títulos de una sola palabra ("Gilda", "Detour"), se verifica que el video no tenga demasiados tokens clave adicionales —"bridge" en "The Bridge of San Luis Rey" no confirma "The Bridge".
-- Frase + duración plausible (72%-130% del metraje) → **confirmado**. El rango amplio cubre versiones TV, cortes europeos y el efecto PAL speedup.
+- Los títulos alternativos (AKAs) en otros idiomas no pueden confirmar por frase
+- Para títulos de una sola palabra, se verifica que el video no tenga demasiados tokens clave adicionales
+- Frase + duración plausible (72%-130% del metraje) → **confirmado**
 
 **Pasada 3 — Score ponderado**
 
-Sin frase, el sistema calcula un score combinando similitud de título (50%), duración (33%), año (9%) y confianza del canal (8%). Para confirmar sin frase se exige:
-- Similitud de título ≥ 88% + duración exacta (±20%)
-- El título que matcheó tiene al menos 2 tokens clave (evita AKAs genéricos de una palabra)
-
-Lo que no alcanza el umbral va a revisión humana o se rechaza.
-
-### Revisión humana
-
-Los casos que el matcher marca como "pendientes" se revisan con una herramienta local (`revision.html`) que muestra cada caso con sus señales: título del video, duración comparada, año. El revisor aprueba, rechaza o marca "es otra película" con atajos de teclado (A/R/S/O). Las decisiones humanas quedan protegidas y nunca se pisan en corridas posteriores del matcher.
+Sin frase, el sistema calcula un score combinando similitud de título (50%), duración (33%), año (9%) y confianza del canal (8%). Para confirmar sin frase se exige similitud ≥ 88% + duración exacta (±20%).
 
 ### Verificación con IA
 
-Los casos pendientes y los "sin identificar" se pasan a **Claude Haiku** vía la API de Anthropic. El modelo lee el título del video, su descripción completa (que en canales como PizzaFlix incluye director, actores, estudio y año), y la duración, y decide si es match o no.
+Los casos pendientes y los "sin identificar" se pasan a **Claude Haiku** vía la API de Anthropic. El modelo lee el título del video, su descripción completa, y la duración, y decide si es match o no.
 
 Se usa en tres escenarios:
-- **Pendientes**: videos donde el matcher dudó. La IA los resuelve con ~90% de precisión.
-- **Sin identificar**: videos cuyo título en YouTube no corresponde al título del catálogo (ej: "The Fighting Seventh" que es en realidad "Little Big Horn"). La IA extrae título, director y año para buscar el tconst en IMDb.
-- **Auditoría periódica**: se corre `ia_auditar.py --score 95` para revisar las confirmadas con score bajo y eliminar falsos positivos que el matcher aceptó con poca certeza. Cuesta centavos para cientos de casos.
-
-### Mejora iterativa
-
-El matcher no se diseñó de una vez — se fue ajustando caso por caso con una suite de tests. Cada fallo real (La Strada → Street Corner, The Bridge → The Bridge of San Luis Rey, Psycho → Psycho Roommate) se convirtió en un test que el sistema tiene que pasar antes de cualquier cambio. El principio es que ningún ajuste puede mejorar un caso sin romper los que ya estaban bien.
+- **Pendientes**: videos donde el matcher dudó
+- **Sin identificar**: videos cuyo título en YouTube no corresponde al título del catálogo
+- **Auditoría periódica**: `ia_auditar.py` revisa las confirmadas con score bajo y elimina falsos positivos
 
 ### Geobloqueo
 
-`videos.list` devuelve `regionRestriction` con los países bloqueados. Esto filtra lo obvio, pero **no captura** las restricciones de licencia ni Content ID (que es lo que bloquea el Paramount Vault fuera de EE.UU.). Por eso la web muestra solo lo que puede verse desde Argentina según la API, y hay un campo `verificado_ar` con tres estados: `api_ok`, `humano_ok`, `bloqueado`.
+`videos.list` devuelve `regionRestriction` con los países bloqueados. Esto filtra lo obvio, pero no captura las restricciones de licencia ni Content ID. Por eso la web muestra solo lo que puede verse desde Argentina según la API.
 
 ---
 
@@ -110,7 +104,9 @@ El matcher no se diseñó de una vez — se fue ajustando caso por caso con una 
 - Python 3.12+
 - Sin dependencias externas (solo stdlib)
 - Clave de API de YouTube Data API v3 (gratuita, 10.000 unidades/día)
-- Clave de API de Anthropic (opcional, para el resolver con IA)
+- Clave de API de TMDb (gratuita)
+- Clave de API de Anthropic (opcional, para resolver con IA)
+- Clave de API de OMDB (opcional, gratuita, para posters alternativos)
 
 ### Datasets de IMDb
 
@@ -127,7 +123,8 @@ done
 # Variables de entorno
 export YT_API_KEY=tu_clave_youtube
 export ANTHROPIC_API_KEY=tu_clave_anthropic   # opcional
-export FILMOTECA_PAIS=AR
+export TMDB_API_KEY=tu_clave_tmdb
+export OMDB_API_KEY=tu_clave_omdb             # opcional
 
 # 1. Catálogo base desde IMDb (5-10 min, sin red)
 python3 scripts/01_ingest_imdb.py --min-votos 30
@@ -143,136 +140,121 @@ python3 scripts/03_matching.py
 
 # 5. Resolver pendientes con IA (opcional)
 python3 scripts/ia_resolver2.py --pendientes
-
-# 6. Aplicar decisiones de la IA
 python3 scripts/aplicar_decisiones.py ia_decisiones2.json
 
-# 7. Consultar
-python3 scripts/consultar.py --resumen
-python3 scripts/consultar.py --genero Film-Noir --decada 1940
-python3 scripts/consultar.py --actor "Humphrey Bogart"
-python3 scripts/consultar.py --precode
+# 6. Enriquecer con posters y sinopsis
+python3 scripts/enriquecer_tmdb.py
+python3 scripts/enriquecer_paises.py
+
+# 7. Para películas sin poster en TMDb, buscar en OMDB y Wikipedia
+python3 scripts/buscar_posters_faltantes.py   # busca en TMDb por título
+python3 scripts/buscar_posters_omdb.py        # busca en OMDB (descarta URLs de Amazon)
+python3 scripts/buscar_posters_wikipedia.py   # busca imagen en Wikipedia
+
+# 8. Para películas sin sinopsis, buscar en Wikipedia
+python3 scripts/buscar_sinopsis_wikipedia.py
+
+# 9. Generar DB liviana y páginas
+python3 scripts/generar_db_web.py
+python3 scripts/generar_paginas.py
 ```
 
 ### Mantenimiento
 
 ```bash
-# Semanal: detectar links caídos (400 unidades para 20.000 videos)
+# Semanal: detectar links caídos
 python3 scripts/04_mantenimiento.py --barrido
 
-# Reparar lo caído (usa el bucket de 100 búsquedas/día)
+# Reparar lo caído
 python3 scripts/04_mantenimiento.py --reparar
+
+# Auditar confirmadas con score bajo
+python3 scripts/ia_auditar.py --score 95
+
+# Ver estado de posters y sinopsis
+python3 scripts/ver_sin_poster_total.py
+python3 scripts/ver_faltantes_detalle.py
+
+# Ver estado de un canal
+python3 scripts/ver_canal.py CHANNEL_ID
+```
+
+### Flujo de publicación
+
+```bash
+# 1. Borrar output_paginas/pelicula/
+# 2. Generar DB liviana y páginas
+python3 scripts/generar_db_web.py
+python3 scripts/generar_paginas.py
+
+# 3. Copiar output_paginas/pelicula/ a filmoteca-web/pelicula/
+# 4. Copiar sitemap.xml a filmoteca-web/
+# 5. Subir filmoteca.db y filmoteca_completa.db a Cloudflare R2 (bucket filmoteca-db)
+# 6. Push a GitHub
+git add pelicula/ sitemap.xml scripts/ datos/canales_semilla.csv
+git commit -m "descripción de los cambios"
+git push
 ```
 
 ---
 
 ## Canales cosechados
 
-| Canal | Capa | Notas |
-|---|---|---|
-| PizzaFlix | Dominio público | Biblioteca privada calidad broadcast. 300+ westerns, 80+ noir |
-| Free Vintage Movies | Dominio público | Largometrajes de dominio público |
-| Classic Movies 40s 50s 60s | Dominio público | Noir, drama, thriller |
-| Classic TV & Movies | Dominio público | Mezcla cine y TV de los 40-60 |
-| Golden Age Hollywood | Dominio público | Westerns de serie B |
-| Cult Cinema Classics | Particular | Cine europeo y de culto |
-| Cult Classic Cinema Archive | Dominio público | Clásicos completos |
-| Cine Clásico 10 | Particular | Películas en español |
-| La Corriente Películas | Particular | Cine clásico doblado al español latino |
-| Mosfilm (English) | Oficial | Canal oficial del estudio soviético, subtítulos en inglés |
-| Kino Wizard | Particular | Cine de culto y terror clásico |
-| Cine Clásico para Todos | Particular | Cine clásico en español |
-| Cinefilia | Dominio público | Películas clásicas completas en español, dominio público |
-| Public Domain Movies | Dominio público | Más de 700 títulos, cine mudo y sonoro de dominio público |
-| Brian Henry Martin | Particular | Canal personal, cine clásico 1930-1979 |
-| BeatFusion | Particular | Contenido variado con selección de clásicos |
-| Nostalgic Vision | Particular | Dedicado al cine clásico y música, 1.000+ videos |
-| Warner Bros. | Oficial | Algunos títulos completos (verificar disponibilidad AR) |
-| DK Classics | Dominio público | Cine clásico completo, familia de canales DK |
-| DK Classics II | Dominio público | Cine clásico completo, familia de canales DK |
-| DK Classics III | Dominio público | Cine clásico completo, familia de canales DK |
-| CRFA \| Época de Oro | Particular | Cine argentino de la época de oro, 700+ títulos |
-| Lo que el cine nos dejó | Particular | Cine argentino clásico con datos técnicos completos |
-| persona cinecafé | Particular | Cine argentino de autor y vanguardia |
-| Retro Movies & Cheap Wine | Particular | Cine argentino clásico restaurado |
-| RetroFuente | Particular | Cine argentino clásico y música de la época |
-| Archivo Amorina | Particular | Archivo de cine argentino clásico |
+| Canal | Notas |
+|---|---|
+| La Corriente Películas | Cine clásico doblado al español latino |
+| Mosfilm (English) | Canal oficial del estudio soviético, subtítulos en inglés |
+| Kino Wizard | Cine de culto y terror clásico |
+| Cine Clásico para Todos | Cine clásico en español |
+| Arte Cine Cultura | Cine clásico europeo y latinoamericano |
+| Film&Clips | Largometrajes clásicos completos (3 sub-canales) |
+| NipponKino | Cine japonés clásico con subtítulos en inglés |
+| MeduFiles | Películas europeas de autor |
+| prisoner | Películas de autor europeas |
+| Khris McLorean | Cine europeo clásico |
+| Artflix Películas Clásicas | Cine clásico variado |
+| Grandpa's Old Movies Chest | Dominio público americano |
+| Davide Fiammenghi | Bergman y europeos con subtítulos en inglés |
+| Ruvindu Gamage | Mezcla de cine europeo y japonés clásico |
+| MrCinefilia | Cine clásico variado |
+| Ódor Endre | Cine clásico europeo |
+| Cinema__Routine | Cine de autor variado |
+| CRFA \| Época de Oro | Cine argentino de la época de oro |
+| Lo que el cine nos dejó | Cine argentino clásico |
+| Y otros canales de dominio público | PizzaFlix, Free Vintage Movies, DK Classics, etc. |
 
 ---
 
 ## Pósters y sinopsis
 
-Los pósters y las sinopsis se obtienen de **TMDb** (The Movie Database) vía su API gratuita, cruzando por el `tconst` de IMDb. Las sinopsis se piden primero en español y, si no existen, en inglés.
+Los pósters y sinopsis se obtienen de múltiples fuentes en orden de prioridad:
 
-```bash
-export TMDB_API_KEY=tu-clave
-python3 scripts/enriquecer_tmdb.py
-```
+1. **TMDb** (The Movie Database): fuente principal, via tconst de IMDb y búsqueda por título
+2. **OMDB** (Open Movie Database): para películas no encontradas en TMDb. Se descartan URLs de Amazon por restricciones de hotlinking
+3. **Wikipedia**: imagen principal del artículo, para películas muy oscuras no indexadas en TMDb ni OMDB
+4. **Wikipedia** (sinopsis): extracto del artículo en español, o en inglés traducido con Claude
 
-Como el resto de los scripts de enriquecimiento, solo procesa las películas que todavía no tienen póster, así que se puede correr cada vez que se agregan canales nuevos.
-
-## País de producción
-
-El país de producción se obtiene de **Wikidata** vía consultas SPARQL, cruzando el `tconst` de IMDb con la propiedad P495 (país de origen). No requiere API key ni costo. Se corre sobre las películas confirmadas:
-
-```bash
-python3 scripts/enriquecer_paises.py
-```
-
-El script es reanudable: guarda los países encontrados y en la siguiente corrida solo consulta las que todavía no tienen dato. Permite filtrar en la web por cine estadounidense, británico, italiano, francés, soviético, japonés, etc.
+---
 
 ## Funciones adicionales de la web
 
-- **Sorprendeme** (botón ✦): abre una película al azar de las confirmadas visibles en AR
-- **Links compartibles**: los filtros activos se reflejan en el hash de la URL (`#genero=Film-Noir&pais=GB`), que podés copiar y compartir
-- **Páginas individuales**: cada película tiene su propia URL estática (/pelicula/titulo-año/) con schema.org, meta tags, datos técnicos y películas relacionadas
-- **Login con Google**: podés guardar favoritos, marcar películas como vistas y llevar un historial. Los datos se guardan en Firebase Firestore y se pueden filtrar desde el catálogo
-- **Botón ⚑**: aparece en cada tarjeta al pasar el mouse. Abre un formulario de Google para reportar problemas
+- **Sorprendeme** (botón ✦): abre una película al azar
+- **Links compartibles**: los filtros activos se reflejan en el hash de la URL
+- **Páginas individuales**: cada película tiene su propia URL estática con schema.org, meta tags, datos técnicos y películas relacionadas
+- **Login con Google**: podés guardar favoritos, marcar películas como vistas y llevar un historial (Firebase Firestore)
+- **Botón ⚑**: reportar problemas — video caído, no disponible en AR, mala calidad
 
-## Auditoría periódica
-
-Después de agregar canales nuevos o de correr el matcher, conviene auditar las confirmadas con score bajo:
-
-```bash
-export ANTHROPIC_API_KEY=sk-ant-...
-python3 scripts/ia_auditar.py --score 95        # revisa confirmadas con score < 95
-python3 scripts/ia_auditar.py --score 100 --sin-frase  # solo las sin match de frase
-```
-
-Los falsos positivos se rechazan directamente en la base. Después copiás el `.db` a `filmoteca-web` y hacés push.
-
-## Agregar películas puntuales
-
-Cuando la IA identifica un video sin match, devuelve título, director y año. Para agregarlas:
-
-```bash
-# 1. Buscar el tconst en los datasets de IMDb locales
-python3 scripts/buscar_tconst.py para_buscar_en_imdb.json
-
-# 2. Revisar tconst_encontrados.json y agregar al catálogo
-python3 scripts/agregar_al_catalogo.py tconst_encontrados.json
-
-# 3. Crear las coincidencias
-python3 scripts/agregar_coincidencias.py tconst_encontrados.json
-```
+---
 
 ## Sistema de reportes
 
-Cada tarjeta tiene un botón **⚑** que aparece al pasar el mouse. Al hacer clic se abre un formulario de Google donde el usuario puede indicar:
-
-- La película no es la que dice ser
-- Está incompleta o cortada
-- No se puede ver desde Argentina
-- Mala calidad (imagen o audio)
-
-El reporte llega por mail al administrador. El video **no se baja automáticamente** — primero se verifica manualmente antes de tomar cualquier decisión. Esto evita que reportes incorrectos o malintencionados eliminen contenido válido.
-
-El flujo técnico de mantenimiento es:
-1. El administrador recibe el reporte por mail y en Google Sheets
+El flujo técnico de mantenimiento ante un reporte:
+1. El administrador recibe el reporte en Google Sheets
 2. Verifica el video manualmente
-3. Si el video está caído, busca si hay una versión alternativa confirmada en la DB (muchas películas tienen múltiples versiones de distintos canales). Si existe, actualiza el `video_id` en `coincidencias`. Si no, busca un reemplazo en YouTube.
-4. Si corresponde rechazar sin reemplazo, corre `python3 rechazar.py` con el video ID
-5. Sube el `filmoteca.db` actualizado a GitHub
+3. Si hay versión alternativa confirmada en la DB, se actualiza el `video_id`. Si no, se busca reemplazo en YouTube
+4. Se corre `generar_db_web.py`, se sube a R2 y se hace push
+
+---
 
 ## Licencia
 
