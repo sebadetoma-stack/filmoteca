@@ -1016,6 +1016,7 @@
         <option value="rating">Rating IMDb</option>
         <option value="anio">Año</option>
         <option value="votos">Más votadas</option>
+        <option value="aleatorio">Aleatorio</option>
       </select>
     </div>
 
@@ -1023,6 +1024,11 @@
     <button class="btn-random" onclick="sorprendeme()">✦ Sorprendeme</button>
     <button class="chip-usuario" id="chip-favoritos" onclick="toggleChipUsuario('favoritos')">❤️ Mis favoritos</button>
     <button class="chip-usuario" id="chip-novistas" onclick="toggleChipUsuario('novistas')">✅ No vistas</button>
+  </div>
+
+  <div id="banner-aleatorio" style="display:none; align-items:center; justify-content:space-between; gap:10px; background:#fef9f0; border-bottom:1px solid var(--amber-dim); border-left:3px solid var(--amber); padding:7px 2rem; font-size:12px; color:var(--text-dim);">
+    <span>🎲 Mezclamos el catálogo para que descubras películas nuevas cada vez que entrés.</span>
+    <button onclick="document.getElementById('banner-aleatorio').style.display='none';" style="background:none;border:none;cursor:pointer;color:var(--text-faint);font-size:14px;line-height:1;padding:0 2px;">✕</button>
   </div>
 
   <div class="results-bar">
@@ -1203,6 +1209,8 @@ function buildQuery() {
 }
 
 function countQuery() {
+  const orden = document.getElementById('f-orden').value;
+  if (orden === 'aleatorio' && window._shuffleCache) return window._shuffleCache.length;
   const { BASE, params } = buildQuery();
   const sql = `SELECT COUNT(*) as n FROM (SELECT DISTINCT p.tconst ${BASE})`;
   const res = db.exec(sql, params);
@@ -1210,7 +1218,36 @@ function countQuery() {
 }
 
 function fetchPage(offset) {
+  const orden = document.getElementById('f-orden').value;
   const { BASE, params, order } = buildQuery();
+  if (orden === 'aleatorio') {
+    if (!window._shuffleCache) {
+      const sqlAll = `
+        SELECT
+          p.tconst, p.titulo_primario, p.titulo_orig, p.anio,
+          p.generos, p.duracion_min, p.rating, p.votos, p.es_precode,
+          p.pais, p.poster_url, p.sinopsis,
+          v.video_id, v.duracion_seg, v.idioma_audio,
+          ca.nombre as canal,
+          co.score,
+          (SELECT COUNT(*) FROM coincidencias cx JOIN videos vx ON cx.video_id = vx.video_id WHERE cx.tconst = p.tconst AND cx.estado = 'confirmada' AND (vx.ve_ar = 1 OR vx.ve_ar IS NULL)) as n_versiones
+        ${BASE}
+        ORDER BY p.rating DESC NULLS LAST
+      `;
+      const resAll = db.exec(sqlAll, params);
+      if (!resAll[0]) return [];
+      const cols = resAll[0].columns;
+      const all = resAll[0].values.map(row => {
+        const o = {}; cols.forEach((c, i) => o[c] = row[i]); return o;
+      });
+      for (let i = all.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [all[i], all[j]] = [all[j], all[i]];
+      }
+      window._shuffleCache = all;
+    }
+    return window._shuffleCache.slice(offset, offset + POR_PAGINA);
+  }
   const sql = `
     SELECT
       p.tconst, p.titulo_primario, p.titulo_orig, p.anio,
@@ -1348,6 +1385,7 @@ function renderPagination(total) {
 
 function render() {
   filtrosAUrl();
+  if (document.getElementById('f-orden').value === 'aleatorio') window._shuffleCache = null;
   const grid = document.getElementById('grid');
   const total = countQuery();
 
@@ -1530,6 +1568,16 @@ async function cargarDB() {
       document.getElementById('app').style.display = 'block';
       poblarPaises();
       urlAFiltros();
+      // Primera visita → rating. Visitas siguientes → aleatorio (si no hay orden en URL)
+      // Primera visita → rating. Visitas siguientes → aleatorio (si no hay orden en URL)
+      if (!window.location.hash.includes('orden=')) {
+        if (localStorage.getItem('filmoteca_visited')) {
+          document.getElementById('f-orden').value = 'aleatorio';
+          document.getElementById('banner-aleatorio').style.display = 'flex';
+        } else {
+          localStorage.setItem('filmoteca_visited', '1');
+        }
+      }
       render();
     }, 300);
 
@@ -1591,7 +1639,7 @@ onAuthStateChanged(auth, async (user) => {
     document.getElementById('chip-novistas').classList.add('visible');
 
     // Re-render para mostrar íconos
-    if (typeof render === 'function') render();
+    if (typeof render === 'function' && db) render();
   } else {
     document.getElementById('btn-login').style.display = 'block';
     document.getElementById('user-avatar').style.display = 'none';
@@ -1600,7 +1648,7 @@ onAuthStateChanged(auth, async (user) => {
     window.favoritosSet = new Set();
     window.vistosSet = new Set();
     perfilData = {};
-    if (typeof render === 'function') render();
+    if (typeof render === 'function' && db) render();
   }
 });
 
@@ -1704,7 +1752,7 @@ window.toggleChipUsuario = function(chip) {
     document.getElementById('chip-favoritos').classList.toggle('active', chip === 'favoritos');
     document.getElementById('chip-novistas').classList.toggle('active', chip === 'novistas');
   }
-  if (typeof render === 'function') render();
+  if (typeof render === 'function' && db) render();
 };
 
 // Exponer chipActivo para que render() pueda usarlo
