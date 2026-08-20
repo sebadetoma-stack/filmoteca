@@ -403,6 +403,14 @@
     padding: 4px 8px; transition: color 0.15s;
   }
   .sobre-link:hover { color: var(--amber); }
+  .btn-blog {
+    background: var(--amber); color: #fff;
+    border: none; border-radius: 4px;
+    font-family: var(--sans); font-size: 12px;
+    padding: 4px 10px; cursor: pointer;
+    text-decoration: none; transition: opacity 0.15s;
+  }
+  .btn-blog:hover { opacity: 0.85; }
 
   /* LOGIN */
   .btn-login {
@@ -935,6 +943,7 @@
     <div class="header-count" id="header-count"></div>
     <button class="sobre-link" onclick="document.getElementById('modal-sobre').classList.add('open')">Sobre la filmoteca</button>
     <button class="sobre-link" onclick="document.getElementById('modal-como').classList.add('open')">Cómo funciona</button>
+    <a class="btn-blog" href="/blog/">Blog</a>
     <!-- LOGIN -->
     <button class="btn-login" id="btn-login" onclick="loginConGoogle()" style="display:none">Iniciar sesión</button>
     <div class="user-avatar" id="user-avatar" style="display:none" onclick="toggleDropdown(event)">

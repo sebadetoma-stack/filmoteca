@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cómo encontramos más de 4.000 películas clásicas en YouTube · Blog · Filmoteca Clásica</title>
+<meta name="description" content="Hay cientos de películas clásicas completas en YouTube. El problema no es que no existan — es encontrarlas. Los títulos aparecen en distintos idiomas, mezclados con trailers, escenas sueltas y...">
+<link rel="canonical" href="https://filmotecaclasica.com/blog/como-encontramos-4000-peliculas-en-youtube/">
+<meta property="og:title" content="Cómo encontramos más de 4.000 películas clásicas en YouTube · Filmoteca Clásica">
+<meta property="og:type" content="article">
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Cómo encontramos más de 4.000 películas clásicas en YouTube",
+  "datePublished": "2026-08-19",
+  "author": {"@type": "Person", "name": "Sebastián De Toma"},
+  "publisher": {"@type": "Organization", "name": "Filmoteca Clásica", "url": "https://filmotecaclasica.com"},
+  "url": "https://filmotecaclasica.com/blog/como-encontramos-4000-peliculas-en-youtube/"
+}</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FNBHN0F639"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FNBHN0F639');
+</script>
+<style>
+
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
+  :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
+  a{color:inherit;text-decoration:none}
+  nav{border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;gap:1rem;background:var(--bg);position:sticky;top:0;z-index:100}
+  .logo{font-family:var(--serif);font-size:1.25rem;color:var(--text)}
+  .logo em{color:var(--amber);font-style:italic}
+  .logo-sub{font-size:11px;color:var(--text-faint);letter-spacing:0.12em;text-transform:uppercase}
+  .nav-links{display:flex;gap:0.5rem;align-items:center;margin-left:auto}
+  .nav-link{font-size:12px;color:var(--text-faint);padding:4px 8px;transition:color 0.15s}
+  .nav-link:hover{color:var(--amber)}
+  .nav-blog{background:var(--amber);color:#fff;border-radius:4px;padding:4px 10px;font-size:12px;font-family:var(--sans)}
+  .nav-blog:hover{opacity:0.85;color:#fff}
+  .nav-back{font-size:12px;color:var(--text-faint)}
+  .nav-back:hover{color:var(--amber)}
+
+  /* ÍNDICE */
+  .blog-header{max-width:700px;margin:2rem auto 1.5rem;padding:0 1.5rem}
+  .blog-title{font-family:var(--serif);font-size:2rem;color:var(--text);margin-bottom:4px}
+  .blog-sub{font-size:13px;color:var(--text-faint)}
+  .cat-filter{max-width:700px;margin:0 auto 1.5rem;padding:0 1.5rem;display:flex;gap:8px;flex-wrap:wrap}
+  .cat-btn{font-size:11px;padding:4px 12px;border-radius:20px;border:1px solid var(--border);color:var(--text-faint);background:transparent;cursor:pointer;font-family:var(--sans);transition:all 0.15s}
+  .cat-btn:hover,.cat-btn.active{background:var(--amber);border-color:var(--amber);color:#fff}
+  .posts-list{max-width:700px;margin:0 auto;padding:0 1.5rem 4rem;display:flex;flex-direction:column;gap:12px}
+  .post-card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;overflow:hidden;display:flex;transition:border-color 0.15s}
+  .post-card:hover{border-color:var(--amber-dim)}
+  .post-img{width:120px;flex-shrink:0;background:var(--bg2);overflow:hidden}
+  .post-img img{width:100%;height:100%;object-fit:cover;display:block}
+  .post-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2rem}
+  .post-body{flex:1;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+  .post-cat{font-size:10px;color:var(--amber);text-transform:uppercase;letter-spacing:0.08em;font-family:var(--sans)}
+  .post-title{font-family:var(--serif);font-size:15px;color:var(--text);line-height:1.3}
+  .post-excerpt{font-size:12px;color:var(--text-dim);line-height:1.5;flex:1}
+  .post-footer{display:flex;justify-content:space-between;align-items:center;margin-top:4px}
+  .post-meta{font-size:10px;color:var(--text-faint);font-family:var(--sans)}
+  .leer-mas{font-size:11px;color:var(--amber);font-family:var(--sans)}
+
+  /* ARTÍCULO */
+  .article-hero{width:100%;max-height:400px;overflow:hidden}
+  .article-hero img{width:100%;object-fit:cover;display:block}
+  .article-wrap{max-width:680px;margin:0 auto;padding:2rem 1.5rem 4rem}
+  .article-cat{font-size:11px;color:var(--amber);text-transform:uppercase;letter-spacing:0.1em;font-family:var(--sans);margin-bottom:8px}
+  .article-title{font-family:var(--serif);font-size:2rem;line-height:1.2;color:var(--text);margin-bottom:10px}
+  .article-meta{font-size:12px;color:var(--text-faint);font-family:var(--sans);margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+  .article-body{font-family:var(--serif);font-size:16px;line-height:1.8;color:var(--text-dim)}
+  .article-body p{margin-bottom:1.2rem}
+  .article-body h2{font-family:var(--serif);font-size:1.4rem;color:var(--text);margin:2rem 0 0.75rem}
+  .article-body h3{font-family:var(--serif);font-size:1.1rem;color:var(--text);margin:1.5rem 0 0.5rem}
+  .article-body blockquote{border-left:3px solid var(--amber-dim);padding-left:1rem;margin:1.5rem 0;font-style:italic;color:var(--text-faint)}
+  .article-body a{color:var(--amber);text-decoration:underline}
+  .article-body strong{color:var(--text);font-weight:600}
+  .article-divider{height:1px;background:var(--border);margin:2rem 0}
+  .rel-titulo{font-size:11px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.08em;font-family:var(--sans);margin-bottom:1rem}
+  .rel-list{display:flex;flex-direction:column;gap:10px}
+  .rel-item{display:flex;gap:10px;align-items:center;padding:8px;border-radius:6px;transition:background 0.15s}
+  .rel-item:hover{background:var(--bg2)}
+  .rel-img{width:54px;height:54px;background:var(--bg2);border-radius:4px;overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+  .rel-img img{width:100%;height:100%;object-fit:cover}
+  .rel-cat{font-size:9px;color:var(--amber);text-transform:uppercase;letter-spacing:0.06em;font-family:var(--sans)}
+  .rel-name{font-size:12px;color:var(--text);font-family:var(--serif);line-height:1.3}
+
+  footer{border-top:1px solid var(--border);padding:1.2rem 2rem;text-align:center;font-size:12px;color:var(--text-faint);margin-top:3rem}
+
+  @media(max-width:600px){
+    nav{padding:0.75rem 1rem}
+    .article-wrap,.blog-header,.cat-filter,.posts-list{padding-left:1rem;padding-right:1rem}
+    .article-title{font-size:1.5rem}
+    .post-img{width:90px}
+  }
+
+
+  .user-avatar-nav {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--amber); color: #fff;
+    display: none; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 600; cursor: pointer; flex-shrink: 0;
+    position: relative;
+  }
+  .user-avatar-nav.open .user-dropdown-nav { display: block; }
+  .user-dropdown-nav {
+    display: none; position: absolute; top: calc(100% + 8px); right: 0;
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: 8px; padding: 4px 0; min-width: 160px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12); z-index: 200; font-family: var(--sans);
+  }
+  .dd-item-nav { padding: 6px 14px; font-size: 12px; color: var(--text-dim); cursor: pointer; }
+  .dd-item-nav:hover { background: var(--bg2); }
+  .dd-divider-nav { height: 1px; background: var(--border); margin: 4px 0; }
+
+</style>
+</head>
+<body>
+<nav>
+  <a href="https://filmotecaclasica.com" style="text-decoration:none">
+    <div class="logo">Filmoteca <em>Clásica</em></div>
+    <div class="logo-sub">1920 – 1979</div>
+  </a>
+  <div class="nav-links">
+    <a href="https://filmotecaclasica.com" class="nav-link">Catálogo</a>
+    <a href="/blog/" class="nav-blog">Blog</a>
+    <button class="nav-link" id="btn-login-nav" onclick="loginConGoogle()" style="display:none;background:var(--amber);color:#fff;border:none;border-radius:20px;padding:5px 13px;cursor:pointer">Iniciar sesión</button>
+    <div class="user-avatar-nav" id="user-avatar-nav" onclick="toggleDropdownNav(event)">
+      <span class="av-iniciales"></span>
+      <div class="user-dropdown-nav">
+        <a class="dd-item-nav" href="/perfil/">👤 Mi perfil</a>
+        <div class="dd-divider-nav"></div>
+        <div class="dd-item-nav" onclick="cerrarSesion()">↩ Cerrar sesión</div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="article-wrap">
+  <div class="article-cat">Cómo lo hacemos</div>
+  <h1 class="article-title">Cómo encontramos más de 4.000 películas clásicas en YouTube</h1>
+  <div class="article-meta">SDT · 19 de agosto de 2026</div>
+  <div class="article-body"><p>
+Hay cientos de películas clásicas completas en YouTube. El problema no es que no existan — es encontrarlas.
+</p>
+<p>
+Los títulos aparecen en distintos idiomas, mezclados con trailers, escenas sueltas y compilaciones. Muchas desaparecen cuando cambian los derechos. No hay un catálogo confiable.
+</p>
+<h2>La pregunta que guía el proyecto</h2>
+<p>
+Filmoteca Clásica responde una pregunta simple: <strong>¿qué películas clásicas puedo ver hoy, gratis y completas, desde Argentina?</strong>
+</p>
+<p>
+No mañana. No "probablemente". Hoy.
+</p>
+<h2>La estrategia: cosechar canales enteros</h2>
+<p>
+En vez de buscar película por película en YouTube — lo que agotaría la cuota de API en días — invertimos la dirección: cosechamos canales enteros.
+</p>
+<p>
+Un canal con 800 películas se enumera completo por solo 16 unidades de cuota. Con 10.000 unidades diarias podemos procesar cientos de canales.
+</p>
+<h2>El matcher: cruzar videos sin gastar cuota</h2>
+<p>
+Una vez que tenemos los videos, los cruzamos contra el catálogo de IMDb completamente offline. La lógica tiene tres pasos:
+</p>
+<p>
+<strong>Vetos duros</strong>: antes de cualquier análisis, descartamos trailers, clips, compilaciones y videos demasiado cortos.
+</p>
+<p>
+<strong>Señal de frase</strong>: ¿el título de la película aparece como frase contigua en el título del video? Es la señal más confiable.
+</p>
+<p>
+<strong>Score ponderado</strong>: cuando no hay frase, calculamos un score combinando similitud de título, duración y año.
+</p>
+<h2>La IA como árbitro</h2>
+<p>
+Los casos dudosos — donde el matcher no está seguro — se pasan a Claude via la API de Anthropic. El modelo lee el título del video, su descripción completa y la duración, y decide si es match o no con una precisión de alrededor del 90%.
+</p>
+<h2>El resultado</h2>
+<p>
+Más de 4.000 películas confirmadas, verificadas desde Argentina, disponibles gratis en YouTube. Sin publicidad. Sin registro.
+</p>
+<p>
+Y el catálogo sigue creciendo.
+</p></div>
+  
+</div>
+<footer>
+  Filmoteca Clásica · catálogo de cine clásico gratis en YouTube · sin publicidad ·
+  <a href="https://github.com/sebadetoma-stack/filmoteca" style="color:var(--text-faint)">código abierto</a>
+</footer>
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signOut } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+import { getFirestore, doc, getDoc, setDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+const firebaseConfig = {
+  apiKey: "AIzaSyBh2sTmHwED1VtlvIqMOy1wFcW8CO_NZNg",
+  authDomain: "filmoteca-clasica.firebaseapp.com",
+  projectId: "filmoteca-clasica",
+  storageBucket: "filmoteca-clasica.firebasestorage.app",
+  messagingSenderId: "347321323128",
+  appId: "1:347321323128:web:0dc5899523d9a8cffb678d"
+};
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+const db = getFirestore(app);
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    document.getElementById('btn-login-nav')?.style && (document.getElementById('btn-login-nav').style.display = 'none');
+    const av = document.getElementById('user-avatar-nav');
+    if (av) {
+      av.style.display = 'flex';
+      const perfilDoc = await getDoc(doc(db, 'perfiles', user.uid));
+      const perfil = perfilDoc.exists() ? perfilDoc.data() : {};
+      const AVATARES = ['🎬','🎥','🎞️','📽️','🎟️','🍿','🎦','🎙️','🕵️','🎭'];
+      const el = av.querySelector('.av-iniciales');
+      if (perfil.avatar && AVATARES.includes(perfil.avatar)) {
+        el.textContent = perfil.avatar; el.style.fontSize = '14px';
+      } else {
+        const nombre = perfil.nombre || user.displayName || '';
+        el.textContent = nombre.split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase() || '?';
+      }
+    }
+  } else {
+    document.getElementById('btn-login-nav')?.style && (document.getElementById('btn-login-nav').style.display = 'block');
+    document.getElementById('user-avatar-nav')?.style && (document.getElementById('user-avatar-nav').style.display = 'none');
+  }
+});
+window.loginConGoogle = async () => { try { await signInWithPopup(auth, provider); } catch(e){} };
+window.cerrarSesion = async () => { await signOut(auth); };
+window.toggleDropdownNav = (e) => { e.stopPropagation(); document.getElementById('user-avatar-nav')?.classList.toggle('open'); };
+document.addEventListener('click', () => document.getElementById('user-avatar-nav')?.classList.remove('open'));
+</script>
+</body>
+</html>
