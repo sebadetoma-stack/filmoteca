@@ -2,6 +2,12 @@
 <html lang="es">
 <head>
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#f5f0e8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Filmoteca Clásica">
+<link rel="apple-touch-icon" href="/icon-192.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Filmoteca Clásica · Cine clásico gratis en YouTube</title>
@@ -329,25 +335,7 @@
     text-overflow: ellipsis;
   }
 
-  .card-report {
-    position: absolute;
-    bottom: 8px; right: 8px;
-    z-index: 30;
-    background: rgba(245,240,232,0.85);
-    border: 0.5px solid var(--border2);
-    border-radius: 4px;
-    cursor: pointer;
-    opacity: 0;
-    transition: opacity 0.2s;
-    padding: 3px 7px;
-    font-size: 11px;
-    color: var(--text-faint);
-    font-family: var(--sans);
-    line-height: 1.4;
-  }
-  .card:hover .card-report { opacity: 1; }
-  .card-report { color: #c0392b !important; }
-  .card-report:hover { color: #e74c3c !important; border-color: #e74c3c; }
+
 
   .card-poster {
     width: 100%;
@@ -1314,7 +1302,7 @@
       <p><strong>La IA</strong>: los casos que el matcher no puede resolver solo se pasan a Claude Haiku vía la API de Anthropic. El modelo lee el título del video, su descripción y la duración, y decide si es match o no. También se usa para auditar periódicamente las confirmadas con score bajo, descartando falsos positivos — y para identificar videos sin título reconocible buscando el director y año en la descripción.</p>
       <p><strong>Los pósters y las sinopsis</strong> vienen de TMDb (The Movie Database) vía su API gratuita, cruzando por el tconst de IMDb. Las sinopsis se piden primero en español.</p>
       <p><strong>El país de producción</strong> viene de Wikidata vía consultas SPARQL, cruzando el tconst de IMDb con la propiedad P495 (país de origen). Permite filtrar por cine británico, italiano, francés, soviético, etc.</p>
-      <p><strong>Otras funciones</strong>: el botón ✦ <em>Sorprendeme</em> abre una película al azar. Los filtros activos se reflejan en la URL, que podés copiar y compartir. El botón ⚑ en cada tarjeta abre un formulario para reportar problemas.</p>
+      <p><strong>Otras funciones</strong>: el botón ✦ <em>Sorprendeme</em> abre una película al azar. Los filtros activos se reflejan en la URL, que podés copiar y compartir. El botón ⚑ en cada página individual permite reportar problemas.</p>
       <p><strong>El código</strong> está disponible en <a href="https://github.com/sebadetoma-stack/filmoteca" target="_blank" rel="noopener" style="color:var(--amber)">GitHub</a>, con documentación detallada de cada paso.</p>
       <p><strong>El botón ⚑</strong> aparece en cada tarjeta al pasar el mouse. Al hacer clic abre un formulario donde podés indicar que la película no es la que dice ser, que está incompleta, que no se puede ver desde Argentina, o que tiene mala calidad. El reporte llega directamente al equipo para ser revisado. El video no se baja automáticamente: primero se verifica antes de tomar cualquier decisión.</p>
       <p><strong>Las páginas individuales</strong>: cada película tiene su propia URL (<code>/pelicula/titulo-año/</code>) con poster, sinopsis, datos técnicos, películas relacionadas y botón directo a YouTube. Están generadas estáticamente y son indexables por Google.</p>
@@ -1344,7 +1332,7 @@
       lucro, gratuito y abierto, hecho para que estas películas sean más fáciles de encontrar
       y disfrutar.</p>
       <p>Si querés llevar un registro de lo que viste o guardar las que te interesa ver, podés crear una cuenta gratuita con tu cuenta de Google. Tus favoritos e historial se sincronizan en la nube.</p>
-      <p>Si encontrás una película que no corresponde a lo que dice ser, podés reportarla usando el botón <strong>⚑</strong> que aparece en la tarjeta al pasar el mouse.</p>
+      <p>Si encontrás una película que no corresponde a lo que dice ser, podés reportarla usando el botón <strong>⚑</strong> que aparece en su página individual.</p>
       <button class="modal-close" onclick="document.getElementById('modal-sobre').classList.remove('open')">Cerrar</button>
     </div>
   </div>
@@ -1603,7 +1591,7 @@ function renderCard(p) {
         </span>
         Ver en YouTube${p.canal ? ` · ${truncate(p.canal, 24)}` : ''}${p.n_versiones > 1 ? ` · +${p.n_versiones - 1} versión${p.n_versiones > 2 ? 'es' : ''}` : ''}
       </span>
-      <button class="card-report" title="Reportar problema" onclick="reportar('${p.video_id}', '${p.titulo_primario}', event)">⚑</button>
+
       <div class="card-overlay">
         <div class="ov-title" style="-webkit-line-clamp:2">${p.titulo_primario} (${p.anio})</div>
         ${p.titulo_orig !== p.titulo_primario ? `<div class="ov-row" style="-webkit-line-clamp:2;font-style:italic;opacity:0.7;margin-top:-0.1rem">${p.titulo_orig}</div>` : ''}
@@ -1706,13 +1694,7 @@ function resetFiltros() {
   render();
 }
 
-function reportar(videoId, titulo, event) {
-  event.preventDefault();
-  event.stopPropagation();
-  const base = 'https://docs.google.com/forms/d/e/1FAIpQLScAs0NejYOuO4ewlUIzs6e86fRGLAM3yjhgChSxIUfuEPuFmg/viewform';
-  const url = base + '?entry.1007045909=' + encodeURIComponent(titulo) + '&entry.717085040=' + encodeURIComponent(videoId);
-  window.open(url, '_blank', 'noopener');
-}
+
 
 // ---------------------------------------------------------------
 // SORPRENDEME
