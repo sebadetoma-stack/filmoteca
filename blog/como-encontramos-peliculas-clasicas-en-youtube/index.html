@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cómo encontramos casi 4.000 películas clásicas en YouTube · Blog · Filmoteca Clásica</title>
+<meta name="description" content="Varias veces busqué películas que no aparecían en ningún streaming y las encontré en YouTube. El algoritmo hizo el resto: una vez que empezás a ver ese tipo de contenido,...">
+<link rel="canonical" href="https://filmotecaclasica.com/blog/como-encontramos-peliculas-clasicas-en-youtube/">
+<meta property="og:title" content="Cómo encontramos casi 4.000 películas clásicas en YouTube · Filmoteca Clásica">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://filmotecaclasica.com/blog/imagenes/rollo-film.jpg">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Cómo encontramos casi 4.000 películas clásicas en YouTube",
+  "datePublished": "2026-08-20",
+  "author": {"@type": "Person", "name": "Sebastián De Toma"},
+  "publisher": {"@type": "Organization", "name": "Filmoteca Clásica", "url": "https://filmotecaclasica.com"},
+  "url": "https://filmotecaclasica.com/blog/como-encontramos-peliculas-clasicas-en-youtube/"
+}</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FNBHN0F639"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FNBHN0F639');
+</script>
+<style>
+
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
+  :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
+  a{color:inherit;text-decoration:none}
+  nav{border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;gap:1rem;background:var(--bg);position:sticky;top:0;z-index:100}
+  .logo{font-family:var(--serif);font-size:1.25rem;color:var(--text)}
+  .logo em{color:var(--amber);font-style:italic}
+  .logo-sub{font-size:11px;color:var(--text-faint);letter-spacing:0.12em;text-transform:uppercase}
+  .nav-links{display:flex;gap:0.5rem;align-items:center;margin-left:auto}
+  .nav-link{font-size:12px;color:var(--text-faint);padding:4px 8px;transition:color 0.15s}
+  .nav-link:hover{color:var(--amber)}
+  .nav-blog{background:var(--amber);color:#fff;border-radius:4px;padding:4px 10px;font-size:12px;font-family:var(--sans)}
+  .nav-blog:hover{opacity:0.85;color:#fff}
+  .nav-back{font-size:12px;color:var(--text-faint)}
+  .nav-back:hover{color:var(--amber)}
+
+  /* ÍNDICE */
+  .blog-header{max-width:700px;margin:2rem auto 1.5rem;padding:0 1.5rem}
+  .blog-title{font-family:var(--serif);font-size:2rem;color:var(--text);margin-bottom:4px}
+  .blog-sub{font-size:13px;color:var(--text-faint)}
+  .cat-filter{max-width:700px;margin:0 auto 1.5rem;padding:0 1.5rem;display:flex;gap:8px;flex-wrap:wrap}
+  .cat-btn{font-size:11px;padding:4px 12px;border-radius:20px;border:1px solid var(--border);color:var(--text-faint);background:transparent;cursor:pointer;font-family:var(--sans);transition:all 0.15s}
+  .cat-btn:hover,.cat-btn.active{background:var(--amber);border-color:var(--amber);color:#fff}
+  .posts-list{max-width:700px;margin:0 auto;padding:0 1.5rem 4rem;display:flex;flex-direction:column;gap:12px}
+  .post-card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;overflow:hidden;display:flex;transition:border-color 0.15s}
+  .post-card:hover{border-color:var(--amber-dim)}
+  .post-img{width:120px;flex-shrink:0;background:var(--bg2);overflow:hidden}
+  .post-img img{width:100%;height:100%;object-fit:cover;display:block}
+  .post-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2rem}
+  .post-body{flex:1;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+  .post-cat{font-size:10px;color:var(--amber);text-transform:uppercase;letter-spacing:0.08em;font-family:var(--sans)}
+  .post-title{font-family:var(--serif);font-size:15px;color:var(--text);line-height:1.3}
+  .post-excerpt{font-size:12px;color:var(--text-dim);line-height:1.5;flex:1}
+  .post-footer{display:flex;justify-content:space-between;align-items:center;margin-top:4px}
+  .post-meta{font-size:10px;color:var(--text-faint);font-family:var(--sans)}
+  .leer-mas{font-size:11px;color:var(--amber);font-family:var(--sans)}
+
+  /* ARTÍCULO */
+  .article-hero{width:100%;max-height:400px;overflow:hidden}
+  .article-hero img{width:100%;object-fit:cover;display:block}
+  .article-wrap{max-width:680px;margin:0 auto;padding:2rem 1.5rem 4rem}
+  .article-cat{font-size:11px;color:var(--amber);text-transform:uppercase;letter-spacing:0.1em;font-family:var(--sans);margin-bottom:8px}
+  .article-title{font-family:var(--serif);font-size:2rem;line-height:1.2;color:var(--text);margin-bottom:10px}
+  .article-meta{font-size:12px;color:var(--text-faint);font-family:var(--sans);margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+  .article-body{font-family:var(--serif);font-size:16px;line-height:1.8;color:var(--text-dim)}
+  .article-body p{margin-bottom:1.2rem}
+  .article-body h2{font-family:var(--serif);font-size:1.4rem;color:var(--text);margin:2rem 0 0.75rem}
+  .article-body h3{font-family:var(--serif);font-size:1.1rem;color:var(--text);margin:1.5rem 0 0.5rem}
+  .article-body blockquote{border-left:3px solid var(--amber-dim);padding-left:1rem;margin:1.5rem 0;font-style:italic;color:var(--text-faint)}
+  .article-body a{color:var(--amber);text-decoration:underline}
+  .article-body strong{color:var(--text);font-weight:600}
+  .article-divider{height:1px;background:var(--border);margin:2rem 0}
+  .rel-titulo{font-size:11px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.08em;font-family:var(--sans);margin-bottom:1rem}
+  .rel-list{display:flex;flex-direction:column;gap:10px}
+  .rel-item{display:flex;gap:10px;align-items:center;padding:8px;border-radius:6px;transition:background 0.15s}
+  .rel-item:hover{background:var(--bg2)}
+  .rel-img{width:54px;height:54px;background:var(--bg2);border-radius:4px;overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+  .rel-img img{width:100%;height:100%;object-fit:cover}
+  .rel-cat{font-size:9px;color:var(--amber);text-transform:uppercase;letter-spacing:0.06em;font-family:var(--sans)}
+  .rel-name{font-size:12px;color:var(--text);font-family:var(--serif);line-height:1.3}
+
+  footer{border-top:1px solid var(--border);padding:1.2rem 2rem;text-align:center;font-size:12px;color:var(--text-faint);margin-top:3rem}
+  .article-hero-credito{font-size:10px;color:var(--text-faint);text-align:right;padding:3px 8px;font-family:var(--sans)}
+  .article-hero-credito a{color:var(--text-faint)}
+
+  @media(max-width:600px){
+    nav{padding:0.75rem 1rem}
+    .article-wrap,.blog-header,.cat-filter,.posts-list{padding-left:1rem;padding-right:1rem}
+    .article-title{font-size:1.5rem}
+    .post-img{width:90px}
+  }
+
+
+  .user-avatar-nav {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--amber); color: #fff;
+    display: none; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 600; cursor: pointer; flex-shrink: 0;
+    position: relative;
+  }
+  .user-avatar-nav.open .user-dropdown-nav { display: block; }
+  .user-dropdown-nav {
+    display: none; position: absolute; top: calc(100% + 8px); right: 0;
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: 8px; padding: 4px 0; min-width: 160px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12); z-index: 200; font-family: var(--sans);
+  }
+  .dd-item-nav { padding: 6px 14px; font-size: 12px; color: var(--text-dim); cursor: pointer; }
+  .dd-item-nav:hover { background: var(--bg2); }
+  .dd-divider-nav { height: 1px; background: var(--border); margin: 4px 0; }
+
+</style>
+</head>
+<body>
+<nav>
+  <a href="https://filmotecaclasica.com" style="text-decoration:none">
+    <div class="logo">Filmoteca <em>Clásica</em></div>
+    <div class="logo-sub">1920 – 1979</div>
+  </a>
+  <div class="nav-links">
+    <a href="https://filmotecaclasica.com" class="nav-link">Catálogo</a>
+    <a href="/blog/" class="nav-blog">Blog</a>
+    <button class="nav-link" id="btn-login-nav" onclick="loginConGoogle()" style="display:none;background:var(--amber);color:#fff;border:none;border-radius:20px;padding:5px 13px;cursor:pointer">Iniciar sesión</button>
+    <div class="user-avatar-nav" id="user-avatar-nav" onclick="toggleDropdownNav(event)">
+      <span class="av-iniciales"></span>
+      <div class="user-dropdown-nav">
+        <a class="dd-item-nav" href="/perfil/">👤 Mi perfil</a>
+        <div class="dd-divider-nav"></div>
+        <div class="dd-item-nav" onclick="cerrarSesion()">↩ Cerrar sesión</div>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="article-hero"><img src="/blog/imagenes/rollo-film.jpg" alt="Cómo encontramos casi 4.000 películas clásicas en YouTube"></div><div class="article-hero-credito">Image by <a href="https://pixabay.com/users/pupochek-13656630/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=4591329">Illia Zakharchenko</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=4591329">Pixabay</a></div>
+<div class="article-wrap">
+  <div class="article-cat">Cómo lo hacemos</div>
+  <h1 class="article-title">Cómo encontramos casi 4.000 películas clásicas en YouTube</h1>
+  <div class="article-meta">SDT · 20 de agosto de 2026</div>
+  <div class="article-body"><p>
+Varias veces busqué películas que no aparecían en ningún streaming y las encontré en YouTube. El algoritmo hizo el resto: una vez que empezás a ver ese tipo de contenido, YouTube te muestra más. Con el tiempo quedó claro que había una cantidad enorme de material repartido entre canales, playlists y cuentas de todo tipo, sin ningún orden. En una época en que casi todo el cine de valor requiere una suscripción, tener ese material disponible y sin que nadie lo catalogara parecía un desperdicio. La decisión de hacer un catálogo y no un reproductor fue deliberada: incrustar videos de YouTube en un sitio propio siempre genera problemas de derechos. Tampoco quería publicidad, y no solo por una cuestión de filosofía del software libre: usar la API de TMDb requiere que el proyecto sea no comercial.
+</p>
+<h2>Por qué YouTube no sirve como catálogo</h2>
+<p>
+El problema central es que YouTube no está pensado para esto. Los títulos aparecen en distintos idiomas, muchas veces sin el año, mezclados con trailers y escenas sueltas, y muchas desaparecen cuando cambian los derechos sin que nadie avise. Hay canales que suben las películas con el título en alemán aunque el video sea en inglés, o que ponen el año de una restauración y no el de la película original. Otros directamente no ponen ningún dato útil en el título y confían en que el algoritmo los encuentre igual. Además los videos desaparecen sin aviso: un canal que hoy tiene 300 películas mañana puede tener 200 porque alguien reclamó derechos de algunas, o porque el canal fue dado de baja, o simplemente porque el dueño lo borró. No hay manera de saber qué está disponible en un momento dado sin verificarlo uno por uno, y esa verificación no se puede hacer a mano cuando hablamos de decenas de miles de videos.
+</p>
+<h2>Cómo está construido el proyecto por dentro</h2>
+<p>
+El proyecto está construido enteramente en Python, sin frameworks ni dependencias externas más allá de la biblioteca estándar. La base de datos es SQLite, elegida por su simplicidad y porque permite servir el catálogo directamente desde el navegador usando sql.js, una compilación de SQLite a WebAssembly. Esto significa que no hay servidor, no hay backend y no hay base de datos remota: el archivo se descarga una vez y todas las consultas corren localmente en el navegador del usuario. El sitio se publica en GitHub Pages, el dominio está en Cloudflare y la base de datos se sirve desde Cloudflare R2. Internamente hay dos bases: una completa donde escriben todos los scripts del pipeline, de unos 140MB, y una liviana con solo las películas confirmadas, de unos 16MB, que es la que descarga el navegador.
+</p>
+<h2>La estrategia de cosecha: por qué los canales y no las películas</h2>
+<p>
+La API de YouTube tiene dos presupuestos separados: 10.000 unidades diarias para operaciones generales y 100 búsquedas diarias para el buscador. Buscar película por película consume una búsqueda por consulta, así que con ese límite se pueden rastrear apenas 100 títulos por día. Con un catálogo de decenas de miles de películas posibles eso no lleva a ningún lado, y la alternativa obvia fue invertir la dirección: en lugar de buscar películas, identificamos canales de YouTube dedicados al cine clásico y los cosechamos completos. Listar todos los videos de un canal usa el endpoint `playlistItems.list`, que cuesta 1 unidad por cada 50 videos, de modo que un canal con 800 películas se enumera completo por 16 unidades. Con el presupuesto diario disponible es posible procesar cientos de canales sin ninguna restricción. El resultado de cada cosecha se almacena en la base de datos con el título del video, su duración, la fecha de publicación y el estado de disponibilidad geográfica según la API.
+</p>
+<p>
+Encontrar los canales correctos fue su propio proceso. Hay canales institucionales, como el oficial de Mosfilm, el estudio soviético más grande de la historia, que subió su catálogo completo con subtítulos en inglés. Hay canales de distribuidoras que obtienen licencias para territorios específicos, como Film&Clips y sus variantes (uno general, uno de blanco y negro, uno en inglés), o Artflix Películas Clásicas, con foco en cine negro y de autor europeo. Y después hay una cantidad sorprendente de coleccionistas particulares repartidos por todo el mundo: NipponKino, especializado en cine japonés clásico con subtítulos; MeduFiles y prisoner, con foco en cine europeo de autor; Davide Fiammenghi, que subió buena parte de la obra de Bergman disponible en inglés; Grandpa's Old Movies Chest, con cine americano de dominio público; Khris McLorean y Ruvindu Gamage, con mezclas de cine europeo y japonés. También hay canales específicamente latinoamericanos: La Corriente Películas tiene la colección más grande de cine clásico doblado al español latino disponible en YouTube, y hay varios canales dedicados al cine argentino de la época de oro. El catálogo actual cubre más de 25 canales activos, con perfiles muy distintos en términos de calidad y confiabilidad. Algunos tienen los títulos perfectamente documentados con año, director y sinopsis; otros suben las películas con nombres genéricos sin ningún dato adicional, lo que complica considerablemente el proceso de identificación.
+</p>
+<h2>El matcher: cómo cruzamos videos contra el catálogo de IMDb</h2>
+<p>
+Una vez que tenemos los videos cosechados, el trabajo real es identificar cuál corresponde a qué película. El matcher es un script Python que corre completamente offline, sin consumir cuota de API, cruzando los videos de la base de datos contra el catálogo de IMDb. IMDb publica sus datasets completos en TSV comprimido y los actualiza a diario; el pipeline los descarga, los filtra por rango de años y los carga en SQLite. El cruce entre videos y catálogo procesa todos los pares posibles en memoria, usando índices invertidos de tokens para reducir el espacio de búsqueda antes de calcular cualquier score.
+</p>
+<p>
+El proceso empieza con una serie de vetos duros que descartan los casos imposibles antes de cualquier análisis. Cualquier video cuyo título contenga palabras como trailer, clip, reseña, compilación, maratón, soundtrack o reaction se elimina directamente. Lo mismo pasa con los videos que duran menos de 55 minutos, que por definición no son largometrajes, o con los que duran más de 1.6 veces el metraje esperado, que suelen ser maratones o recopilaciones. También se descartan los videos que declaran un año con más de un año de diferencia respecto de la película buscada.
+</p>
+<p>
+Después del filtro inicial, la señal más confiable es la presencia del título de la película como texto contiguo en el título del video. Pero implementar esa señal correctamente fue más complejo de lo que parecía. El sistema normaliza los títulos antes de comparar: convierte números escritos en dígitos para que "Three Guys Named Mike" matchee con "3 Guys Named Mike", colapsa guiones internos para que variantes de escritura no generen falsos negativos, y equipara plural y singular simple para casos como "Outlaws of the Range" vs "Outlaw of the Range". Sin esa normalización, variantes perfectamente válidas del mismo título se perdían.
+</p>
+<p>
+Los títulos alternativos en otros idiomas no pueden confirmar la señal de frase. Hay películas con AKAs en italiano, francés o alemán que podrían matchear con cualquier video que contenga esas palabras. Para los títulos de una sola palabra el riesgo es todavía mayor: "Romance", "She" o "Shark" aparecen en decenas de videos completamente distintos. En esos casos el sistema exige que el año de la película aparezca explícitamente en el título del video. Hay además un piso mínimo de similitud de título que impide que el año y la confianza del canal solos confirmen un match con un título débil. Sin ese piso, un video en un canal de alta confianza con el año correcto podía terminar confirmado aunque el título no tuviera ninguna relación.
+</p>
+<p>
+Cuando la frase no es concluyente, el matcher calcula un score ponderado que combina similitud de título (50%), duración (33%), año (9%) y confianza del canal (8%). La similitud de título usa distancia de edición normalizada sobre los tokens relevantes, descartando palabras frecuentes como artículos y preposiciones. Para confirmar sin frase se requiere una similitud de al menos 88% con una duración dentro del 20% del metraje esperado. Todo esto se construyó con una suite de tests: cada fallo real que encontramos, como "La Strada" matcheando con cualquier video con "street" en el nombre, o "The Bridge of San Luis Rey" confirmando cualquier video con "bridge", se convirtió en un test que el sistema tiene que pasar antes de cualquier cambio.
+</p>
+<h2>La IA para los casos que el matcher no puede resolver</h2>
+<p>
+Los casos que el matcher no puede resolver solos van a una segunda etapa de revisión con IA. El sistema usa la API de Anthropic con Claude como modelo, y lo hace en tres escenarios distintos. El primero son los pendientes: videos donde el matcher calculó un score intermedio, no suficiente para confirmar ni para rechazar. El segundo son los "sin identificar": videos cuyo título en YouTube no corresponde al título del catálogo, ya sea porque están en otro idioma, porque usan un título alternativo poco conocido, o porque el canal directamente no puso el título real. El tercero es la auditoría periódica: después de agregar canales nuevos o de cambiar la lógica del matcher, se corre un script que revisa las confirmadas con score bajo y las somete de nuevo al modelo para detectar falsos positivos que el matcher aceptó con poca certeza. En cada caso el modelo recibe el título del video, su descripción completa cuando está disponible, la duración en minutos, y los datos de la película del catálogo: título original, títulos alternativos, año, director y duración según IMDb. El prompt le pide una decisión binaria con justificación. La descripción del video es particularmente útil en canales que la completan bien: algunos incluyen director, actores, estudio y año, lo que permite identificar películas cuyo título en el video no tiene ninguna relación con el título real. En una de las primeras pasadas de auditoría se eliminaron más de 200 falsos positivos que el matcher había aceptado.
+</p>
+<p>
+Hay un segundo proceso de identificación con IA que corre de forma distinta: la búsqueda por directores. Cuando queremos incorporar la filmografía de un director específico, como Bergman, Fellini o Kurosawa, no alcanza con cosechar canales y esperar que el matcher los encuentre, porque muchas de esas películas están en canales con títulos en otros idiomas o con metadatos pobres. En ese caso corremos un pipeline de búsqueda activa que usa el buscador de YouTube para encontrar videos candidatos, los audita con IA en varias pasadas progresivamente más estrictas, reverifica los metadatos reales de los videos via API, y finalmente los somete a revisión humana antes de insertarlos. Fue en este proceso donde aparecieron los límites más claros de la auditoría automática: videos en ruso sin subtítulos que pasaban todos los filtros automáticos, videos que la API marcaba como disponibles pero que al abrirlos no cargaban desde Argentina, y videos que el modelo aprobaba pero que al verlos resultaban ser algo completamente distinto. La revisión humana al final del pipeline no es opcional.
+</p>
+<h2>El problema del geobloqueo y sus límites</h2>
+<p>
+Uno de los problemas más difíciles de resolver es el geobloqueo. La API de YouTube devuelve información sobre restricciones geográficas a través del campo `regionRestriction`, que indica qué países están bloqueados o cuáles son los únicos permitidos. Eso permite filtrar los casos obvios, como canales que solo tienen licencia para Estados Unidos. Pero hay dos tipos de restricción que la API no captura: las restricciones de licencia que los estudios aplican dinámicamente a través del sistema de Content ID, y los canales que simplemente no están disponibles en ciertos territorios sin que eso quede registrado en los metadatos. El resultado es que hay películas que aparecen como disponibles según la API pero que al intentar verlas desde Argentina muestran un error. Por eso el catálogo mantiene un campo de verificación con tres estados posibles: verificada por la API, verificada manualmente desde Argentina, o bloqueada. Para el flujo normal de cosecha de canales la verificación de disponibilidad la hace la IA como parte del proceso de auditoría. Para las películas incorporadas por el pipeline de directores, la verificación fue manual: cada video fue abierto y comprobado desde Argentina antes de agregarlo al catálogo.
+</p>
+<h2>Cómo se obtienen posters, sinopsis y países de producción</h2>
+<p>
+Una vez confirmada una película, el pipeline la enriquece con datos adicionales de tres fuentes distintas. Los posters y sinopsis vienen de TMDb, The Movie Database, una base de datos colaborativa de cine con API gratuita para proyectos no comerciales. El script cruza el identificador de IMDb de cada película contra la API de TMDb y descarga el poster en resolución estándar y la sinopsis, primero en español y con fallback al inglés si no existe traducción. Para las películas que TMDb no tiene o que tienen posters de mala calidad, hay scripts alternativos que buscan en Wikipedia.
+</p>
+<p>
+El país de producción viene de Wikidata a través de consultas SPARQL. Wikidata tiene una propiedad específica para país de origen de películas (P495) y permite cruzar por el identificador de IMDb, así que el proceso es directo y no requiere API key ni tiene costo. El resultado permite filtrar en el catálogo por cine estadounidense, italiano, soviético, argentino, japonés, francés y varios otros, incluyendo coproducciones que aparecen bajo más de un país.
+</p>
+<p>
+El enriquecimiento está diseñado para no repetir trabajo: cada script solo procesa las películas que todavía no tienen el dato correspondiente, de modo que se puede correr cada vez que se agregan películas nuevas sin volver a procesar todo el catálogo.
+</p>
+<h2>El sitio web: sin servidor, sin framework, sin backend</h2>
+<p>
+El sitio es HTML, CSS y JavaScript puro, sin frameworks ni dependencias de build. La decisión de no usar React, Vue ni ningún otro framework fue deliberada: el proyecto tiene que poder deployarse en GitHub Pages sin ningún proceso de compilación, y tiene que seguir funcionando en diez años sin que nadie lo mantenga. Toda la lógica de filtrado, búsqueda y paginación corre en el navegador usando sql.js para hacer queries SQL directamente sobre la base de datos descargada. Esto significa que el sitio funciona completamente offline una vez que la base de datos está cacheada, y que no hay ningún servidor que pueda caerse o que haya que escalar.
+</p>
+<p>
+El catálogo permite filtrar por década, país, género, idioma de audio y estado de disponibilidad en Argentina. Los filtros se reflejan en el hash de la URL, lo que permite compartir búsquedas específicas como links directos. Hay un botón de "Sorprendeme" que abre una película al azar de las confirmadas, y cada película tiene su propia página estática con schema.org para ser indexada por Google. Esas páginas se generan con un script Python que lee la base de datos y produce un HTML por película, con metadatos, poster, sinopsis, datos técnicos y películas relacionadas por director y género.
+</p>
+<p>
+Para los datos de usuario, el sitio usa Firebase Auth con Google Sign-In y Firestore para guardar favoritos e historial. Es la única dependencia externa que tiene el sitio en producción: el pipeline de construcción del catálogo usa varias APIs (YouTube Data API, Anthropic y TMDb), pero una vez publicado el sitio corre sin ninguna llamada a servicios externos salvo Firebase.
+</p>
+<h2>El estado actual del catálogo y lo que viene</h2>
+<p>
+El catálogo tiene hoy casi 4.000 películas confirmadas, cubre el período 1920 a 1979, e incluye cine de más de 25 países. El pipeline sigue activo: se agregan canales nuevos cuando aparecen, se buscan directores que todavía no están cubiertos, y se corre mantenimiento periódico para detectar videos caídos y buscar reemplazos. El código está disponible en GitHub bajo una licencia libre. Todo lo que está en el catálogo se puede ver gratis, sin registro y sin publicidad, desde Argentina.
+</p></div>
+  
+</div>
+<footer>
+  Filmoteca Clásica · catálogo de cine clásico gratis en YouTube · sin publicidad ·
+  <a href="https://github.com/sebadetoma-stack/filmoteca" style="color:var(--text-faint)">código abierto</a>
+</footer>
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signOut } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+import { getFirestore, doc, getDoc, setDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+const firebaseConfig = {
+  apiKey: "AIzaSyBh2sTmHwED1VtlvIqMOy1wFcW8CO_NZNg",
+  authDomain: "filmoteca-clasica.firebaseapp.com",
+  projectId: "filmoteca-clasica",
+  storageBucket: "filmoteca-clasica.firebasestorage.app",
+  messagingSenderId: "347321323128",
+  appId: "1:347321323128:web:0dc5899523d9a8cffb678d"
+};
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+const db = getFirestore(app);
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    document.getElementById('btn-login-nav')?.style && (document.getElementById('btn-login-nav').style.display = 'none');
+    const av = document.getElementById('user-avatar-nav');
+    if (av) {
+      av.style.display = 'flex';
+      const perfilDoc = await getDoc(doc(db, 'perfiles', user.uid));
+      const perfil = perfilDoc.exists() ? perfilDoc.data() : {};
+      const AVATARES = ['🎬','🎥','🎞️','📽️','🎟️','🍿','🎦','🎙️','🕵️','🎭'];
+      const el = av.querySelector('.av-iniciales');
+      if (perfil.avatar && AVATARES.includes(perfil.avatar)) {
+        el.textContent = perfil.avatar; el.style.fontSize = '14px';
+      } else {
+        const nombre = perfil.nombre || user.displayName || '';
+        el.textContent = nombre.split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase() || '?';
+      }
+    }
+  } else {
+    document.getElementById('btn-login-nav')?.style && (document.getElementById('btn-login-nav').style.display = 'block');
+    document.getElementById('user-avatar-nav')?.style && (document.getElementById('user-avatar-nav').style.display = 'none');
+  }
+});
+window.loginConGoogle = async () => { try { await signInWithPopup(auth, provider); } catch(e){} };
+window.cerrarSesion = async () => { await signOut(auth); };
+window.toggleDropdownNav = (e) => { e.stopPropagation(); document.getElementById('user-avatar-nav')?.classList.toggle('open'); };
+document.addEventListener('click', () => document.getElementById('user-avatar-nav')?.classList.remove('open'));
+</script>
+</body>
+</html>
