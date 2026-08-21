@@ -984,11 +984,19 @@
 
     /* Results bar más compacta */
     .results-bar { padding: 0.5rem 1rem; font-size: 11px; }
+
+    /* Grid 2 columnas */
+    .grid { grid-template-columns: repeat(2, 1fr); }
+    .card { padding: 0.75rem; }
+    .card-title { font-size: 0.9rem; }
+    .card-dir { font-size: 11px; }
   }
 
-  /* Ocultar en desktop */
-  .btn-filtrar-mobile { display: none; }
-  .mobile-sheet-back { display: none; }
+  /* Ocultar en desktop (min-width para no pisar mobile) */
+  @media (min-width: 641px) {
+    .btn-filtrar-mobile { display: none; }
+    .mobile-sheet-back { display: none !important; }
+  }
 </style>
 </head>
 <body>
