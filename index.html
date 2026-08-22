@@ -1167,12 +1167,12 @@ function buildQuery() {
 
   if (q) {
     where.push(`(
-      p.titulo_primario LIKE ? OR p.titulo_orig LIKE ?
+      p.titulo_primario LIKE ? OR p.titulo_orig LIKE ? OR p.titulo_es LIKE ?
       OR EXISTS (SELECT 1 FROM titulos_alt ta WHERE ta.tconst=p.tconst AND ta.titulo LIKE ?)
       OR EXISTS (SELECT 1 FROM creditos c JOIN personas pe ON pe.nconst=c.nconst WHERE c.tconst=p.tconst AND pe.nombre LIKE ?)
     )`);
     const like = `%${q}%`;
-    params.push(like, like, like, like);
+    params.push(like, like, like, like, like);
   }
 
   if (genero) { where.push('p.generos LIKE ?'); params.push(`%${genero}%`); }
