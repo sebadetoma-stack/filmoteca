@@ -2309,7 +2309,7 @@ function formatFecha(date) {
   </div>
   <div class="pwa-banner-acciones" id="pwa-banner-acciones">
     <button class="pwa-banner-btn-instalar" id="pwa-btn-instalar" onclick="instalarPWA()">Instalar</button>
-    <button class="pwa-banner-btn-ahora-no" onclick="cerrarBanner()">Ahora no</button>
+    <button class="pwa-banner-btn-ahora-no" onclick="descartarBanner()">Ahora no</button>
   </div>
 </div>
 
@@ -2344,7 +2344,7 @@ function formatFecha(date) {
       document.getElementById('pwa-banner-subtitulo').textContent =
         'Para instalarla: tocá el botón compartir (⬆) y elegí "Agregar a pantalla de inicio".';
       document.getElementById('pwa-banner-acciones').innerHTML =
-        '<button class="pwa-banner-btn-ahora-no" style="flex:1" onclick="cerrarBanner()">Entendido</button>';
+        '<button class="pwa-banner-btn-ahora-no" style="flex:1" onclick="descartarBanner()">Entendido</button>';
       banner.classList.add('visible');
     }, 3000);
   }
@@ -2361,7 +2361,13 @@ function formatFecha(date) {
     });
   }
 
+  // X: cierra pero vuelve a aparecer la próxima visita
   function cerrarBanner() {
+    banner.classList.remove('visible');
+  }
+
+  // "Ahora no": no vuelve a aparecer
+  function descartarBanner() {
     banner.classList.remove('visible');
     localStorage.setItem(BANNER_KEY, '1');
   }
