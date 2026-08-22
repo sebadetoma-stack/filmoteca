@@ -2,7 +2,7 @@
 
 **[→ Ver la filmoteca en línea](https://filmotecaclasica.com)**
 
-Un catálogo de más de 4.000 películas clásicas (1928–1979) disponibles gratuitamente en YouTube, verificadas desde Argentina.
+Un catálogo de más de 4.000 películas clásicas (1920–1979) disponibles gratuitamente en YouTube, verificadas desde Argentina.
 
 Hecha por [Sebastián De Toma](https://www.linkedin.com/in/juan-sebastian-de-toma/).
 
@@ -14,7 +14,7 @@ Hay cientos de películas clásicas completas en YouTube. El problema es que no 
 
 Esta filmoteca responde una pregunta simple: **¿qué películas clásicas puedo ver hoy, gratis y completas, desde Argentina?**
 
-El catálogo cubre cine de 1928 a 1979: film noir, westerns, comedias, dramas, épicas, cine Pre-Code, cine de autor europeo y japonés, cine latinoamericano. Cada entrada fue verificada cruzando la duración y el título del video contra los datos de IMDb, descartando trailers, escenas sueltas y copias incompletas.
+El catálogo cubre cine de 1920 a 1979: film noir, westerns, comedias, dramas, épicas, cine Pre-Code, cine de autor europeo y japonés, cine latinoamericano. Cada entrada fue verificada cruzando la duración y el título del video contra los datos de IMDb, descartando trailers, escenas sueltas y copias incompletas.
 
 ---
 
@@ -84,7 +84,7 @@ Sin frase, el sistema calcula un score combinando similitud de título (50%), du
 
 ### Verificación con IA
 
-Los casos pendientes y los "sin identificar" se pasan a **Claude Haiku** vía la API de Anthropic. El modelo lee el título del video, su descripción completa, y la duración, y decide si es match o no.
+Los casos pendientes y los "sin identificar" se pasan a un modelo de lenguaje vía la API de Anthropic. El modelo lee el título del video, su descripción completa, y la duración, y decide si es match o no.
 
 Se usa en tres escenarios:
 - **Pendientes**: videos donde el matcher dudó
@@ -221,6 +221,14 @@ git push
 | Cinema__Routine | Cine de autor variado |
 | CRFA \| Época de Oro | Cine argentino de la época de oro |
 | Lo que el cine nos dejó | Cine argentino clásico |
+| CINETEL MULTIMEDIA | Cine clásico variado |
+| El Cine Español Contigo | Cine español clásico |
+| CiNENET España | Cine español clásico |
+| Canal Federico Sánchez | Cine clásico variado |
+| Stream City | Dominio público americano |
+| CrimeCore | Cine negro y policial clásico |
+| Action Coded | Cine de acción y aventura clásico |
+| Armoured Archivist | Cine clásico variado |
 | Y otros canales de dominio público | PizzaFlix, Free Vintage Movies, DK Classics, etc. |
 
 ---
@@ -239,10 +247,13 @@ Los pósters y sinopsis se obtienen de múltiples fuentes en orden de prioridad:
 ## Funciones adicionales de la web
 
 - **Sorprendeme** (botón ✦): abre una película al azar
+- **Orden del catálogo**: primera visita por rating IMDb; visitas siguientes en orden aleatorio (Fisher-Yates)
 - **Links compartibles**: los filtros activos se reflejan en el hash de la URL
 - **Páginas individuales**: cada película tiene su propia URL estática con schema.org, meta tags, datos técnicos y películas relacionadas
 - **Login con Google**: podés guardar favoritos, marcar películas como vistas y llevar un historial (Firebase Firestore)
-- **Botón ⚑**: reportar problemas — video caído, no disponible en AR, mala calidad
+- **Blog**: reseñas, directores, géneros e historia del cine en `/blog/`
+- **Mobile / PWA**: el sitio es instalable en la pantalla de inicio desde Chrome Android o Safari iOS, sin pasar por ninguna tienda
+- **Botón ⚑**: aparece en cada página individual para reportar problemas — video caído, no disponible en Argentina, mala calidad
 
 ---
 
