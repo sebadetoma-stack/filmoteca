@@ -2,12 +2,6 @@
 <html lang="es">
 <head>
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#f5f0e8">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Filmoteca Clásica">
-<link rel="apple-touch-icon" href="/icon-192.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Filmoteca Clásica · Cine clásico gratis en YouTube</title>
@@ -335,7 +329,25 @@
     text-overflow: ellipsis;
   }
 
-
+  .card-report {
+    position: absolute;
+    bottom: 8px; right: 8px;
+    z-index: 30;
+    background: rgba(245,240,232,0.85);
+    border: 0.5px solid var(--border2);
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s;
+    padding: 3px 7px;
+    font-size: 11px;
+    color: var(--text-faint);
+    font-family: var(--sans);
+    line-height: 1.4;
+  }
+  .card:hover .card-report { opacity: 1; }
+  .card-report { color: #c0392b !important; }
+  .card-report:hover { color: #e74c3c !important; border-color: #e74c3c; }
 
   .card-poster {
     width: 100%;
@@ -803,269 +815,6 @@
     .grid { grid-template-columns: 1fr; }
     .card { padding: 1rem; }
   }
-
-  /* ── MOBILE ─────────────────────────────────────────── */
-  @media (max-width: 640px) {
-
-    /* Header compacto */
-    header {
-      padding: 0.75rem 1rem;
-      gap: 0.5rem;
-    }
-    .logo-sub,
-    .header-sub,
-    .header-count,
-    .sobre-link {
-      display: none;
-    }
-    .logo { font-size: 1.1rem; }
-
-    /* Filtros: solo búsqueda + botones fijos */
-    .filters {
-      padding: 0.6rem 1rem;
-      flex-wrap: nowrap;
-      gap: 8px;
-      align-items: center;
-    }
-    /* Ocultar todo menos búsqueda y controles mobile */
-    .filters > select,
-    .filters > .toggle-precode,
-    .filters > .order-select,
-    .filters > .btn-reset,
-    .filters > .chip-usuario {
-      display: none !important;
-    }
-    /* Búsqueda ocupa todo el espacio disponible */
-    .search-wrap {
-      flex: 1;
-      max-width: none;
-      min-width: 0;
-    }
-    /* Botón filtrar */
-    .btn-filtrar-mobile {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      background: none;
-      border: 1px solid var(--border2);
-      border-radius: var(--radius);
-      color: var(--text-dim);
-      font-size: 13px;
-      font-family: var(--sans);
-      padding: 7px 10px;
-      cursor: pointer;
-      white-space: nowrap;
-      flex-shrink: 0;
-      transition: border-color 0.15s, color 0.15s;
-    }
-    .btn-filtrar-mobile.activo {
-      border-color: var(--amber);
-      color: var(--amber);
-    }
-    /* Sorprendeme siempre visible en mobile */
-    .btn-random {
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    /* Bottom sheet de filtros */
-    .mobile-sheet-back {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
-      z-index: 300;
-    }
-    .mobile-sheet-back.open { display: block; }
-    .mobile-sheet {
-      position: fixed;
-      bottom: 0; left: 0; right: 0;
-      background: var(--bg);
-      border-radius: 16px 16px 0 0;
-      padding: 0 1.25rem 2rem;
-      z-index: 301;
-      transform: translateY(100%);
-      transition: transform 0.28s cubic-bezier(0.32,0.72,0,1);
-      max-height: 85vh;
-      overflow-y: auto;
-    }
-    .mobile-sheet-back.open .mobile-sheet {
-      transform: translateY(0);
-    }
-    .mobile-sheet-handle {
-      width: 36px; height: 4px;
-      background: var(--border2);
-      border-radius: 2px;
-      margin: 10px auto 16px;
-    }
-    .mobile-sheet-title {
-      font-family: var(--serif);
-      font-size: 1.1rem;
-      color: var(--text);
-      margin-bottom: 1rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .sheet-row {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-bottom: 1rem;
-    }
-    .sheet-label {
-      font-size: 11px;
-      color: var(--text-faint);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    .sheet-row select {
-      width: 100%;
-      font-size: 14px;
-      padding: 10px 32px 10px 12px;
-    }
-    .sheet-toggles {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 1rem;
-    }
-    .sheet-toggles .toggle-precode {
-      font-size: 13px;
-      padding: 9px 14px;
-    }
-    .sheet-chips {
-      display: none;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 1rem;
-    }
-    .sheet-chips.visible { display: flex; }
-    .sheet-chips .chip-usuario {
-      display: inline-block !important;
-      font-size: 13px;
-      padding: 8px 14px;
-    }
-    .sheet-actions {
-      display: flex;
-      gap: 8px;
-      margin-top: 0.5rem;
-    }
-    .sheet-actions .btn-reset {
-      flex: 1;
-      border: 1px solid var(--border2);
-      border-radius: var(--radius);
-      padding: 10px;
-      font-size: 13px;
-      color: var(--text-dim);
-    }
-    .sheet-actions .btn-aplicar {
-      flex: 2;
-      background: var(--amber);
-      color: #fff;
-      border: none;
-      border-radius: var(--radius);
-      padding: 10px;
-      font-size: 13px;
-      font-family: var(--sans);
-      cursor: pointer;
-    }
-
-    /* Results bar más compacta */
-    .results-bar { padding: 0.5rem 1rem; font-size: 11px; }
-
-    /* Grid 2 columnas */
-    .grid { grid-template-columns: repeat(2, 1fr); }
-    .card { padding: 0.75rem; }
-    .card-title { font-size: 0.9rem; }
-    .card-dir { font-size: 11px; }
-  }
-
-  /* Ocultar en desktop (min-width para no pisar mobile) */
-  @media (min-width: 641px) {
-    .btn-filtrar-mobile { display: none; }
-    .mobile-sheet-back { display: none !important; }
-  }
-
-  /* ── BANNER PWA ─────────────────────────────────────── */
-  #pwa-banner {
-    display: none;
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    background: var(--bg);
-    border-top: 1px solid var(--border);
-    padding: 1rem 1.25rem 1.5rem;
-    z-index: 500;
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
-  }
-  #pwa-banner.visible { display: block; }
-  .pwa-banner-inner {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  .pwa-banner-icon {
-    width: 48px; height: 48px;
-    border-radius: 10px;
-    flex-shrink: 0;
-  }
-  .pwa-banner-texto {
-    flex: 1;
-  }
-  .pwa-banner-titulo {
-    font-family: var(--serif);
-    font-size: 0.95rem;
-    color: var(--text);
-    margin-bottom: 2px;
-  }
-  .pwa-banner-subtitulo {
-    font-size: 12px;
-    color: var(--text-dim);
-    line-height: 1.4;
-  }
-  .pwa-banner-cerrar {
-    background: none;
-    border: none;
-    color: var(--text-faint);
-    font-size: 18px;
-    cursor: pointer;
-    padding: 4px;
-    flex-shrink: 0;
-    align-self: flex-start;
-  }
-  .pwa-banner-acciones {
-    display: flex;
-    gap: 8px;
-    margin-top: 0.75rem;
-  }
-  .pwa-banner-btn-instalar {
-    flex: 1;
-    background: var(--amber);
-    color: #fff;
-    border: none;
-    border-radius: var(--radius);
-    padding: 10px;
-    font-size: 13px;
-    font-family: var(--sans);
-    cursor: pointer;
-  }
-  .pwa-banner-btn-ahora-no {
-    flex: 1;
-    background: none;
-    border: 1px solid var(--border2);
-    border-radius: var(--radius);
-    padding: 10px;
-    font-size: 13px;
-    color: var(--text-dim);
-    font-family: var(--sans);
-    cursor: pointer;
-  }
-  /* Instrucciones iOS */
-  .pwa-ios-steps {
-    font-size: 12px;
-    color: var(--text-dim);
-    margin-top: 0.5rem;
-    line-height: 1.6;
-  }
 </style>
 </head>
 <body>
@@ -1276,89 +1025,6 @@
     <button class="btn-random" onclick="sorprendeme()">✦ Sorprendeme</button>
     <button class="chip-usuario" id="chip-favoritos" onclick="toggleChipUsuario('favoritos')">❤️ Mis favoritos</button>
     <button class="chip-usuario" id="chip-novistas" onclick="toggleChipUsuario('novistas')">✅ No vistas</button>
-    <!-- Mobile: botón filtrar -->
-    <button class="btn-filtrar-mobile" id="btn-filtrar-mobile" onclick="abrirSheetFiltros()">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
-      Filtrar
-    </button>
-  </div>
-
-  <!-- Mobile: bottom sheet de filtros -->
-  <div class="mobile-sheet-back" id="mobile-sheet-back" onclick="if(event.target===this)cerrarSheetFiltros()">
-    <div class="mobile-sheet" id="mobile-sheet">
-      <div class="mobile-sheet-handle"></div>
-      <div class="mobile-sheet-title">Filtros</div>
-
-      <div class="sheet-row">
-        <div class="sheet-label">Género</div>
-        <select id="sf-genero" onchange="sincronizarFiltro('f-genero','sf-genero')">
-          <option value="">Todos los géneros</option>
-          <option value="Film-Noir">Film-Noir</option>
-          <option value="Western">Western</option>
-          <option value="Drama">Drama</option>
-          <option value="Thriller">Thriller</option>
-          <option value="Crime">Policial</option>
-          <option value="War">Bélica</option>
-          <option value="Comedy">Comedia</option>
-          <option value="Mystery">Misterio</option>
-          <option value="Adventure">Aventura</option>
-          <option value="Romance">Romance</option>
-          <option value="Horror">Terror</option>
-          <option value="Sci-Fi">Ciencia ficción</option>
-          <option value="Biography">Biográfica</option>
-          <option value="History">Histórica</option>
-          <option value="Musical">Musical</option>
-        </select>
-      </div>
-
-      <div class="sheet-row">
-        <div class="sheet-label">Década</div>
-        <select id="sf-decada" onchange="sincronizarFiltro('f-decada','sf-decada')">
-          <option value="">Todas las décadas</option>
-          <option value="1920">1920s</option>
-          <option value="1930">1930s</option>
-          <option value="1940">1940s</option>
-          <option value="1950">1950s</option>
-          <option value="1960">1960s</option>
-          <option value="1970">1970s</option>
-          <option value="None">Sin fecha declarada</option>
-        </select>
-      </div>
-
-      <div class="sheet-row">
-        <div class="sheet-label">País</div>
-        <select id="sf-pais" onchange="sincronizarFiltro('f-pais','sf-pais')"></select>
-      </div>
-
-      <div class="sheet-row">
-        <div class="sheet-label">Ordenar por</div>
-        <select id="sf-orden" onchange="sincronizarFiltro('f-orden','sf-orden')">
-          <option value="rating">Rating IMDb</option>
-          <option value="anio">Año</option>
-          <option value="votos">Más votadas</option>
-          <option value="aleatorio">Aleatorio</option>
-        </select>
-      </div>
-
-      <div class="sheet-toggles">
-        <div class="toggle-precode" id="sheet-toggle-precode" onclick="togglePrecode();actualizarSheetToggle()">
-          <span class="dot"></span>Pre-Code
-        </div>
-        <div class="toggle-precode" id="sheet-toggle-doblada" onclick="toggleDoblada();actualizarSheetToggle()">
-          <span class="dot"></span>Doblada al español
-        </div>
-      </div>
-
-      <div class="sheet-chips" id="sheet-chips">
-        <button class="chip-usuario" id="sheet-chip-favoritos" onclick="toggleChipUsuario('favoritos');actualizarSheetChips()">❤️ Mis favoritos</button>
-        <button class="chip-usuario" id="sheet-chip-novistas" onclick="toggleChipUsuario('novistas');actualizarSheetChips()">✅ No vistas</button>
-      </div>
-
-      <div class="sheet-actions">
-        <button class="btn-reset sheet-actions" onclick="resetFiltros();cerrarSheetFiltros()">Limpiar</button>
-        <button class="btn-aplicar" onclick="cerrarSheetFiltros()">Ver resultados</button>
-      </div>
-    </div>
   </div>
 
   <div id="banner-aleatorio" style="display:none; align-items:center; justify-content:space-between; gap:10px; background:#fef9f0; border-bottom:1px solid var(--amber-dim); border-left:3px solid var(--amber); padding:7px 2rem; font-size:12px; color:var(--text-dim);">
@@ -1380,16 +1046,14 @@
       <p>El proyecto tiene dos partes: un pipeline local en Python que construye y mantiene la base de datos, y esta web estática que lee esa base directamente en el navegador. No hay servidor ni backend.</p>
       <p><strong>La cosecha</strong>: en vez de buscar película por película en YouTube (lo que agotaría la cuota de API), cosechamos canales enteros. Un canal con 800 películas se enumera completo por 16 unidades de cuota. Con 10.000 unidades diarias se pueden cosechar cientos de canales.</p>
       <p><strong>El matcher</strong>: el cruce de videos contra el catálogo IMDb se hace completamente offline, sin cuota. La señal más fuerte es si el título de la película aparece como frase contigua en el título del video — títulos en otros idiomas (italiano, francés, alemán) no cuentan para esta señal. También se evalúan la duración (±20%, para cubrir versiones TV y cortes europeos) y el año declarado. Los trailers, reseñas, compilaciones, maratones y copias muy cortas se descartan automáticamente antes del scoring.</p>
-      <p><strong>La IA</strong>: los casos que el matcher no puede resolver solo se pasan a un modelo de lenguaje vía la API de Anthropic. El modelo lee el título del video, su descripción y la duración, y decide si es match o no. También se usa para auditar periódicamente las confirmadas con score bajo, descartando falsos positivos.</p>
+      <p><strong>La IA</strong>: los casos que el matcher no puede resolver solo se pasan a Claude Haiku vía la API de Anthropic. El modelo lee el título del video, su descripción y la duración, y decide si es match o no. También se usa para auditar periódicamente las confirmadas con score bajo, descartando falsos positivos — y para identificar videos sin título reconocible buscando el director y año en la descripción.</p>
       <p><strong>Los pósters y las sinopsis</strong> vienen de TMDb (The Movie Database) vía su API gratuita, cruzando por el tconst de IMDb. Las sinopsis se piden primero en español.</p>
       <p><strong>El país de producción</strong> viene de Wikidata vía consultas SPARQL, cruzando el tconst de IMDb con la propiedad P495 (país de origen). Permite filtrar por cine británico, italiano, francés, soviético, etc.</p>
-      <p><strong>Las páginas individuales</strong>: cada película tiene su propia URL (<code>/pelicula/titulo-año/</code>) con poster, sinopsis, datos técnicos, películas relacionadas y botón directo a YouTube. Están generadas estáticamente y son indexables por Google.</p>
-      <p><strong>El orden del catálogo</strong>: la primera visita muestra las películas ordenadas por rating IMDb. Las siguientes, en orden aleatorio — para que siempre haya algo nuevo que descubrir.</p>
-      <p><strong>Tu cuenta</strong>: podés iniciar sesión con Google para guardar favoritos, marcar películas como vistas y llevar un historial. Los datos se guardan en la nube y están disponibles desde cualquier dispositivo. El catálogo se puede filtrar por "Mis favoritos" y "No vistas".</p>
-      <p><strong>El blog</strong>: reseñas, directores, géneros e historia del cine, en <a href="/blog/" style="color:var(--amber)">filmotecaclasica.com/blog</a>.</p>
-      <p><strong>Mobile</strong>: el sitio funciona en el celular y se puede instalar en la pantalla de inicio como una app, sin pasar por ninguna tienda.</p>
-      <p><strong>El botón ⚑</strong> en cada página individual abre un formulario para reportar problemas: video caído, no disponible en Argentina, mala calidad. El video no se da de baja automáticamente — primero se verifica.</p>
+      <p><strong>Otras funciones</strong>: el botón ✦ <em>Sorprendeme</em> abre una película al azar. Los filtros activos se reflejan en la URL, que podés copiar y compartir. El botón ⚑ en cada tarjeta abre un formulario para reportar problemas.</p>
       <p><strong>El código</strong> está disponible en <a href="https://github.com/sebadetoma-stack/filmoteca" target="_blank" rel="noopener" style="color:var(--amber)">GitHub</a>, con documentación detallada de cada paso.</p>
+      <p><strong>El botón ⚑</strong> aparece en cada tarjeta al pasar el mouse. Al hacer clic abre un formulario donde podés indicar que la película no es la que dice ser, que está incompleta, que no se puede ver desde Argentina, o que tiene mala calidad. El reporte llega directamente al equipo para ser revisado. El video no se baja automáticamente: primero se verifica antes de tomar cualquier decisión.</p>
+      <p><strong>Las páginas individuales</strong>: cada película tiene su propia URL (<code>/pelicula/titulo-año/</code>) con poster, sinopsis, datos técnicos, películas relacionadas y botón directo a YouTube. Están generadas estáticamente y son indexables por Google.</p>
+      <p><strong>Tu cuenta</strong>: podés iniciar sesión con Google para guardar favoritos, marcar películas como vistas y llevar un historial. Los datos se guardan en la nube y están disponibles desde cualquier dispositivo. El catálogo se puede filtrar por "Mis favoritos" y "No vistas".</p>
       <button class="modal-close" onclick="document.getElementById('modal-como').classList.remove('open')">Cerrar</button>
     </div>
   </div>
@@ -1402,7 +1066,7 @@
       trailers con películas completas, y muchas desaparecen cuando cambian los derechos.</p>
       <p>Esta filmoteca responde una pregunta simple: <strong>¿qué películas clásicas puedo
       ver hoy, gratis y completas, desde Argentina?</strong></p>
-      <p>El catálogo tiene más de 4.000 películas y cubre <strong>cine de 1920 a 1979</strong>: estadounidense, británico,
+      <p>El catálogo cubre <strong>cine de 1920 a 1979</strong>: estadounidense, británico,
       italiano, francés, soviético, argentino y más. Podés filtrar por género, década y país de
       producción. Cada entrada fue verificada automáticamente cruzando la duración y el
       título del video contra los datos de IMDb, descartando trailers, escenas sueltas
@@ -1415,7 +1079,7 @@
       lucro, gratuito y abierto, hecho para que estas películas sean más fáciles de encontrar
       y disfrutar.</p>
       <p>Si querés llevar un registro de lo que viste o guardar las que te interesa ver, podés crear una cuenta gratuita con tu cuenta de Google. Tus favoritos e historial se sincronizan en la nube.</p>
-      <p>Si encontrás una película que no corresponde a lo que dice ser, podés reportarla con el botón <strong>⚑</strong> que aparece en cada página individual.</p>
+      <p>Si encontrás una película que no corresponde a lo que dice ser, podés reportarla usando el botón <strong>⚑</strong> que aparece en la tarjeta al pasar el mouse.</p>
       <button class="modal-close" onclick="document.getElementById('modal-sobre').classList.remove('open')">Cerrar</button>
     </div>
   </div>
@@ -1561,7 +1225,7 @@ function fetchPage(offset) {
     if (!window._shuffleCache) {
       const sqlAll = `
         SELECT
-          p.tconst, p.titulo_primario, p.titulo_orig, p.anio,
+          p.tconst, p.titulo_primario, p.titulo_orig, p.titulo_es, p.anio,
           p.generos, p.duracion_min, p.rating, p.votos, p.es_precode,
           p.pais, p.poster_url, p.sinopsis,
           v.video_id, v.duracion_seg, v.idioma_audio,
@@ -1587,7 +1251,7 @@ function fetchPage(offset) {
   }
   const sql = `
     SELECT
-      p.tconst, p.titulo_primario, p.titulo_orig, p.anio,
+      p.tconst, p.titulo_primario, p.titulo_orig, p.titulo_es, p.anio,
       p.generos, p.duracion_min, p.rating, p.votos, p.es_precode,
       p.pais, p.poster_url, p.sinopsis,
       v.video_id, v.duracion_seg, v.idioma_audio,
@@ -1657,11 +1321,11 @@ function renderCard(p) {
         </button>
       </div>
       ${p.poster_url
-        ? `<img class="card-poster" src="${p.poster_url}" alt="${p.titulo_primario}" loading="lazy">`
+        ? `<img class="card-poster" src="${p.poster_url}" alt="${p.titulo_es || p.titulo_primario}" loading="lazy">`
         : `<div class="card-poster-placeholder">🎬</div>`
       }
       <div class="card-year">${p.anio}${yt_min ? ` · ${yt_min} min` : ''}${idioma}</div>
-      <div class="card-title">${p.titulo_primario}${p.titulo_orig !== p.titulo_primario ? ` <em>(${truncate(p.titulo_orig,60)})</em>` : ''}</div>
+      <div class="card-title">${p.titulo_es || p.titulo_primario}${p.titulo_orig && p.titulo_orig !== (p.titulo_es || p.titulo_primario) && p.titulo_orig !== p.titulo_primario ? ` <em>(${truncate(p.titulo_orig,60)})</em>` : ''}</div>
       ${dir ? `<div class="card-dir">dir. ${truncate(dir, 48)}</div>` : ''}
       <div class="card-meta">
         ${genreBadge(p.generos)}
@@ -1674,10 +1338,10 @@ function renderCard(p) {
         </span>
         Ver en YouTube${p.canal ? ` · ${truncate(p.canal, 24)}` : ''}${p.n_versiones > 1 ? ` · +${p.n_versiones - 1} versión${p.n_versiones > 2 ? 'es' : ''}` : ''}
       </span>
-
+      <button class="card-report" title="Reportar problema" onclick="reportar('${p.video_id}', '${p.titulo_primario}', event)">⚑</button>
       <div class="card-overlay">
-        <div class="ov-title" style="-webkit-line-clamp:2">${p.titulo_primario} (${p.anio})</div>
-        ${p.titulo_orig !== p.titulo_primario ? `<div class="ov-row" style="-webkit-line-clamp:2;font-style:italic;opacity:0.7;margin-top:-0.1rem">${p.titulo_orig}</div>` : ''}
+        <div class="ov-title" style="-webkit-line-clamp:2">${p.titulo_es || p.titulo_primario} (${p.anio})</div>
+        ${p.titulo_orig && p.titulo_orig !== (p.titulo_es || p.titulo_primario) && p.titulo_orig !== p.titulo_primario ? `<div class="ov-row" style="-webkit-line-clamp:2;font-style:italic;opacity:0.7;margin-top:-0.1rem">${p.titulo_orig}</div>` : ''}
         ${dir ? `<div class="ov-row una-linea"><em>dir.</em> ${dir}</div>` : ''}
         ${reparto ? `<div class="ov-row" style="-webkit-line-clamp:3"><em>con</em> ${reparto}</div>` : ''}
         ${p.sinopsis ? `<div class="ov-row" style="-webkit-line-clamp:6;font-size:11px;opacity:0.85">${p.sinopsis}</div>` : ''}
@@ -1777,7 +1441,13 @@ function resetFiltros() {
   render();
 }
 
-
+function reportar(videoId, titulo, event) {
+  event.preventDefault();
+  event.stopPropagation();
+  const base = 'https://docs.google.com/forms/d/e/1FAIpQLScAs0NejYOuO4ewlUIzs6e86fRGLAM3yjhgChSxIUfuEPuFmg/viewform';
+  const url = base + '?entry.1007045909=' + encodeURIComponent(titulo) + '&entry.717085040=' + encodeURIComponent(videoId);
+  window.open(url, '_blank', 'noopener');
+}
 
 // ---------------------------------------------------------------
 // SORPRENDEME
@@ -1919,68 +1589,6 @@ async function cargarDB() {
 }
 
 cargarDB();
-
-// ── MOBILE SHEET ─────────────────────────────────────────────────
-function abrirSheetFiltros() {
-  // Sincronizar valores del sheet con los filtros actuales
-  document.getElementById('sf-genero').value = document.getElementById('f-genero').value;
-  document.getElementById('sf-decada').value = document.getElementById('f-decada').value;
-  document.getElementById('sf-orden').value  = document.getElementById('f-orden').value;
-  // País: copiar opciones si el select de desktop ya está poblado
-  const paisDest = document.getElementById('sf-pais');
-  const paisSrc  = document.getElementById('f-pais');
-  if (paisDest.options.length !== paisSrc.options.length) {
-    paisDest.innerHTML = paisSrc.innerHTML;
-  }
-  paisDest.value = paisSrc.value;
-  // Toggles
-  actualizarSheetToggle();
-  // Chips usuario
-  const chips = document.getElementById('sheet-chips');
-  if (document.getElementById('chip-favoritos').classList.contains('visible')) {
-    chips.classList.add('visible');
-    actualizarSheetChips();
-  } else {
-    chips.classList.remove('visible');
-  }
-  document.getElementById('mobile-sheet-back').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function cerrarSheetFiltros() {
-  document.getElementById('mobile-sheet-back').classList.remove('open');
-  document.body.style.overflow = '';
-  actualizarBtnFiltrar();
-}
-
-function sincronizarFiltro(idDest, idSrc) {
-  document.getElementById(idDest).value = document.getElementById(idSrc).value;
-  pagina = 1;
-  render();
-}
-
-function actualizarSheetToggle() {
-  document.getElementById('sheet-toggle-precode').classList.toggle('active', soloPrecode);
-  document.getElementById('sheet-toggle-doblada').classList.toggle('active', soloDoblada);
-  actualizarBtnFiltrar();
-}
-
-function actualizarSheetChips() {
-  const chip = typeof window.getChipUsuario === 'function' ? window.getChipUsuario() : null;
-  document.getElementById('sheet-chip-favoritos').classList.toggle('active', chip === 'favoritos');
-  document.getElementById('sheet-chip-novistas').classList.toggle('active', chip === 'novistas');
-  actualizarBtnFiltrar();
-}
-
-function actualizarBtnFiltrar() {
-  const hayFiltros =
-    document.getElementById('f-genero').value ||
-    document.getElementById('f-decada').value ||
-    document.getElementById('f-pais').value ||
-    soloPrecode || soloDoblada ||
-    (typeof window.getChipUsuario === 'function' && window.getChipUsuario());
-  document.getElementById('btn-filtrar-mobile')?.classList.toggle('activo', !!hayFiltros);
-}
 </script>
 
 <!-- FIREBASE -->
@@ -2297,87 +1905,6 @@ function formatFecha(date) {
   if (diff < 7) return `hace ${diff} días`;
   return date.toLocaleDateString('es-AR', { day:'2-digit', month:'2-digit' });
 }
-</script>
-
-<!-- Banner PWA -->
-<div id="pwa-banner">
-  <div class="pwa-banner-inner">
-    <img src="/icon-192.png" class="pwa-banner-icon" alt="Filmoteca Clásica">
-    <div class="pwa-banner-texto">
-      <div class="pwa-banner-titulo">Filmoteca Clásica</div>
-      <div class="pwa-banner-subtitulo" id="pwa-banner-subtitulo">Agregala a tu pantalla de inicio para acceder más rápido.</div>
-    </div>
-    <button class="pwa-banner-cerrar" onclick="cerrarBanner()" aria-label="Cerrar">×</button>
-  </div>
-  <div class="pwa-banner-acciones" id="pwa-banner-acciones">
-    <button class="pwa-banner-btn-instalar" id="pwa-btn-instalar" onclick="instalarPWA()">Instalar</button>
-    <button class="pwa-banner-btn-ahora-no" onclick="descartarBanner()">Ahora no</button>
-  </div>
-</div>
-
-<script>
-  // ── PWA INSTALL BANNER ────────────────────────────────
-  let deferredPrompt = null;
-  const banner = document.getElementById('pwa-banner');
-  const BANNER_KEY = 'filmoteca_pwa_descartado';
-
-  // No mostrar si ya fue descartado o instalado
-  function bannerDescartado() {
-    return localStorage.getItem(BANNER_KEY) === '1';
-  }
-
-  // Detectar iOS
-  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) && !window.MSStream;
-  const isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches
-    || window.navigator.standalone === true;
-
-  // Android: capturar el evento antes de que Chrome lo muestre solo
-  window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-    if (!bannerDescartado() && !isInStandaloneMode) {
-      setTimeout(() => banner.classList.add('visible'), 3000);
-    }
-  });
-
-  // iOS: mostrar instrucciones manuales
-  if (isIOS && !isInStandaloneMode && !bannerDescartado()) {
-    setTimeout(() => {
-      document.getElementById('pwa-banner-subtitulo').textContent =
-        'Para instalarla: tocá el botón compartir (⬆) y elegí "Agregar a pantalla de inicio".';
-      document.getElementById('pwa-banner-acciones').innerHTML =
-        '<button class="pwa-banner-btn-ahora-no" style="flex:1" onclick="descartarBanner()">Entendido</button>';
-      banner.classList.add('visible');
-    }, 3000);
-  }
-
-  function instalarPWA() {
-    if (!deferredPrompt) return;
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then((result) => {
-      if (result.outcome === 'accepted') {
-        localStorage.setItem(BANNER_KEY, '1');
-      }
-      banner.classList.remove('visible');
-      deferredPrompt = null;
-    });
-  }
-
-  // X: cierra pero vuelve a aparecer la próxima visita
-  function cerrarBanner() {
-    banner.classList.remove('visible');
-  }
-
-  // "Ahora no": no vuelve a aparecer
-  function descartarBanner() {
-    banner.classList.remove('visible');
-    localStorage.setItem(BANNER_KEY, '1');
-  }
-
-  // Si ya está instalada, no mostrar nunca
-  window.matchMedia('(display-mode: standalone)').addEventListener('change', (e) => {
-    if (e.matches) banner.classList.remove('visible');
-  });
 </script>
 </body>
 </html>
