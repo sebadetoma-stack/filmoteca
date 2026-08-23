@@ -213,7 +213,14 @@
       <h1>True to the Navy</h1>
       
 
-      <a class="btn-yt" href="https://www.youtube.com/watch?v=HkjHReJhH_w" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+      <div class="btn-yt-wrap">
+  <a class="btn-yt" href="https://www.youtube.com/watch?v=HkjHReJhH_w" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+  <div class="yt-versions-dropdown">
+    <button class="yt-versions-toggle" onclick="this.parentElement.classList.toggle('open')">▾ 2 versiones</button>
+    <div class="yt-versions-list"><a class="yt-version-item" href="https://www.youtube.com/watch?v=HkjHReJhH_w" target="_blank" rel="noopener">Cult Classic Cinema Archive · Inglés</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=hjjAO-R4klc" target="_blank" rel="noopener">Novidades antigas (e novas) · pt-BR</a></div>
+  </div>
+</div>
 
       <div class="user-actions" id="user-actions" style="display:none">
         <button class="btn-usuario" id="btn-fav" onclick="toggleFav()">🤍 Favorita</button>
@@ -232,7 +239,7 @@
       <div class="badges"><span class="badge">Action</span><span class="badge">Comedy</span><span class="badge">Romance</span><span class="badge badge-special">Pre-Code</span></div>
 
       <div class="canal-info">
-        Disponible en <strong>Cult Classic Cinema Archive</strong> · verificada desde Argentina
+        Disponible en 2 versiones · verificada desde Argentina
       </div>
 
       <div class="links-ext">
@@ -250,6 +257,13 @@
     <div class="rel-titulo">Películas relacionadas</div>
     <div class="rel-grid">
       
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/kid-boots-1926/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/h0Q7KwGfa1eXdhOw9DDL1ufLr1n.jpg" alt="Kid Boots" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">Kid Boots</div>
+            <div class="rel-anio">1926</div>
+          </div>
+        </a>
         <a class="rel-card" href="https://filmotecaclasica.com/pelicula/love-among-the-millionaires-1930/">
           <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/q446VngO1Bxo04bj3gIZLkjqnCa.jpg" alt="Love Among the Millionaires" loading="lazy"></div>
           <div class="rel-info">
@@ -257,25 +271,18 @@
             <div class="rel-anio">1930</div>
           </div>
         </a>
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/miss-bluebeard-1925/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/sRFdciGPZHxqTDGCTh8YBOcw9m0.jpg" alt="Miss Bluebeard" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">Miss Bluebeard</div>
+            <div class="rel-anio">1925</div>
+          </div>
+        </a>
         <a class="rel-card" href="https://filmotecaclasica.com/pelicula/safety-last-1923/">
           <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/zkmDkZNPM8zgfLgKHEQFLXGrf8Q.jpg" alt="El hombre mosca" loading="lazy"></div>
           <div class="rel-info">
             <div class="rel-titulo-peli">El hombre mosca</div>
             <div class="rel-anio">1923</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/suspense-1946/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/gdK4BLSJnZTSxuiRyMuyansgwEX.jpg" alt="Suspense" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">Suspense</div>
-            <div class="rel-anio">1946</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/only-the-brave-1930/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/jjDCwcwAERh7o1yU7ed1ysTEic0.jpg" alt="Only the Brave" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">Only the Brave</div>
-            <div class="rel-anio">1930</div>
           </div>
         </a>
     </div>

@@ -213,7 +213,14 @@
       <h1>Ten Minutes to Live</h1>
       
 
-      <a class="btn-yt" href="https://www.youtube.com/watch?v=37CVKyDfx3k" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+      <div class="btn-yt-wrap">
+  <a class="btn-yt" href="https://www.youtube.com/watch?v=37CVKyDfx3k" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+  <div class="yt-versions-dropdown">
+    <button class="yt-versions-toggle" onclick="this.parentElement.classList.toggle('open')">▾ 2 versiones</button>
+    <div class="yt-versions-list"><a class="yt-version-item" href="https://www.youtube.com/watch?v=37CVKyDfx3k" target="_blank" rel="noopener">PizzaFlix · Idioma desconocido</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=sUL6ZUsbZks" target="_blank" rel="noopener">Screen Prism · Inglés</a></div>
+  </div>
+</div>
 
       <div class="user-actions" id="user-actions" style="display:none">
         <button class="btn-usuario" id="btn-fav" onclick="toggleFav()">🤍 Favorita</button>
@@ -232,7 +239,7 @@
       <div class="badges"><span class="badge">Crime</span><span class="badge">Drama</span><span class="badge">Musical</span><span class="badge badge-special">Pre-Code</span></div>
 
       <div class="canal-info">
-        Disponible en <strong>PizzaFlix</strong> · verificada desde Argentina
+        Disponible en 2 versiones · verificada desde Argentina
       </div>
 
       <div class="links-ext">
@@ -250,32 +257,32 @@
     <div class="rel-titulo">Películas relacionadas</div>
     <div class="rel-grid">
       
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/body-and-soul-1925/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/3Xl7ZaNt1ThVCvsXZDW5ISXsP7K.jpg" alt="Cuerpo y alma" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">Cuerpo y alma</div>
+            <div class="rel-anio">1925</div>
+          </div>
+        </a>
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-girl-from-chicago-1932/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/hd0TCPMxEiRTX94QXOlsy5whFZR.jpg" alt="The Girl from Chicago" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">The Girl from Chicago</div>
+            <div class="rel-anio">1932</div>
+          </div>
+        </a>
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-exile-1931/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/edq7xxmNpar6KiYzg0PPNjCnk9u.jpg" alt="The Exile" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">The Exile</div>
+            <div class="rel-anio">1931</div>
+          </div>
+        </a>
         <a class="rel-card" href="https://filmotecaclasica.com/pelicula/swing-1938/">
           <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/pue67kCynYn9fdwkmSj08Dp06PT.jpg" alt="Swing!" loading="lazy"></div>
           <div class="rel-info">
             <div class="rel-titulo-peli">Swing!</div>
             <div class="rel-anio">1938</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/casbah-1948/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/hwwQyVSWWKU8wCDQZtCj4TKpnia.jpg" alt="Casbah" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">Casbah</div>
-            <div class="rel-anio">1948</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/murder-in-harlem-1935/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/xOuTGlstLXW49ww9rtoOtF6c7br.jpg" alt="Murder in Harlem" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">Murder in Harlem</div>
-            <div class="rel-anio">1935</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/lying-lips-1939/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/kWKKHtT006HV8SAz59Tdw4iVN5K.jpg" alt="Lying Lips" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">Lying Lips</div>
-            <div class="rel-anio">1939</div>
           </div>
         </a>
     </div>

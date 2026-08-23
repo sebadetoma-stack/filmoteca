@@ -213,7 +213,15 @@
       <h1>Beau Brummel</h1>
       
 
-      <a class="btn-yt" href="https://www.youtube.com/watch?v=OLEntpP_uTA" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+      <div class="btn-yt-wrap">
+  <a class="btn-yt" href="https://www.youtube.com/watch?v=KTTpNeAjJxI" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+  <div class="yt-versions-dropdown">
+    <button class="yt-versions-toggle" onclick="this.parentElement.classList.toggle('open')">▾ 3 versiones</button>
+    <div class="yt-versions-list"><a class="yt-version-item" href="https://www.youtube.com/watch?v=KTTpNeAjJxI" target="_blank" rel="noopener">Classic Hollywood Movies · Inglés</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=OLEntpP_uTA" target="_blank" rel="noopener">Cult Cinema Classics · Inglés</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=OVPqTDr5fiY" target="_blank" rel="noopener">Novidades antigas (e novas) · pt-BR</a></div>
+  </div>
+</div>
 
       <div class="user-actions" id="user-actions" style="display:none">
         <button class="btn-usuario" id="btn-fav" onclick="toggleFav()">🤍 Favorita</button>
@@ -232,7 +240,7 @@
       <div class="badges"><span class="badge">Drama</span><span class="badge">History</span><span class="badge">Romance</span></div>
 
       <div class="canal-info">
-        Disponible en <strong>Cult Cinema Classics</strong> · verificada desde Argentina
+        Disponible en 3 versiones · verificada desde Argentina
       </div>
 
       <div class="links-ext">
@@ -257,6 +265,13 @@
             <div class="rel-anio">1930</div>
           </div>
         </a>
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/speedway-1929/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/qGVdadq5ZEoTIOXlG3Vx7Mf4Q6S.jpg" alt="Speedway" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">Speedway</div>
+            <div class="rel-anio">1929</div>
+          </div>
+        </a>
         <a class="rel-card" href="https://filmotecaclasica.com/pelicula/lord-byron-of-broadway-1930/">
           <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/A1utbQrOK9nTjhTQfnW9rRm9U1F.jpg" alt="Lord Byron of Broadway" loading="lazy"></div>
           <div class="rel-info">
@@ -269,13 +284,6 @@
           <div class="rel-info">
             <div class="rel-titulo-peli">El hundimiento del Titanic</div>
             <div class="rel-anio">1953</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/orphans-of-the-storm-1921/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/gbBzFuiVnuSPYZRXRArILc3Ywz3.jpg" alt="Las dos huérfanas" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">Las dos huérfanas</div>
-            <div class="rel-anio">1921</div>
           </div>
         </a>
     </div>

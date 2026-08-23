@@ -213,7 +213,14 @@
       <h1>Party Girl</h1>
       
 
-      <a class="btn-yt" href="https://www.youtube.com/watch?v=PFprdbtIXQY" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+      <div class="btn-yt-wrap">
+  <a class="btn-yt" href="https://www.youtube.com/watch?v=iVVuJpECehE" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+  <div class="yt-versions-dropdown">
+    <button class="yt-versions-toggle" onclick="this.parentElement.classList.toggle('open')">▾ 2 versiones</button>
+    <div class="yt-versions-list"><a class="yt-version-item" href="https://www.youtube.com/watch?v=iVVuJpECehE" target="_blank" rel="noopener">Classic Hollywood Movies · Inglés</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=PFprdbtIXQY" target="_blank" rel="noopener">PizzaFlix · Inglés</a></div>
+  </div>
+</div>
 
       <div class="user-actions" id="user-actions" style="display:none">
         <button class="btn-usuario" id="btn-fav" onclick="toggleFav()">🤍 Favorita</button>
@@ -232,7 +239,7 @@
       <div class="badges"><span class="badge">Crime</span><span class="badge">Drama</span><span class="badge">Romance</span><span class="badge badge-special">Pre-Code</span></div>
 
       <div class="canal-info">
-        Disponible en <strong>PizzaFlix</strong> · verificada desde Argentina
+        Disponible en 2 versiones · verificada desde Argentina
       </div>
 
       <div class="links-ext">
@@ -250,6 +257,13 @@
     <div class="rel-titulo">Películas relacionadas</div>
     <div class="rel-grid">
       
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/racing-blood-1936/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/zMYSloYgHRGdxKZbAdma02TT8mE.jpg" alt="Racing Blood" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">Racing Blood</div>
+            <div class="rel-anio">1936</div>
+          </div>
+        </a>
         <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-wild-one-1953/">
           <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/57wmSQrRtPuQhPna1Hkr41RPKiD.jpg" alt="Salvaje" loading="lazy"></div>
           <div class="rel-info">
@@ -269,13 +283,6 @@
           <div class="rel-info">
             <div class="rel-titulo-peli">El proceso Paradine</div>
             <div class="rel-anio">1947</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-man-with-the-golden-arm-1955/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/vW3FtINgKA0BL6AnPgKrstPUqO6.jpg" alt="El hombre del brazo de oro" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">El hombre del brazo de oro</div>
-            <div class="rel-anio">1955</div>
           </div>
         </a>
     </div>

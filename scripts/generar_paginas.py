@@ -108,7 +108,7 @@ def cargar_datos(con):
     # Películas confirmadas con video y datos enriquecidos
     cur.execute("""
         SELECT
-            p.tconst, p.titulo_primario, p.titulo_orig, p.anio,
+            p.tconst, p.titulo_primario, p.titulo_orig, p.titulo_es, p.anio,
             p.duracion_min, p.generos, p.rating, p.votos,
             p.pais, p.poster_url, p.sinopsis, p.es_precode, p.decada,
             c.video_id, v.duracion_seg, v.publicado, v.idioma_audio,
@@ -293,7 +293,7 @@ CSS = """
 """
 
 def generar_html(p, dirs, actores, rel, slug, versiones=None):
-    titulo    = p["titulo_primario"] or ""
+    titulo    = p["titulo_es"] or p["titulo_primario"] or ""
     orig      = p["titulo_orig"] or ""
     anio      = p["anio"] or ""
     dur       = p["duracion_min"]
@@ -438,18 +438,19 @@ def generar_html(p, dirs, actores, rel, slug, versiones=None):
     rel_html = ""
     for r in rel:
         r_slug = slugify(r["titulo_primario"] or "", r["anio"])
-        r_poster = f'<img src="{r["poster_url"]}" alt="{r["titulo_primario"]}" loading="lazy">' if r["poster_url"] else f'<div class="rel-placeholder">{(r["titulo_primario"] or "")[:15]}</div>'
+        r_titulo = r.get("titulo_es") or r["titulo_primario"] or ""
+        r_poster = f'<img src="{r["poster_url"]}" alt="{r_titulo}" loading="lazy">' if r["poster_url"] else f'<div class="rel-placeholder">{r_titulo[:15]}</div>'
         rel_html += f'''
         <a class="rel-card" href="{BASE_URL}/pelicula/{r_slug}/">
           <div class="rel-poster">{r_poster}</div>
           <div class="rel-info">
-            <div class="rel-titulo-peli">{r["titulo_primario"]}</div>
+            <div class="rel-titulo-peli">{r_titulo}</div>
             <div class="rel-anio">{r["anio"]}</div>
           </div>
         </a>'''
 
-    # Título original solo si es distinto
-    orig_html = f'<div class="titulo-orig">{orig}</div>' if orig and orig != titulo else ""
+    # Título original solo si es distinto del título en español
+    orig_html = f'<div class="titulo-orig">{orig}</div>' if orig and orig.lower() != titulo.lower() else ""
 
     # Director y reparto
     dir_html = ""

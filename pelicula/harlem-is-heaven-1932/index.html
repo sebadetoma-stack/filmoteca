@@ -213,7 +213,14 @@
       <h1>Harlem Is Heaven</h1>
       
 
-      <a class="btn-yt" href="https://www.youtube.com/watch?v=jYoQAnBNxbA" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+      <div class="btn-yt-wrap">
+  <a class="btn-yt" href="https://www.youtube.com/watch?v=jYoQAnBNxbA" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+  <div class="yt-versions-dropdown">
+    <button class="yt-versions-toggle" onclick="this.parentElement.classList.toggle('open')">▾ 2 versiones</button>
+    <div class="yt-versions-list"><a class="yt-version-item" href="https://www.youtube.com/watch?v=jYoQAnBNxbA" target="_blank" rel="noopener">PizzaFlix · Inglés</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=c2Ve2wk2Wbk" target="_blank" rel="noopener">Screen Prism · Inglés</a></div>
+  </div>
+</div>
 
       <div class="user-actions" id="user-actions" style="display:none">
         <button class="btn-usuario" id="btn-fav" onclick="toggleFav()">🤍 Favorita</button>
@@ -232,7 +239,7 @@
       <div class="badges"><span class="badge">Crime</span><span class="badge">Drama</span><span class="badge">Musical</span><span class="badge badge-special">Pre-Code</span></div>
 
       <div class="canal-info">
-        Disponible en <strong>PizzaFlix</strong> · verificada desde Argentina
+        Disponible en 2 versiones · verificada desde Argentina
       </div>
 
       <div class="links-ext">
@@ -257,6 +264,13 @@
             <div class="rel-anio">1948</div>
           </div>
         </a>
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/gamble-1951/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/nCQS2gnCad6jckWXHoYsLk6ElDz.jpg" alt="बाज़ी" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">बाज़ी</div>
+            <div class="rel-anio">1951</div>
+          </div>
+        </a>
         <a class="rel-card" href="https://filmotecaclasica.com/pelicula/ten-minutes-to-live-1932/">
           <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/t5PtTCzSDDnsv1lk1G0UomtKLp5.jpg" alt="Ten Minutes to Live" loading="lazy"></div>
           <div class="rel-info">
@@ -269,13 +283,6 @@
           <div class="rel-info">
             <div class="rel-titulo-peli">Roadhouse Nights</div>
             <div class="rel-anio">1930</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/la-fuga-1937/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/3O6IXl6m8EqQyvu9QEFwN43JiZf.jpg" alt="La fuga" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">La fuga</div>
-            <div class="rel-anio">1937</div>
           </div>
         </a>
     </div>

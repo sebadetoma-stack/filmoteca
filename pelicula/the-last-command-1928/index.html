@@ -214,7 +214,15 @@
       <h1>La última orden</h1>
       <div class="titulo-orig">The Last Command</div>
 
-      <a class="btn-yt" href="https://www.youtube.com/watch?v=Yx3JMpXMvLg" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+      <div class="btn-yt-wrap">
+  <a class="btn-yt" href="https://www.youtube.com/watch?v=Yx3JMpXMvLg" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+  <div class="yt-versions-dropdown">
+    <button class="yt-versions-toggle" onclick="this.parentElement.classList.toggle('open')">▾ 3 versiones</button>
+    <div class="yt-versions-list"><a class="yt-version-item" href="https://www.youtube.com/watch?v=Yx3JMpXMvLg" target="_blank" rel="noopener">Cinefilia · Español</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=yBkwHwK2Mio" target="_blank" rel="noopener">Novidades antigas (e novas) · pt-BR</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=eT_RPEKPB98" target="_blank" rel="noopener">Screen Prism · zxx</a></div>
+  </div>
+</div>
 
       <div class="user-actions" id="user-actions" style="display:none">
         <button class="btn-usuario" id="btn-fav" onclick="toggleFav()">🤍 Favorita</button>
@@ -233,7 +241,7 @@
       <div class="badges"><span class="badge">Drama</span><span class="badge">Romance</span><span class="badge">War</span></div>
 
       <div class="canal-info">
-        Disponible en <strong>Cinefilia</strong> · verificada desde Argentina
+        Disponible en 3 versiones · verificada desde Argentina
       </div>
 
       <div class="links-ext">
@@ -265,18 +273,18 @@
             <div class="rel-anio">1930</div>
           </div>
         </a>
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/children-of-divorce-1927/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/628E01MG8iCXpa391BmsFiv0ve.jpg" alt="Los hijos del divorcio" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">Los hijos del divorcio</div>
+            <div class="rel-anio">1927</div>
+          </div>
+        </a>
         <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-cranes-are-flying-1957/">
           <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/ijPJ98012j35WFW6fVjnOPuTlCm.jpg" alt="Cuando pasan las cigüeñas" loading="lazy"></div>
           <div class="rel-info">
             <div class="rel-titulo-peli">Cuando pasan las cigüeñas</div>
             <div class="rel-anio">1957</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-life-and-death-of-colonel-blimp-1943/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/wpgTu7hZhQyyQypCf3MgayWk5y.jpg" alt="Vida y muerte del Coronel Blimp" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">Vida y muerte del Coronel Blimp</div>
-            <div class="rel-anio">1943</div>
           </div>
         </a>
     </div>

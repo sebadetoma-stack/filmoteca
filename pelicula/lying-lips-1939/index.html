@@ -212,7 +212,14 @@
       <h1>Lying Lips</h1>
       
 
-      <a class="btn-yt" href="https://www.youtube.com/watch?v=AMq4EUJFcWE" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+      <div class="btn-yt-wrap">
+  <a class="btn-yt" href="https://www.youtube.com/watch?v=AMq4EUJFcWE" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+  <div class="yt-versions-dropdown">
+    <button class="yt-versions-toggle" onclick="this.parentElement.classList.toggle('open')">▾ 2 versiones</button>
+    <div class="yt-versions-list"><a class="yt-version-item" href="https://www.youtube.com/watch?v=AMq4EUJFcWE" target="_blank" rel="noopener">PizzaFlix · Inglés</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=UJZo3HaTEvM" target="_blank" rel="noopener">Screen Prism · Inglés</a></div>
+  </div>
+</div>
 
       <div class="user-actions" id="user-actions" style="display:none">
         <button class="btn-usuario" id="btn-fav" onclick="toggleFav()">🤍 Favorita</button>
@@ -231,7 +238,7 @@
       <div class="badges"><span class="badge">Drama</span><span class="badge">Music</span></div>
 
       <div class="canal-info">
-        Disponible en <strong>PizzaFlix</strong> · verificada desde Argentina
+        Disponible en 2 versiones · verificada desde Argentina
       </div>
 
       <div class="links-ext">
@@ -249,6 +256,20 @@
     <div class="rel-titulo">Películas relacionadas</div>
     <div class="rel-grid">
       
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/within-our-gates-1920/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/36MR5nOWUZypLY3i32LCjdqxXOQ.jpg" alt="Puertas adentro" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">Puertas adentro</div>
+            <div class="rel-anio">1920</div>
+          </div>
+        </a>
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/body-and-soul-1925/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/3Xl7ZaNt1ThVCvsXZDW5ISXsP7K.jpg" alt="Cuerpo y alma" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">Cuerpo y alma</div>
+            <div class="rel-anio">1925</div>
+          </div>
+        </a>
         <a class="rel-card" href="https://filmotecaclasica.com/pelicula/ten-minutes-to-live-1932/">
           <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/t5PtTCzSDDnsv1lk1G0UomtKLp5.jpg" alt="Ten Minutes to Live" loading="lazy"></div>
           <div class="rel-info">
@@ -256,25 +277,11 @@
             <div class="rel-anio">1932</div>
           </div>
         </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/murder-in-harlem-1935/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/xOuTGlstLXW49ww9rtoOtF6c7br.jpg" alt="Murder in Harlem" loading="lazy"></div>
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/birthright-1938/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/25DcwEnmiLcYLinguE11PePDhxq.jpg" alt="Birthright" loading="lazy"></div>
           <div class="rel-info">
-            <div class="rel-titulo-peli">Murder in Harlem</div>
-            <div class="rel-anio">1935</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/swing-1938/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/pue67kCynYn9fdwkmSj08Dp06PT.jpg" alt="Swing!" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">Swing!</div>
+            <div class="rel-titulo-peli">Birthright</div>
             <div class="rel-anio">1938</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-red-shoes-1948/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/5RZH2gXSFTWHvVTe2k5zQF6yKqi.jpg" alt="Las zapatillas rojas" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">Las zapatillas rojas</div>
-            <div class="rel-anio">1948</div>
           </div>
         </a>
     </div>

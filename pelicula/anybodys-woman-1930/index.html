@@ -212,7 +212,14 @@
       <h1>Anybody's Woman</h1>
       
 
-      <a class="btn-yt" href="https://www.youtube.com/watch?v=00eAnDFY08Q" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+      <div class="btn-yt-wrap">
+  <a class="btn-yt" href="https://www.youtube.com/watch?v=00eAnDFY08Q" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+  <div class="yt-versions-dropdown">
+    <button class="yt-versions-toggle" onclick="this.parentElement.classList.toggle('open')">▾ 2 versiones</button>
+    <div class="yt-versions-list"><a class="yt-version-item" href="https://www.youtube.com/watch?v=00eAnDFY08Q" target="_blank" rel="noopener">Cult Classic Cinema Archive · Inglés</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=FA23yGa2dv0" target="_blank" rel="noopener">Novidades antigas (e novas) · pt-BR</a></div>
+  </div>
+</div>
 
       <div class="user-actions" id="user-actions" style="display:none">
         <button class="btn-usuario" id="btn-fav" onclick="toggleFav()">🤍 Favorita</button>
@@ -231,7 +238,7 @@
       <div class="badges"><span class="badge">Drama</span><span class="badge">Romance</span><span class="badge badge-special">Pre-Code</span></div>
 
       <div class="canal-info">
-        Disponible en <strong>Cult Classic Cinema Archive</strong> · verificada desde Argentina
+        Disponible en 2 versiones · verificada desde Argentina
       </div>
 
       <div class="links-ext">
@@ -249,6 +256,20 @@
     <div class="rel-titulo">Películas relacionadas</div>
     <div class="rel-grid">
       
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/blood-and-sand-1922/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/ffQJWuzLKckYtOG7QJDOpWROhMR.jpg" alt="Sangre y arena" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">Sangre y arena</div>
+            <div class="rel-anio">1922</div>
+          </div>
+        </a>
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-wild-party-1929/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/tjTWSA1z5djZMfDBtR4EZ2sELaT.jpg" alt="The Wild Party" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">The Wild Party</div>
+            <div class="rel-anio">1929</div>
+          </div>
+        </a>
         <a class="rel-card" href="https://filmotecaclasica.com/pelicula/sarah-and-son-1930/">
           <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/h2t22VvdVQlPxVhnEWjqoEDSyiZ.jpg" alt="Sarah and Son" loading="lazy"></div>
           <div class="rel-info">
@@ -256,25 +277,11 @@
             <div class="rel-anio">1930</div>
           </div>
         </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/craigs-wife-1936/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/30vQfNP0O40izigUrPc0WHffyey.jpg" alt="La mujer sin alma" loading="lazy"></div>
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/charming-sinners-1929/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/5WwOVA41jarG1tWNZjYvfpVChhr.jpg" alt="Charming Sinners" loading="lazy"></div>
           <div class="rel-info">
-            <div class="rel-titulo-peli">La mujer sin alma</div>
-            <div class="rel-anio">1936</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/behind-the-make-up-1930/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/tzja37bUiNRtdhmq5ERjTVdJuRa.jpg" alt="Behind the Make-Up" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">Behind the Make-Up</div>
-            <div class="rel-anio">1930</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/rebecca-1940/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/mJV2zrflpTaAcFgfgQc2VJboZ0Y.jpg" alt="Rebeca" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">Rebeca</div>
-            <div class="rel-anio">1940</div>
+            <div class="rel-titulo-peli">Charming Sinners</div>
+            <div class="rel-anio">1929</div>
           </div>
         </a>
     </div>
