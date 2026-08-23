@@ -2031,7 +2031,7 @@ function descartarBanner() {
 }
 
 window.matchMedia('(display-mode: standalone)').addEventListener('change', (e) => {
-  if (e.matches) pwaBanner.classList.remove('visible');
+  if (e.matches) getPwaBanner()?.classList.remove('visible');
 });
 </script>
 
