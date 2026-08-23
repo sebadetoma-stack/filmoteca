@@ -1623,13 +1623,14 @@ function renderPersonas(tconst, rol, limite) {
   } catch { return ''; }
 }
 
+function slugify(t, a) {
+  return (t || '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase().replace(/[^\w\s-]/g, '').replace(/[\s_]+/g, '-')
+    .replace(/-+/g, '-').replace(/^-|-$/g, '') + '-' + a;
+}
+
 function renderCard(p) {
   // Slug para la pagina individual
-  const slugify = (t, a) => {
-    return (t || '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
-      .toLowerCase().replace(/[^\w\s-]/g, '').replace(/[\s_]+/g, '-')
-      .replace(/-+/g, '-').replace(/^-|-$/g, '') + '-' + a;
-  };
   const slugPeli = slugify(p.titulo_primario || p.titulo_orig, p.anio);
   const urlPeli  = `/pelicula/${slugPeli}/`;
   const url = `https://youtu.be/${p.video_id}`;
@@ -1796,15 +1797,20 @@ function reportar(videoId, titulo, event) {
 function sorprendeme() {
   if (!db) return;
   const res = db.exec(`
-    SELECT v.video_id FROM coincidencias co
+    SELECT p.titulo_primario, p.titulo_orig, p.anio
+    FROM peliculas p
+    JOIN coincidencias co ON co.tconst = p.tconst
     JOIN videos v ON v.video_id = co.video_id
     WHERE co.estado = 'confirmada'
       AND v.activo = 1
-      AND (co.verificado_ar != 'bloqueado' OR co.verificado_ar IS NULL)
+      AND (v.ve_ar = 1 OR v.ve_ar IS NULL)
+    GROUP BY p.tconst
     ORDER BY RANDOM() LIMIT 1
   `);
   if (res[0]?.values[0]) {
-    window.open('https://youtu.be/' + res[0].values[0][0], '_blank', 'noopener');
+    const [titulo_primario, titulo_orig, anio] = res[0].values[0];
+    const slug = slugify(titulo_primario || titulo_orig, anio);
+    window.location.href = `/pelicula/${slug}/`;
   }
 }
 
