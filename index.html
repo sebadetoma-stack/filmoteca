@@ -1977,8 +1977,11 @@ function actualizarBtnFiltrar() {
 
 // ── PWA INSTALL BANNER ────────────────────────────────────────────
 let deferredPrompt = null;
-const pwaBanner = document.getElementById('pwa-banner');
 const BANNER_KEY = 'filmoteca_pwa_descartado';
+
+function getPwaBanner() {
+  return document.getElementById('pwa-banner');
+}
 
 function bannerDescartado() {
   return localStorage.getItem(BANNER_KEY) === '1';
@@ -1992,7 +1995,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredPrompt = e;
   if (!bannerDescartado() && !isInStandaloneMode) {
-    setTimeout(() => pwaBanner.classList.add('visible'), 3000);
+    setTimeout(() => getPwaBanner()?.classList.add('visible'), 3000);
   }
 });
 
@@ -2002,7 +2005,7 @@ if (isIOS && !isInStandaloneMode && !bannerDescartado()) {
       'Para instalarla: tocá el botón compartir (⬆) y elegí "Agregar a pantalla de inicio".';
     document.getElementById('pwa-banner-acciones').innerHTML =
       '<button class="pwa-banner-btn-ahora-no" style="flex:1" onclick="descartarBanner()">Entendido</button>';
-    pwaBanner.classList.add('visible');
+    getPwaBanner()?.classList.add('visible');
   }, 3000);
 }
 
@@ -2013,17 +2016,17 @@ function instalarPWA() {
     if (result.outcome === 'accepted') {
       localStorage.setItem(BANNER_KEY, '1');
     }
-    pwaBanner.classList.remove('visible');
+    getPwaBanner()?.classList.remove('visible');
     deferredPrompt = null;
   });
 }
 
 function cerrarBanner() {
-  pwaBanner.classList.remove('visible');
+  getPwaBanner()?.classList.remove('visible');
 }
 
 function descartarBanner() {
-  pwaBanner.classList.remove('visible');
+  getPwaBanner()?.classList.remove('visible');
   localStorage.setItem(BANNER_KEY, '1');
 }
 
