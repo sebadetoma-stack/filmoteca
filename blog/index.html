@@ -68,6 +68,9 @@
   .article-body blockquote{border-left:3px solid var(--amber-dim);padding-left:1rem;margin:1.5rem 0;font-style:italic;color:var(--text-faint)}
   .article-body a{color:var(--amber);text-decoration:underline}
   .article-body strong{color:var(--text);font-weight:600}
+  .article-figure{margin:1.5rem 0;text-align:center}
+  .article-figure img{max-width:100%;height:auto;border-radius:4px}
+  .article-figure figcaption{font-size:12px;color:var(--text-faint);font-family:var(--sans);margin-top:6px;font-style:italic}
   .article-divider{height:1px;background:var(--border);margin:2rem 0}
   .rel-titulo{font-size:11px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.08em;font-family:var(--sans);margin-bottom:1rem}
   .rel-list{display:flex;flex-direction:column;gap:10px}
@@ -82,23 +85,6 @@
   .article-hero-credito{font-size:10px;color:var(--text-faint);text-align:right;padding:3px 8px;font-family:var(--sans)}
   .article-hero-credito a{color:var(--text-faint)}
 
-  /* SIDEBAR */
-  .article-layout{max-width:960px;margin:0 auto;padding:2rem 1.5rem 4rem;display:grid;grid-template-columns:1fr 200px;gap:2.5rem;align-items:start}
-  .article-main{min-width:0}
-  .sidebar{position:sticky;top:80px}
-  .sidebar-titulo{font-size:10px;color:var(--amber);text-transform:uppercase;letter-spacing:0.1em;font-family:var(--sans);margin-bottom:0.75rem}
-  .sidebar-item{display:flex;gap:8px;margin-bottom:0.75rem;align-items:flex-start;text-decoration:none}
-  .sidebar-item:hover .sidebar-nombre{color:var(--amber)}
-  .sidebar-poster{width:36px;height:52px;object-fit:cover;border-radius:3px;flex-shrink:0;background:var(--bg2)}
-  .sidebar-poster-placeholder{width:36px;height:52px;border-radius:3px;flex-shrink:0;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:1.2rem}
-  .sidebar-info{flex:1;min-width:0}
-  .sidebar-nombre{font-size:12px;line-height:1.3;color:var(--text);font-family:var(--serif);transition:color 0.15s}
-  .sidebar-anio{font-size:11px;color:var(--text-faint);font-family:var(--sans)}
-
-  @media(max-width:700px){
-    .article-layout{grid-template-columns:1fr;padding:1.5rem 1rem 3rem}
-    .sidebar{position:static;border-top:1px solid var(--border);padding-top:1.5rem;margin-top:1rem}
-  }
   @media(max-width:600px){
     nav{padding:0.75rem 1rem}
     .article-wrap,.blog-header,.cat-filter,.posts-list{padding-left:1rem;padding-right:1rem}
@@ -147,18 +133,27 @@
     </div>
   </div>
 </nav>
-<div class="article-layout">
-  <div class="article-main">
-    <div class="blog-header" style="margin:0 0 1.5rem;padding:0">
-      <div class="blog-title">Blog</div>
-      <div class="blog-sub">Cine clásico, historia y el proyecto</div>
+<div class="blog-header">
+  <div class="blog-title">Blog</div>
+  <div class="blog-sub">Cine clásico, historia y el proyecto</div>
+</div>
+<div class="cat-filter">
+  <button class="cat-btn active" onclick="filtrar('')">Todos</button>
+  <button class="cat-btn" onclick="filtrar('Directores')">Directores</button><button class="cat-btn" onclick="filtrar('Reseñas')">Reseñas</button><button class="cat-btn" onclick="filtrar('Cómo lo hacemos')">Cómo lo hacemos</button>
+</div>
+<div class="posts-list" id="posts-list">
+<a class="post-card" href="/blog/mario-bava/" data-cat="Directores">
+  <div class="post-img"><img src="/blog/imagenes/mario-bava-hero.jpg" alt="El hombre que terminó las películas de los demás" loading="lazy"></div>
+  <div class="post-body">
+    <div class="post-cat">Directores</div>
+    <div class="post-title">El hombre que terminó las películas de los demás</div>
+    <div class="post-excerpt">En 1957, en algún momento del rodaje de I Vampiri, Riccardo Freda, uno de los directores de género más prolíficos de Italia, discutió con los productores y se fue. Quedaban...</div>
+    <div class="post-footer">
+      <span class="post-meta">SDT · 22 de agosto de 2026</span>
+      <span class="leer-mas">Leer más →</span>
     </div>
-    <div class="cat-filter" style="padding:0;margin-bottom:1.5rem">
-      <button class="cat-btn active" onclick="filtrar('')">Todos</button>
-      <button class="cat-btn" onclick="filtrar('Reseñas')">Reseñas</button><button class="cat-btn" onclick="filtrar('Cómo lo hacemos')">Cómo lo hacemos</button>
-    </div>
-    <div class="posts-list" id="posts-list" style="padding:0">
-<a class="post-card" href="/blog/idilio-de-oficina-1977/" data-cat="Reseñas">
+  </div>
+</a><a class="post-card" href="/blog/idilio-de-oficina-1977/" data-cat="Reseñas">
   <div class="post-img"><img src="/blog/imagenes/Idilio_de_oficina_3.jpg" alt="Los anteojos del padre de Najábtsev" loading="lazy"></div>
   <div class="post-body">
     <div class="post-cat">Reseñas</div>
@@ -181,72 +176,6 @@
     </div>
   </div>
 </a>
-    </div>
-  </div>
-  <aside class="sidebar">
-  <div class="sidebar-titulo">Más vistas este mes</div>
-  <a class="sidebar-item" href="https://filmotecaclasica.com/pelicula/seven-samurai-1954/">
-  <img class="sidebar-poster" src="https://image.tmdb.org/t/p/w342/zr4DkzWIMjaWtj6hlsbN6dnNeTX.jpg" alt="Los siete samuráis" loading="lazy">
-  <div class="sidebar-info">
-    <div class="sidebar-nombre">Los siete samuráis</div>
-    <div class="sidebar-anio">1954</div>
-  </div>
-</a><a class="sidebar-item" href="https://filmotecaclasica.com/pelicula/scenes-from-a-marriage-1974/">
-  <img class="sidebar-poster" src="https://image.tmdb.org/t/p/w342/opIaj9znzDAsYh5pohuVIz6ZpwJ.jpg" alt="Secretos de un matrimonio" loading="lazy">
-  <div class="sidebar-info">
-    <div class="sidebar-nombre">Secretos de un matrimonio</div>
-    <div class="sidebar-anio">1974</div>
-  </div>
-</a><a class="sidebar-item" href="https://filmotecaclasica.com/pelicula/dr-strangelove-or-how-i-learned-to-stop-worrying-and-love-the-bomb-1964/">
-  <img class="sidebar-poster" src="https://image.tmdb.org/t/p/w342/snsOoRb1d4WD6q62PRfBuGLJ8xr.jpg" alt="¿Teléfono rojo? Volamos hacia Moscú" loading="lazy">
-  <div class="sidebar-info">
-    <div class="sidebar-nombre">¿Teléfono rojo? Volamos hacia Moscú</div>
-    <div class="sidebar-anio">1964</div>
-  </div>
-</a><a class="sidebar-item" href="https://filmotecaclasica.com/pelicula/rocco-and-his-brothers-1960/">
-  <img class="sidebar-poster" src="https://image.tmdb.org/t/p/w342/vwgfYkKflAsEvxC11zaPFPWWIfa.jpg" alt="Rocco y sus hermanos" loading="lazy">
-  <div class="sidebar-info">
-    <div class="sidebar-nombre">Rocco y sus hermanos</div>
-    <div class="sidebar-anio">1960</div>
-  </div>
-</a><a class="sidebar-item" href="https://filmotecaclasica.com/pelicula/the-seventh-seal-1957/">
-  <img class="sidebar-poster" src="https://image.tmdb.org/t/p/w342/qo3JypyrkPvH8Na3Ir0IpjCwOCS.jpg" alt="El séptimo sello" loading="lazy">
-  <div class="sidebar-info">
-    <div class="sidebar-nombre">El séptimo sello</div>
-    <div class="sidebar-anio">1957</div>
-  </div>
-</a><a class="sidebar-item" href="https://filmotecaclasica.com/pelicula/dersu-uzala-1975/">
-  <img class="sidebar-poster" src="https://image.tmdb.org/t/p/w342/bqvXqtCwPtucUfNdJHx4sSnsUU9.jpg" alt="Dersu Uzala. El cazador" loading="lazy">
-  <div class="sidebar-info">
-    <div class="sidebar-nombre">Dersu Uzala. El cazador</div>
-    <div class="sidebar-anio">1975</div>
-  </div>
-</a><a class="sidebar-item" href="https://filmotecaclasica.com/pelicula/operation-y-other-shuriks-adventures-1965/">
-  <img class="sidebar-poster" src="https://image.tmdb.org/t/p/w342/UObZrxhJklRmaOepUS9iTs9x4f.jpg" alt="Operación Y y otras aventuras de Shurik" loading="lazy">
-  <div class="sidebar-info">
-    <div class="sidebar-nombre">Operación Y y otras aventuras de Shurik</div>
-    <div class="sidebar-anio">1965</div>
-  </div>
-</a><a class="sidebar-item" href="https://filmotecaclasica.com/pelicula/i-am-cuba-1964/">
-  <img class="sidebar-poster" src="https://image.tmdb.org/t/p/w342/p9miBtbnwLCsPNeACHhAZgqEknq.jpg" alt="Soy Cuba" loading="lazy">
-  <div class="sidebar-info">
-    <div class="sidebar-nombre">Soy Cuba</div>
-    <div class="sidebar-anio">1964</div>
-  </div>
-</a><a class="sidebar-item" href="https://filmotecaclasica.com/pelicula/rashomon-1950/">
-  <img class="sidebar-poster" src="https://image.tmdb.org/t/p/w342/hTzw4ectHlJw1gZciFNsemTPARM.jpg" alt="Rashomon" loading="lazy">
-  <div class="sidebar-info">
-    <div class="sidebar-nombre">Rashomon</div>
-    <div class="sidebar-anio">1950</div>
-  </div>
-</a><a class="sidebar-item" href="https://filmotecaclasica.com/pelicula/war-and-peace-1965/">
-  <img class="sidebar-poster" src="https://image.tmdb.org/t/p/w342/8hSghTngqjYgXxMptjArZ4J7TMv.jpg" alt="Guerra y paz" loading="lazy">
-  <div class="sidebar-info">
-    <div class="sidebar-nombre">Guerra y paz</div>
-    <div class="sidebar-anio">1965</div>
-  </div>
-</a>
-</aside>
 </div>
 <footer>
   Filmoteca Clásica · catálogo de cine clásico gratis en YouTube · sin publicidad ·
