@@ -812,8 +812,256 @@
     header { padding: 1rem; }
     .filters { padding: 0.75rem 1rem; }
     .results-bar { padding: 0.5rem 1rem; }
-    .grid { grid-template-columns: 1fr; }
-    .card { padding: 1rem; }
+  }
+
+  /* ── MOBILE ─────────────────────────────────────────── */
+  @media (max-width: 640px) {
+
+    /* Header compacto */
+    header {
+      padding: 0.75rem 1rem;
+      gap: 0.5rem;
+    }
+    .logo-sub,
+    .header-sub,
+    .header-count,
+    .sobre-link {
+      display: none;
+    }
+    .logo { font-size: 1.1rem; }
+
+    /* Filtros: solo búsqueda + botones fijos */
+    .filters {
+      padding: 0.6rem 1rem;
+      flex-wrap: nowrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .filters > select,
+    .filters > .toggle-precode,
+    .filters > .order-select,
+    .filters > .btn-reset,
+    .filters > .chip-usuario {
+      display: none !important;
+    }
+    .search-wrap {
+      flex: 1;
+      max-width: none;
+      min-width: 0;
+    }
+    .btn-filtrar-mobile {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: none;
+      border: 1px solid var(--border2);
+      border-radius: var(--radius);
+      color: var(--text-dim);
+      font-size: 13px;
+      font-family: var(--sans);
+      padding: 7px 10px;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .btn-filtrar-mobile.activo {
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+    .btn-random {
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* Bottom sheet */
+    .mobile-sheet-back {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 300;
+    }
+    .mobile-sheet-back.open { display: block; }
+    .mobile-sheet {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: var(--bg);
+      border-radius: 16px 16px 0 0;
+      padding: 0 1.25rem 2rem;
+      z-index: 301;
+      transform: translateY(100%);
+      transition: transform 0.28s cubic-bezier(0.32,0.72,0,1);
+      max-height: 85vh;
+      overflow-y: auto;
+    }
+    .mobile-sheet-back.open .mobile-sheet {
+      transform: translateY(0);
+    }
+    .mobile-sheet-handle {
+      width: 36px; height: 4px;
+      background: var(--border2);
+      border-radius: 2px;
+      margin: 10px auto 16px;
+    }
+    .mobile-sheet-title {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--text);
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .sheet-row {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 1rem;
+    }
+    .sheet-label {
+      font-size: 11px;
+      color: var(--text-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .sheet-row select {
+      width: 100%;
+      font-size: 14px;
+      padding: 10px 32px 10px 12px;
+    }
+    .sheet-toggles {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .sheet-toggles .toggle-precode {
+      font-size: 13px;
+      padding: 9px 14px;
+    }
+    .sheet-chips {
+      display: none;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .sheet-chips.visible { display: flex; }
+    .sheet-chips .chip-usuario {
+      display: inline-block !important;
+      font-size: 13px;
+      padding: 8px 14px;
+    }
+    .sheet-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 0.5rem;
+    }
+    .sheet-actions .btn-reset {
+      flex: 1;
+      border: 1px solid var(--border2);
+      border-radius: var(--radius);
+      padding: 10px;
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+    .sheet-actions .btn-aplicar {
+      flex: 2;
+      background: var(--amber);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      padding: 10px;
+      font-size: 13px;
+      font-family: var(--sans);
+      cursor: pointer;
+    }
+
+    /* Grid 2 columnas */
+    .grid { grid-template-columns: repeat(2, 1fr); }
+    .card { padding: 0.75rem; }
+    .card-title { font-size: 0.9rem; }
+    .card-dir { font-size: 11px; }
+
+    /* Results bar más compacta */
+    .results-bar { padding: 0.5rem 1rem; font-size: 11px; }
+  }
+
+  /* Ocultar en desktop */
+  @media (min-width: 641px) {
+    .btn-filtrar-mobile { display: none; }
+    .mobile-sheet-back { display: none !important; }
+  }
+
+  /* ── BANNER PWA ─────────────────────────────────────── */
+  #pwa-banner {
+    display: none;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    padding: 1rem 1.25rem 1.5rem;
+    z-index: 500;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+  }
+  #pwa-banner.visible { display: block; }
+  .pwa-banner-inner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .pwa-banner-icon {
+    width: 48px; height: 48px;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+  .pwa-banner-texto { flex: 1; }
+  .pwa-banner-titulo {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .pwa-banner-subtitulo {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.4;
+  }
+  .pwa-banner-cerrar {
+    background: none;
+    border: none;
+    color: var(--text-faint);
+    font-size: 18px;
+    cursor: pointer;
+    padding: 4px;
+    flex-shrink: 0;
+    align-self: flex-start;
+  }
+  .pwa-banner-acciones {
+    display: flex;
+    gap: 8px;
+    margin-top: 0.75rem;
+  }
+  .pwa-banner-btn-instalar {
+    flex: 1;
+    background: var(--amber);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    padding: 10px;
+    font-size: 13px;
+    font-family: var(--sans);
+    cursor: pointer;
+  }
+  .pwa-banner-btn-ahora-no {
+    flex: 1;
+    background: none;
+    border: 1px solid var(--border2);
+    border-radius: var(--radius);
+    padding: 10px;
+    font-size: 13px;
+    color: var(--text-dim);
+    font-family: var(--sans);
+    cursor: pointer;
   }
 </style>
 </head>
@@ -1025,12 +1273,99 @@
     <button class="btn-random" onclick="sorprendeme()">✦ Sorprendeme</button>
     <button class="chip-usuario" id="chip-favoritos" onclick="toggleChipUsuario('favoritos')">❤️ Mis favoritos</button>
     <button class="chip-usuario" id="chip-novistas" onclick="toggleChipUsuario('novistas')">✅ No vistas</button>
+    <button class="btn-filtrar-mobile" id="btn-filtrar-mobile" onclick="abrirSheetFiltros()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+      Filtrar
+    </button>
   </div>
 
-  <div id="banner-aleatorio" style="display:none; align-items:center; justify-content:space-between; gap:10px; background:#fef9f0; border-bottom:1px solid var(--amber-dim); border-left:3px solid var(--amber); padding:7px 2rem; font-size:12px; color:var(--text-dim);">
-    <span>🎲 Mezclamos el catálogo para que descubras películas nuevas cada vez que entrés.</span>
-    <button onclick="document.getElementById('banner-aleatorio').style.display='none';" style="background:none;border:none;cursor:pointer;color:var(--text-faint);font-size:14px;line-height:1;padding:0 2px;">✕</button>
+  <!-- Mobile: bottom sheet de filtros -->
+  <div class="mobile-sheet-back" id="mobile-sheet-back" onclick="if(event.target===this)cerrarSheetFiltros()">
+    <div class="mobile-sheet" id="mobile-sheet">
+      <div class="mobile-sheet-handle"></div>
+      <div class="mobile-sheet-title">Filtros</div>
+      <div class="sheet-row">
+        <div class="sheet-label">Género</div>
+        <select id="sf-genero" onchange="sincronizarFiltro('f-genero','sf-genero')">
+          <option value="">Todos los géneros</option>
+          <option value="Film-Noir">Film-Noir</option>
+          <option value="Western">Western</option>
+          <option value="Drama">Drama</option>
+          <option value="Thriller">Thriller</option>
+          <option value="Crime">Policial</option>
+          <option value="War">Bélica</option>
+          <option value="Comedy">Comedia</option>
+          <option value="Mystery">Misterio</option>
+          <option value="Adventure">Aventura</option>
+          <option value="Romance">Romance</option>
+          <option value="Horror">Terror</option>
+          <option value="Sci-Fi">Ciencia ficción</option>
+          <option value="Biography">Biográfica</option>
+          <option value="History">Histórica</option>
+          <option value="Musical">Musical</option>
+        </select>
+      </div>
+      <div class="sheet-row">
+        <div class="sheet-label">Década</div>
+        <select id="sf-decada" onchange="sincronizarFiltro('f-decada','sf-decada')">
+          <option value="">Todas las décadas</option>
+          <option value="1920">1920s</option>
+          <option value="1930">1930s</option>
+          <option value="1940">1940s</option>
+          <option value="1950">1950s</option>
+          <option value="1960">1960s</option>
+          <option value="1970">1970s</option>
+          <option value="None">Sin fecha declarada</option>
+        </select>
+      </div>
+      <div class="sheet-row">
+        <div class="sheet-label">País</div>
+        <select id="sf-pais" onchange="sincronizarFiltro('f-pais','sf-pais')"></select>
+      </div>
+      <div class="sheet-row">
+        <div class="sheet-label">Ordenar por</div>
+        <select id="sf-orden" onchange="sincronizarFiltro('f-orden','sf-orden')">
+          <option value="rating">Rating IMDb</option>
+          <option value="anio">Año</option>
+          <option value="votos">Más votadas</option>
+          <option value="aleatorio">Aleatorio</option>
+        </select>
+      </div>
+      <div class="sheet-toggles">
+        <div class="toggle-precode" id="sheet-toggle-precode" onclick="togglePrecode();actualizarSheetToggle()">
+          <span class="dot"></span>Pre-Code
+        </div>
+        <div class="toggle-precode" id="sheet-toggle-doblada" onclick="toggleDoblada();actualizarSheetToggle()">
+          <span class="dot"></span>Doblada al español
+        </div>
+      </div>
+      <div class="sheet-chips" id="sheet-chips">
+        <button class="chip-usuario" id="sheet-chip-favoritos" onclick="toggleChipUsuario('favoritos');actualizarSheetChips()">❤️ Mis favoritos</button>
+        <button class="chip-usuario" id="sheet-chip-novistas" onclick="toggleChipUsuario('novistas');actualizarSheetChips()">✅ No vistas</button>
+      </div>
+      <div class="sheet-actions">
+        <button class="btn-reset sheet-actions" onclick="resetFiltros();cerrarSheetFiltros()">Limpiar</button>
+        <button class="btn-aplicar" onclick="cerrarSheetFiltros()">Ver resultados</button>
+      </div>
+    </div>
   </div>
+
+  <!-- Banner PWA -->
+  <div id="pwa-banner">
+    <div class="pwa-banner-inner">
+      <img src="/icon-192.png" class="pwa-banner-icon" alt="Filmoteca Clásica">
+      <div class="pwa-banner-texto">
+        <div class="pwa-banner-titulo">Filmoteca Clásica</div>
+        <div class="pwa-banner-subtitulo" id="pwa-banner-subtitulo">Agregala a tu pantalla de inicio para acceder más rápido.</div>
+      </div>
+      <button class="pwa-banner-cerrar" onclick="cerrarBanner()" aria-label="Cerrar">×</button>
+    </div>
+    <div class="pwa-banner-acciones" id="pwa-banner-acciones">
+      <button class="pwa-banner-btn-instalar" onclick="instalarPWA()">Instalar</button>
+      <button class="pwa-banner-btn-ahora-no" onclick="descartarBanner()">Ahora no</button>
+    </div>
+  </div>
+
 
   <div class="results-bar">
     <span id="results-count">Cargando…</span>
@@ -1571,14 +1906,6 @@ async function cargarDB() {
       urlAFiltros();
       // Primera visita → rating. Visitas siguientes → aleatorio (si no hay orden en URL)
       // Primera visita → rating. Visitas siguientes → aleatorio (si no hay orden en URL)
-      if (!window.location.hash.includes('orden=')) {
-        if (localStorage.getItem('filmoteca_visited')) {
-          document.getElementById('f-orden').value = 'aleatorio';
-          document.getElementById('banner-aleatorio').style.display = 'flex';
-        } else {
-          localStorage.setItem('filmoteca_visited', '1');
-        }
-      }
       render();
     }, 300);
 
@@ -1589,6 +1916,120 @@ async function cargarDB() {
 }
 
 cargarDB();
+
+// ── MOBILE SHEET ─────────────────────────────────────────────────
+function abrirSheetFiltros() {
+  document.getElementById('sf-genero').value = document.getElementById('f-genero').value;
+  document.getElementById('sf-decada').value = document.getElementById('f-decada').value;
+  document.getElementById('sf-orden').value  = document.getElementById('f-orden').value;
+  const paisDest = document.getElementById('sf-pais');
+  const paisSrc  = document.getElementById('f-pais');
+  if (paisDest.options.length !== paisSrc.options.length) {
+    paisDest.innerHTML = paisSrc.innerHTML;
+  }
+  paisDest.value = paisSrc.value;
+  actualizarSheetToggle();
+  const chips = document.getElementById('sheet-chips');
+  if (document.getElementById('chip-favoritos').classList.contains('visible')) {
+    chips.classList.add('visible');
+    actualizarSheetChips();
+  } else {
+    chips.classList.remove('visible');
+  }
+  document.getElementById('mobile-sheet-back').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function cerrarSheetFiltros() {
+  document.getElementById('mobile-sheet-back').classList.remove('open');
+  document.body.style.overflow = '';
+  actualizarBtnFiltrar();
+}
+
+function sincronizarFiltro(idDest, idSrc) {
+  document.getElementById(idDest).value = document.getElementById(idSrc).value;
+  pagina = 1;
+  render();
+}
+
+function actualizarSheetToggle() {
+  document.getElementById('sheet-toggle-precode').classList.toggle('active', soloPrecode);
+  document.getElementById('sheet-toggle-doblada').classList.toggle('active', soloDoblada);
+  actualizarBtnFiltrar();
+}
+
+function actualizarSheetChips() {
+  const chip = typeof window.getChipUsuario === 'function' ? window.getChipUsuario() : null;
+  document.getElementById('sheet-chip-favoritos').classList.toggle('active', chip === 'favoritos');
+  document.getElementById('sheet-chip-novistas').classList.toggle('active', chip === 'novistas');
+  actualizarBtnFiltrar();
+}
+
+function actualizarBtnFiltrar() {
+  const hayFiltros =
+    document.getElementById('f-genero').value ||
+    document.getElementById('f-decada').value ||
+    document.getElementById('f-pais').value ||
+    soloPrecode || soloDoblada ||
+    (typeof window.getChipUsuario === 'function' && window.getChipUsuario());
+  document.getElementById('btn-filtrar-mobile')?.classList.toggle('activo', !!hayFiltros);
+}
+
+// ── PWA INSTALL BANNER ────────────────────────────────────────────
+let deferredPrompt = null;
+const pwaBanner = document.getElementById('pwa-banner');
+const BANNER_KEY = 'filmoteca_pwa_descartado';
+
+function bannerDescartado() {
+  return localStorage.getItem(BANNER_KEY) === '1';
+}
+
+const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) && !window.MSStream;
+const isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches
+  || window.navigator.standalone === true;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  if (!bannerDescartado() && !isInStandaloneMode) {
+    setTimeout(() => pwaBanner.classList.add('visible'), 3000);
+  }
+});
+
+if (isIOS && !isInStandaloneMode && !bannerDescartado()) {
+  setTimeout(() => {
+    document.getElementById('pwa-banner-subtitulo').textContent =
+      'Para instalarla: tocá el botón compartir (⬆) y elegí "Agregar a pantalla de inicio".';
+    document.getElementById('pwa-banner-acciones').innerHTML =
+      '<button class="pwa-banner-btn-ahora-no" style="flex:1" onclick="descartarBanner()">Entendido</button>';
+    pwaBanner.classList.add('visible');
+  }, 3000);
+}
+
+function instalarPWA() {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  deferredPrompt.userChoice.then((result) => {
+    if (result.outcome === 'accepted') {
+      localStorage.setItem(BANNER_KEY, '1');
+    }
+    pwaBanner.classList.remove('visible');
+    deferredPrompt = null;
+  });
+}
+
+function cerrarBanner() {
+  pwaBanner.classList.remove('visible');
+}
+
+function descartarBanner() {
+  pwaBanner.classList.remove('visible');
+  localStorage.setItem(BANNER_KEY, '1');
+}
+
+window.matchMedia('(display-mode: standalone)').addEventListener('change', (e) => {
+  if (e.matches) pwaBanner.classList.remove('visible');
+});
 </script>
 
 <!-- FIREBASE -->
