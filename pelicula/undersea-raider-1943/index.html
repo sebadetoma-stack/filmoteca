@@ -190,7 +190,14 @@
       <h1>Close Quarters</h1>
       
 
-      <a class="btn-yt" href="https://www.youtube.com/watch?v=8lKRZp4NDSo" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+      <div class="btn-yt-wrap">
+  <a class="btn-yt" href="https://www.youtube.com/watch?v=8lKRZp4NDSo" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+  <div class="yt-versions-dropdown">
+    <button class="yt-versions-toggle" onclick="this.parentElement.classList.toggle('open')">▾ 2 versiones</button>
+    <div class="yt-versions-list"><a class="yt-version-item" href="https://www.youtube.com/watch?v=8lKRZp4NDSo" target="_blank" rel="noopener">Armoured Archivist · Inglés</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=zurQ8ZQk_xc" target="_blank" rel="noopener">Stories Speak English · Idioma desconocido</a></div>
+  </div>
+</div>
 
       <div class="user-actions" id="user-actions" style="display:none">
         <button class="btn-usuario" id="btn-fav" onclick="toggleFav()">🤍 Favorita</button>
@@ -209,7 +216,7 @@
       <div class="badges"><span class="badge">Documentary</span><span class="badge">War</span></div>
 
       <div class="canal-info">
-        Disponible en <strong>Armoured Archivist</strong> · verificada desde Argentina
+        Disponible en 2 versiones · verificada desde Argentina
       </div>
 
       <div class="links-ext">
@@ -234,6 +241,13 @@
             <div class="rel-anio">1956</div>
           </div>
         </a>
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/let-there-be-light-1946/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/wgcAMb5BLKFANzTDfKwnxeH1kYA.jpg" alt="Hágase la luz" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">Hágase la luz</div>
+            <div class="rel-anio">1946</div>
+          </div>
+        </a>
         <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-battle-of-russia-1943/">
           <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/xgcuUIKFkiVwtUzZy7iE7oeD8ro.jpg" alt="La batalla de Rusia" loading="lazy"></div>
           <div class="rel-info">
@@ -246,13 +260,6 @@
           <div class="rel-info">
             <div class="rel-titulo-peli">La hora de los hornos</div>
             <div class="rel-anio">1968</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/far-from-vietnam-1967/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/oOIvvZ3xTVta5nDiERWAcANRmR0.jpg" alt="Lejos de Vietnam" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">Lejos de Vietnam</div>
-            <div class="rel-anio">1967</div>
           </div>
         </a>
     </div>
