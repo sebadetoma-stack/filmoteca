@@ -214,7 +214,14 @@
       <h1>Siempre hay una mujer</h1>
       <div class="titulo-orig">There's Always a Woman</div>
 
-      <a class="btn-yt" href="https://www.youtube.com/watch?v=Q5PGPcaTpwc" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+      <div class="btn-yt-wrap">
+  <a class="btn-yt" href="https://www.youtube.com/watch?v=Q5PGPcaTpwc" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+  <div class="yt-versions-dropdown">
+    <button class="yt-versions-toggle" onclick="this.parentElement.classList.toggle('open')">▾ 2 versiones</button>
+    <div class="yt-versions-list"><a class="yt-version-item" href="https://www.youtube.com/watch?v=Q5PGPcaTpwc" target="_blank" rel="noopener">CrimeCore · Idioma desconocido</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=589RoZNlUbY" target="_blank" rel="noopener">Stream City · Inglés</a></div>
+  </div>
+</div>
 
       <div class="user-actions" id="user-actions" style="display:none">
         <button class="btn-usuario" id="btn-fav" onclick="toggleFav()">🤍 Favorita</button>
@@ -233,7 +240,7 @@
       <div class="badges"><span class="badge">Comedy</span><span class="badge">Crime</span><span class="badge">Mystery</span></div>
 
       <div class="canal-info">
-        Disponible en <strong>CrimeCore</strong> · verificada desde Argentina
+        Disponible en 2 versiones · verificada desde Argentina
       </div>
 
       <div class="links-ext">
@@ -251,6 +258,20 @@
     <div class="rel-titulo">Películas relacionadas</div>
     <div class="rel-grid">
       
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-amazing-mr-williams-1939/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/dUh0h1iXRW70fyBU2bFC6GsGkN6.jpg" alt="El asombroso señor Williams" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">El asombroso señor Williams</div>
+            <div class="rel-anio">1939</div>
+          </div>
+        </a>
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-cheap-detective-1978/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/uhNVzjbtdnLFNdgQ9ptxCUta4t4.jpg" alt="Un detective barato" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">Un detective barato</div>
+            <div class="rel-anio">1978</div>
+          </div>
+        </a>
         <a class="rel-card" href="https://filmotecaclasica.com/pelicula/green-for-danger-1946/">
           <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/a4DKicJXJc2IZ5Ze8fU34sZTT4L.jpg" alt="Verde es el peligro" loading="lazy"></div>
           <div class="rel-info">
@@ -263,20 +284,6 @@
           <div class="rel-info">
             <div class="rel-titulo-peli">Morena y peligrosa</div>
             <div class="rel-anio">1947</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-notorious-landlady-1962/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/7zHVKgOfiPMQf2VyLPtjRot9r6X.jpg" alt="La misteriosa dama de negro" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">La misteriosa dama de negro</div>
-            <div class="rel-anio">1962</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-sunday-woman-1975/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/qXtHhPjJZUFlluiF6bu9cahOd4h.jpg" alt="La mujer del domingo" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">La mujer del domingo</div>
-            <div class="rel-anio">1975</div>
           </div>
         </a>
     </div>

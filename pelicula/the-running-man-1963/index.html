@@ -214,7 +214,14 @@
       <h1>El precio de la muerte</h1>
       <div class="titulo-orig">The Running Man</div>
 
-      <a class="btn-yt" href="https://www.youtube.com/watch?v=cG-pIoP_JBQ" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+      <div class="btn-yt-wrap">
+  <a class="btn-yt" href="https://www.youtube.com/watch?v=cG-pIoP_JBQ" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+  <div class="yt-versions-dropdown">
+    <button class="yt-versions-toggle" onclick="this.parentElement.classList.toggle('open')">▾ 2 versiones</button>
+    <div class="yt-versions-list"><a class="yt-version-item" href="https://www.youtube.com/watch?v=cG-pIoP_JBQ" target="_blank" rel="noopener">Cine Clásico 10 · Español</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=newkyfgytA8" target="_blank" rel="noopener">Stream City · Inglés</a></div>
+  </div>
+</div>
 
       <div class="user-actions" id="user-actions" style="display:none">
         <button class="btn-usuario" id="btn-fav" onclick="toggleFav()">🤍 Favorita</button>
@@ -233,7 +240,7 @@
       <div class="badges"><span class="badge">Crime</span><span class="badge">Drama</span><span class="badge">Thriller</span></div>
 
       <div class="canal-info">
-        Disponible en <strong>Cine Clásico 10</strong> · verificada desde Argentina
+        Disponible en 2 versiones · verificada desde Argentina
       </div>
 
       <div class="links-ext">
@@ -258,6 +265,13 @@
             <div class="rel-anio">1947</div>
           </div>
         </a>
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/our-man-in-havana-1959/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/n1q2jMJJyHv0WkUWojayyscsbXT.jpg" alt="Nuestro hombre en La Habana" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">Nuestro hombre en La Habana</div>
+            <div class="rel-anio">1959</div>
+          </div>
+        </a>
         <a class="rel-card" href="https://filmotecaclasica.com/pelicula/night-train-to-munich-1940/">
           <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/4nzXofltFaXKbrqlHxAFnBZ5snq.jpg" alt="Tren nocturno a Múnich" loading="lazy"></div>
           <div class="rel-info">
@@ -270,13 +284,6 @@
           <div class="rel-info">
             <div class="rel-titulo-peli">Perros de paja</div>
             <div class="rel-anio">1971</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/tiger-bay-1959/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/e0YIUi2UsXT0Q9MvDT5EWfVK3aq.jpg" alt="La bahía del tigre" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">La bahía del tigre</div>
-            <div class="rel-anio">1959</div>
           </div>
         </a>
     </div>

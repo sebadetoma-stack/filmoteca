@@ -213,7 +213,14 @@
       <h1>Town on Trial</h1>
       
 
-      <a class="btn-yt" href="https://www.youtube.com/watch?v=UiMOfnLfvCA" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+      <div class="btn-yt-wrap">
+  <a class="btn-yt" href="https://www.youtube.com/watch?v=UiMOfnLfvCA" target="_blank" rel="noopener"><div class="btn-yt-play"><svg width="8" height="9" viewBox="0 0 8 9" fill="white"><polygon points="2,1 7,4.5 2,8"/></svg></div>Ver en YouTube · gratis y completa</a>
+  <div class="yt-versions-dropdown">
+    <button class="yt-versions-toggle" onclick="this.parentElement.classList.toggle('open')">▾ 2 versiones</button>
+    <div class="yt-versions-list"><a class="yt-version-item" href="https://www.youtube.com/watch?v=UiMOfnLfvCA" target="_blank" rel="noopener">CrimeCore · Idioma desconocido</a>
+<a class="yt-version-item" href="https://www.youtube.com/watch?v=Ypdu9kwTIh8" target="_blank" rel="noopener">Stream City · Inglés</a></div>
+  </div>
+</div>
 
       <div class="user-actions" id="user-actions" style="display:none">
         <button class="btn-usuario" id="btn-fav" onclick="toggleFav()">🤍 Favorita</button>
@@ -232,7 +239,7 @@
       <div class="badges"><span class="badge">Crime</span><span class="badge">Mystery</span><span class="badge">Thriller</span></div>
 
       <div class="canal-info">
-        Disponible en <strong>CrimeCore</strong> · verificada desde Argentina
+        Disponible en 2 versiones · verificada desde Argentina
       </div>
 
       <div class="links-ext">
@@ -250,6 +257,13 @@
     <div class="rel-titulo">Películas relacionadas</div>
     <div class="rel-grid">
       
+        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-whole-truth-1958/">
+          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/zFkuCgzIf9ucF3DO6nqH7LDk6pD.jpg" alt="Toda la verdad" loading="lazy"></div>
+          <div class="rel-info">
+            <div class="rel-titulo-peli">Toda la verdad</div>
+            <div class="rel-anio">1958</div>
+          </div>
+        </a>
         <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-39-steps-1935/">
           <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/o4X8ie4fWFDrt4L3JO8QbqPmvjG.jpg" alt="39 escalones" loading="lazy"></div>
           <div class="rel-info">
@@ -269,13 +283,6 @@
           <div class="rel-info">
             <div class="rel-titulo-peli">Sherlock Holmes. El perro de los Baskerville</div>
             <div class="rel-anio">1939</div>
-          </div>
-        </a>
-        <a class="rel-card" href="https://filmotecaclasica.com/pelicula/four-flies-on-grey-velvet-1971/">
-          <div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/sP4NrADi9LKeOGjR3Mkclvkaybz.jpg" alt="4 moscas sobre terciopelo gris" loading="lazy"></div>
-          <div class="rel-info">
-            <div class="rel-titulo-peli">4 moscas sobre terciopelo gris</div>
-            <div class="rel-anio">1971</div>
           </div>
         </a>
     </div>
