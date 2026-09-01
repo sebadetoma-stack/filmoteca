@@ -2,7 +2,7 @@
 
 **[→ Ver la filmoteca en línea](https://filmotecaclasica.com)**
 
-Un catálogo de más de 4.000 películas clásicas (1920–1979) disponibles gratuitamente en YouTube, verificadas desde Argentina.
+Un catálogo de más de 5.000 películas clásicas (1920–1979) disponibles gratuitamente en YouTube, verificadas desde Argentina.
 
 Hecha por [Sebastián De Toma](https://www.linkedin.com/in/juan-sebastian-de-toma/).
 
@@ -200,36 +200,55 @@ git push
 
 ## Canales cosechados
 
+### Dominio público
+
+| Canal | Notas |
+|---|---|
+| PizzaFlix | Biblioteca privada de calidad broadcast: westerns, noir, thriller, serie B |
+| Free Vintage Movies | Largometrajes de dominio público: noir, westerns, comedias, thrillers |
+| Classic Movies 40s 50s 60s | Noir, crimen, drama, thriller, comedia, romance |
+| DK Classics (familia) | Tres sub-canales con cine clásico completo |
+| Public Domain Movies | Silentes y cine pre-1970 de dominio público |
+| Grandpa's Old Movies Chest | Dominio público americano |
+
+### Canales oficiales y licenciados
+
+| Canal | Notas |
+|---|---|
+| Mosfilm (English) | Canal oficial del estudio soviético, subtítulos en inglés |
+| Warner Bros. | Largometrajes completos desde 2025 |
+| CRFA \| Época de Oro | Cineteca del cine argentino 1930–1959 |
+| CINETEL MULTIMEDIA | Clásicos doblados, distribuidora española (EGEDA) |
+
+### Canales particulares
+
 | Canal | Notas |
 |---|---|
 | La Corriente Películas | Cine clásico doblado al español latino |
-| Mosfilm (English) | Canal oficial del estudio soviético, subtítulos en inglés |
 | Kino Wizard | Cine de culto y terror clásico |
 | Cine Clásico para Todos | Cine clásico en español |
-| Arte Cine Cultura | Cine clásico europeo y latinoamericano |
 | Film&Clips | Largometrajes clásicos completos (3 sub-canales) |
 | NipponKino | Cine japonés clásico con subtítulos en inglés |
 | MeduFiles | Películas europeas de autor |
 | prisoner | Películas de autor europeas |
 | Khris McLorean | Cine europeo clásico |
 | Artflix Películas Clásicas | Cine clásico variado |
-| Grandpa's Old Movies Chest | Dominio público americano |
 | Davide Fiammenghi | Bergman y europeos con subtítulos en inglés |
 | Ruvindu Gamage | Mezcla de cine europeo y japonés clásico |
 | MrCinefilia | Cine clásico variado |
 | Ódor Endre | Cine clásico europeo |
 | Cinema__Routine | Cine de autor variado |
-| CRFA \| Época de Oro | Cine argentino de la época de oro |
-| Lo que el cine nos dejó | Cine argentino clásico |
-| CINETEL MULTIMEDIA | Cine clásico variado |
+| Lo que el cine nos dejó | Cine argentino clásico 1930–1960 |
+| persona cinecafé | Cine argentino clásico y contemporáneo |
 | El Cine Español Contigo | Cine español clásico |
 | CiNENET España | Cine español clásico |
-| Canal Federico Sánchez | Cine clásico variado |
-| Stream City | Dominio público americano |
+| Federico Sánchez | Cine español clásico completo |
+| Stream City | Catálogo Sony/AAN: clásicos 1930–1979 |
 | CrimeCore | Cine negro y policial clásico |
 | Action Coded | Cine de acción y aventura clásico |
-| Armoured Archivist | Cine clásico variado |
-| Y otros canales de dominio público | PizzaFlix, Free Vintage Movies, DK Classics, etc. |
+| Armoured Archivist | Propaganda bélica británica WWII |
+| Nostalgic Vision | Cine clásico y música |
+| Cult Cinema Classics | Cine multiidioma, serie B y cine raro del siglo XX |
 
 ---
 
@@ -240,7 +259,7 @@ Los pósters y sinopsis se obtienen de múltiples fuentes en orden de prioridad:
 1. **TMDb** (The Movie Database): fuente principal, via tconst de IMDb y búsqueda por título
 2. **OMDB** (Open Movie Database): para películas no encontradas en TMDb. Se descartan URLs de Amazon por restricciones de hotlinking
 3. **Wikipedia**: imagen principal del artículo, para películas muy oscuras no indexadas en TMDb ni OMDB
-4. **Wikipedia** (sinopsis): extracto del artículo en español, o en inglés traducido con Claude
+4. **Wikipedia** (sinopsis): extracto del artículo en español, o en inglés traducido con un modelo de lenguaje
 
 ---
 
@@ -253,7 +272,8 @@ Los pósters y sinopsis se obtienen de múltiples fuentes en orden de prioridad:
 - **Login con Google**: podés guardar favoritos, marcar películas como vistas y llevar un historial (Firebase Firestore)
 - **Blog**: reseñas, directores, géneros e historia del cine en `/blog/`
 - **Mobile / PWA**: el sitio es instalable en la pantalla de inicio desde Chrome Android o Safari iOS, sin pasar por ninguna tienda
-- **Botón ⚑**: aparece en cada página individual para reportar problemas — video caído, no disponible en Argentina, mala calidad
+- **Botón ⚑**: aparece en cada tarjeta al pasar el mouse y en las páginas individuales, para reportar problemas — video caído, no disponible en Argentina, mala calidad
+- **Instagram**: [@filmotecaclasica](https://www.instagram.com/filmotecaclasica/)
 
 ---
 
