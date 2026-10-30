@@ -1,12 +1,12 @@
 /* Filmoteca Clásica - carga central de anuncios (Google AdSense).
  * Se sirve desde la raíz del sitio: /anuncios.js
- * Mientras PUB_ID sea el placeholder, no carga nada y los espacios se eliminan.
+ * Mientras no haya ID válido y al menos un bloque cargado, no carga nada y los espacios se eliminan.
  */
 (function () {
   'use strict';
 
   // 1) Completar con el ID de editor de AdSense (formato ca-pub-1234567890123456)
-  var PUB_ID = 'ca-pub-XXXXXXXXXXXXXXXX';
+  var PUB_ID = 'ca-pub-3810042563449147';
 
   // 2) Completar con el ID de cada bloque de anuncios creado en AdSense.
   //    Un slot sin ID se elimina de la página sin dejar hueco.
@@ -20,7 +20,10 @@
     blog_indice:  ''
   };
 
-  if (!/^ca-pub-\d{10,}$/.test(PUB_ID)) {
+  // Sin ID válido o sin ningún bloque cargado, no se carga el script de Google
+  // y se eliminan los espacios: la página queda como si no hubiera anuncios.
+  var hayBloques = Object.keys(SLOTS).some(function (k) { return SLOTS[k]; });
+  if (!/^ca-pub-\d{10,}$/.test(PUB_ID) || !hayBloques) {
     document.addEventListener('DOMContentLoaded', function () {
       var els = document.querySelectorAll('.ad-slot');
       for (var i = 0; i < els.length; i++) els[i].remove();
