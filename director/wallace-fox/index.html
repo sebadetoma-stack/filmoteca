@@ -133,8 +133,10 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
   :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--border2:#c4b49a;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
@@ -155,7 +157,7 @@
   .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem}
   @media(max-width:640px){.layout{grid-template-columns:1fr}.poster-wrap{max-width:220px;margin:0 auto}}
   /* POSTER */
-  .poster-wrap img{width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block}
+  .poster-wrap img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);display:block}
   .poster-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:13px}
   /* INFO */
   .meta{font-size:12px;color:var(--text-faint);margin-bottom:0.4rem}
@@ -243,7 +245,7 @@
   <h1>Películas de Wallace Fox</h1>
   <p class="hub-intro">14 películas dirigidas por Wallace Fox, disponibles completas y gratis en YouTube, verificadas desde Argentina. Ordenadas por cantidad de votos en IMDb.</p>
   <div class="hub-grid">
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-corpse-vanishes-1942/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/ur7omgilzhWeHKW9Spd3ueHFbC1.jpg" alt="Póster de The Corpse Vanishes" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Corpse Vanishes</div><div class="rel-anio">1942 · ★ 4.6</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-corpse-vanishes-1942/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/ur7omgilzhWeHKW9Spd3ueHFbC1.jpg" alt="Póster de El ladrón de cuerpos" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">El ladrón de cuerpos</div><div class="rel-anio">1942 · ★ 4.6</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/bowery-at-midnight-1942/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/lDWHvIotQkogG77wHVuMT8mF8P.jpg" alt="Póster de Bowery at Midnight" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Bowery at Midnight</div><div class="rel-anio">1942 · ★ 5.3</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/neath-brooklyn-bridge-1942/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/xNrOAj4rrD1FNYEP467IqaPBr4l.jpg" alt="Póster de &#x27;Neath Brooklyn Bridge" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">&#x27;Neath Brooklyn Bridge</div><div class="rel-anio">1942 · ★ 6.0</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/bowery-blitzkrieg-1941/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/pcjvOYYOmoeJpwTzcjF5DqktpHo.jpg" alt="Póster de Bowery Blitzkrieg" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Bowery Blitzkrieg</div><div class="rel-anio">1941 · ★ 6.1</div></div></a>

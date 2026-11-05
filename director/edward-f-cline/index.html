@@ -138,8 +138,10 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
   :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--border2:#c4b49a;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
@@ -160,7 +162,7 @@
   .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem}
   @media(max-width:640px){.layout{grid-template-columns:1fr}.poster-wrap{max-width:220px;margin:0 auto}}
   /* POSTER */
-  .poster-wrap img{width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block}
+  .poster-wrap img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);display:block}
   .poster-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:13px}
   /* INFO */
   .meta{font-size:12px;color:var(--text-faint);margin-bottom:0.4rem}
@@ -248,8 +250,8 @@
   <h1>Películas de Edward F. Cline</h1>
   <p class="hub-intro">15 películas dirigidas por Edward F. Cline, disponibles completas y gratis en YouTube, verificadas desde Argentina. Ordenadas por cantidad de votos en IMDb.</p>
   <div class="hub-grid">
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/three-ages-1923/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/mJRVBdoKJE4yESienbh0HQjk9yA.jpg" alt="Póster de Three Ages" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Three Ages</div><div class="rel-anio">1923 · ★ 7.0</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/since-you-went-away-1944/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/5llMQ5cYgx3IybpTdnNpIRqmJn4.jpg" alt="Póster de Since You Went Away" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Since You Went Away</div><div class="rel-anio">1944 · ★ 7.5</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/three-ages-1923/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/mJRVBdoKJE4yESienbh0HQjk9yA.jpg" alt="Póster de Las tres edades" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Las tres edades</div><div class="rel-anio">1923 · ★ 7.0</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/since-you-went-away-1944/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/5llMQ5cYgx3IybpTdnNpIRqmJn4.jpg" alt="Póster de Desde que te fuiste" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Desde que te fuiste</div><div class="rel-anio">1944 · ★ 7.5</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/private-buckaroo-1942/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/fvtKHsB9ub5wqAA9lOb3L3m0Xms.jpg" alt="Póster de Private Buckaroo" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Private Buckaroo</div><div class="rel-anio">1942 · ★ 5.8</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-widow-from-chicago-1930/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/3C49Zz8EQqF2V5EtDiV1Jrr5Ldb.jpg" alt="Póster de The Widow from Chicago" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Widow from Chicago</div><div class="rel-anio">1930 · ★ 6.4</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-naughty-flirt-1930/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/iIXT5n3pJXiVvJb41scZcwic96i.jpg" alt="Póster de The Naughty Flirt" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Naughty Flirt</div><div class="rel-anio">1930 · ★ 5.7</div></div></a>

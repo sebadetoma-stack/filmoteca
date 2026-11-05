@@ -113,8 +113,10 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
   :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--border2:#c4b49a;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
@@ -135,7 +137,7 @@
   .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem}
   @media(max-width:640px){.layout{grid-template-columns:1fr}.poster-wrap{max-width:220px;margin:0 auto}}
   /* POSTER */
-  .poster-wrap img{width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block}
+  .poster-wrap img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);display:block}
   .poster-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:13px}
   /* INFO */
   .meta{font-size:12px;color:var(--text-faint);margin-bottom:0.4rem}
@@ -223,12 +225,12 @@
   <h1>Cine canadiense clásico</h1>
   <p class="hub-intro">10 películas de cine canadiense clásico (1920–1979) disponibles completas y gratis en YouTube, verificadas desde Argentina. Ordenadas por cantidad de votos en IMDb.</p>
   <div class="hub-grid">
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/black-christmas-1974/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/ym0QcbrKNujzDyAU1IHGYUdRWub.jpg" alt="Póster de Black Christmas" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Black Christmas</div><div class="rel-anio">1974 · ★ 7.1</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/black-christmas-1974/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/ym0QcbrKNujzDyAU1IHGYUdRWub.jpg" alt="Póster de Navidades negras" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Navidades negras</div><div class="rel-anio">1974 · ★ 7.1</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/rituals-1977/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/jWjY6E8oZAnHUvKjEjazxdn2UyB.jpg" alt="Póster de Rituals" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Rituals</div><div class="rel-anio">1977 · ★ 6.2</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-trap-1966/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/qjTbWJ4Dh3XKXppzasSbHRrY8yN.jpg" alt="Póster de The Trap" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Trap</div><div class="rel-anio">1966 · ★ 7.1</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-mask-1961/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/aIF6aZyVyLM8VSJWv0h1DOPxSrv.jpg" alt="Póster de The Mask" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Mask</div><div class="rel-anio">1961 · ★ 5.8</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-trap-1966/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/qjTbWJ4Dh3XKXppzasSbHRrY8yN.jpg" alt="Póster de La trampa" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">La trampa</div><div class="rel-anio">1966 · ★ 7.1</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-mask-1961/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/aIF6aZyVyLM8VSJWv0h1DOPxSrv.jpg" alt="Póster de La máscara" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">La máscara</div><div class="rel-anio">1961 · ★ 5.8</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/whispering-city-1947/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/uPH4UbBklgfesKbtmzsMAX84fPC.jpg" alt="Póster de Whispering City" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Whispering City</div><div class="rel-anio">1947 · ★ 6.2</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/dear-father-1979/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/4EMMTQKo8hhftoH23y96xt8mAAt.jpg" alt="Póster de Dear Father" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Dear Father</div><div class="rel-anio">1979 · ★ 6.2</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/dear-father-1979/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/4EMMTQKo8hhftoH23y96xt8mAAt.jpg" alt="Póster de Querido papá" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Querido papá</div><div class="rel-anio">1979 · ★ 6.2</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/murder-is-news-1937/"><div class="rel-poster"><div class="rel-placeholder">Murder Is News</div></div><div class="rel-info"><div class="rel-titulo-peli">Murder Is News</div><div class="rel-anio">1937 · ★ 5.4</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/bush-pilot-1947/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/q2on8BPVyExG0r2w9Y1zXLhIKHm.jpg" alt="Póster de Bush Pilot" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Bush Pilot</div><div class="rel-anio">1947 · ★ 5.1</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/what-price-vengeance-1937/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/q7mwMH3RrtedSEVn8mNTB8pIyEe.jpg" alt="Póster de What Price Vengeance" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">What Price Vengeance</div><div class="rel-anio">1937 · ★ 4.8</div></div></a>

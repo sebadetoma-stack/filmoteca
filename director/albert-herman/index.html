@@ -188,8 +188,10 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
   :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--border2:#c4b49a;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
@@ -210,7 +212,7 @@
   .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem}
   @media(max-width:640px){.layout{grid-template-columns:1fr}.poster-wrap{max-width:220px;margin:0 auto}}
   /* POSTER */
-  .poster-wrap img{width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block}
+  .poster-wrap img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);display:block}
   .poster-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:13px}
   /* INFO */
   .meta{font-size:12px;color:var(--text-faint);margin-bottom:0.4rem}
@@ -305,7 +307,7 @@
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-whispering-shadow-1933/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/h19xCeDBYdBld0GJ54Zq1bCE5zl.jpg" alt="Póster de The Whispering Shadow" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Whispering Shadow</div><div class="rel-anio">1933 · ★ 5.3</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/a-yank-in-libya-1942/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/aUoamE7VHbIw04ErGqDtOY6wM8Q.jpg" alt="Póster de A Yank in Libya" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">A Yank in Libya</div><div class="rel-anio">1942 · ★ 4.4</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-big-chance-1933/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/gNPPudqY8U8rcJytI0vKsiCByx5.jpg" alt="Póster de The Big Chance" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Big Chance</div><div class="rel-anio">1933 · ★ 4.9</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/rogues-gallery-1944/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/dR3OZjtUScLFhu9DHj5aOhSKmbM.jpg" alt="Póster de Rogues Gallery" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Rogues Gallery</div><div class="rel-anio">1944 · ★ 4.9</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/rogues-gallery-1944/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/dR3OZjtUScLFhu9DHj5aOhSKmbM.jpg" alt="Póster de Rogues&#x27; Gallery" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Rogues&#x27; Gallery</div><div class="rel-anio">1944 · ★ 4.9</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/rollin-plains-1938/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/md5ntzBixH0SKcWqzSQydq3MR2X.jpg" alt="Póster de Rollin&#x27; Plains" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Rollin&#x27; Plains</div><div class="rel-anio">1938 · ★ 4.8</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/renfrew-of-the-royal-mounted-1937/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/lQU2YLYwr4Y2DwsyUPRrJEwoh48.jpg" alt="Póster de Renfrew of the Royal Mounted" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Renfrew of the Royal Mounted</div><div class="rel-anio">1937 · ★ 5.6</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/danger-ahead-1935/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/yleqVjCafLucupBZtetAkxby386.jpg" alt="Póster de Danger Ahead" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Danger Ahead</div><div class="rel-anio">1935 · ★ 5.1</div></div></a>

@@ -128,8 +128,10 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
   :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--border2:#c4b49a;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
@@ -150,7 +152,7 @@
   .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem}
   @media(max-width:640px){.layout{grid-template-columns:1fr}.poster-wrap{max-width:220px;margin:0 auto}}
   /* POSTER */
-  .poster-wrap img{width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block}
+  .poster-wrap img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);display:block}
   .poster-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:13px}
   /* INFO */
   .meta{font-size:12px;color:var(--text-faint);margin-bottom:0.4rem}
@@ -240,7 +242,7 @@
   <div class="hub-grid">
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/midnight-phantom-1935/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/olnYsaKdulzWvQxgEC4uEs89cDs.jpg" alt="Póster de Midnight Phantom" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Midnight Phantom</div><div class="rel-anio">1935 · ★ 4.6</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/broken-strings-1940/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/8AzOZ2ONfxBcTmhKyuQ5tW59WAR.jpg" alt="Póster de Broken Strings" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Broken Strings</div><div class="rel-anio">1940 · ★ 5.7</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/buffalo-bill-in-tomahawk-territory-1952/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/uGNWQlE6Pti6pmWqNzyLZi0bimT.jpg" alt="Póster de Buffalo Bill in Tomahawk Territory" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Buffalo Bill in Tomahawk Territory</div><div class="rel-anio">1952 · ★ 4.1</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/buffalo-bill-in-tomahawk-territory-1952/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/uGNWQlE6Pti6pmWqNzyLZi0bimT.jpg" alt="Póster de Buffalo Bill en territorio tomahawk" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Buffalo Bill en territorio tomahawk</div><div class="rel-anio">1952 · ★ 4.1</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/too-many-women-1942/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/7YfPgODYD0XKhcdFyRJALGippLi.jpg" alt="Póster de Too Many Women" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Too Many Women</div><div class="rel-anio">1942 · ★ 4.8</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-silver-trail-1937/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/ipEMkbpOSOPIy1xVUaAcJB0Szk9.jpg" alt="Póster de The Silver Trail" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Silver Trail</div><div class="rel-anio">1937 · ★ 5.5</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/caryl-of-the-mountains-1936/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/zUmPBztSG7OrDbVatygDBhas7LA.jpg" alt="Póster de Caryl of the Mountains" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Caryl of the Mountains</div><div class="rel-anio">1936 · ★ 4.9</div></div></a>

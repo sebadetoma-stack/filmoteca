@@ -168,8 +168,10 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
   :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--border2:#c4b49a;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
@@ -190,7 +192,7 @@
   .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem}
   @media(max-width:640px){.layout{grid-template-columns:1fr}.poster-wrap{max-width:220px;margin:0 auto}}
   /* POSTER */
-  .poster-wrap img{width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block}
+  .poster-wrap img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);display:block}
   .poster-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:13px}
   /* INFO */
   .meta{font-size:12px;color:var(--text-faint);margin-bottom:0.4rem}
@@ -278,12 +280,12 @@
   <h1>Películas de Frank R. Strayer</h1>
   <p class="hub-intro">21 películas dirigidas por Frank R. Strayer, disponibles completas y gratis en YouTube, verificadas desde Argentina. Ordenadas por cantidad de votos en IMDb.</p>
   <div class="hub-grid">
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-vampire-bat-1933/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/bGN3Ik3CatDC9wvfV55LLBrBGh8.jpg" alt="Póster de The Vampire Bat" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Vampire Bat</div><div class="rel-anio">1933 · ★ 5.8</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-vampire-bat-1933/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/bGN3Ik3CatDC9wvfV55LLBrBGh8.jpg" alt="Póster de Sombras Trágicas, ¿Vampiros?" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Sombras Trágicas, ¿Vampiros?</div><div class="rel-anio">1933 · ★ 5.8</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-monster-walks-1932/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/c2MEDsZHT2zYCTXnYbsL2JyfWKO.jpg" alt="Póster de The Monster Walks" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Monster Walks</div><div class="rel-anio">1932 · ★ 4.1</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-ghost-walks-1934/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/q63uhDxhJgavt5FwhyMtaljPhA.jpg" alt="Póster de The Ghost Walks" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Ghost Walks</div><div class="rel-anio">1934 · ★ 5.6</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/condemned-to-live-1935/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/2StercLz8j8YG7frZS1fNkB8xyV.jpg" alt="Póster de Condemned to Live" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Condemned to Live</div><div class="rel-anio">1935 · ★ 4.8</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/murder-at-midnight-1931/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/IIaWIOWNsXfFyS8Jv9Ah6Ez9pq.jpg" alt="Póster de Murder at Midnight" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Murder at Midnight</div><div class="rel-anio">1931 · ★ 5.5</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-criminal-within-1935/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/6k7oHzWA7js4nCtPoMwvtlThAOJ.jpg" alt="Póster de The Criminal Within" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Criminal Within</div><div class="rel-anio">1935 · ★ 5.9</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-criminal-within-1935/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/6k7oHzWA7js4nCtPoMwvtlThAOJ.jpg" alt="Póster de Murder at Glen Athol" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Murder at Glen Athol</div><div class="rel-anio">1935 · ★ 5.9</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/manhattan-tower-1932/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/4ekWKqbfKkkPnJhtBJVQua6SaNp.jpg" alt="Póster de Manhattan Tower" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Manhattan Tower</div><div class="rel-anio">1932 · ★ 6.3</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/tangled-destinies-1932/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/svWfBO5YtfQyNYPPYnfa4THe3VB.jpg" alt="Póster de Tangled Destinies" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Tangled Destinies</div><div class="rel-anio">1932 · ★ 5.2</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/death-from-a-distance-1935/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/w4bSLbH04dv0eWC79zh5aplTS9r.jpg" alt="Póster de Death from a Distance" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Death from a Distance</div><div class="rel-anio">1935 · ★ 5.2</div></div></a>

@@ -118,8 +118,10 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
   :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--border2:#c4b49a;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
@@ -140,7 +142,7 @@
   .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem}
   @media(max-width:640px){.layout{grid-template-columns:1fr}.poster-wrap{max-width:220px;margin:0 auto}}
   /* POSTER */
-  .poster-wrap img{width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block}
+  .poster-wrap img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);display:block}
   .poster-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:13px}
   /* INFO */
   .meta{font-size:12px;color:var(--text-faint);margin-bottom:0.4rem}
@@ -228,11 +230,11 @@
   <h1>Películas de Robert Florey</h1>
   <p class="hub-intro">11 películas dirigidas por Robert Florey, disponibles completas y gratis en YouTube, verificadas desde Argentina. Ordenadas por cantidad de votos en IMDb.</p>
   <div class="hub-grid">
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/murders-in-the-rue-morgue-1932/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/eT61UPsmKv8JCStCUHLjCQNJAzQ.jpg" alt="Póster de Murders in the Rue Morgue" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Murders in the Rue Morgue</div><div class="rel-anio">1932 · ★ 6.3</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-face-behind-the-mask-1941/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/x9r2dwKDYIGiEhN2iUEQ8wDUFx5.jpg" alt="Póster de The Face Behind the Mask" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Face Behind the Mask</div><div class="rel-anio">1941 · ★ 7.1</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-crooked-way-1949/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/l91wMZ5B4dtodl2EOiLKR0fQ9mg.jpg" alt="Póster de The Crooked Way" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Crooked Way</div><div class="rel-anio">1949 · ★ 6.6</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/murders-in-the-rue-morgue-1932/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/eT61UPsmKv8JCStCUHLjCQNJAzQ.jpg" alt="Póster de El doble asesinato de la calle Morgue" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">El doble asesinato de la calle Morgue</div><div class="rel-anio">1932 · ★ 6.3</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-face-behind-the-mask-1941/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/x9r2dwKDYIGiEhN2iUEQ8wDUFx5.jpg" alt="Póster de La máscara de fuego" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">La máscara de fuego</div><div class="rel-anio">1941 · ★ 7.1</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-crooked-way-1949/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/l91wMZ5B4dtodl2EOiLKR0fQ9mg.jpg" alt="Póster de Arrostrando la muerte" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Arrostrando la muerte</div><div class="rel-anio">1949 · ★ 6.6</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/lady-gangster-1942/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/nJQq62hlK4R3voTQ1nyq5jhuG1x.jpg" alt="Póster de Lady Gangster" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Lady Gangster</div><div class="rel-anio">1942 · ★ 5.8</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/meet-boston-blackie-1941/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/nkLkd5gUBYr7JvaJxgrtCerrPWz.jpg" alt="Póster de Meet Boston Blackie" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Meet Boston Blackie</div><div class="rel-anio">1941 · ★ 6.6</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/meet-boston-blackie-1941/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/nkLkd5gUBYr7JvaJxgrtCerrPWz.jpg" alt="Póster de Conociendo a Boston Blackie" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Conociendo a Boston Blackie</div><div class="rel-anio">1941 · ★ 6.6</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/outpost-in-morocco-1949/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/5Uz2LQyviuObd69vMgUILqUnhax.jpg" alt="Póster de Outpost in Morocco" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Outpost in Morocco</div><div class="rel-anio">1949 · ★ 5.2</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-hole-in-the-wall-1929/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/lItkLZ6H3JNu3mkk2Uvk4Ju7t9X.jpg" alt="Póster de The Hole in the Wall" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Hole in the Wall</div><div class="rel-anio">1929 · ★ 5.7</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/johnny-one-eye-1950/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/bHbRcsO99NMsL0lI4r1aLp1lACQ.jpg" alt="Póster de Johnny One-Eye" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Johnny One-Eye</div><div class="rel-anio">1950 · ★ 5.5</div></div></a>

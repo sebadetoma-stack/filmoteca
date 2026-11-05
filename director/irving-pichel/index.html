@@ -123,8 +123,10 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
   :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--border2:#c4b49a;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
@@ -145,7 +147,7 @@
   .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem}
   @media(max-width:640px){.layout{grid-template-columns:1fr}.poster-wrap{max-width:220px;margin:0 auto}}
   /* POSTER */
-  .poster-wrap img{width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block}
+  .poster-wrap img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);display:block}
   .poster-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:13px}
   /* INFO */
   .meta{font-size:12px;color:var(--text-faint);margin-bottom:0.4rem}
@@ -233,12 +235,12 @@
   <h1>Películas de Irving Pichel</h1>
   <p class="hub-intro">12 películas dirigidas por Irving Pichel, disponibles completas y gratis en YouTube, verificadas desde Argentina. Ordenadas por cantidad de votos en IMDb.</p>
   <div class="hub-grid">
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-most-dangerous-game-1932/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/41N5Rn3Xw3p7vj7n3j7M2GLgDwA.jpg" alt="Póster de The Most Dangerous Game" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Most Dangerous Game</div><div class="rel-anio">1932 · ★ 7.0</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/destination-moon-1950/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/2dsJUooqTX5BkOmkfnuuFlkmbB6.jpg" alt="Póster de Destination Moon" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Destination Moon</div><div class="rel-anio">1950 · ★ 6.3</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/quicksand-1950/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/rbOZVrm0TrgK2RHKZVBSmszmaf3.jpg" alt="Póster de Quicksand" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Quicksand</div><div class="rel-anio">1950 · ★ 6.6</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/swamp-water-1941/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/mLlq6vyEI2ZpWMvIsG4Ed4764Yx.jpg" alt="Póster de Swamp Water" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Swamp Water</div><div class="rel-anio">1941 · ★ 7.0</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-great-rupert-1950/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/aJGIPdcB8JddD3gpCTEIN9j6K1O.jpg" alt="Póster de The Great Rupert" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Great Rupert</div><div class="rel-anio">1950 · ★ 6.4</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-pied-piper-1942/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/rEX58msBJx0Pcb4rYPHZaV8La0M.jpg" alt="Póster de The Pied Piper" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Pied Piper</div><div class="rel-anio">1942 · ★ 7.0</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-most-dangerous-game-1932/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/41N5Rn3Xw3p7vj7n3j7M2GLgDwA.jpg" alt="Póster de El Malvado Zaroff" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">El Malvado Zaroff</div><div class="rel-anio">1932 · ★ 7.0</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/destination-moon-1950/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/2dsJUooqTX5BkOmkfnuuFlkmbB6.jpg" alt="Póster de Con destino a la luna" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Con destino a la luna</div><div class="rel-anio">1950 · ★ 6.3</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/quicksand-1950/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/rbOZVrm0TrgK2RHKZVBSmszmaf3.jpg" alt="Póster de Peligros de juventud" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Peligros de juventud</div><div class="rel-anio">1950 · ★ 6.6</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/swamp-water-1941/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/mLlq6vyEI2ZpWMvIsG4Ed4764Yx.jpg" alt="Póster de Aguas pantanosas" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Aguas pantanosas</div><div class="rel-anio">1941 · ★ 7.0</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-great-rupert-1950/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/aJGIPdcB8JddD3gpCTEIN9j6K1O.jpg" alt="Póster de El gran Rupert" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">El gran Rupert</div><div class="rel-anio">1950 · ★ 6.4</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-pied-piper-1942/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/rEX58msBJx0Pcb4rYPHZaV8La0M.jpg" alt="Póster de El flautista de Hamelin" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">El flautista de Hamelin</div><div class="rel-anio">1942 · ★ 7.0</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/martin-luther-1953/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/aUl70aJUSGLHNblrHQG2AbJpWH2.jpg" alt="Póster de Martin Luther" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Martin Luther</div><div class="rel-anio">1953 · ★ 6.8</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-moon-is-down-1943/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/7h46xgnvYn4f13tx4VZV3fEegK9.jpg" alt="Póster de The Moon Is Down" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Moon Is Down</div><div class="rel-anio">1943 · ★ 6.9</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/without-honor-1949/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/nmHudoXnyEyFipjqsqzbXPwMQQQ.jpg" alt="Póster de Without Honor" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Without Honor</div><div class="rel-anio">1949 · ★ 6.1</div></div></a>

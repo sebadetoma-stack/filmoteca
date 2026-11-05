@@ -183,8 +183,10 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
   :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--border2:#c4b49a;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
@@ -205,7 +207,7 @@
   .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem}
   @media(max-width:640px){.layout{grid-template-columns:1fr}.poster-wrap{max-width:220px;margin:0 auto}}
   /* POSTER */
-  .poster-wrap img{width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block}
+  .poster-wrap img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);display:block}
   .poster-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:13px}
   /* INFO */
   .meta{font-size:12px;color:var(--text-faint);margin-bottom:0.4rem}
@@ -293,12 +295,12 @@
   <h1>Películas de Joseph Kane</h1>
   <p class="hub-intro">24 películas dirigidas por Joseph Kane, disponibles completas y gratis en YouTube, verificadas desde Argentina. Ordenadas por cantidad de votos en IMDb.</p>
   <div class="hub-grid">
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/flame-of-barbary-coast-1945/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/mkrCh761QjMKbfH6Ec2ZXHDh0H6.jpg" alt="Póster de Flame of Barbary Coast" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Flame of Barbary Coast</div><div class="rel-anio">1945 · ★ 6.2</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/flame-of-barbary-coast-1945/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/mkrCh761QjMKbfH6Ec2ZXHDh0H6.jpg" alt="Póster de Algún día volveré" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Algún día volveré</div><div class="rel-anio">1945 · ★ 6.2</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/undersea-kingdom-1936/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/v24hM8WeAlT4uoZHPWu94DbMHz4.jpg" alt="Póster de Undersea Kingdom" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Undersea Kingdom</div><div class="rel-anio">1936 · ★ 4.7</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/hoodlum-empire-1952/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/jgx8JpiAtUlrIghrV5HxQgKPDs4.jpg" alt="Póster de Hoodlum Empire" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Hoodlum Empire</div><div class="rel-anio">1952 · ★ 6.0</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/under-western-stars-1938/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/dD1JQAQXhSP6vVZmAbKZ9LuJzOg.jpg" alt="Póster de Under Western Stars" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Under Western Stars</div><div class="rel-anio">1938 · ★ 5.9</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-carson-city-kid-1940/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/1HcttQ5zS8OjTslJ8FKHTt6nBKt.jpg" alt="Póster de The Carson City Kid" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Carson City Kid</div><div class="rel-anio">1940 · ★ 6.1</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/cowboy-and-the-senorita-1944/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/d5Z1EHhsbrOWDhpwRQZqs2T2gg3.jpg" alt="Póster de Cowboy and the Senorita" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Cowboy and the Senorita</div><div class="rel-anio">1944 · ★ 5.7</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-carson-city-kid-1940/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/1HcttQ5zS8OjTslJ8FKHTt6nBKt.jpg" alt="Póster de El chico de Carson City" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">El chico de Carson City</div><div class="rel-anio">1940 · ★ 6.1</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/cowboy-and-the-senorita-1944/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/d5Z1EHhsbrOWDhpwRQZqs2T2gg3.jpg" alt="Póster de El cowboy y la señorita" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">El cowboy y la señorita</div><div class="rel-anio">1944 · ★ 5.7</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/colorado-1940/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/qANJ9B40xGnyZ38ehAoFlrzIvki.jpg" alt="Póster de Colorado" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Colorado</div><div class="rel-anio">1940 · ★ 5.9</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/king-of-the-cowboys-1943/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/xbxLT763MGruhz56LQiqaBNO0ir.jpg" alt="Póster de King of the Cowboys" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">King of the Cowboys</div><div class="rel-anio">1943 · ★ 5.9</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-big-show-1936/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/iWv0GW5nN7iLNFSkfStNgEc5wGl.jpg" alt="Póster de The Big Show" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Big Show</div><div class="rel-anio">1936 · ★ 5.7</div></div></a>

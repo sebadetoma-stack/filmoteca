@@ -193,8 +193,10 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
   :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--border2:#c4b49a;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
@@ -215,7 +217,7 @@
   .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem}
   @media(max-width:640px){.layout{grid-template-columns:1fr}.poster-wrap{max-width:220px;margin:0 auto}}
   /* POSTER */
-  .poster-wrap img{width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block}
+  .poster-wrap img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);display:block}
   .poster-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:13px}
   /* INFO */
   .meta{font-size:12px;color:var(--text-faint);margin-bottom:0.4rem}
@@ -303,7 +305,7 @@
   <h1>Películas de Robert F. Hill</h1>
   <p class="hub-intro">26 películas dirigidas por Robert F. Hill, disponibles completas y gratis en YouTube, verificadas desde Argentina. Ordenadas por cantidad de votos en IMDb.</p>
   <div class="hub-grid">
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/tarzan-the-fearless-1933/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/eHN87HvpjSaz6jk6mSerWzAmrqM.jpg" alt="Póster de Tarzan the Fearless" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Tarzan the Fearless</div><div class="rel-anio">1933 · ★ 4.8</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/tarzan-the-fearless-1933/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/eHN87HvpjSaz6jk6mSerWzAmrqM.jpg" alt="Póster de Tarzán de las fieras" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Tarzán de las fieras</div><div class="rel-anio">1933 · ★ 4.8</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-rogues-tavern-1936/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/3EQJECvzEkRj7KKgN59wMYgeTg2.jpg" alt="Póster de The Rogues&#x27; Tavern" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Rogues&#x27; Tavern</div><div class="rel-anio">1936 · ★ 5.2</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/east-side-kids-1940/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/jU3qrTXRuqwEdNsgHKm4G3d12tx.jpg" alt="Póster de East Side Kids" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">East Side Kids</div><div class="rel-anio">1940 · ★ 5.5</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/shadow-of-chinatown-1936/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/gFAn1OfQ9jfldVb81N5lhapADT5.jpg" alt="Póster de Shadow of Chinatown" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Shadow of Chinatown</div><div class="rel-anio">1936 · ★ 4.5</div></div></a>
@@ -313,7 +315,7 @@
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/blake-of-scotland-yard-1937/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/yLNFs0tk5sowWmUK6hg8tbIVOB6.jpg" alt="Póster de Blake of Scotland Yard" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Blake of Scotland Yard</div><div class="rel-anio">1937 · ★ 3.4</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/frontier-days-1934/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/cyUYnoiN4xglKLSOkQ0kVVXjvvK.jpg" alt="Póster de Frontier Days" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Frontier Days</div><div class="rel-anio">1934 · ★ 4.5</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/whirlwind-horseman-1938/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/i05mYc4gusg8p3Jk7TJlpExIH6a.jpg" alt="Póster de Whirlwind Horseman" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Whirlwind Horseman</div><div class="rel-anio">1938 · ★ 6.2</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/idaho-kid-1936/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/p8Lbgu1j13s3Vqi5xuXfNuD1kfe.jpg" alt="Póster de Idaho Kid" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Idaho Kid</div><div class="rel-anio">1936 · ★ 6.4</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/idaho-kid-1936/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/p8Lbgu1j13s3Vqi5xuXfNuD1kfe.jpg" alt="Póster de The Idaho Kid" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Idaho Kid</div><div class="rel-anio">1936 · ★ 6.4</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/taming-the-wild-1936/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/6lt4qrh7S3R3k9RmWkpH3ImBuLw.jpg" alt="Póster de Taming the Wild" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Taming the Wild</div><div class="rel-anio">1936 · ★ 6.1</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/cheyenne-rides-again-1937/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/5c2GMiethqQWmxCq27YnOoS0ybG.jpg" alt="Póster de Cheyenne Rides Again" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Cheyenne Rides Again</div><div class="rel-anio">1937 · ★ 5.8</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-phantom-of-the-range-1936/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/cIu9eZHSzC0gwDaMphDtzSJ8w4v.jpg" alt="Póster de The Phantom of the Range" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Phantom of the Range</div><div class="rel-anio">1936 · ★ 6.4</div></div></a>

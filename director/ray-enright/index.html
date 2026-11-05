@@ -113,8 +113,10 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
   :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--border2:#c4b49a;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
@@ -135,7 +137,7 @@
   .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem}
   @media(max-width:640px){.layout{grid-template-columns:1fr}.poster-wrap{max-width:220px;margin:0 auto}}
   /* POSTER */
-  .poster-wrap img{width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block}
+  .poster-wrap img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);display:block}
   .poster-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:13px}
   /* INFO */
   .meta{font-size:12px;color:var(--text-faint);margin-bottom:0.4rem}
@@ -223,10 +225,10 @@
   <h1>Películas de Ray Enright</h1>
   <p class="hub-intro">10 películas dirigidas por Ray Enright, disponibles completas y gratis en YouTube, verificadas desde Argentina. Ordenadas por cantidad de votos en IMDb.</p>
   <div class="hub-grid">
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/gung-ho-the-story-of-carlsons-makin-island-raiders-1943/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/sU1sfaqxF9yrnvF8srvQpUooE2V.jpg" alt="Póster de &#x27;Gung Ho!&#x27;: The Story of Carlson&#x27;s Makin Island Raiders" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">&#x27;Gung Ho!&#x27;: The Story of Carlson&#x27;s Makin Island Raiders</div><div class="rel-anio">1943 · ★ 6.0</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/destroyer-1943/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/em0p7rFXwNNbV2Rze2qhfWqtxg2.jpg" alt="Póster de Destroyer" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Destroyer</div><div class="rel-anio">1943 · ★ 6.3</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/coroner-creek-1948/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/vNuIDlaJhF6omwLBvOumasRwZp7.jpg" alt="Póster de Coroner Creek" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Coroner Creek</div><div class="rel-anio">1948 · ★ 6.6</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/south-of-st-louis-1949/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/m7kgSk8Aoe3cJ58MSMRfNdwXQG.jpg" alt="Póster de South of St. Louis" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">South of St. Louis</div><div class="rel-anio">1949 · ★ 6.0</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/gung-ho-the-story-of-carlsons-makin-island-raiders-1943/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/sU1sfaqxF9yrnvF8srvQpUooE2V.jpg" alt="Póster de Todos a Una (Gung Ho!)" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Todos a Una (Gung Ho!)</div><div class="rel-anio">1943 · ★ 6.0</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/destroyer-1943/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/em0p7rFXwNNbV2Rze2qhfWqtxg2.jpg" alt="Póster de Destructor" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Destructor</div><div class="rel-anio">1943 · ★ 6.3</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/coroner-creek-1948/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/vNuIDlaJhF6omwLBvOumasRwZp7.jpg" alt="Póster de Coronel Creek" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Coronel Creek</div><div class="rel-anio">1948 · ★ 6.6</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/south-of-st-louis-1949/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/m7kgSk8Aoe3cJ58MSMRfNdwXQG.jpg" alt="Póster de Al sur de San Luis" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Al sur de San Luis</div><div class="rel-anio">1949 · ★ 6.0</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/earthworm-tractors-1936/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/ktlqPjFefKheO4d58f5XYx3PwYX.jpg" alt="Póster de Earthworm Tractors" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Earthworm Tractors</div><div class="rel-anio">1936 · ★ 6.3</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/tomorrow-at-seven-1933/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/589FjndvHAJi0VSj11jla9vRP7y.jpg" alt="Póster de Tomorrow at Seven" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Tomorrow at Seven</div><div class="rel-anio">1933 · ★ 5.6</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/dancing-sweeties-1930/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/yVPYWEyIjtZSlYrFQfsEpTissa6.jpg" alt="Póster de Dancing Sweeties" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Dancing Sweeties</div><div class="rel-anio">1930 · ★ 5.4</div></div></a>

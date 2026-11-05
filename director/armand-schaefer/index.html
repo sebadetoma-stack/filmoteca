@@ -113,8 +113,10 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
   :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--border2:#c4b49a;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
@@ -135,7 +137,7 @@
   .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem}
   @media(max-width:640px){.layout{grid-template-columns:1fr}.poster-wrap{max-width:220px;margin:0 auto}}
   /* POSTER */
-  .poster-wrap img{width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block}
+  .poster-wrap img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);display:block}
   .poster-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:13px}
   /* INFO */
   .meta{font-size:12px;color:var(--text-faint);margin-bottom:0.4rem}
@@ -224,11 +226,11 @@
   <p class="hub-intro">10 películas dirigidas por Armand Schaefer, disponibles completas y gratis en YouTube, verificadas desde Argentina. Ordenadas por cantidad de votos en IMDb.</p>
   <div class="hub-grid">
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-hurricane-express-1932/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/87gqfLkfEVxUgvbf9nKhn6DfxQ2.jpg" alt="Póster de The Hurricane Express" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Hurricane Express</div><div class="rel-anio">1932 · ★ 5.3</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-three-musketeers-1933/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/4Bnc6xJe99bg5ilsGmZ6lmJqYxA.jpg" alt="Póster de The Three Musketeers" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Three Musketeers</div><div class="rel-anio">1933 · ★ 5.2</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-lost-jungle-1934/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/sijZvoYRRTusV1hEyIAlujxPXj0.jpg" alt="Póster de The Lost Jungle" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Lost Jungle</div><div class="rel-anio">1934 · ★ 4.6</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-three-musketeers-1933/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/4Bnc6xJe99bg5ilsGmZ6lmJqYxA.jpg" alt="Póster de Los tres mosqueteros del desierto" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Los tres mosqueteros del desierto</div><div class="rel-anio">1933 · ★ 5.2</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-lost-jungle-1934/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/sijZvoYRRTusV1hEyIAlujxPXj0.jpg" alt="Póster de La jungla perdida" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">La jungla perdida</div><div class="rel-anio">1934 · ★ 4.6</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/sinister-hands-1932/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/wEusjsnEjSGamYpUZlqoKeIBmWJ.jpg" alt="Póster de Sinister Hands" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Sinister Hands</div><div class="rel-anio">1932 · ★ 5.1</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-miracle-rider-1935/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/ktakZykmjdZ5K0aFDws1a8h7W3E.jpg" alt="Póster de The Miracle Rider" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Miracle Rider</div><div class="rel-anio">1935 · ★ 6.6</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/law-of-the-wild-1934/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/s8i7HYlimxI55kJaFksvEYfQlxn.jpg" alt="Póster de Law of the Wild" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Law of the Wild</div><div class="rel-anio">1934 · ★ 6.2</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/law-of-the-wild-1934/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/s8i7HYlimxI55kJaFksvEYfQlxn.jpg" alt="Póster de The Law of the Wild" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Law of the Wild</div><div class="rel-anio">1934 · ★ 6.2</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/burn-em-up-barnes-1934/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/oMMpuVfzMXmOrwWbxfMuSAqhyt8.jpg" alt="Póster de Burn &#x27;Em Up Barnes" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Burn &#x27;Em Up Barnes</div><div class="rel-anio">1934 · ★ 6.6</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/sixteen-fathoms-deep-1934/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/uxwve4q4pCLudTZ8WfnxSkxEHd6.jpg" alt="Póster de Sixteen Fathoms Deep" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Sixteen Fathoms Deep</div><div class="rel-anio">1934 · ★ 5.5</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/fighting-with-kit-carson-1933/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/dmT0CE18V3nY8Tb39BIdOkppJZM.jpg" alt="Póster de Fighting with Kit Carson" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Fighting with Kit Carson</div><div class="rel-anio">1933 · ★ 6.5</div></div></a>

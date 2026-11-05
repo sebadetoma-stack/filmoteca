@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index,follow,max-image-preview:large">
 <title>Ver The Silver Horde (1930) completa gratis en YouTube | Filmoteca Clásica</title>
 <meta name="description" content="Un pescador de salmón tiene que elegir entre una mujer de mala vida y una joven de la alta sociedad.">
 <meta property="og:title" content="Ver The Silver Horde (1930) completa gratis en YouTube | Filmoteca Clásica">
@@ -10,7 +11,12 @@
 <meta property="og:image" content="https://image.tmdb.org/t/p/w342/4rKBNRNSQBPIh7EN1FRrWhJ7aWW.jpg">
 <meta property="og:url" content="https://filmotecaclasica.com/pelicula/the-silver-horde-1930/">
 <meta property="og:type" content="video.movie">
+<meta property="og:site_name" content="Filmoteca Clásica">
+<meta property="og:locale" content="es_LA">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ver The Silver Horde (1930) completa gratis en YouTube | Filmoteca Clásica">
+<meta name="twitter:description" content="Un pescador de salmón tiene que elegir entre una mujer de mala vida y una joven de la alta sociedad.">
+<meta name="twitter:image" content="https://image.tmdb.org/t/p/w342/4rKBNRNSQBPIh7EN1FRrWhJ7aWW.jpg">
 <link rel="canonical" href="https://filmotecaclasica.com/pelicula/the-silver-horde-1930/">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FNBHN0F639"></script>
@@ -94,8 +100,10 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
   :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--border2:#c4b49a;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
@@ -116,7 +124,7 @@
   .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem}
   @media(max-width:640px){.layout{grid-template-columns:1fr}.poster-wrap{max-width:220px;margin:0 auto}}
   /* POSTER */
-  .poster-wrap img{width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block}
+  .poster-wrap img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);display:block}
   .poster-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:13px}
   /* INFO */
   .meta{font-size:12px;color:var(--text-faint);margin-bottom:0.4rem}
@@ -195,7 +203,7 @@
   <div class="layout">
 
     <div class="poster-wrap">
-      <img src="https://image.tmdb.org/t/p/w342/4rKBNRNSQBPIh7EN1FRrWhJ7aWW.jpg" alt="Póster de The Silver Horde" loading="lazy">
+      <img src="https://image.tmdb.org/t/p/w342/4rKBNRNSQBPIh7EN1FRrWhJ7aWW.jpg" alt="Póster de The Silver Horde" width="220" height="330" fetchpriority="high" decoding="async">
     </div>
 
     <div>
@@ -292,9 +300,11 @@
 </footer>
 
 <script type="module">
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
-import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
-import { getFirestore, doc, getDoc, setDoc, deleteDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+// Firebase se carga cuando el navegador está ocioso, para no competir con el contenido
+await new Promise(r => ('requestIdleCallback' in window ? requestIdleCallback(r, { timeout: 2500 }) : setTimeout(r, 1500)));
+const { initializeApp } = await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js');
+const { getAuth, onAuthStateChanged } = await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js');
+const { getFirestore, doc, getDoc, setDoc, deleteDoc, serverTimestamp } = await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js');
 
 const firebaseConfig = {
   apiKey: "AIzaSyBh2sTmHwED1VtlvIqMOy1wFcW8CO_NZNg",

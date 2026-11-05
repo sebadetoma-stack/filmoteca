@@ -118,8 +118,10 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
   :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--border2:#c4b49a;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
@@ -140,7 +142,7 @@
   .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem}
   @media(max-width:640px){.layout{grid-template-columns:1fr}.poster-wrap{max-width:220px;margin:0 auto}}
   /* POSTER */
-  .poster-wrap img{width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block}
+  .poster-wrap img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);display:block}
   .poster-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:13px}
   /* INFO */
   .meta{font-size:12px;color:var(--text-faint);margin-bottom:0.4rem}
@@ -228,13 +230,13 @@
   <h1>Películas de Enrique Carreras</h1>
   <p class="hub-intro">11 películas dirigidas por Enrique Carreras, disponibles completas y gratis en YouTube, verificadas desde Argentina. Ordenadas por cantidad de votos en IMDb.</p>
   <div class="hub-grid">
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/masterworks-of-terror-1960/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/vIkmpIhP6bqP4D161hOYAbbGCAh.jpg" alt="Póster de Masterworks of Terror" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Masterworks of Terror</div><div class="rel-anio">1960 · ★ 7.1</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/yesterdays-boys-didnt-use-hair-fixers-1969/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/tEp3YLqKAQrptI9QkwwuqP2XFYB.jpg" alt="Póster de Yesterday&#x27;s Boys Didn&#x27;t Use Hair Fixers" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Yesterday&#x27;s Boys Didn&#x27;t Use Hair Fixers</div><div class="rel-anio">1969 · ★ 6.6</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/masterworks-of-terror-1960/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/vIkmpIhP6bqP4D161hOYAbbGCAh.jpg" alt="Póster de Obras maestras del terror" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Obras maestras del terror</div><div class="rel-anio">1960 · ★ 7.1</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/yesterdays-boys-didnt-use-hair-fixers-1969/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/tEp3YLqKAQrptI9QkwwuqP2XFYB.jpg" alt="Póster de Los muchachos de antes no usaban gomina" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Los muchachos de antes no usaban gomina</div><div class="rel-anio">1969 · ★ 6.6</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/el-club-del-clan-1964/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/xHXa7pndxB5Nxb0T25y0PvbsGXq.jpg" alt="Póster de El club del clan" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">El club del clan</div><div class="rel-anio">1964 · ★ 5.2</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/ya-tiene-comisario-el-pueblo-1967/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/wSwcVOxC55dm6bWzTPuW5krglK3.jpg" alt="Póster de Ya tiene comisario el pueblo" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Ya tiene comisario el pueblo</div><div class="rel-anio">1967 · ★ 5.8</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/those-crazy-years-1971/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/5lfvNjlsQubtvC074QGSvzHBsTo.jpg" alt="Póster de Those Crazy Years" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Those Crazy Years</div><div class="rel-anio">1971 · ★ 4.2</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/those-crazy-years-1971/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/5lfvNjlsQubtvC074QGSvzHBsTo.jpg" alt="Póster de Aquellos años locos" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Aquellos años locos</div><div class="rel-anio">1971 · ★ 4.2</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/la-mano-que-aprieta-1953/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/slp69c40gFMRjqg4yOcBjZF1J41.jpg" alt="Póster de La mano que aprieta" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">La mano que aprieta</div><div class="rel-anio">1953 · ★ 5.7</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-walk-1967/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/sRYHtJMM4gS4gQP0ceK7MSyuPpp.jpg" alt="Póster de The Walk" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Walk</div><div class="rel-anio">1967 · ★ 5.8</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-walk-1967/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/sRYHtJMM4gS4gQP0ceK7MSyuPpp.jpg" alt="Póster de El andador" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">El andador</div><div class="rel-anio">1967 · ★ 5.8</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/las-zapatillas-coloradas-1952/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/fXHyqawpqCMwdl4rjHB3lroivvd.jpg" alt="Póster de Las zapatillas coloradas" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Las zapatillas coloradas</div><div class="rel-anio">1952 · ★ 6.6</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/musica-alegria-y-amor-1955/"><div class="rel-poster"><div class="rel-placeholder">Música, alegría</div></div><div class="rel-info"><div class="rel-titulo-peli">Música, alegría y amor</div><div class="rel-anio">1955 · ★ 4.6</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/romeo-y-julita-1953/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/rkrTMdZBdMT1bbZ14djNrkgQcWx.jpg" alt="Póster de Romeo y Julita" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Romeo y Julita</div><div class="rel-anio">1953</div></div></a>

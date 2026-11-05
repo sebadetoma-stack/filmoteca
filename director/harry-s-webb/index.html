@@ -123,8 +123,10 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
   :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--border2:#c4b49a;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
@@ -145,7 +147,7 @@
   .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem}
   @media(max-width:640px){.layout{grid-template-columns:1fr}.poster-wrap{max-width:220px;margin:0 auto}}
   /* POSTER */
-  .poster-wrap img{width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block}
+  .poster-wrap img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);display:block}
   .poster-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:13px}
   /* INFO */
   .meta{font-size:12px;color:var(--text-faint);margin-bottom:0.4rem}
@@ -235,7 +237,7 @@
   <div class="hub-grid">
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/fast-bullets-1936/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/1rcSLCQ7xS1Kk9hyrTbQ6PBDO3W.jpg" alt="Póster de Fast Bullets" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Fast Bullets</div><div class="rel-anio">1936 · ★ 5.2</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/riot-squad-1933/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/2z3YykHpQT0hgqvxE8OYFMrOJOF.jpg" alt="Póster de Riot Squad" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Riot Squad</div><div class="rel-anio">1933 · ★ 5.0</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/murder-on-the-road-1936/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/pEkPhWCk4WkmoygAxwfdPcERj7O.jpg" alt="Póster de Murder on the Road" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Murder on the Road</div><div class="rel-anio">1936 · ★ 5.1</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/murder-on-the-road-1936/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/pEkPhWCk4WkmoygAxwfdPcERj7O.jpg" alt="Póster de Step on It" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Step on It</div><div class="rel-anio">1936 · ★ 5.1</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/born-to-battle-1935/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/g1iLLf4VaTWIKgC3dfNJG8m3c7w.jpg" alt="Póster de Born to Battle" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Born to Battle</div><div class="rel-anio">1935 · ★ 5.5</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-live-wire-1935/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/hMGTRCHLHAXNdK93XpgQZi1X4Bz.jpg" alt="Póster de The Live Wire" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Live Wire</div><div class="rel-anio">1935 · ★ 4.8</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/feud-of-the-range-1939/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/r5TLyIY5GIqGIziM4h9JyR0nUw1.jpg" alt="Póster de Feud of the Range" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Feud of the Range</div><div class="rel-anio">1939 · ★ 6.0</div></div></a>

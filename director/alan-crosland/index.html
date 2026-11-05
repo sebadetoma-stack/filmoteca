@@ -113,8 +113,10 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
   :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--border2:#c4b49a;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
@@ -135,7 +137,7 @@
   .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem}
   @media(max-width:640px){.layout{grid-template-columns:1fr}.poster-wrap{max-width:220px;margin:0 auto}}
   /* POSTER */
-  .poster-wrap img{width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block}
+  .poster-wrap img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);display:block}
   .poster-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:13px}
   /* INFO */
   .meta{font-size:12px;color:var(--text-faint);margin-bottom:0.4rem}
@@ -223,15 +225,15 @@
   <h1>Películas de Alan Crosland</h1>
   <p class="hub-intro">10 películas dirigidas por Alan Crosland, disponibles completas y gratis en YouTube, verificadas desde Argentina. Ordenadas por cantidad de votos en IMDb.</p>
   <div class="hub-grid">
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-jazz-singer-1927/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/zYxe070bHAihohoZlV2uHDJCHqD.jpg" alt="Póster de The Jazz Singer" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Jazz Singer</div><div class="rel-anio">1927 · ★ 6.4</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-jazz-singer-1927/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/zYxe070bHAihohoZlV2uHDJCHqD.jpg" alt="Póster de El cantor de Jazz" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">El cantor de Jazz</div><div class="rel-anio">1927 · ★ 6.4</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/don-juan-1926/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/3dUpmOy2oaGmwMf3KI5uPKxCAbw.jpg" alt="Póster de Don Juan" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Don Juan</div><div class="rel-anio">1926 · ★ 7.0</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-beloved-rogue-1927/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/A6O5EpF7XgbUQPo8XclbF01n6u5.jpg" alt="Póster de The Beloved Rogue" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Beloved Rogue</div><div class="rel-anio">1927 · ★ 7.0</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/when-a-man-loves-1927/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/gfoofwOhl3j9HKiShfmJqhp314F.jpg" alt="Póster de When a Man Loves" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">When a Man Loves</div><div class="rel-anio">1927 · ★ 7.0</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/old-san-francisco-1927/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/9h4gxz4uW5CMrGxsGOi5S5M8fjK.jpg" alt="Póster de Old San Francisco" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Old San Francisco</div><div class="rel-anio">1927 · ★ 6.4</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-beloved-rogue-1927/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/A6O5EpF7XgbUQPo8XclbF01n6u5.jpg" alt="Póster de El vagabundo poeta" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">El vagabundo poeta</div><div class="rel-anio">1927 · ★ 7.0</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/when-a-man-loves-1927/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/gfoofwOhl3j9HKiShfmJqhp314F.jpg" alt="Póster de Los amores de Manón" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Los amores de Manón</div><div class="rel-anio">1927 · ★ 7.0</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/old-san-francisco-1927/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/9h4gxz4uW5CMrGxsGOi5S5M8fjK.jpg" alt="Póster de Orgullo de raza" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Orgullo de raza</div><div class="rel-anio">1927 · ★ 6.4</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/glorious-betsy-1928/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/wW5TAQmCR8onRXHHihEyUCwKq5Y.jpg" alt="Póster de Glorious Betsy" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Glorious Betsy</div><div class="rel-anio">1928 · ★ 5.5</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/captain-thunder-1930/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/5TVzRhh7jqwVweZCPjQBXAZgQ5d.jpg" alt="Póster de Captain Thunder" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Captain Thunder</div><div class="rel-anio">1930 · ★ 4.5</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/big-boy-1930/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/vdrCw9HyyaiLXup8qGyIB2VORSR.jpg" alt="Póster de Big Boy" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Big Boy</div><div class="rel-anio">1930 · ★ 5.7</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/viennese-nights-1930/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/yr7D686NjHlxG0zsOM9Ecbd9imm.jpg" alt="Póster de Viennese Nights" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Viennese Nights</div><div class="rel-anio">1930 · ★ 6.8</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/viennese-nights-1930/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/yr7D686NjHlxG0zsOM9Ecbd9imm.jpg" alt="Póster de Noches de Viena" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Noches de Viena</div><div class="rel-anio">1930 · ★ 6.8</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-scarlet-lady-1928/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/eEzg9MIebp2cQsR8LSmhjhS5E3K.jpg" alt="Póster de The Scarlet Lady" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Scarlet Lady</div><div class="rel-anio">1928 · ★ 6.2</div></div></a>
   </div>
 

@@ -118,8 +118,10 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
   :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--border2:#c4b49a;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
@@ -140,7 +142,7 @@
   .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem}
   @media(max-width:640px){.layout{grid-template-columns:1fr}.poster-wrap{max-width:220px;margin:0 auto}}
   /* POSTER */
-  .poster-wrap img{width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block}
+  .poster-wrap img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);display:block}
   .poster-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:13px}
   /* INFO */
   .meta{font-size:12px;color:var(--text-faint);margin-bottom:0.4rem}
@@ -228,12 +230,12 @@
   <h1>Películas de John Rawlins</h1>
   <p class="hub-intro">11 películas dirigidas por John Rawlins, disponibles completas y gratis en YouTube, verificadas desde Argentina. Ordenadas por cantidad de votos en IMDb.</p>
   <div class="hub-grid">
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/sherlock-holmes-and-the-voice-of-terror-1942/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/9SKznibX1zFH9gGfgPIcA8EBnET.jpg" alt="Póster de Sherlock Holmes and the Voice of Terror" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Sherlock Holmes and the Voice of Terror</div><div class="rel-anio">1942 · ★ 6.4</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/sherlock-holmes-and-the-voice-of-terror-1942/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/9SKznibX1zFH9gGfgPIcA8EBnET.jpg" alt="Póster de Sherlock Holmes. La voz del terror" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Sherlock Holmes. La voz del terror</div><div class="rel-anio">1942 · ★ 6.4</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/dick-tracy-meets-gruesome-1947/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/sUJNIJqSPIX2hEFu82OjaqZJK1m.jpg" alt="Póster de Dick Tracy Meets Gruesome" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Dick Tracy Meets Gruesome</div><div class="rel-anio">1947 · ★ 6.1</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/dick-tracys-dilemma-1947/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/8fuS89ds46W5Nk7ZInoPh8QqWFG.jpg" alt="Póster de Dick Tracy&#x27;s Dilemma" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Dick Tracy&#x27;s Dilemma</div><div class="rel-anio">1947 · ★ 5.8</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-green-hornet-strikes-again-1940/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/aFIPmnz8S1KQzOzHE8BKi6M8URq.jpg" alt="Póster de The Green Hornet Strikes Again!" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Green Hornet Strikes Again!</div><div class="rel-anio">1940 · ★ 6.5</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/sudan-1945/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/3VSek9UuvXG4sKr6JZRx1dJbQZk.jpg" alt="Póster de Sudan" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Sudan</div><div class="rel-anio">1945 · ★ 6.1</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/weve-never-been-licked-1943/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/yaylR3ev96IygZZEg7tdBdVoopq.jpg" alt="Póster de We&#x27;ve Never Been Licked" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">We&#x27;ve Never Been Licked</div><div class="rel-anio">1943 · ★ 5.8</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-green-hornet-strikes-again-1940/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/aFIPmnz8S1KQzOzHE8BKi6M8URq.jpg" alt="Póster de A Volta do Besouro Verde" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">A Volta do Besouro Verde</div><div class="rel-anio">1940 · ★ 6.5</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/sudan-1945/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/3VSek9UuvXG4sKr6JZRx1dJbQZk.jpg" alt="Póster de Sudán: La Reina del Nilo" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Sudán: La Reina del Nilo</div><div class="rel-anio">1945 · ★ 6.1</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/weve-never-been-licked-1943/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/yaylR3ev96IygZZEg7tdBdVoopq.jpg" alt="Póster de Nunca nos han vencido" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Nunca nos han vencido</div><div class="rel-anio">1943 · ★ 5.8</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/junior-g-men-1940/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/9XqGTXsbR6eU7wyCKG9Z9haYBGW.jpg" alt="Póster de Junior G-Men" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Junior G-Men</div><div class="rel-anio">1940 · ★ 6.2</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/sea-raiders-1941/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/zSeHm95dKm2VBVTTaR3VtwVvevj.jpg" alt="Póster de Sea Raiders" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Sea Raiders</div><div class="rel-anio">1941 · ★ 5.9</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/overland-mail-1942/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/t1hi8pczWznNcuMpHQ2eWb46NC6.jpg" alt="Póster de Overland Mail" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Overland Mail</div><div class="rel-anio">1942 · ★ 6.7</div></div></a>

@@ -113,8 +113,10 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
   :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--border2:#c4b49a;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
@@ -135,7 +137,7 @@
   .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem}
   @media(max-width:640px){.layout{grid-template-columns:1fr}.poster-wrap{max-width:220px;margin:0 auto}}
   /* POSTER */
-  .poster-wrap img{width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block}
+  .poster-wrap img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);display:block}
   .poster-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:13px}
   /* INFO */
   .meta{font-size:12px;color:var(--text-faint);margin-bottom:0.4rem}
@@ -223,13 +225,13 @@
   <h1>Películas de Oswald Mitchell</h1>
   <p class="hub-intro">10 películas dirigidas por Oswald Mitchell, disponibles completas y gratis en YouTube, verificadas desde Argentina. Ordenadas por cantidad de votos en IMDb.</p>
   <div class="hub-grid">
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/horror-maniacs-1948/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/t162TDOEomg6ANPHqPpztIiX6Gn.jpg" alt="Póster de Horror Maniacs" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Horror Maniacs</div><div class="rel-anio">1948 · ★ 5.1</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/horror-maniacs-1948/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/t162TDOEomg6ANPHqPpztIiX6Gn.jpg" alt="Póster de El crimen del doctor Macfarlane" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">El crimen del doctor Macfarlane</div><div class="rel-anio">1948 · ★ 5.1</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-dummy-talks-1943/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/9nZoSGaT9IdVzwQILOz1yaqIVUx.jpg" alt="Póster de The Dummy Talks" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Dummy Talks</div><div class="rel-anio">1943 · ★ 5.1</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/black-memory-1947/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/e6RFt0G1OnNzQ06hTs9nGPkjCu1.jpg" alt="Póster de Black Memory" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Black Memory</div><div class="rel-anio">1947 · ★ 4.6</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/old-mother-riley-mp-1939/"><div class="rel-poster"><div class="rel-placeholder">Old Mother Rile</div></div><div class="rel-info"><div class="rel-titulo-peli">Old Mother Riley M.P.</div><div class="rel-anio">1939 · ★ 5.2</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/danny-boy-1941/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/6jmkUquNNjEXTQDIPs5fWoiPOB6.jpg" alt="Póster de Danny Boy" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Danny Boy</div><div class="rel-anio">1941 · ★ 5.3</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/old-mother-riley-in-paris-1938/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/2vZSRwxWFh7zS0BKSY69GNjggif.jpg" alt="Póster de Old Mother Riley in Paris" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Old Mother Riley in Paris</div><div class="rel-anio">1938 · ★ 4.4</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/temptations-1949/"><div class="rel-poster"><div class="rel-placeholder">Temptations</div></div><div class="rel-info"><div class="rel-titulo-peli">Temptations</div><div class="rel-anio">1949 · ★ 4.8</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/temptations-1949/"><div class="rel-poster"><div class="rel-placeholder">El hombre de ay</div></div><div class="rel-info"><div class="rel-titulo-peli">El hombre de ayer</div><div class="rel-anio">1949 · ★ 4.8</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/bobs-your-uncle-1942/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/z1Og4oRa9tL3YvcqdEH1yRourLX.jpg" alt="Póster de Bob&#x27;s Your Uncle" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Bob&#x27;s Your Uncle</div><div class="rel-anio">1942 · ★ 4.2</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/loyal-heart-1946/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/b7XuThsneOYZyQN6dETao0HbRD8.jpg" alt="Póster de Loyal Heart" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Loyal Heart</div><div class="rel-anio">1946 · ★ 5.4</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/asking-for-trouble-1942/"><div class="rel-poster"><div class="rel-placeholder">Asking for Trou</div></div><div class="rel-info"><div class="rel-titulo-peli">Asking for Trouble</div><div class="rel-anio">1942 · ★ 5.5</div></div></a>

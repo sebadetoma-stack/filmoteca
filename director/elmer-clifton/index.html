@@ -168,8 +168,10 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
   :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--border2:#c4b49a;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
@@ -190,7 +192,7 @@
   .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem}
   @media(max-width:640px){.layout{grid-template-columns:1fr}.poster-wrap{max-width:220px;margin:0 auto}}
   /* POSTER */
-  .poster-wrap img{width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block}
+  .poster-wrap img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);display:block}
   .poster-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:13px}
   /* INFO */
   .meta{font-size:12px;color:var(--text-faint);margin-bottom:0.4rem}
@@ -278,7 +280,7 @@
   <h1>Películas de Elmer Clifton</h1>
   <p class="hub-intro">21 películas dirigidas por Elmer Clifton, disponibles completas y gratis en YouTube, verificadas desde Argentina. Ordenadas por cantidad de votos en IMDb.</p>
   <div class="hub-grid">
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/captain-america-1944/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/nBRcChS66NohR3x6KVYMp6Obutt.jpg" alt="Póster de Captain America" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Captain America</div><div class="rel-anio">1944 · ★ 5.1</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/captain-america-1944/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/nBRcChS66NohR3x6KVYMp6Obutt.jpg" alt="Póster de Capitán América" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Capitán América</div><div class="rel-anio">1944 · ★ 5.1</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/not-wanted-1949/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/ubSC4Ryy1RjNmGPutHedrwCdPEN.jpg" alt="Póster de Not Wanted" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Not Wanted</div><div class="rel-anio">1949 · ★ 6.8</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/assassin-of-youth-1938/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/l21da4JKVpixfdqCpUzCG9qvt1F.jpg" alt="Póster de Assassin of Youth" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Assassin of Youth</div><div class="rel-anio">1938 · ★ 4.6</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/city-of-missing-girls-1941/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/x4iVg37MydiwV2teuim5vbO5x3K.jpg" alt="Póster de City of Missing Girls" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">City of Missing Girls</div><div class="rel-anio">1941 · ★ 4.9</div></div></a>
@@ -286,7 +288,7 @@
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/slaves-in-bondage-1937/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/xmsczfy4zEyUDKVWARhoqlakg1I.jpg" alt="Póster de Slaves in Bondage" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Slaves in Bondage</div><div class="rel-anio">1937 · ★ 4.5</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/gambling-with-souls-1936/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/pN1rZdDkISgE27G43vuGNRv8n64.jpg" alt="Póster de Gambling with Souls" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Gambling with Souls</div><div class="rel-anio">1936 · ★ 4.5</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-judge-1949/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/icX9JTOS0QcfjLTzxM5i5XRDXb8.jpg" alt="Póster de The Judge" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Judge</div><div class="rel-anio">1949 · ★ 6.0</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/pilot-x-1936/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/yiDmkriHCKuvQVq1rjeM0G6J5lC.jpg" alt="Póster de Pilot X" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Pilot X</div><div class="rel-anio">1936 · ★ 5.2</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/pilot-x-1936/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/yiDmkriHCKuvQVq1rjeM0G6J5lC.jpg" alt="Póster de Death in the Air" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Death in the Air</div><div class="rel-anio">1936 · ★ 5.2</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/isle-of-destiny-1940/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/9xi8SzAfyZuz1zACeJ8CbT9LqWl.jpg" alt="Póster de Isle of Destiny" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Isle of Destiny</div><div class="rel-anio">1940 · ★ 4.7</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/skull-and-crown-1935/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/roB9ECi3cFWscdKWv8XhVELaYPp.jpg" alt="Póster de Skull and Crown" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Skull and Crown</div><div class="rel-anio">1935 · ★ 5.5</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/swamp-woman-1941/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/xzR02zGS9Hq4BvKdPzPVw04FyUX.jpg" alt="Póster de Swamp Woman" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Swamp Woman</div><div class="rel-anio">1941 · ★ 4.6</div></div></a>

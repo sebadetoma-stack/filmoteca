@@ -118,8 +118,10 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
   :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--border2:#c4b49a;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
@@ -140,7 +142,7 @@
   .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem}
   @media(max-width:640px){.layout{grid-template-columns:1fr}.poster-wrap{max-width:220px;margin:0 auto}}
   /* POSTER */
-  .poster-wrap img{width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block}
+  .poster-wrap img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);display:block}
   .poster-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:13px}
   /* INFO */
   .meta{font-size:12px;color:var(--text-faint);margin-bottom:0.4rem}
@@ -231,13 +233,13 @@
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-thirteenth-chair-1929/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/nYTS65rQfseJPOZkbG6TUnT8LV.jpg" alt="Póster de The Thirteenth Chair" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Thirteenth Chair</div><div class="rel-anio">1929</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/seven-keys-to-baldpate-1929/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/sNZbKchmPQFqD9qlzHaleRAEHFJ.jpg" alt="Póster de Seven Keys to Baldpate" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Seven Keys to Baldpate</div><div class="rel-anio">1929</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/painted-faces-1929/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/a1LwvvEXIOWTyWUWnTh33iIlzZE.jpg" alt="Póster de Painted Faces" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Painted Faces</div><div class="rel-anio">1929</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-locked-door-1929/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/mQmOYu0QpnlYMiFhra1JybO8f8f.jpg" alt="Póster de The Locked Door" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Locked Door</div><div class="rel-anio">1929</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-locked-door-1929/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/mQmOYu0QpnlYMiFhra1JybO8f8f.jpg" alt="Póster de La puerta cerrada" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">La puerta cerrada</div><div class="rel-anio">1929</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/darkened-rooms-1929/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/pXAJ1YF7u6VOzHavGDk2WSfhrKH.jpg" alt="Póster de Darkened Rooms" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Darkened Rooms</div><div class="rel-anio">1929</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/bulldog-drummond-1929/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/7pN3nEDQBfQRjrtgOwJ3WBBm23F.jpg" alt="Póster de Bulldog Drummond" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Bulldog Drummond</div><div class="rel-anio">1929</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/big-news-1929/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/1hukGeMLnLVfHH2eX8NBWA5Qsei.jpg" alt="Póster de Big News" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Big News</div><div class="rel-anio">1929</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/behind-that-curtain-1929/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/ekUnNnFDK4d1ewTbslECb3md296.jpg" alt="Póster de Behind That Curtain" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Behind That Curtain</div><div class="rel-anio">1929</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/west-of-zanzibar-1928/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/zwnhJhF73rADB9MURcpQ6AeLrPg.jpg" alt="Póster de West of Zanzibar" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">West of Zanzibar</div><div class="rel-anio">1928</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-man-who-laughs-1928/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/iQXBMr4NzQst4X0rDU6MII6ZUOM.jpg" alt="Póster de The Man Who Laughs" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Man Who Laughs</div><div class="rel-anio">1928</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-man-who-laughs-1928/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/iQXBMr4NzQst4X0rDU6MII6ZUOM.jpg" alt="Póster de El hombre que ríe" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">El hombre que ríe</div><div class="rel-anio">1928</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/mi-novia-es-un-fantasma-1944/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/68pULNukJKJgioqFpCX1KWWUZqM.jpg" alt="Póster de Mi novia es un fantasma" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Mi novia es un fantasma</div><div class="rel-anio">1944</div></div></a>
   </div>
 <div class="paginacion"><a href="https://filmotecaclasica.com/genero/misterio/">1</a><a href="https://filmotecaclasica.com/genero/misterio/pagina/2/">2</a><a href="https://filmotecaclasica.com/genero/misterio/pagina/3/">3</a><a href="https://filmotecaclasica.com/genero/misterio/pagina/4/">4</a><span class="actual">5</span></div>

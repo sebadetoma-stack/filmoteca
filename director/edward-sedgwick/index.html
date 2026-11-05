@@ -113,8 +113,10 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
   :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--border2:#c4b49a;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
@@ -135,7 +137,7 @@
   .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem}
   @media(max-width:640px){.layout{grid-template-columns:1fr}.poster-wrap{max-width:220px;margin:0 auto}}
   /* POSTER */
-  .poster-wrap img{width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block}
+  .poster-wrap img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);display:block}
   .poster-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:13px}
   /* INFO */
   .meta{font-size:12px;color:var(--text-faint);margin-bottom:0.4rem}
@@ -223,14 +225,14 @@
   <h1>Películas de Edward Sedgwick</h1>
   <p class="hub-intro">10 películas dirigidas por Edward Sedgwick, disponibles completas y gratis en YouTube, verificadas desde Argentina. Ordenadas por cantidad de votos en IMDb.</p>
   <div class="hub-grid">
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-phantom-of-the-opera-1925/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/fJZyzUEO5bCigFdlPEK522AiBnc.jpg" alt="Póster de The Phantom of the Opera" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Phantom of the Opera</div><div class="rel-anio">1925 · ★ 7.5</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-cameraman-1928/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/q67uxNfJ2nIDW48eOgF8s99Wy0m.jpg" alt="Póster de The Cameraman" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Cameraman</div><div class="rel-anio">1928 · ★ 8.0</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/speak-easily-1932/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/pWVjJr90gKkt50omskSlT3t0Emy.jpg" alt="Póster de Speak Easily" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Speak Easily</div><div class="rel-anio">1932 · ★ 5.8</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/spring-fever-1927/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/tnnlNNlx8NOOnB8l9qyEfleM1pp.jpg" alt="Póster de Spring Fever" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Spring Fever</div><div class="rel-anio">1927 · ★ 6.4</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/parlor-bedroom-and-bath-1931/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/y6vmo8pJjRBoByhdtIIJ7S10cvv.jpg" alt="Póster de Parlor, Bedroom and Bath" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Parlor, Bedroom and Bath</div><div class="rel-anio">1931 · ★ 6.1</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-phantom-of-the-opera-1925/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/fJZyzUEO5bCigFdlPEK522AiBnc.jpg" alt="Póster de El fantasma de la ópera" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">El fantasma de la ópera</div><div class="rel-anio">1925 · ★ 7.5</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-cameraman-1928/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/q67uxNfJ2nIDW48eOgF8s99Wy0m.jpg" alt="Póster de El cameraman" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">El cameraman</div><div class="rel-anio">1928 · ★ 8.0</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/speak-easily-1932/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/pWVjJr90gKkt50omskSlT3t0Emy.jpg" alt="Póster de Piernas de perfil" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Piernas de perfil</div><div class="rel-anio">1932 · ★ 5.8</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/spring-fever-1927/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/tnnlNNlx8NOOnB8l9qyEfleM1pp.jpg" alt="Póster de Fiebre de primavera" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Fiebre de primavera</div><div class="rel-anio">1927 · ★ 6.4</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/parlor-bedroom-and-bath-1931/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/y6vmo8pJjRBoByhdtIIJ7S10cvv.jpg" alt="Póster de Pobre tenorio" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Pobre tenorio</div><div class="rel-anio">1931 · ★ 6.1</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/free-and-easy-1930/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/31UrsNkQOBNgaGkE7FF8oD6ONU.jpg" alt="Póster de Free and Easy" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Free and Easy</div><div class="rel-anio">1930 · ★ 5.5</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/remote-control-1930/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/4kmkdqBJzgoIKl04lNCphqQJEWM.jpg" alt="Póster de Remote Control" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Remote Control</div><div class="rel-anio">1930 · ★ 5.5</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/doughboys-1930/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/5NwmcZQqwRRFix3nZXugVQqupZC.jpg" alt="Póster de Doughboys" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Doughboys</div><div class="rel-anio">1930 · ★ 5.8</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/doughboys-1930/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/5NwmcZQqwRRFix3nZXugVQqupZC.jpg" alt="Póster de Reclutas" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Reclutas</div><div class="rel-anio">1930 · ★ 5.8</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/riding-on-air-1937/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/9G2DDOPavhJvBfuoKGuTgXtqYqm.jpg" alt="Póster de Riding on Air" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Riding on Air</div><div class="rel-anio">1937 · ★ 5.0</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/fit-for-a-king-1937/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/vA8uMxrXwajQAoC05vfoVLuM6xy.jpg" alt="Póster de Fit for a King" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Fit for a King</div><div class="rel-anio">1937 · ★ 5.7</div></div></a>
   </div>

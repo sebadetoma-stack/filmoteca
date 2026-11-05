@@ -203,8 +203,10 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
   :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--border2:#c4b49a;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
@@ -225,7 +227,7 @@
   .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem}
   @media(max-width:640px){.layout{grid-template-columns:1fr}.poster-wrap{max-width:220px;margin:0 auto}}
   /* POSTER */
-  .poster-wrap img{width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block}
+  .poster-wrap img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);display:block}
   .poster-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:13px}
   /* INFO */
   .meta{font-size:12px;color:var(--text-faint);margin-bottom:0.4rem}
@@ -313,8 +315,8 @@
   <h1>Películas de Robert N. Bradbury</h1>
   <p class="hub-intro">28 películas dirigidas por Robert N. Bradbury, disponibles completas y gratis en YouTube, verificadas desde Argentina. Ordenadas por cantidad de votos en IMDb.</p>
   <div class="hub-grid">
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/trouble-in-texas-1937/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/wWG7epV7vAsWJRZxCCVJeZgHcsv.jpg" alt="Póster de Trouble in Texas" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Trouble in Texas</div><div class="rel-anio">1937 · ★ 5.2</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/sing-cowboy-sing-1937/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/pRVJU8Kjk3qkni8BGDBuX9YO0e1.jpg" alt="Póster de Sing, Cowboy, Sing" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Sing, Cowboy, Sing</div><div class="rel-anio">1937 · ★ 4.6</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/trouble-in-texas-1937/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/wWG7epV7vAsWJRZxCCVJeZgHcsv.jpg" alt="Póster de El héroe de Texas" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">El héroe de Texas</div><div class="rel-anio">1937 · ★ 5.2</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/sing-cowboy-sing-1937/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/pRVJU8Kjk3qkni8BGDBuX9YO0e1.jpg" alt="Póster de Sing Cowboy Sing" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Sing Cowboy Sing</div><div class="rel-anio">1937 · ★ 4.6</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/between-men-1935/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/kH6NYHzojwowPnoqXrUhis7lndS.jpg" alt="Póster de Between Men" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Between Men</div><div class="rel-anio">1935 · ★ 6.0</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/hittin-the-trail-1937/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/yHgyGryNAy4VBCB6zND2Wzqj67T.jpg" alt="Póster de Hittin&#x27; the Trail" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Hittin&#x27; the Trail</div><div class="rel-anio">1937 · ★ 5.0</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/cavalry-1936/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/82fsW3X971ezuLiHRThhb0Ge0dd.jpg" alt="Póster de Cavalry" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Cavalry</div><div class="rel-anio">1936 · ★ 6.1</div></div></a>

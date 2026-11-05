@@ -128,8 +128,10 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
   :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--border2:#c4b49a;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
@@ -150,7 +152,7 @@
   .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem}
   @media(max-width:640px){.layout{grid-template-columns:1fr}.poster-wrap{max-width:220px;margin:0 auto}}
   /* POSTER */
-  .poster-wrap img{width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block}
+  .poster-wrap img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);display:block}
   .poster-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:13px}
   /* INFO */
   .meta{font-size:12px;color:var(--text-faint);margin-bottom:0.4rem}
@@ -238,14 +240,14 @@
   <h1>Películas de Jean Yarbrough</h1>
   <p class="hub-intro">13 películas dirigidas por Jean Yarbrough, disponibles completas y gratis en YouTube, verificadas desde Argentina. Ordenadas por cantidad de votos en IMDb.</p>
   <div class="hub-grid">
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-devil-bat-1940/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/g1boVvNLVKYbP2H7MoGol9sQAIH.jpg" alt="Póster de The Devil Bat" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Devil Bat</div><div class="rel-anio">1940 · ★ 5.4</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/jack-and-the-beanstalk-1952/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/psogkzcA2yOT0Tz669i0Lm1eZXM.jpg" alt="Póster de Jack and the Beanstalk" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Jack and the Beanstalk</div><div class="rel-anio">1952 · ★ 5.8</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/king-of-the-zombies-1941/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/8aR8TjqGCHqBWlntgPK2N7nFnNC.jpg" alt="Póster de King of the Zombies" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">King of the Zombies</div><div class="rel-anio">1941 · ★ 5.3</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-devil-bat-1940/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/g1boVvNLVKYbP2H7MoGol9sQAIH.jpg" alt="Póster de El murciélago diabólico" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">El murciélago diabólico</div><div class="rel-anio">1940 · ★ 5.4</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/jack-and-the-beanstalk-1952/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/psogkzcA2yOT0Tz669i0Lm1eZXM.jpg" alt="Póster de Jack y las Habichuelas Mágicas" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Jack y las Habichuelas Mágicas</div><div class="rel-anio">1952 · ★ 5.8</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/king-of-the-zombies-1941/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/8aR8TjqGCHqBWlntgPK2N7nFnNC.jpg" alt="Póster de El rey de los zombies" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">El rey de los zombies</div><div class="rel-anio">1941 · ★ 5.3</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/hillbillys-in-a-haunted-house-1967/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/i2QSsv1DobFwD7V9pwvSzpvHPhd.jpg" alt="Póster de Hillbillys in a Haunted House" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Hillbillys in a Haunted House</div><div class="rel-anio">1967 · ★ 2.8</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/shed-no-tears-1948/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/o5FlBWb9oeEUB9j0KUHwrVhip6t.jpg" alt="Póster de Shed No Tears" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Shed No Tears</div><div class="rel-anio">1948 · ★ 6.3</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/sos-your-aunt-emma-1942/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/hMciceyHl085szsSMUuSxDPJ7yl.jpg" alt="Póster de So&#x27;s Your Aunt Emma!" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">So&#x27;s Your Aunt Emma!</div><div class="rel-anio">1942 · ★ 5.8</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/law-of-the-jungle-1942/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/yRlH5zJuSho7wotIydFR8dAhQZD.jpg" alt="Póster de Law of the Jungle" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Law of the Jungle</div><div class="rel-anio">1942 · ★ 5.1</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-gangs-all-here-1941/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/l0BWT9Ag3TIAG365k9GlDyMnFpg.jpg" alt="Póster de The Gang&#x27;s All Here" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Gang&#x27;s All Here</div><div class="rel-anio">1941 · ★ 5.5</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-gangs-all-here-1941/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/l0BWT9Ag3TIAG365k9GlDyMnFpg.jpg" alt="Póster de Toda la banda está aquí" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Toda la banda está aquí</div><div class="rel-anio">1941 · ★ 5.5</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/freckles-comes-home-1942/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/ntmh7boggQZLWld7QXIRcZs7qvE.jpg" alt="Póster de Freckles Comes Home" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Freckles Comes Home</div><div class="rel-anio">1942 · ★ 5.0</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/lets-go-collegiate-1941/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/gOLDaJmLQCnGxgIJelkUK4UJrbq.jpg" alt="Póster de Let&#x27;s Go Collegiate" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Let&#x27;s Go Collegiate</div><div class="rel-anio">1941 · ★ 5.1</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/south-of-panama-1941/"><div class="rel-poster"><div class="rel-placeholder">South of Panama</div></div><div class="rel-info"><div class="rel-titulo-peli">South of Panama</div><div class="rel-anio">1941 · ★ 5.1</div></div></a>

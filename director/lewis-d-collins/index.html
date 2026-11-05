@@ -168,8 +168,10 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
   :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--border2:#c4b49a;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
@@ -190,7 +192,7 @@
   .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem}
   @media(max-width:640px){.layout{grid-template-columns:1fr}.poster-wrap{max-width:220px;margin:0 auto}}
   /* POSTER */
-  .poster-wrap img{width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block}
+  .poster-wrap img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);display:block}
   .poster-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:13px}
   /* INFO */
   .meta{font-size:12px;color:var(--text-faint);margin-bottom:0.4rem}
@@ -290,7 +292,7 @@
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-great-alaskan-mystery-1944/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/xuAfAW3EFTfqP6fgq7OBgeIwK8y.jpg" alt="Póster de The Great Alaskan Mystery" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Great Alaskan Mystery</div><div class="rel-anio">1944 · ★ 6.2</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/junior-g-men-of-the-air-1942/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/kljXgYSyEGX3RTmrbs7miruyTaz.jpg" alt="Póster de Junior G-Men of the Air" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Junior G-Men of the Air</div><div class="rel-anio">1942 · ★ 6.1</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/make-a-million-1935/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/mZm8jcBTad3nPtu5Ph9Tc4fvAU2.jpg" alt="Póster de Make a Million" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Make a Million</div><div class="rel-anio">1935 · ★ 5.9</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/raiders-of-ghost-city-1944/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/p3abbdVCHzJamdBjhKeXmT5LSwu.jpg" alt="Póster de Raiders of Ghost City" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Raiders of Ghost City</div><div class="rel-anio">1944 · ★ 5.9</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/raiders-of-ghost-city-1944/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/p3abbdVCHzJamdBjhKeXmT5LSwu.jpg" alt="Póster de Los Saqueadores" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Los Saqueadores</div><div class="rel-anio">1944 · ★ 5.9</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/borrowed-hero-1941/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/zRRwDId2vrhRYxkAbYFbR8wc6kW.jpg" alt="Póster de Borrowed Hero" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Borrowed Hero</div><div class="rel-anio">1941 · ★ 5.3</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/adventures-of-the-flying-cadets-1943/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/3F9YoHkseUORaOlsrCIK9k7zTgI.jpg" alt="Póster de Adventures of the Flying Cadets" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Adventures of the Flying Cadets</div><div class="rel-anio">1943 · ★ 6.0</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/skyway-1933/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/kzTSU3BGOCb9y8Eids0QkavS3r3.jpg" alt="Póster de Skyway" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Skyway</div><div class="rel-anio">1933 · ★ 5.4</div></div></a>

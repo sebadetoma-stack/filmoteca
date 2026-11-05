@@ -133,8 +133,10 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
   :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--border2:#c4b49a;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
@@ -155,7 +157,7 @@
   .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem}
   @media(max-width:640px){.layout{grid-template-columns:1fr}.poster-wrap{max-width:220px;margin:0 auto}}
   /* POSTER */
-  .poster-wrap img{width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block}
+  .poster-wrap img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);display:block}
   .poster-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:13px}
   /* INFO */
   .meta{font-size:12px;color:var(--text-faint);margin-bottom:0.4rem}
@@ -243,12 +245,12 @@
   <h1>Películas de Fred C. Newmeyer</h1>
   <p class="hub-intro">14 películas dirigidas por Fred C. Newmeyer, disponibles completas y gratis en YouTube, verificadas desde Argentina. Ordenadas por cantidad de votos en IMDb.</p>
   <div class="hub-grid">
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/safety-last-1923/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/zkmDkZNPM8zgfLgKHEQFLXGrf8Q.jpg" alt="Póster de Safety Last!" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Safety Last!</div><div class="rel-anio">1923 · ★ 8.1</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-freshman-1925/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/eJHNmn9QII59RfBVwk7HexcTK9.jpg" alt="Póster de The Freshman" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Freshman</div><div class="rel-anio">1925 · ★ 7.5</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/girl-shy-1924/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/dMxXZoNWqODqkeDY9SC5O4lLrae.jpg" alt="Póster de Girl Shy" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Girl Shy</div><div class="rel-anio">1924 · ★ 7.6</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/why-worry-1923/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/7NrgFBBgOyL0vDAZ17jo3EIQ2uo.jpg" alt="Póster de Why Worry?" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Why Worry?</div><div class="rel-anio">1923 · ★ 7.3</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/grandmas-boy-1922/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/9St2NINbr0zVwcMqyPvTDAKKXUc.jpg" alt="Póster de Grandma&#x27;s Boy" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Grandma&#x27;s Boy</div><div class="rel-anio">1922 · ★ 7.0</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/dr-jack-1922/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/vWr8isUou7CwHwsByg3bP9LGMKS.jpg" alt="Póster de Dr. Jack" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Dr. Jack</div><div class="rel-anio">1922 · ★ 7.1</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/safety-last-1923/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/zkmDkZNPM8zgfLgKHEQFLXGrf8Q.jpg" alt="Póster de El hombre mosca" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">El hombre mosca</div><div class="rel-anio">1923 · ★ 8.1</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-freshman-1925/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/eJHNmn9QII59RfBVwk7HexcTK9.jpg" alt="Póster de El estudiante novato" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">El estudiante novato</div><div class="rel-anio">1925 · ★ 7.5</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/girl-shy-1924/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/dMxXZoNWqODqkeDY9SC5O4lLrae.jpg" alt="Póster de El Tenorio Tímido" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">El Tenorio Tímido</div><div class="rel-anio">1924 · ★ 7.6</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/why-worry-1923/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/7NrgFBBgOyL0vDAZ17jo3EIQ2uo.jpg" alt="Póster de ¡Venga alegría!" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">¡Venga alegría!</div><div class="rel-anio">1923 · ★ 7.3</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/grandmas-boy-1922/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/9St2NINbr0zVwcMqyPvTDAKKXUc.jpg" alt="Póster de El mimado de la abuelita" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">El mimado de la abuelita</div><div class="rel-anio">1922 · ★ 7.0</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/dr-jack-1922/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/vWr8isUou7CwHwsByg3bP9LGMKS.jpg" alt="Póster de El doctor Jack" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">El doctor Jack</div><div class="rel-anio">1922 · ★ 7.1</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/fast-and-loose-1930/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/wWraNZC7999GJe007Hy78y0b69N.jpg" alt="Póster de Fast and Loose" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Fast and Loose</div><div class="rel-anio">1930 · ★ 6.2</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/a-scream-in-the-night-1935/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/cazOV4AaKeChL2LrjUo7YBghmao.jpg" alt="Póster de A Scream in the Night" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">A Scream in the Night</div><div class="rel-anio">1935 · ★ 4.3</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/discarded-lovers-1932/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/828Ym1vVOwhiwm7XdtimDKmmUyk.jpg" alt="Póster de Discarded Lovers" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Discarded Lovers</div><div class="rel-anio">1932 · ★ 4.8</div></div></a>

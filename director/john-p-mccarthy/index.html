@@ -123,8 +123,10 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
   :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--border2:#c4b49a;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
@@ -145,7 +147,7 @@
   .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem}
   @media(max-width:640px){.layout{grid-template-columns:1fr}.poster-wrap{max-width:220px;margin:0 auto}}
   /* POSTER */
-  .poster-wrap img{width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block}
+  .poster-wrap img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);display:block}
   .poster-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:13px}
   /* INFO */
   .meta{font-size:12px;color:var(--text-faint);margin-bottom:0.4rem}
@@ -242,7 +244,7 @@
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-cisco-kid-returns-1945/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/niJSWSC4IQsehOPBH2AEPQiRW8H.jpg" alt="Póster de The Cisco Kid Returns" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Cisco Kid Returns</div><div class="rel-anio">1945 · ★ 6.7</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-return-of-casey-jones-1933/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/qd5mwL6tBwggDdVpqX2LfFO8ebk.jpg" alt="Póster de The Return of Casey Jones" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Return of Casey Jones</div><div class="rel-anio">1933 · ★ 5.2</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/the-sunrise-trail-1931/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/cYfDR8YoRETZapnJiMw7u59AcJq.jpg" alt="Póster de The Sunrise Trail" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">The Sunrise Trail</div><div class="rel-anio">1931 · ★ 6.1</div></div></a>
-    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/crashin-broadway-1933/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/WxXqpwMgipoxBwD5C1A27dkST7.jpg" alt="Póster de Crashin&#x27; Broadway" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Crashin&#x27; Broadway</div><div class="rel-anio">1933 · ★ 4.8</div></div></a>
+    <a class="rel-card" href="https://filmotecaclasica.com/pelicula/crashin-broadway-1933/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/WxXqpwMgipoxBwD5C1A27dkST7.jpg" alt="Póster de Crashing Broadway" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Crashing Broadway</div><div class="rel-anio">1933 · ★ 4.8</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/trailing-north-1933/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/2WMieydDfR1fYoiAnUFB1GX4Mtm.jpg" alt="Póster de Trailing North" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Trailing North</div><div class="rel-anio">1933 · ★ 7.6</div></div></a>
     <a class="rel-card" href="https://filmotecaclasica.com/pelicula/mother-and-son-1931/"><div class="rel-poster"><img src="https://image.tmdb.org/t/p/w342/nyoreQCV063EVmNFTDxpzLiPvBc.jpg" alt="Póster de Mother and Son" width="200" height="300" loading="lazy"></div><div class="rel-info"><div class="rel-titulo-peli">Mother and Son</div><div class="rel-anio">1931 · ★ 5.0</div></div></a>
   </div>
