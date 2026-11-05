@@ -1521,7 +1521,7 @@ function poblarPaises() {
   });
 }
 
-function buildQuery() {
+function buildQuery(soloIds) {
   const q = document.getElementById('q').value.trim();
   const genero = document.getElementById('f-genero').value;
   const decada = document.getElementById('f-decada').value;
@@ -1573,6 +1573,10 @@ function buildQuery() {
     }
   }
 
+  if (soloIds && soloIds.length) {
+    where.push(`p.tconst IN (${soloIds.map(t => `'${t}'`).join(',')})`);
+  }
+
   const BASE = `
     FROM peliculas p
     JOIN coincidencias co ON co.tconst = p.tconst
@@ -1596,34 +1600,26 @@ function countQuery() {
 
 function fetchPage(offset) {
   const orden = document.getElementById('f-orden').value;
-  const { BASE, params, order } = buildQuery();
+  let { BASE, params, order } = buildQuery();
+  let limite = `LIMIT ${POR_PAGINA} OFFSET ${offset}`;
+  let idsPagina = null;
   if (orden === 'aleatorio') {
+    // aleatorio: solo ids. Se baraja una lista liviana de ids y se piden los datos
+    // completos únicamente de la página visible (antes se traía todo el catálogo).
     if (!window._shuffleCache) {
-      const sqlAll = `
-        SELECT
-          p.tconst, p.titulo_primario, p.titulo_orig, p.titulo_es, p.anio,
-          p.generos, p.duracion_min, p.rating, p.votos, p.es_precode,
-          p.pais, p.poster_url, p.sinopsis,
-          v.video_id, v.duracion_seg, v.idioma_audio,
-          ca.nombre as canal,
-          co.score,
-          (SELECT COUNT(*) FROM coincidencias cx JOIN videos vx ON cx.video_id = vx.video_id WHERE cx.tconst = p.tconst AND cx.estado = 'confirmada' AND (vx.ve_ar = 1 OR vx.ve_ar IS NULL)) as n_versiones
-        ${BASE}
-        ORDER BY p.rating DESC NULLS LAST
-      `;
-      const resAll = db.exec(sqlAll, params);
-      if (!resAll[0]) return [];
-      const cols = resAll[0].columns;
-      const all = resAll[0].values.map(row => {
-        const o = {}; cols.forEach((c, i) => o[c] = row[i]); return o;
-      });
-      for (let i = all.length - 1; i > 0; i--) {
+      const resIds = db.exec(`SELECT p.tconst ${BASE}`, params);
+      const ids = resIds[0] ? resIds[0].values.map(r => r[0]) : [];
+      for (let i = ids.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [all[i], all[j]] = [all[j], all[i]];
+        [ids[i], ids[j]] = [ids[j], ids[i]];
       }
-      window._shuffleCache = all;
+      window._shuffleCache = ids;
     }
-    return window._shuffleCache.slice(offset, offset + POR_PAGINA);
+    idsPagina = window._shuffleCache.slice(offset, offset + POR_PAGINA);
+    if (!idsPagina.length) return [];
+    ({ BASE, params } = buildQuery(idsPagina));
+    order = 'p.rating DESC NULLS LAST';
+    limite = '';
   }
   const sql = `
     SELECT
@@ -1636,16 +1632,21 @@ function fetchPage(offset) {
       (SELECT COUNT(*) FROM coincidencias cx JOIN videos vx ON cx.video_id = vx.video_id WHERE cx.tconst = p.tconst AND cx.estado = 'confirmada' AND (vx.ve_ar = 1 OR vx.ve_ar IS NULL)) as n_versiones
     ${BASE}
     ORDER BY ${order}
-    LIMIT ${POR_PAGINA} OFFSET ${offset}
+    ${limite}
   `;
   const res = db.exec(sql, params);
   if (!res[0]) return [];
-  const cols = res[0].columns;
-  return res[0].values.map(row => {
+  const columnas = res[0].columns;
+  const filas = res[0].values.map(row => {
     const o = {};
-    cols.forEach((c, i) => o[c] = row[i]);
+    columnas.forEach((c, i) => o[c] = row[i]);
     return o;
   });
+  if (idsPagina) {
+    const pos = new Map(idsPagina.map((t, i) => [t, i]));
+    filas.sort((a, b) => pos.get(a.tconst) - pos.get(b.tconst));
+  }
+  return filas;
 }
 
 function renderPersonas(tconst, rol, limite) {
