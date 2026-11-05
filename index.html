@@ -1541,7 +1541,7 @@ function buildQuery(soloIds) {
   ];
   let params = [];
 
-  if (q) {
+  if (q && !soloIds) {
     where.push(`(
       p.titulo_primario LIKE ? OR p.titulo_orig LIKE ? OR p.titulo_es LIKE ?
       OR EXISTS (SELECT 1 FROM titulos_alt ta WHERE ta.tconst=p.tconst AND ta.titulo LIKE ?)
@@ -1589,38 +1589,43 @@ function buildQuery(soloIds) {
   return { BASE, params, order: orderMap[orden] || orderMap.rating };
 }
 
+// idsFiltrados: una sola evaluación de los filtros por combinación de filtros y orden.
+// countQuery y fetchPage comparten el resultado, y se guarda en memoria entre renders.
+function idsFiltrados(BASE, params, order) {
+  const clave = BASE + '|' + JSON.stringify(params) + '|' + order;
+  const cache = window._idsCache || (window._idsCache = new Map());
+  if (cache.has(clave)) return cache.get(clave);
+  const res = db.exec(`SELECT p.tconst ${BASE} ORDER BY ${order}`, params);
+  const ids = res[0] ? res[0].values.map(r => r[0]) : [];
+  if (cache.size >= 20) cache.clear();
+  cache.set(clave, ids);
+  return ids;
+}
+
 function countQuery() {
-  const orden = document.getElementById('f-orden').value;
-  if (orden === 'aleatorio' && window._shuffleCache) return window._shuffleCache.length;
-  const { BASE, params } = buildQuery();
-  const sql = `SELECT COUNT(*) as n FROM (SELECT DISTINCT p.tconst ${BASE})`;
-  const res = db.exec(sql, params);
-  return res[0]?.values[0][0] || 0;
+  const { BASE, params, order } = buildQuery();
+  return idsFiltrados(BASE, params, order).length;
 }
 
 function fetchPage(offset) {
   const orden = document.getElementById('f-orden').value;
-  let { BASE, params, order } = buildQuery();
-  let limite = `LIMIT ${POR_PAGINA} OFFSET ${offset}`;
-  let idsPagina = null;
+  const { BASE, params, order } = buildQuery();
+  let ids = idsFiltrados(BASE, params, order);
   if (orden === 'aleatorio') {
-    // aleatorio: solo ids. Se baraja una lista liviana de ids y se piden los datos
-    // completos únicamente de la página visible (antes se traía todo el catálogo).
     if (!window._shuffleCache) {
-      const resIds = db.exec(`SELECT p.tconst ${BASE}`, params);
-      const ids = resIds[0] ? resIds[0].values.map(r => r[0]) : [];
-      for (let i = ids.length - 1; i > 0; i--) {
+      const barajados = ids.slice();
+      for (let i = barajados.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [ids[i], ids[j]] = [ids[j], ids[i]];
+        [barajados[i], barajados[j]] = [barajados[j], barajados[i]];
       }
-      window._shuffleCache = ids;
+      window._shuffleCache = barajados;
     }
-    idsPagina = window._shuffleCache.slice(offset, offset + POR_PAGINA);
-    if (!idsPagina.length) return [];
-    ({ BASE, params } = buildQuery(idsPagina));
-    order = 'p.rating DESC NULLS LAST';
-    limite = '';
+    ids = window._shuffleCache;
   }
+  const idsPagina = ids.slice(offset, offset + POR_PAGINA);
+  if (!idsPagina.length) return [];
+  // Datos completos solo de la página visible (sin repetir el filtro de texto)
+  const det = buildQuery(idsPagina);
   const sql = `
     SELECT
       p.tconst, p.titulo_primario, p.titulo_orig, p.titulo_es, p.anio,
@@ -1630,11 +1635,9 @@ function fetchPage(offset) {
       ca.nombre as canal,
       co.score,
       (SELECT COUNT(*) FROM coincidencias cx JOIN videos vx ON cx.video_id = vx.video_id WHERE cx.tconst = p.tconst AND cx.estado = 'confirmada' AND (vx.ve_ar = 1 OR vx.ve_ar IS NULL)) as n_versiones
-    ${BASE}
-    ORDER BY ${order}
-    ${limite}
+    ${det.BASE}
   `;
-  const res = db.exec(sql, params);
+  const res = db.exec(sql, det.params);
   if (!res[0]) return [];
   const columnas = res[0].columns;
   const filas = res[0].values.map(row => {
@@ -1642,10 +1645,8 @@ function fetchPage(offset) {
     columnas.forEach((c, i) => o[c] = row[i]);
     return o;
   });
-  if (idsPagina) {
-    const pos = new Map(idsPagina.map((t, i) => [t, i]));
-    filas.sort((a, b) => pos.get(a.tconst) - pos.get(b.tconst));
-  }
+  const pos = new Map(idsPagina.map((t, i) => [t, i]));
+  filas.sort((a, b) => pos.get(a.tconst) - pos.get(b.tconst));
   return filas;
 }
 
