@@ -1,0 +1,7 @@
+Fuentes alojadas en el propio sitio (antes se cargaban desde Google Fonts).
+
+- Inter 5.3.0 y Playfair Display 5.3.0, distribuidas en los paquetes npm @fontsource/inter y
+  @fontsource/playfair-display. Subconjuntos latin y latin-ext.
+- Licencia: SIL Open Font License 1.1 (OFL-1.1), que permite usarlas y redistribuirlas con el sitio.
+- fonts.css define las @font-face con unicode-range, para que el navegador descargue solo
+  los subconjuntos que la página necesita.

@@ -90,9 +90,9 @@
   ]
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap">
+<link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/playfair-display-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>
   :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--border2:#c4b49a;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -114,7 +114,7 @@
   .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem}
   @media(max-width:640px){.layout{grid-template-columns:1fr}.poster-wrap{max-width:220px;margin:0 auto}}
   /* POSTER */
-  .poster-wrap img{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--border);display:block}
+  .poster-wrap img{width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;border-radius:var(--radius);border:1px solid var(--border);display:block}
   .poster-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:13px}
   /* INFO */
   .meta{font-size:12px;color:var(--text-faint);margin-bottom:0.4rem}
