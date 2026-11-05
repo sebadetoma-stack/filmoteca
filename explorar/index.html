@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explorar películas clásicas por década, género, país y director | Filmoteca Clásica</title>
+<meta name="description" content="Explorá el catálogo de Filmoteca Clásica por década, género, país y director. Películas clásicas completas y gratis en YouTube.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:title" content="Explorar películas clásicas por década, género, país y director | Filmoteca Clásica">
+<meta property="og:description" content="Explorá el catálogo de Filmoteca Clásica por década, género, país y director. Películas clásicas completas y gratis en YouTube.">
+<meta property="og:url" content="https://filmotecaclasica.com/explorar/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Filmoteca Clásica">
+<link rel="canonical" href="https://filmotecaclasica.com/explorar/">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FNBHN0F639"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FNBHN0F639');
+</script>
+<script async src="/anuncios.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "name": "Explorar el catálogo",
+      "description": "Explorá el catálogo de Filmoteca Clásica por década, género, país y director. Películas clásicas completas y gratis en YouTube.",
+      "url": "https://filmotecaclasica.com/explorar/",
+      "inLanguage": "es"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Filmoteca Clásica",
+          "item": "https://filmotecaclasica.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Explorar",
+          "item": "https://filmotecaclasica.com/explorar/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
+  :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--amber-dim:#c8a87a;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--border2:#c4b49a;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--radius:6px}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
+  a{color:inherit;text-decoration:none}
+  /* NAV */
+  nav{border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:baseline;justify-content:space-between;background:var(--bg);position:sticky;top:0;z-index:100}
+  .logo{font-family:var(--serif);font-size:1.4rem;color:var(--text)}
+  .logo em{color:var(--amber);font-style:italic}
+  .nav-back{font-size:13px;color:var(--text-faint)}
+  .nav-back:hover{color:var(--amber)}
+  /* BREADCRUMB */
+  .breadcrumb{font-size:12px;color:var(--text-faint);padding:0.6rem 2rem;border-bottom:1px solid var(--border)}
+  .breadcrumb a{color:var(--text-faint)}
+  .breadcrumb a:hover{color:var(--amber)}
+  .breadcrumb span{margin:0 5px}
+  /* LAYOUT */
+  .contenedor{max-width:900px;margin:0 auto;padding:2rem}
+  .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem}
+  @media(max-width:640px){.layout{grid-template-columns:1fr}.poster-wrap{max-width:220px;margin:0 auto}}
+  /* POSTER */
+  .poster-wrap img{width:100%;border-radius:var(--radius);border:1px solid var(--border);display:block}
+  .poster-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:13px}
+  /* INFO */
+  .meta{font-size:12px;color:var(--text-faint);margin-bottom:0.4rem}
+  h1{font-family:var(--serif);font-size:2rem;line-height:1.2;color:var(--text);margin-bottom:0.2rem}
+  .titulo-orig{font-size:14px;color:var(--text-faint);font-style:italic;margin-bottom:1.2rem}
+  /* BOTON */
+  .btn-yt{display:inline-flex;align-items:center;gap:10px;background:var(--amber);color:#fff;border-radius:var(--radius);padding:12px 20px;font-size:14px;font-weight:500;margin-bottom:1.4rem;transition:background 0.15s}
+  .btn-yt:hover{background:#7a3b10}
+  .btn-yt-play{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.7);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .btn-yt-wrap{display:flex;flex-direction:column;gap:6px;margin-bottom:1.4rem}
+  .yt-versions-dropdown{position:relative;display:inline-block}
+  .yt-versions-toggle{background:none;border:1px solid var(--border);border-radius:var(--radius);padding:5px 12px;font-size:12px;color:var(--text-dim);cursor:pointer}
+  .yt-versions-toggle:hover{background:var(--bg2)}
+  .yt-versions-list{display:none;position:absolute;top:calc(100% + 4px);left:0;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);z-index:200;min-width:260px;box-shadow:0 4px 12px rgba(0,0,0,0.15)}
+  .yt-versions-dropdown.open .yt-versions-list{display:block}
+  .yt-version-item{display:block;padding:8px 14px;font-size:13px;color:var(--text);border-bottom:1px solid var(--border)}
+  .yt-version-item:last-child{border-bottom:none}
+  .yt-version-item:hover{background:var(--bg2)}
+  /* DATOS */
+  .datos-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1.2rem}
+  .dato{background:var(--bg2);border-radius:var(--radius);padding:8px 12px}
+  .dato-label{font-size:10px;color:var(--text-faint);margin-bottom:2px;text-transform:uppercase;letter-spacing:0.04em}
+  .dato-val{font-size:13px;color:var(--text)}
+  .fila{margin-bottom:0.8rem}
+  .fila-label{font-size:11px;color:var(--text-faint);margin-bottom:3px;text-transform:uppercase;letter-spacing:0.04em}
+  .fila-val{font-size:14px;color:var(--text-dim)}
+  .sinopsis{font-size:14px;color:var(--text-dim);line-height:1.75;margin-bottom:1.2rem}
+  /* BADGES */
+  .badges{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem}
+  .badge{font-size:11px;background:var(--bg2);border:1px solid var(--border);color:var(--text-dim);border-radius:3px;padding:2px 8px}
+  .badge-special{background:rgba(139,69,19,0.08);border-color:var(--amber-dim);color:var(--amber)}
+  /* CANAL Y LINKS */
+  .canal-info{font-size:12px;color:var(--text-faint);padding-top:0.8rem;border-top:1px solid var(--border);margin-bottom:0.6rem}
+  .links-ext{display:flex;gap:1rem}
+  .link-ext{font-size:12px;color:var(--amber)}
+  .link-ext:hover{text-decoration:underline}
+  .report-link{color:#c0392b}
+  /* RELACIONADAS */
+  .relacionadas{margin-top:2.5rem;border-top:1px solid var(--border);padding-top:1.5rem}
+  .rel-titulo{font-size:11px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:1rem}
+  .rel-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  @media(max-width:640px){.rel-grid{grid-template-columns:repeat(2,1fr)}}
+  .rel-card{display:block;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:border-color 0.15s}
+  .rel-card:hover{border-color:var(--amber-dim)}
+  .rel-poster img{width:100%;aspect-ratio:2/3;object-fit:cover;display:block}
+  .rel-placeholder{width:100%;aspect-ratio:2/3;background:var(--bg2);display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:11px}
+  .rel-info{padding:6px 8px}
+  .rel-titulo-peli{font-size:11px;color:var(--text);line-height:1.3;margin-bottom:2px}
+  .rel-anio{font-size:10px;color:var(--text-faint)}
+  /* FOOTER */
+  footer{border-top:1px solid var(--border);padding:1.2rem 2rem;text-align:center;font-size:12px;color:var(--text-faint);margin-top:3rem}
+  /* BOTONES USUARIO */
+  .user-actions{display:flex;gap:8px;margin-bottom:1.2rem}
+  .btn-usuario{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg3);color:var(--text-dim);font-size:13px;font-family:var(--sans);cursor:pointer;transition:all 0.15s}
+  .btn-usuario:hover{border-color:var(--amber-dim);color:var(--text)}
+  .btn-usuario.activo{background:rgba(139,69,19,0.08);border-color:var(--amber-dim);color:var(--amber)}
+  .btn-usuario.oculto{display:none}
+
+  .hub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin:1.2rem 0}
+  .hub-intro{font-size:14px;color:var(--text-dim);line-height:1.75;margin-bottom:.5rem}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin:.6rem 0 1.2rem}
+  .chip{font-size:12px;background:var(--bg2);border:1px solid var(--border);color:var(--text-dim);border-radius:3px;padding:3px 10px}
+  .chip:hover{border-color:var(--amber-dim);color:var(--amber)}
+  .hub-more{margin-top:2rem;border-top:1px solid var(--border);padding-top:1.2rem}
+  .hub-more h2{font-size:11px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.06em;font-weight:400;margin-top:1rem}
+  .paginacion{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:1.5rem 0}
+  .paginacion a,.paginacion span{font-size:13px;border:1px solid var(--border);border-radius:var(--radius);padding:5px 11px;color:var(--text-dim)}
+  .paginacion a:hover{border-color:var(--amber-dim);color:var(--amber)}
+  .paginacion .actual{background:rgba(139,69,19,.08);border-color:var(--amber-dim);color:var(--amber)}
+  .dir-list{columns:2;column-gap:2rem;font-size:14px;line-height:1.9}
+  @media(max-width:640px){.dir-list{columns:1}}
+  .dir-list span{color:var(--text-faint);font-size:12px}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="https://filmotecaclasica.com">Filmoteca <em>Clásica</em></a>
+  <a class="nav-back" href="https://filmotecaclasica.com">← Volver al catálogo</a>
+</nav>
+
+<div class="breadcrumb"><a href="https://filmotecaclasica.com">Filmoteca Clásica</a><span>›</span>Explorar</div>
+
+<div class="contenedor">
+  <h1>Explorar el catálogo</h1>
+  <p class="hub-intro">Explorá el catálogo de Filmoteca Clásica por década, género, país y director. Películas clásicas completas y gratis en YouTube.</p>
+<div class="hub-more"><h2>Por década</h2><div class="chips"><a class="chip" href="https://filmotecaclasica.com/decada/1920s/">1920s</a><a class="chip" href="https://filmotecaclasica.com/decada/1930s/">1930s</a><a class="chip" href="https://filmotecaclasica.com/decada/1940s/">1940s</a><a class="chip" href="https://filmotecaclasica.com/decada/1950s/">1950s</a><a class="chip" href="https://filmotecaclasica.com/decada/1960s/">1960s</a><a class="chip" href="https://filmotecaclasica.com/decada/1970s/">1970s</a></div><h2>Por género</h2><div class="chips"><a class="chip" href="https://filmotecaclasica.com/genero/drama/">Películas dramáticas</a><a class="chip" href="https://filmotecaclasica.com/genero/comedia/">Comedias clásicas</a><a class="chip" href="https://filmotecaclasica.com/genero/romance/">Películas románticas</a><a class="chip" href="https://filmotecaclasica.com/genero/policial/">Películas policiales</a><a class="chip" href="https://filmotecaclasica.com/genero/western/">Westerns clásicos</a><a class="chip" href="https://filmotecaclasica.com/genero/aventura/">Películas de aventuras</a><a class="chip" href="https://filmotecaclasica.com/genero/misterio/">Películas de misterio</a><a class="chip" href="https://filmotecaclasica.com/genero/terror/">Películas de terror</a><a class="chip" href="https://filmotecaclasica.com/genero/thriller/">Thrillers clásicos</a><a class="chip" href="https://filmotecaclasica.com/genero/musical/">Películas musicales</a><a class="chip" href="https://filmotecaclasica.com/genero/film-noir/">Películas de Film Noir</a><a class="chip" href="https://filmotecaclasica.com/genero/belico/">Películas bélicas</a><a class="chip" href="https://filmotecaclasica.com/genero/ciencia-ficcion/">Películas de ciencia ficción</a><a class="chip" href="https://filmotecaclasica.com/genero/historia/">Películas históricas</a><a class="chip" href="https://filmotecaclasica.com/genero/biografia/">Películas biográficas</a></div><h2>Por país</h2><div class="chips"><a class="chip" href="https://filmotecaclasica.com/pais/estados-unidos/">Cine estadounidense</a><a class="chip" href="https://filmotecaclasica.com/pais/italia/">Cine italiano</a><a class="chip" href="https://filmotecaclasica.com/pais/argentina/">Cine argentino</a><a class="chip" href="https://filmotecaclasica.com/pais/reino-unido/">Cine británico</a><a class="chip" href="https://filmotecaclasica.com/pais/francia/">Cine francés</a><a class="chip" href="https://filmotecaclasica.com/pais/alemania/">Cine alemán</a><a class="chip" href="https://filmotecaclasica.com/pais/espana/">Cine español</a><a class="chip" href="https://filmotecaclasica.com/pais/union-sovietica/">Cine soviético</a><a class="chip" href="https://filmotecaclasica.com/pais/japon/">Cine japonés</a><a class="chip" href="https://filmotecaclasica.com/pais/suecia/">Cine sueco</a><a class="chip" href="https://filmotecaclasica.com/pais/mexico/">Cine mexicano</a><a class="chip" href="https://filmotecaclasica.com/pais/australia/">Cine australiano</a><a class="chip" href="https://filmotecaclasica.com/pais/canada/">Cine canadiense</a></div><h2>Todos los directores</h2><div class="chips"><a class="chip" href="https://filmotecaclasica.com/explorar/">Ver el índice completo</a></div></div>
+  <div class="hub-more"><h2>Directores con 10 o más películas</h2><div class="dir-list"><div><a href="https://filmotecaclasica.com/director/michelangelo-antonioni/">Michelangelo Antonioni</a> <span>(12)</span></div><div><a href="https://filmotecaclasica.com/director/george-archainbaud/">George Archainbaud</a> <span>(10)</span></div><div><a href="https://filmotecaclasica.com/director/mario-bava/">Mario Bava</a> <span>(10)</span></div><div><a href="https://filmotecaclasica.com/director/william-beaudine/">William Beaudine</a> <span>(31)</span></div><div><a href="https://filmotecaclasica.com/director/ford-beebe/">Ford Beebe</a> <span>(22)</span></div><div><a href="https://filmotecaclasica.com/director/spencer-gordon-bennet/">Spencer Gordon Bennet</a> <span>(15)</span></div><div><a href="https://filmotecaclasica.com/director/ingmar-bergman/">Ingmar Bergman</a> <span>(22)</span></div><div><a href="https://filmotecaclasica.com/director/william-berke/">William Berke</a> <span>(29)</span></div><div><a href="https://filmotecaclasica.com/director/frank-borzage/">Frank Borzage</a> <span>(11)</span></div><div><a href="https://filmotecaclasica.com/director/robert-n-bradbury/">Robert N. Bradbury</a> <span>(28)</span></div><div><a href="https://filmotecaclasica.com/director/howard-bretherton/">Howard Bretherton</a> <span>(16)</span></div><div><a href="https://filmotecaclasica.com/director/otto-brower/">Otto Brower</a> <span>(15)</span></div><div><a href="https://filmotecaclasica.com/director/luis-bunuel/">Luis Buñuel</a> <span>(12)</span></div><div><a href="https://filmotecaclasica.com/director/christy-cabanne/">Christy Cabanne</a> <span>(19)</span></div><div><a href="https://filmotecaclasica.com/director/edward-l-cahn/">Edward L. Cahn</a> <span>(15)</span></div><div><a href="https://filmotecaclasica.com/director/frank-capra/">Frank Capra</a> <span>(18)</span></div><div><a href="https://filmotecaclasica.com/director/enrique-carreras/">Enrique Carreras</a> <span>(11)</span></div><div><a href="https://filmotecaclasica.com/director/william-castle/">William Castle</a> <span>(10)</span></div><div><a href="https://filmotecaclasica.com/director/carlos-hugo-christensen/">Carlos Hugo Christensen</a> <span>(20)</span></div><div><a href="https://filmotecaclasica.com/director/elmer-clifton/">Elmer Clifton</a> <span>(21)</span></div><div><a href="https://filmotecaclasica.com/director/edward-f-cline/">Edward F. Cline</a> <span>(15)</span></div><div><a href="https://filmotecaclasica.com/director/lewis-d-collins/">Lewis D. Collins</a> <span>(21)</span></div><div><a href="https://filmotecaclasica.com/director/roger-corman/">Roger Corman</a> <span>(15)</span></div><div><a href="https://filmotecaclasica.com/director/john-cromwell/">John Cromwell</a> <span>(13)</span></div><div><a href="https://filmotecaclasica.com/director/alan-crosland/">Alan Crosland</a> <span>(10)</span></div><div><a href="https://filmotecaclasica.com/director/michael-curtiz/">Michael Curtiz</a> <span>(14)</span></div><div><a href="https://filmotecaclasica.com/director/allan-dwan/">Allan Dwan</a> <span>(21)</span></div><div><a href="https://filmotecaclasica.com/director/b-reeves-eason/">B. Reeves Eason</a> <span>(18)</span></div><div><a href="https://filmotecaclasica.com/director/john-english/">John English</a> <span>(14)</span></div><div><a href="https://filmotecaclasica.com/director/ray-enright/">Ray Enright</a> <span>(10)</span></div><div><a href="https://filmotecaclasica.com/director/robert-florey/">Robert Florey</a> <span>(11)</span></div><div><a href="https://filmotecaclasica.com/director/john-ford/">John Ford</a> <span>(25)</span></div><div><a href="https://filmotecaclasica.com/director/wallace-fox/">Wallace Fox</a> <span>(14)</span></div><div><a href="https://filmotecaclasica.com/director/harry-l-fraser/">Harry L. Fraser</a> <span>(34)</span></div><div><a href="https://filmotecaclasica.com/director/louis-j-gasnier/">Louis J. Gasnier</a> <span>(14)</span></div><div><a href="https://filmotecaclasica.com/director/edmund-goulding/">Edmund Goulding</a> <span>(10)</span></div><div><a href="https://filmotecaclasica.com/director/alfred-e-green/">Alfred E. Green</a> <span>(15)</span></div><div><a href="https://filmotecaclasica.com/director/d-w-griffith/">D.W. Griffith</a> <span>(13)</span></div><div><a href="https://filmotecaclasica.com/director/henry-hathaway/">Henry Hathaway</a> <span>(24)</span></div><div><a href="https://filmotecaclasica.com/director/albert-herman/">Albert Herman</a> <span>(25)</span></div><div><a href="https://filmotecaclasica.com/director/luis-bayon-herrera/">Luis Bayón Herrera</a> <span>(18)</span></div><div><a href="https://filmotecaclasica.com/director/robert-f-hill/">Robert F. Hill</a> <span>(26)</span></div><div><a href="https://filmotecaclasica.com/director/lambert-hillyer/">Lambert Hillyer</a> <span>(10)</span></div><div><a href="https://filmotecaclasica.com/director/alfred-hitchcock/">Alfred Hitchcock</a> <span>(23)</span></div><div><a href="https://filmotecaclasica.com/director/alan-james/">Alan James</a> <span>(10)</span></div><div><a href="https://filmotecaclasica.com/director/joseph-kane/">Joseph Kane</a> <span>(24)</span></div><div><a href="https://filmotecaclasica.com/director/erle-c-kenton/">Erle C. Kenton</a> <span>(11)</span></div><div><a href="https://filmotecaclasica.com/director/henry-king/">Henry King</a> <span>(19)</span></div><div><a href="https://filmotecaclasica.com/director/henry-koster/">Henry Koster</a> <span>(16)</span></div><div><a href="https://filmotecaclasica.com/director/charles-lamont/">Charles Lamont</a> <span>(27)</span></div><div><a href="https://filmotecaclasica.com/director/lew-landers/">Lew Landers</a> <span>(11)</span></div><div><a href="https://filmotecaclasica.com/director/fritz-lang/">Fritz Lang</a> <span>(14)</span></div><div><a href="https://filmotecaclasica.com/director/rowland-v-lee/">Rowland V. Lee</a> <span>(11)</span></div><div><a href="https://filmotecaclasica.com/director/umberto-lenzi/">Umberto Lenzi</a> <span>(14)</span></div><div><a href="https://filmotecaclasica.com/director/frank-lloyd/">Frank Lloyd</a> <span>(13)</span></div><div><a href="https://filmotecaclasica.com/director/arthur-lubin/">Arthur Lubin</a> <span>(12)</span></div><div><a href="https://filmotecaclasica.com/director/ernst-lubitsch/">Ernst Lubitsch</a> <span>(17)</span></div><div><a href="https://filmotecaclasica.com/director/s-roy-luby/">S. Roy Luby</a> <span>(18)</span></div><div><a href="https://filmotecaclasica.com/director/john-p-mccarthy/">John P. McCarthy</a> <span>(12)</span></div><div><a href="https://filmotecaclasica.com/director/frank-mcdonald/">Frank McDonald</a> <span>(17)</span></div><div><a href="https://filmotecaclasica.com/director/oscar-micheaux/">Oscar Micheaux</a> <span>(10)</span></div><div><a href="https://filmotecaclasica.com/director/lewis-milestone/">Lewis Milestone</a> <span>(12)</span></div><div><a href="https://filmotecaclasica.com/director/oswald-mitchell/">Oswald Mitchell</a> <span>(10)</span></div><div><a href="https://filmotecaclasica.com/director/kenji-mizoguchi/">Kenji Mizoguchi</a> <span>(21)</span></div><div><a href="https://filmotecaclasica.com/director/f-w-murnau/">F.W. Murnau</a> <span>(10)</span></div><div><a href="https://filmotecaclasica.com/director/mikio-naruse/">Mikio Naruse</a> <span>(11)</span></div><div><a href="https://filmotecaclasica.com/director/roy-william-neill/">Roy William Neill</a> <span>(15)</span></div><div><a href="https://filmotecaclasica.com/director/sam-newfield/">Sam Newfield</a> <span>(89)</span></div><div><a href="https://filmotecaclasica.com/director/fred-c-newmeyer/">Fred C. Newmeyer</a> <span>(14)</span></div><div><a href="https://filmotecaclasica.com/director/fred-niblo/">Fred Niblo</a> <span>(10)</span></div><div><a href="https://filmotecaclasica.com/director/william-nigh/">William Nigh</a> <span>(43)</span></div><div><a href="https://filmotecaclasica.com/director/yasujiro-ozu/">Yasujirō Ozu</a> <span>(15)</span></div><div><a href="https://filmotecaclasica.com/director/irving-pichel/">Irving Pichel</a> <span>(12)</span></div><div><a href="https://filmotecaclasica.com/director/john-rawlins/">John Rawlins</a> <span>(11)</span></div><div><a href="https://filmotecaclasica.com/director/bernard-b-ray/">Bernard B. Ray</a> <span>(13)</span></div><div><a href="https://filmotecaclasica.com/director/manuel-romero/">Manuel Romero</a> <span>(14)</span></div><div><a href="https://filmotecaclasica.com/director/phil-rosen/">Phil Rosen</a> <span>(41)</span></div><div><a href="https://filmotecaclasica.com/director/julio-saraceni/">Julio Saraceni</a> <span>(11)</span></div><div><a href="https://filmotecaclasica.com/director/armand-schaefer/">Armand Schaefer</a> <span>(10)</span></div><div><a href="https://filmotecaclasica.com/director/carlos-schlieper/">Carlos Schlieper</a> <span>(19)</span></div><div><a href="https://filmotecaclasica.com/director/edward-sedgwick/">Edward Sedgwick</a> <span>(10)</span></div><div><a href="https://filmotecaclasica.com/director/william-a-seiter/">William A. Seiter</a> <span>(20)</span></div><div><a href="https://filmotecaclasica.com/director/lesley-selander/">Lesley Selander</a> <span>(12)</span></div><div><a href="https://filmotecaclasica.com/director/mario-soffici/">Mario Soffici</a> <span>(13)</span></div><div><a href="https://filmotecaclasica.com/director/frank-r-strayer/">Frank R. Strayer</a> <span>(21)</span></div><div><a href="https://filmotecaclasica.com/director/ray-taylor/">Ray Taylor</a> <span>(32)</span></div><div><a href="https://filmotecaclasica.com/director/sam-taylor/">Sam Taylor</a> <span>(11)</span></div><div><a href="https://filmotecaclasica.com/director/ralph-thomas/">Ralph Thomas</a> <span>(10)</span></div><div><a href="https://filmotecaclasica.com/director/richard-thorpe/">Richard Thorpe</a> <span>(22)</span></div><div><a href="https://filmotecaclasica.com/director/frank-tuttle/">Frank Tuttle</a> <span>(15)</span></div><div><a href="https://filmotecaclasica.com/director/edgar-g-ulmer/">Edgar G. Ulmer</a> <span>(20)</span></div><div><a href="https://filmotecaclasica.com/director/king-vidor/">King Vidor</a> <span>(10)</span></div><div><a href="https://filmotecaclasica.com/director/luchino-visconti/">Luchino Visconti</a> <span>(11)</span></div><div><a href="https://filmotecaclasica.com/director/raoul-walsh/">Raoul Walsh</a> <span>(12)</span></div><div><a href="https://filmotecaclasica.com/director/harry-s-webb/">Harry S. Webb</a> <span>(12)</span></div><div><a href="https://filmotecaclasica.com/director/orson-welles/">Orson Welles</a> <span>(14)</span></div><div><a href="https://filmotecaclasica.com/director/william-a-wellman/">William A. Wellman</a> <span>(13)</span></div><div><a href="https://filmotecaclasica.com/director/william-witney/">William Witney</a> <span>(27)</span></div><div><a href="https://filmotecaclasica.com/director/jean-yarbrough/">Jean Yarbrough</a> <span>(13)</span></div></div></div>
+  <div class="ad-slot" data-slot="hub_fin"></div>
+</div>
+
+<footer>
+  Filmoteca Clásica · catálogo de cine clásico gratis en YouTube · <a href="/privacidad/" style="color:var(--text-faint)">Privacidad</a> · <a href="https://github.com/sebadetoma-stack/filmoteca" style="color:var(--text-faint)">código abierto</a>
+</footer>
+
+</body>
+</html>
