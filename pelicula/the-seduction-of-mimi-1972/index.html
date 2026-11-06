@@ -293,70 +293,40 @@
   Filmoteca Clásica · catálogo de cine clásico gratis en YouTube · <a href="/privacidad/" style="color:var(--text-faint)">Privacidad</a> · <a href="https://github.com/sebadetoma-stack/filmoteca" style="color:var(--text-faint)">código abierto</a>
 </footer>
 
-<script type="module">
-// Firebase se carga cuando el navegador está ocioso, para no competir con el contenido
-await new Promise(r => ('requestIdleCallback' in window ? requestIdleCallback(r, { timeout: 2500 }) : setTimeout(r, 1500)));
-const { initializeApp } = await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js');
-const { getAuth, onAuthStateChanged } = await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js');
-const { getFirestore, doc, getDoc, setDoc, deleteDoc, serverTimestamp } = await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js');
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBh2sTmHwED1VtlvIqMOy1wFcW8CO_NZNg",
-  authDomain: "filmoteca-clasica.firebaseapp.com",
-  projectId: "filmoteca-clasica",
-  storageBucket: "filmoteca-clasica.firebasestorage.app",
-  messagingSenderId: "347321323128",
-  appId: "1:347321323128:web:0dc5899523d9a8cffb678d"
-};
-
-const TCONST = "tt0068950";
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-
-let uid = null;
-let esFav = false;
-let esVista = false;
-
-onAuthStateChanged(auth, async (user) => {
-  if (!user) return;
-  uid = user.uid;
-  document.getElementById('user-actions').style.display = 'flex';
-
-  // Cargar estado
-  const [favDoc, vistaDoc] = await Promise.all([
-    getDoc(doc(db, 'usuarios', uid, 'favoritos', TCONST)),
-    getDoc(doc(db, 'usuarios', uid, 'vistos', TCONST))
-  ]);
-  esFav = favDoc.exists();
-  esVista = vistaDoc.exists();
-  actualizarBotones();
-});
-
-function actualizarBotones() {
-  const btnFav = document.getElementById('btn-fav');
-  const btnVista = document.getElementById('btn-vista');
-  btnFav.textContent = esFav ? '❤️ En favoritos' : '🤍 Favorita';
-  btnFav.classList.toggle('activo', esFav);
-  btnVista.textContent = esVista ? '✅ Vista' : '⬜ Marcar como vista';
-  btnVista.classList.toggle('activo', esVista);
-}
-
-window.toggleFav = async function() {
-  if (!uid) return;
-  const ref = doc(db, 'usuarios', uid, 'favoritos', TCONST);
-  if (esFav) { await deleteDoc(ref); esFav = false; }
-  else { await setDoc(ref, { tconst: TCONST, fecha: serverTimestamp() }); esFav = true; }
-  actualizarBotones();
-};
-
-window.toggleVista = async function() {
-  if (!uid) return;
-  const ref = doc(db, 'usuarios', uid, 'vistos', TCONST);
-  if (esVista) { await deleteDoc(ref); esVista = false; }
-  else { await setDoc(ref, { tconst: TCONST, fecha: serverTimestamp() }); esVista = true; }
-  actualizarBotones();
-};
+<script>
+// Firebase (favoritas y vistas) solo se carga si el visitante ya inició sesión alguna vez.
+(function () {
+  function haySesion() {
+    try {
+      for (var i = 0; i < localStorage.length; i++) {
+        if (localStorage.key(i).indexOf('firebase:authUser:') === 0) return Promise.resolve(true);
+      }
+    } catch (e) {}
+    if (!window.indexedDB || !indexedDB.databases) return Promise.resolve(true);
+    return indexedDB.databases().then(function (dbs) {
+      if (!dbs.some(function (d) { return d.name === 'firebaseLocalStorageDb'; })) return false;
+      return new Promise(function (resolve) {
+        var req = indexedDB.open('firebaseLocalStorageDb');
+        req.onerror = function () { resolve(true); };
+        req.onsuccess = function () {
+          var db = req.result;
+          try {
+            if (!db.objectStoreNames.contains('firebaseLocalStorage')) { db.close(); return resolve(false); }
+            var kq = db.transaction('firebaseLocalStorage', 'readonly').objectStore('firebaseLocalStorage').getAllKeys();
+            kq.onsuccess = function () { db.close(); resolve(kq.result.some(function (k) { return String(k).indexOf('firebase:authUser:') === 0; })); };
+            kq.onerror = function () { db.close(); resolve(true); };
+          } catch (e) { db.close(); resolve(true); }
+        };
+      });
+    }).catch(function () { return true; });
+  }
+  haySesion().then(function (hay) {
+    if (!hay) return;
+    window.__TCONST = "tt0068950";
+    var cargar = function () { import('/js/fb-pelicula.js'); };
+    if ('requestIdleCallback' in window) requestIdleCallback(cargar, { timeout: 2500 }); else setTimeout(cargar, 1500);
+  });
+})();
 </script>
 
 </body>
