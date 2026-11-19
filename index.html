@@ -801,7 +801,12 @@
     color: var(--text-faint);
   }
 
-  #app { display: none; }
+  /* PRERENDER PORTADA */
+  #load-screen { z-index: 99999; }
+  .intro-portada { max-width: 860px; margin: 0 auto; padding: 1.5rem 1.5rem 0.5rem; }
+  .intro-portada h1 { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; line-height: 1.25; margin-bottom: .6rem; color: var(--text); }
+  .intro-portada p { font-size: 14px; line-height: 1.7; color: var(--text-dim); margin-bottom: .6rem; }
+  .intro-portada a { color: var(--amber); }
 
   /* PAGINATION */
   .pagination {
@@ -1397,13 +1402,192 @@
   </div>
 
 
+  <!--EDITORIAL-->
+  <section class="intro-portada" aria-label="Presentación">
+    <h1>Películas clásicas completas y gratis en YouTube</h1>
+    <p>Filmoteca Clásica reúne más de 5.000 películas de 1920 a 1979 que se pueden ver completas en YouTube sin pagar. Cada ficha confirma que el video corresponde a la película y muestra su director, su sinopsis, su género y su país de producción, con el enlace directo para verla. El catálogo se puede recorrer por década, por género o por país, y también se puede buscar por título o por director.</p>
+    <p>Para explorar sin un título en mente, la sección <a href="/explorar/">Explorar</a> ordena las películas por <a href="/decada/1940s/">década</a>, <a href="/genero/drama/">género</a>, país y director. El <a href="/blog/">blog</a> publica reseñas, notas sobre directores y recomendaciones. Si querés saber cómo se arma el catálogo, está explicado en <a href="/como-funciona/">Cómo funciona</a> y en <a href="/sobre/">Sobre el proyecto</a>.</p>
+  </section>
+  <!--/EDITORIAL-->
+
   <div class="results-bar">
     <span id="results-count">Cargando…</span>
   </div>
 
   <div class="ad-slot" data-slot="catalogo_top"></div>
 
-  <div class="grid" id="grid"></div>
+  <div class="grid" id="grid">
+  <!--PRERENDER-GRID-->
+    <a class="card" href="/pelicula/dr-strangelove-or-how-i-learned-to-stop-worrying-and-love-the-bomb-1964/">
+      <img class="card-poster" src="https://image.tmdb.org/t/p/w342/snsOoRb1d4WD6q62PRfBuGLJ8xr.jpg" alt="¿Teléfono rojo? Volamos hacia Moscú" loading="lazy" decoding="async">
+      <div class="card-year">1964 · 95 min</div>
+      <div class="card-title">¿Teléfono rojo? Volamos hacia Moscú <em>(Dr. Strangelove or: How I Learned to Stop Worrying and Love …)</em></div>
+      <div class="card-dir">dir. Stanley Kubrick</div>
+      <div class="card-meta"><span class="badge badge-comedy">Comedia</span><div class="card-rating"><span class="star">★</span> 8.3</div></div>
+    </a>
+    <a class="card" href="/pelicula/the-seventh-seal-1957/">
+      <img class="card-poster" src="https://image.tmdb.org/t/p/w342/qo3JypyrkPvH8Na3Ir0IpjCwOCS.jpg" alt="El séptimo sello" loading="lazy" decoding="async">
+      <div class="card-year">1957 · 92 min</div>
+      <div class="card-title">El séptimo sello <em>(Det sjunde inseglet)</em></div>
+      <div class="card-dir">dir. Ingmar Bergman</div>
+      <div class="card-meta"><span class="badge badge-drama">Drama</span><div class="card-rating"><span class="star">★</span> 8.1</div></div>
+    </a>
+    <a class="card" href="/pelicula/metropolis-1927/">
+      <img class="card-poster" src="https://image.tmdb.org/t/p/w342/fCWd45ybxghuvaeSMcBsLFKY6PG.jpg" alt="Metrópolis" loading="lazy" decoding="async">
+      <div class="card-year">1927 · 119 min</div>
+      <div class="card-title">Metrópolis <em>(Metropolis)</em></div>
+      <div class="card-dir">dir. Fritz Lang</div>
+      <div class="card-meta"><span class="badge badge-drama">Drama</span><div class="card-rating"><span class="star">★</span> 8.2</div></div>
+    </a>
+    <a class="card" href="/pelicula/rashomon-1950/">
+      <img class="card-poster" src="https://image.tmdb.org/t/p/w342/hTzw4ectHlJw1gZciFNsemTPARM.jpg" alt="Rashomon" loading="lazy" decoding="async">
+      <div class="card-year">1950 · 88 min</div>
+      <div class="card-title">Rashomon <em>(Rashômon)</em></div>
+      <div class="card-dir">dir. Akira Kurosawa</div>
+      <div class="card-meta"><span class="badge badge-thrill">Policial</span><div class="card-rating"><span class="star">★</span> 8.1</div></div>
+    </a>
+    <a class="card" href="/pelicula/bicycle-thieves-1948/">
+      <img class="card-poster" src="https://image.tmdb.org/t/p/w342/hjo6BPzCuhUkpSzxElOQ68mydrx.jpg" alt="Ladrón de bicicletas" loading="lazy" decoding="async">
+      <div class="card-year">1948 · 89 min</div>
+      <div class="card-title">Ladrón de bicicletas <em>(Ladri di biciclette)</em></div>
+      <div class="card-dir">dir. Vittorio De Sica</div>
+      <div class="card-meta"><span class="badge badge-drama">Drama</span><div class="card-rating"><span class="star">★</span> 8.2</div></div>
+    </a>
+    <a class="card" href="/pelicula/rebecca-1940/">
+      <img class="card-poster" src="https://image.tmdb.org/t/p/w342/mJV2zrflpTaAcFgfgQc2VJboZ0Y.jpg" alt="Rebeca" loading="lazy" decoding="async">
+      <div class="card-year">1940</div>
+      <div class="card-title">Rebeca <em>(Rebecca)</em></div>
+      <div class="card-dir">dir. Alfred Hitchcock</div>
+      <div class="card-meta"><span class="badge badge-drama">Drama</span><div class="card-rating"><span class="star">★</span> 8.0</div></div>
+    </a>
+    <a class="card" href="/pelicula/stalker-1979/">
+      <img class="card-poster" src="https://image.tmdb.org/t/p/w342/c6lF6PYnq6rtYTUM8me0D0DCpwa.jpg" alt="Stalker" loading="lazy" decoding="async">
+      <div class="card-year">1979 · 162 min</div>
+      <div class="card-title">Stalker</div>
+      <div class="card-dir">dir. Andrei Tarkovsky</div>
+      <div class="card-meta"><span class="badge badge-drama">Drama</span><div class="card-rating"><span class="star">★</span> 8.0</div></div>
+    </a>
+    <a class="card" href="/pelicula/night-of-the-living-dead-1968/">
+      <img class="card-poster" src="https://image.tmdb.org/t/p/w342/5cjDlHqfb6CJV9gUcAcSp7jlEs4.jpg" alt="La noche de los muertos vivientes" loading="lazy" decoding="async">
+      <div class="card-year">1968 · 96 min</div>
+      <div class="card-title">La noche de los muertos vivientes <em>(Night of the Living Dead)</em></div>
+      <div class="card-dir">dir. George A. Romero</div>
+      <div class="card-meta"><span class="badge badge-gen">Horror</span><div class="card-rating"><span class="star">★</span> 7.8</div></div>
+    </a>
+    <a class="card" href="/pelicula/the-kid-1921/">
+      <img class="card-poster" src="https://image.tmdb.org/t/p/w342/we8AMv9ufyoXgmOlfX0SmubKOrd.jpg" alt="El chico" loading="lazy" decoding="async">
+      <div class="card-year">1921 · 52 min</div>
+      <div class="card-title">El chico <em>(The Kid)</em></div>
+      <div class="card-dir">dir. Charles Chaplin</div>
+      <div class="card-meta"><span class="badge badge-comedy">Comedia</span><div class="card-rating"><span class="star">★</span> 8.2</div></div>
+    </a>
+    <a class="card" href="/pelicula/persona-1966/">
+      <img class="card-poster" src="https://image.tmdb.org/t/p/w342/pnJMAumh0gaZC02r9t5YmN9HR74.jpg" alt="Persona" loading="lazy" decoding="async">
+      <div class="card-year">1966 · 84 min</div>
+      <div class="card-title">Persona</div>
+      <div class="card-dir">dir. Ingmar Bergman</div>
+      <div class="card-meta"><span class="badge badge-drama">Drama</span><div class="card-rating"><span class="star">★</span> 8.0</div></div>
+    </a>
+    <a class="card" href="/pelicula/the-gold-rush-1925/">
+      <img class="card-poster" src="https://image.tmdb.org/t/p/w342/jU1KhFlRm7UTURXjW4vQNzQ4GQj.jpg" alt="La quimera del oro" loading="lazy" decoding="async">
+      <div class="card-year">1925 · 87 min</div>
+      <div class="card-title">La quimera del oro <em>(The Gold Rush)</em></div>
+      <div class="card-dir">dir. Charles Chaplin</div>
+      <div class="card-meta"><span class="badge badge-west">Aventura</span><div class="card-rating"><span class="star">★</span> 8.1</div></div>
+    </a>
+    <a class="card" href="/pelicula/wild-strawberries-1957/">
+      <img class="card-poster" src="https://image.tmdb.org/t/p/w342/k4f0IpHOJqAK9Cvy3FLH9w90qWX.jpg" alt="Fresas salvajes" loading="lazy" decoding="async">
+      <div class="card-year">1957</div>
+      <div class="card-title">Fresas salvajes <em>(Smultronstället)</em></div>
+      <div class="card-dir">dir. Ingmar Bergman</div>
+      <div class="card-meta"><span class="badge badge-drama">Drama</span><div class="card-rating"><span class="star">★</span> 8.1</div></div>
+    </a>
+    <a class="card" href="/pelicula/nosferatu-1922/">
+      <img class="card-poster" src="https://image.tmdb.org/t/p/w342/z45rXmIF0zl4uxRc5XcSfz6hYO6.jpg" alt="Nosferatu" loading="lazy" decoding="async">
+      <div class="card-year">1922 · 79 min</div>
+      <div class="card-title">Nosferatu <em>(Nosferatu, eine Symphonie des Grauens)</em></div>
+      <div class="card-dir">dir. F.W. Murnau</div>
+      <div class="card-meta"><span class="badge badge-gen">Fantasy</span><div class="card-rating"><span class="star">★</span> 7.8</div></div>
+    </a>
+    <a class="card" href="/pelicula/notorious-1946/">
+      <img class="card-poster" src="https://image.tmdb.org/t/p/w342/bPc78lZW4XNTE6w2cUEyJQgFU6p.jpg" alt="Encadenados" loading="lazy" decoding="async">
+      <div class="card-year">1946 · 97 min</div>
+      <div class="card-title">Encadenados <em>(Notorious)</em></div>
+      <div class="card-dir">dir. Alfred Hitchcock</div>
+      <div class="card-meta"><span class="badge badge-drama">Drama</span><div class="card-rating"><span class="star">★</span> 7.9</div></div>
+    </a>
+    <a class="card" href="/pelicula/solaris-1972/">
+      <img class="card-poster" src="https://image.tmdb.org/t/p/w342/69J6Hplvaw5o5lfCRqFRd4nmuH7.jpg" alt="Solaris" loading="lazy" decoding="async">
+      <div class="card-year">1972 · 167 min</div>
+      <div class="card-title">Solaris <em>(Solyaris)</em></div>
+      <div class="card-dir">dir. Andrei Tarkovsky</div>
+      <div class="card-meta"><span class="badge badge-west">Aventura</span><div class="card-rating"><span class="star">★</span> 7.9</div></div>
+    </a>
+    <a class="card" href="/pelicula/charade-1963/">
+      <img class="card-poster" src="https://image.tmdb.org/t/p/w342/lttpLnsThCunHUHIl86FWBo5aNM.jpg" alt="Charada" loading="lazy" decoding="async">
+      <div class="card-year">1963 · 113 min</div>
+      <div class="card-title">Charada <em>(Charade)</em></div>
+      <div class="card-dir">dir. Stanley Donen</div>
+      <div class="card-meta"><span class="badge badge-comedy">Comedia</span><div class="card-rating"><span class="star">★</span> 7.8</div></div>
+    </a>
+    <a class="card" href="/pelicula/tokyo-story-1953/">
+      <img class="card-poster" src="https://image.tmdb.org/t/p/w342/36G6HwEN3K9BrPEC8icOIOdCUb4.jpg" alt="Cuentos de Tokio" loading="lazy" decoding="async">
+      <div class="card-year">1953 · 137 min</div>
+      <div class="card-title">Cuentos de Tokio <em>(Tôkyô monogatari)</em></div>
+      <div class="card-dir">dir. Yasujirō Ozu</div>
+      <div class="card-meta"><span class="badge badge-drama">Drama</span><div class="card-rating"><span class="star">★</span> 8.1</div></div>
+    </a>
+    <a class="card" href="/pelicula/all-quiet-on-the-western-front-1930/">
+      <img class="card-poster" src="https://image.tmdb.org/t/p/w342/whhnoAEoobX7dasproRpBipHXJT.jpg" alt="Sin novedad en el frente" loading="lazy" decoding="async">
+      <div class="card-year">1930 · 135 min</div>
+      <div class="card-title">Sin novedad en el frente <em>(All Quiet on the Western Front)</em></div>
+      <div class="card-dir">dir. Lewis Milestone</div>
+      <div class="card-meta"><span class="badge badge-drama">Drama</span><div class="card-rating"><span class="star">★</span> 8.1</div></div>
+    </a>
+    <a class="card" href="/pelicula/straw-dogs-1971/">
+      <img class="card-poster" src="https://image.tmdb.org/t/p/w342/eUdwFTI5imeQCKEYyHfuQgYNXfn.jpg" alt="Perros de paja" loading="lazy" decoding="async">
+      <div class="card-year">1971 · 111 min</div>
+      <div class="card-title">Perros de paja <em>(Straw Dogs)</em></div>
+      <div class="card-dir">dir. Sam Peckinpah</div>
+      <div class="card-meta"><span class="badge badge-thrill">Policial</span><div class="card-rating"><span class="star">★</span> 7.4</div></div>
+    </a>
+    <a class="card" href="/pelicula/his-girl-friday-1940/">
+      <img class="card-poster" src="https://image.tmdb.org/t/p/w342/d13ByB7PTdWAkWscSO6HA6N6vkE.jpg" alt="Luna nueva" loading="lazy" decoding="async">
+      <div class="card-year">1940 · 93 min</div>
+      <div class="card-title">Luna nueva <em>(His Girl Friday)</em></div>
+      <div class="card-dir">dir. Howard Hawks</div>
+      <div class="card-meta"><span class="badge badge-comedy">Comedia</span><div class="card-rating"><span class="star">★</span> 7.8</div></div>
+    </a>
+    <a class="card" href="/pelicula/the-39-steps-1935/">
+      <img class="card-poster" src="https://image.tmdb.org/t/p/w342/o4X8ie4fWFDrt4L3JO8QbqPmvjG.jpg" alt="39 escalones" loading="lazy" decoding="async">
+      <div class="card-year">1935 · 86 min</div>
+      <div class="card-title">39 escalones <em>(The 39 Steps)</em></div>
+      <div class="card-dir">dir. Alfred Hitchcock</div>
+      <div class="card-meta"><span class="badge badge-thrill">Policial</span><div class="card-rating"><span class="star">★</span> 7.6</div></div>
+    </a>
+    <a class="card" href="/pelicula/the-lady-vanishes-1938/">
+      <img class="card-poster" src="https://image.tmdb.org/t/p/w342/qaHtueDv8bWLc3L4yWYJzxla8ht.jpg" alt="Alarma en el expreso" loading="lazy" decoding="async">
+      <div class="card-year">1938 · 95 min</div>
+      <div class="card-title">Alarma en el expreso <em>(The Lady Vanishes)</em></div>
+      <div class="card-dir">dir. Alfred Hitchcock</div>
+      <div class="card-meta"><span class="badge badge-thrill">Policial</span><div class="card-rating"><span class="star">★</span> 7.7</div></div>
+    </a>
+    <a class="card" href="/pelicula/stagecoach-1939/">
+      <img class="card-poster" src="https://image.tmdb.org/t/p/w342/wHXgVEfvkExGzm5qNFcYKTTSY0W.jpg" alt="La diligencia" loading="lazy" decoding="async">
+      <div class="card-year">1939 · 96 min</div>
+      <div class="card-title">La diligencia <em>(Stagecoach)</em></div>
+      <div class="card-dir">dir. John Ford</div>
+      <div class="card-meta"><span class="badge badge-west">Aventura</span><div class="card-rating"><span class="star">★</span> 7.8</div></div>
+    </a>
+    <a class="card" href="/pelicula/the-mirror-1975/">
+      <img class="card-poster" src="https://image.tmdb.org/t/p/w342/hLzhdirfOApuoXoS8SnGNotu1bf.jpg" alt="El espejo" loading="lazy" decoding="async">
+      <div class="card-year">1975 · 106 min</div>
+      <div class="card-title">El espejo <em>(Zerkalo)</em></div>
+      <div class="card-dir">dir. Andrei Tarkovsky</div>
+      <div class="card-meta"><span class="badge badge-gen">Biography</span><div class="card-rating"><span class="star">★</span> 7.9</div></div>
+    </a>
+  <!--/PRERENDER-GRID-->
+  </div>
 
   <div class="pagination" id="pagination"></div>
 
