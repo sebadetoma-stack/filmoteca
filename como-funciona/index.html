@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cómo funciona · Filmoteca Clásica</title>
+<meta name="description" content="Cómo se arma el catálogo: canales de YouTube, cruce con IMDb, revisión manual, TMDb, Wikidata y páginas estáticas.">
+<link rel="canonical" href="https://filmotecaclasica.com/como-funciona/">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FNBHN0F639"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FNBHN0F639');
+</script>
+<script async src="/anuncios.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
+  :root{--bg:#f5f0e8;--bg2:#ede8dd;--bg3:#fff;--amber:#8b4513;--text:#2a1f0e;--text-dim:#6b5a40;--text-faint:#9a8a70;--border:#d4c9b0;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.7}
+  a{color:var(--amber)}
+  nav{border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:baseline;justify-content:space-between}
+  .logo{font-family:var(--serif);font-size:1.4rem;color:var(--text);text-decoration:none}
+  .logo em{color:var(--amber);font-style:italic}
+  .nav-back{font-size:13px;color:var(--text-faint);text-decoration:none}
+  main{max-width:720px;margin:0 auto;padding:2rem 1.5rem 3rem}
+  h1{font-family:var(--serif);font-weight:400;font-size:1.9rem;margin-bottom:1rem}
+  h2{font-family:var(--serif);font-weight:600;font-size:1.15rem;margin:1.8rem 0 .5rem}
+  p,ul{margin-bottom:.8rem;color:var(--text-dim)}
+  ul{padding-left:1.3rem}
+  li{margin-bottom:.4rem}
+  footer{border-top:1px solid var(--border);padding:1.2rem;text-align:center;font-size:12px;color:var(--text-faint)}
+  footer a{color:var(--text-faint)}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="/">Filmoteca <em>Clásica</em></a>
+  <a class="nav-back" href="/">← Volver al catálogo</a>
+</nav>
+<main>
+  <h1>Cómo funciona</h1>
+  <p>Filmoteca Clásica combina un proceso en Python que construye y mantiene una base de datos con un sitio estático que la consulta directamente en el navegador. No hay un servidor propio que procese las búsquedas.</p>
+
+  <h2>1. Se recorren canales de YouTube</h2>
+  <p>En lugar de buscar película por película, se enumeran canales enteros a través de la API de YouTube Data. Un canal con cientos de videos se lista con muy pocas unidades de cuota, y de cada video se guardan el título, la descripción, la duración y la disponibilidad.</p>
+
+  <h2>2. Se cruzan los videos con IMDb</h2>
+  <p>El catálogo de referencia son los datos públicos de IMDb. Un programa compara el título de cada video con los títulos de las películas de 1920 a 1979 y suma o resta puntos según la coincidencia del título, el año, la duración y el canal. Un título débil no alcanza para confirmar un cruce, aunque el año coincida, y los títulos genéricos de una sola palabra exigen que el año aparezca en el video.</p>
+
+  <h2>3. Los casos dudosos se revisan</h2>
+  <p>Cuando el cruce automático no resuelve, un modelo de lenguaje lee el título, la descripción y la duración del video y propone una decisión. Esas decisiones se auditan después y se revisan a mano. Un rechazo hecho por una persona no se vuelve a evaluar de forma automática.</p>
+
+  <h2>4. Se completan los datos de cada película</h2>
+  <ul>
+    <li><strong>Póster y sinopsis:</strong> vienen de TMDb (The Movie Database), con la sinopsis pedida primero en español.</li>
+    <li><strong>País de producción:</strong> viene de Wikidata, que permite agrupar por cine británico, italiano, francés, soviético y otros.</li>
+    <li><strong>Títulos en español:</strong> se usa el título con el que la película se conoce en el mundo hispanohablante cuando está disponible.</li>
+  </ul>
+
+  <h2>5. Se genera el sitio</h2>
+  <p>Cada película tiene su propia página estática en <code>/pelicula/título-año/</code>, y el sitio suma páginas por década, género, país y director. El catálogo interactivo de la portada descarga una base de datos liviana que contiene solo las películas confirmadas y la consulta en el navegador.</p>
+
+  <h2>Qué hacer si un video no funciona</h2>
+  <p>Cada ficha tiene un enlace «Reportar problema». Los reportes llegan a un formulario y, cuando un video cayó o no corresponde, se busca una alternativa en la base de datos y se reemplaza el enlace.</p>
+
+  <h2>Cuentas, favoritos y datos</h2>
+  <p>Se puede iniciar sesión con Google para guardar favoritos y marcar películas vistas. Las listas se guardan en la nube y se ven desde cualquier dispositivo. Sin cuenta el catálogo funciona igual. Más detalles en la <a href="/privacidad/">política de privacidad</a>.</p>
+
+  <h2>Código abierto</h2>
+  <p>El código de cada paso está publicado en <a href="https://github.com/sebadetoma-stack/filmoteca" rel="noopener">GitHub</a>. Para conocer el recorrido del proyecto y qué hay en el catálogo, ver <a href="/sobre/">Sobre el proyecto</a>.</p>
+</main>
+<footer>Filmoteca Clásica · <a href="/">Catálogo</a> · <a href="/blog/">Blog</a> · <a href="/explorar/">Explorar</a><br><a href="/sobre/">Sobre el proyecto</a> · <a href="/como-funciona/">Cómo funciona</a> · <a href="/contacto/">Contacto</a> · <a href="/privacidad/">Privacidad</a></footer>
+</body>
+</html>
