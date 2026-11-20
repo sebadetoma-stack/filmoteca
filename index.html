@@ -1249,6 +1249,7 @@
     </div>
   </header>
 
+  <main id="contenido">
   <div class="filters">
     <div class="search-wrap">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
@@ -1604,6 +1605,7 @@
     <div>Países: <a href="/pais/estados-unidos/" style="color:var(--text-faint)">Estadounidense</a> · <a href="/pais/argentina/" style="color:var(--text-faint)">Argentino</a> · <a href="/pais/reino-unido/" style="color:var(--text-faint)">Británico</a> · <a href="/pais/italia/" style="color:var(--text-faint)">Italiano</a> · <a href="/pais/francia/" style="color:var(--text-faint)">Francés</a> · <a href="/pais/union-sovietica/" style="color:var(--text-faint)">Soviético</a> · <a href="/pais/espana/" style="color:var(--text-faint)">Español</a> · <a href="/pais/alemania/" style="color:var(--text-faint)">Alemán</a> · <a href="/pais/japon/" style="color:var(--text-faint)">Japonés</a> · <a href="/pais/australia/" style="color:var(--text-faint)">Australiano</a> · <a href="/pais/canada/" style="color:var(--text-faint)">Canadiense</a> · <a href="/pais/mexico/" style="color:var(--text-faint)">Mexicano</a> · <a href="/pais/suecia/" style="color:var(--text-faint)">Sueco</a></div>
     <div><a href="/explorar/" style="color:var(--amber)">Ver todos los directores y géneros →</a></div>
   </nav>
+  </main>
 
   <div style="text-align:center;font-size:12px;color:var(--text-faint);padding:1.5rem 1rem 2rem"><a href="/sobre/" style="color:var(--text-faint)">Sobre el proyecto</a> · <a href="/como-funciona/" style="color:var(--text-faint)">Cómo funciona</a> · <a href="/contacto/" style="color:var(--text-faint)">Contacto</a> · <a href="/privacidad/" style="color:var(--text-faint)">Privacidad</a></div>
 
@@ -2104,6 +2106,48 @@ function requerirDB(cb) {
   iniciarDB();
 }
 
+// PERF-DBGZ: descarga la base comprimida (gzip) y la descomprime en el navegador; si algo falla, usa el original
+async function _bajarDB(bar) {
+  const URL_DB = 'https://pub-f225ef234c7f4214bc5907500403da19.r2.dev/filmoteca.db';
+  async function leer(url, comprimida) {
+    const resp = await fetch(url, { cache: 'no-cache' });
+    if (!resp.ok || !resp.body) throw new Error(`HTTP ${resp.status}`);
+    const total = parseInt(resp.headers.get('content-length') || '0');
+    let red = 0;
+    let flujo = resp.body;
+    const avance = () => { if (total) bar.style.width = (20 + Math.min(red / total, 1) * 70) + '%'; };
+    if (comprimida) {
+      flujo = flujo
+        .pipeThrough(new TransformStream({ transform(c, k) { red += c.length; avance(); k.enqueue(c); } }))
+        .pipeThrough(new DecompressionStream('gzip'));
+    }
+    const reader = flujo.getReader();
+    const chunks = [];
+    let n = 0;
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      chunks.push(value);
+      n += value.length;
+      if (!comprimida) { red = n; avance(); }
+    }
+    const buf = new Uint8Array(n);
+    let pos = 0;
+    for (const c of chunks) { buf.set(c, pos); pos += c.length; }
+    return buf;
+  }
+  if (typeof DecompressionStream === 'function') {
+    try {
+      const b = await leer(URL_DB + '.gz', true);
+      if (b.length > 100 && String.fromCharCode.apply(null, b.subarray(0, 15)) === 'SQLite format 3') return b;
+      console.warn('La base comprimida no tiene cabecera SQLite; se usa el original');
+    } catch (e) {
+      console.warn('Base comprimida no disponible; se usa el original', e);
+    }
+  }
+  return leer(URL_DB, false);
+}
+
 async function _cargarDBReal() {
   const msg = document.getElementById('load-msg');
   const bar = document.getElementById('load-bar');
@@ -2114,26 +2158,7 @@ async function _cargarDBReal() {
     });
     bar.style.width = '20%';
 
-    // Fetch con progreso
-    const resp = await fetch('https://pub-f225ef234c7f4214bc5907500403da19.r2.dev/filmoteca.db', { cache: 'no-cache' });
-    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-
-    const total = parseInt(resp.headers.get('content-length') || '0');
-    const reader = resp.body.getReader();
-    const chunks = [];
-    let recibido = 0;
-
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      chunks.push(value);
-      recibido += value.length;
-      if (total) bar.style.width = (20 + (recibido / total) * 70) + '%';
-    }
-
-    const buf = new Uint8Array(recibido);
-    let pos = 0;
-    for (const chunk of chunks) { buf.set(chunk, pos); pos += chunk.length; }
+    const buf = await _bajarDB(bar);
 
     db = new SQL.Database(buf);
     window.db = db;
