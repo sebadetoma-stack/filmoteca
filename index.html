@@ -42,7 +42,10 @@
   gtag('config', 'G-FNBHN0F639');
 </script>
 <script async src="/anuncios.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/sql-wasm.js"></script>
+<!--PERF-HOME-->
+<link rel="preconnect" href="https://pub-f225ef234c7f4214bc5907500403da19.r2.dev" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/sql-wasm.js"></script>
 <link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/playfair-display-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/fonts.css">
@@ -2148,7 +2151,7 @@ async function cargarDB() {
   }
 }
 
-cargarDB();
+document.addEventListener('DOMContentLoaded', cargarDB);
 
 // ── MOBILE SHEET ─────────────────────────────────────────────────
 function abrirSheetFiltros() {
